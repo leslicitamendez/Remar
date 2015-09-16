@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechaIngreso: 2015-09-15
+  nombres: MyString
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  ci: 1
+  estadoCivil: MyString
+  edad: 1
+  conyugue: MyString
+  numeroDHijos: 1
+  lugarDNacimiento: MyString
+  fechaDNacimiento: 2015-09-15
+  direccion: MyText
+  zona: MyString
+  telefono: 1
+  referencias: MyText
+  estudios: MyString
+  profesionUOficio: MyString
+  enfermedades: MyText
+  causaInternacion: MyText
+  tiempoDConsumo: 1
+  centroAnterior: MyString
+  tiempoEstancia: 1
+  motivoDRetiro: MyText
+  ordenJudicial: MyString
+  observaciones: MyText
+
+two:
+  fechaIngreso: 2015-09-15
+  nombres: MyString
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  ci: 1
+  estadoCivil: MyString
+  edad: 1
+  conyugue: MyString
+  numeroDHijos: 1
+  lugarDNacimiento: MyString
+  fechaDNacimiento: 2015-09-15
+  direccion: MyText
+  zona: MyString
+  telefono: 1
+  referencias: MyText
+  estudios: MyString
+  profesionUOficio: MyString
+  enfermedades: MyText
+  causaInternacion: MyText
+  tiempoDConsumo: 1
+  centroAnterior: MyString
+  tiempoEstancia: 1
+  motivoDRetiro: MyText
+  ordenJudicial: MyString
+  observaciones: MyText
