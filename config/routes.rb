@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :gasto_internos
 
   resources :internos
 
   get 'welcome/index'
+=======
+  resources :products
+
+  #get 'welcome/index'
+>>>>>>> 8a705e5f00fe815b5b71d2f8d0318bc008f33e0a
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

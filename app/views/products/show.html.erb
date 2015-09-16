@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @product.code %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @product.state %>
+</p>
+
+<br><br>
+<%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>

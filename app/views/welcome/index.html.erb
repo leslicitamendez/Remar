@@ -1,2 +1,28 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container">
+	<div class="header clearfix">
+		<ul class="nav nav-pills pull-right">
+			<li role="presentation" class="active">
+				<a href="#">Inicio</a>
+			</li>
+			<li role="presentation">
+				<a href="#">Acerca</a>
+			</li>
+			<li role="presentation">
+				<a href="#">Contacto</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="jumbotron">
+		<h1>REMAR</h1>
+		<h2>Rehabilitacion para el Marginado</h2>
+	</div>
+
+	<div class="row menu">
+		<div class="col-lg-6">
+			<%= link_to 'Productos', new_product_path %>
+		</div>
+		<div class="col-lg-6">
+		</div>
+	</div>
+</div>

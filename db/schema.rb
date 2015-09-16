@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150916113727) do
 
   create_table "gasto_internos", force: true do |t|
@@ -54,6 +55,16 @@ ActiveRecord::Schema.define(version: 20150916113727) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fase"
+
+ActiveRecord::Schema.define(version: 20150916060948) do
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "code"
+    t.text     "description"
+    t.string   "state"
   end
 
 end
