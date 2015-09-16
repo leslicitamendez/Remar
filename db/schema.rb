@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916061605) do
+ActiveRecord::Schema.define(version: 20150916113727) do
+
+  create_table "gasto_internos", force: true do |t|
+    t.date     "fecha"
+    t.string   "concepto"
+    t.text     "descripcion"
+    t.float    "monto"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gasto_internos", ["interno_id"], name: "index_gasto_internos_on_interno_id"
 
   create_table "internos", force: true do |t|
     t.date     "fechaIngreso"
@@ -41,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150916061605) do
     t.text     "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "fase"
   end
 
 end

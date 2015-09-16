@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-09-16
+  concepto: MyString
+  descripcion: MyText
+  monto: 1.5
+  interno_id: 
+
+two:
+  fecha: 2015-09-16
+  concepto: MyString
+  descripcion: MyText
+  monto: 1.5
+  interno_id: 

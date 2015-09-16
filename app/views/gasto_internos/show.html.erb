@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>Ver gasto interno</h1>
+<p>
+  <strong>Fecha:</strong>
+  <%= @gasto_interno.fecha %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @gasto_interno.concepto %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @gasto_interno.descripcion %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @gasto_interno.monto %>
+</p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @gasto_interno.interno %>
+</p>
+
+<%= link_to 'Edit', edit_gasto_interno_path(@gasto_interno) %> |
+<%= link_to 'Back', gasto_internos_path %>

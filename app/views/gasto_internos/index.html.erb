@@ -1,0 +1,33 @@
+<h1>Listing gasto_internos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Concepto</th>
+      <th>Descripcion</th>
+      <th>Monto</th>
+      <th>Interno</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gasto_internos.each do |gasto_interno| %>
+      <tr>
+        <td><%= gasto_interno.fecha %></td>
+        <td><%= gasto_interno.concepto %></td>
+        <td><%= gasto_interno.descripcion %></td>
+        <td><%= gasto_interno.monto %></td>
+        <td><%= gasto_interno.interno %></td>
+        <td><%= link_to 'Show', gasto_interno %></td>
+        <td><%= link_to 'Edit', edit_gasto_interno_path(gasto_interno) %></td>
+        <td><%= link_to 'Destroy', gasto_interno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gasto interno', new_gasto_interno_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :gasto_internos
+
   resources :internos
 
   get 'welcome/index'

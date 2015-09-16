@@ -17,17 +17,7 @@
       <th>Direccion</th>
       <th>Zona</th>
       <th>Telefono</th>
-      <th>Referencias</th>
-      <th>Estudios</th>
-      <th>Profesionuoficio</th>
-      <th>Enfermedades</th>
-      <th>Causainternacion</th>
-      <th>Tiempodconsumo</th>
-      <th>Centroanterior</th>
-      <th>Tiempoestancia</th>
-      <th>Motivodretiro</th>
-      <th>Ordenjudicial</th>
-      <th>Observaciones</th>
+    
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -49,20 +39,10 @@
         <td><%= interno.direccion %></td>
         <td><%= interno.zona %></td>
         <td><%= interno.telefono %></td>
-        <td><%= interno.referencias %></td>
-        <td><%= interno.estudios %></td>
-        <td><%= interno.profesionUOficio %></td>
-        <td><%= interno.enfermedades %></td>
-        <td><%= interno.causaInternacion %></td>
-        <td><%= interno.tiempoDConsumo %></td>
-        <td><%= interno.centroAnterior %></td>
-        <td><%= interno.tiempoEstancia %></td>
-        <td><%= interno.motivoDRetiro %></td>
-        <td><%= interno.ordenJudicial %></td>
-        <td><%= interno.observaciones %></td>
+
         <td><%= link_to 'Show', interno %></td>
         <td><%= link_to 'Edit', edit_interno_path(interno) %></td>
-        <td><%= link_to 'Destroy', interno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><!--<%= link_to 'Destroy', interno, method: :delete, data: { confirm: 'Are you sure?' } %>--></td>
       </tr>
     <% end %>
   </tbody>
