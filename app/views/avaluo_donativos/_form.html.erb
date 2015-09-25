@@ -1,0 +1,25 @@
+<%= form_for(@avaluo_donativo) do |f| %>
+  <% if @avaluo_donativo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avaluo_donativo.errors.count, "error") %> prohibited this avaluo_donativo from being saved:</h2>
+
+      <ul>
+      <% @avaluo_donativo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :montoBs %><br>
+    <%= f.text_field :montoBs %>
+  </div>
+  <div class="field">
+    <%= f.label :observacion %><br>
+    <%= f.text_area :observacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

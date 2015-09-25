@@ -1,0 +1,27 @@
+<h1>Lista de avaluos</h1>
+
+<table >
+  <thead>
+    <tr>
+      <th>Montobs</th>
+      <th>Observacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avaluo_donativos.each do |avaluo_donativo| %>
+      <tr>
+        <td><%= avaluo_donativo.montoBs %></td>
+        <td><%= avaluo_donativo.observacion %></td>
+        <td><%= link_to 'Show', avaluo_donativo %></td>
+        <td><%= link_to 'Edit', edit_avaluo_donativo_path(avaluo_donativo) %></td>
+        <td><%= link_to 'Destroy', avaluo_donativo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Avaluo donativo', new_avaluo_donativo_path %>

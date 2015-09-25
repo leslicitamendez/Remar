@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-09-23
+  nombreDonante: MyString
+  articulo: MyString
+  cantidad: 1.5
+  descripcion: MyText
+  id_voluntario: MyString
+
+two:
+  fecha: 2015-09-23
+  nombreDonante: MyString
+  articulo: MyString
+  cantidad: 1.5
+  descripcion: MyText
+  id_voluntario: MyString
