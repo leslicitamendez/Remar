@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @recepcion_donativo.fecha %>
+</p>
+
+<p>
+  <strong>Nombredonante:</strong>
+  <%= @recepcion_donativo.nombreDonante %>
+</p>
+
+<p>
+  <strong>Articulo:</strong>
+  <%= @recepcion_donativo.articulo %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @recepcion_donativo.cantidad %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @recepcion_donativo.descripcion %>
+</p>
+
+<p>
+  <strong>Id voluntario:</strong>
+  <%= @recepcion_donativo.id_voluntario %>
+</p>
+
+<%= link_to 'Edit', edit_recepcion_donativo_path(@recepcion_donativo) %> |
+<%= link_to 'Back', recepcion_donativos_path %>

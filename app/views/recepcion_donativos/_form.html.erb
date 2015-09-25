@@ -1,0 +1,41 @@
+<%= form_for(@recepcion_donativo) do |f| %>
+  <% if @recepcion_donativo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recepcion_donativo.errors.count, "error") %> prohibited this recepcion_donativo from being saved:</h2>
+
+      <ul>
+      <% @recepcion_donativo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :nombreDonante %><br>
+    <%= f.text_field :nombreDonante %>
+  </div>
+  <div class="field">
+    <%= f.label :articulo %><br>
+    <%= f.text_field :articulo %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :id_voluntario %><br>
+    <%= f.text_field :id_voluntario %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

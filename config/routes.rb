@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :avaluo_donativos
+
+  resources :recepcion_donativos
+
+  resources :cita
+
   resources :gasto_internos
 
   resources :internos

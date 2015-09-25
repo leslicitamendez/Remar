@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-09-23
+  hora: 2015-09-23 07:44:56
+  ubicación: MyText
+  nombreDonante: MyString
+  descripcionDonacion: MyText
+
+two:
+  fecha: 2015-09-23
+  hora: 2015-09-23 07:44:56
+  ubicación: MyText
+  nombreDonante: MyString
+  descripcionDonacion: MyText
