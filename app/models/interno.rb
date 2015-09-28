@@ -1,3 +1,4 @@
 class Interno < ActiveRecord::Base
-	has_many :gasto_internos
+	has_one :historia_clinica
+	has_many :egreso_internos
 end

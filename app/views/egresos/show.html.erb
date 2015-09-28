@@ -1,0 +1,25 @@
+<center>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+		<strong>Concepto:</strong>
+		<%= @egreso.concepto %>
+	</p>
+
+	<p>
+	  <strong>Monto:</strong>
+	  <%= @egreso.monto %>
+	</p>
+
+	<p>
+	  <strong>Fecha:</strong>
+	  <%= @egreso.fecha %>
+	</p>
+
+	<p>
+	  <strong>Estado:</strong>
+	  <%= @egreso.estado %>
+	</p>
+
+	<%= link_to 'Atras', egresos_path, :class => 'btn btn-mini btn-default' %>
+</center>

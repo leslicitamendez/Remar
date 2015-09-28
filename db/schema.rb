@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150916113727) do
-=======
-ActiveRecord::Schema.define(version: 20150923144539) do
+ActiveRecord::Schema.define(version: 20150928034932) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -32,7 +29,15 @@ ActiveRecord::Schema.define(version: 20150923144539) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
->>>>>>> 040edb95832daea4ca31cf82f1b53e96548b1660
+
+  create_table "egresos", force: true do |t|
+    t.string   "estado"
+    t.integer  "monto"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "concepto"
+  end
 
   create_table "gasto_internos", force: true do |t|
     t.date     "fecha"
@@ -45,6 +50,17 @@ ActiveRecord::Schema.define(version: 20150923144539) do
   end
 
   add_index "gasto_internos", ["interno_id"], name: "index_gasto_internos_on_interno_id"
+
+  create_table "historia_clinicas", force: true do |t|
+    t.text     "enfermedades"
+    t.text     "causa_internacion"
+    t.text     "observaciones"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
 
   create_table "internos", force: true do |t|
     t.date     "fechaIngreso"
@@ -76,6 +92,17 @@ ActiveRecord::Schema.define(version: 20150923144539) do
     t.datetime "updated_at"
     t.integer  "fase"
   end
+
+  create_table "produccions", force: true do |t|
+    t.string   "estado"
+    t.date     "fecha_produccion"
+    t.date     "fecha_vencimiento"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "produccions", ["product_id"], name: "index_produccions_on_product_id"
 
   create_table "products", force: true do |t|
     t.string   "name"

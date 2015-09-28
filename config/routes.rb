@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :produccions
+
+  resources :historia_clinicas
+
+  resources :egresos
+
   resources :avaluo_donativos
 
   resources :recepcion_donativos
@@ -12,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :products
 
+  get '/historia_clinicas/new/:id' => 'historia_clinicas#new'
+  get '/produccions/new/:id' => 'produccions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

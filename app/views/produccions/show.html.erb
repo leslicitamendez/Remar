@@ -1,0 +1,25 @@
+<center>
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Product:</strong>
+	  <%= @produccion.product.code %>
+	</p>
+
+	<p>
+	  <strong>Estado:</strong>
+	  <%= @produccion.estado %>
+	</p>
+
+	<p>
+	  <strong>Fecha produccion:</strong>
+	  <%= @produccion.fecha_produccion %>
+	</p>
+
+	<p>
+	  <strong>Fecha vencimiento:</strong>
+	  <%= @produccion.fecha_vencimiento %>
+	</p>
+</center>
+
+<%= link_to 'Atras', produccions_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @historia_clinica.interno.nombres %>
+</p>
+
+<p>
+  <strong>Enfermedades:</strong>
+  <%= @historia_clinica.enfermedades %>
+</p>
+
+<p>
+  <strong>Causa internacion:</strong>
+  <%= @historia_clinica.causa_internacion %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @historia_clinica.observaciones %>
+</p>
+
+
+<%= link_to 'Back', historia_clinicas_path, :class => 'btn btn-mini btn-default' %>

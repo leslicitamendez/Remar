@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: MyString
+  fecha_produccion: 2015-09-27
+  fecha_vencimiento: 2015-09-27
+  product_id: 
+
+two:
+  estado: MyString
+  fecha_produccion: 2015-09-27
+  fecha_vencimiento: 2015-09-27
+  product_id: 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enfermedades: MyText
+  causa_internacion: MyText
+  observaciones: MyText
+  interno_id: 
+
+two:
+  enfermedades: MyText
+  causa_internacion: MyText
+  observaciones: MyText
+  interno_id: 

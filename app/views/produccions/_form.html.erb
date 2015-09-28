@@ -1,0 +1,38 @@
+<%= form_for(@produccion) do |f| %>
+  <% if @produccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produccion.errors.count, "error") %> prohibited this produccion from being saved:</h2>
+
+      <ul>
+      <% @produccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :producto %>
+    <%= f.collection_select(:product_id, Product.all, :id, :code) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.select :estado, ['Activo', 'Inactivo'] %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_produccion %><br>
+    <%= f.date_select :fecha_produccion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_vencimiento %><br>
+    <%= f.date_select :fecha_vencimiento %>
+  </div>
+  <!--div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
+  </div-->
+  <div class="actions">
+    <%= f.submit (@produccion.new_record? ? 'Registrar Produccion' : 'Editar Produccion') , :class => "btn btn-mini btn-success" %>
+  </div>
+<% end %>
