@@ -12,29 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fecha %><br>
+    <%= f.label :fecha,'Fecha (*)' %><br>
     <%= f.date_select :fecha %>
   </div>
   <div class="field">
-    <%= f.label :nombreDonante %><br>
+    <%= f.label :nombreDonante ,'Nombre Donante (*)'%><br>
     <%= f.text_field :nombreDonante %>
   </div>
   <div class="field">
-    <%= f.label :articulo %><br>
+    <%= f.label :articulo ,'Tipo Articulo (*)'%><br>
     <%= f.text_field :articulo %>
   </div>
   <div class="field">
-    <%= f.label :cantidad %><br>
+    <%= f.label :cantidad ,'Cantidad (*)'%><br>
     <%= f.text_field :cantidad %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br>
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
+ <!--  <div class="field">
     <%= f.label :id_voluntario %><br>
     <%= f.text_field :id_voluntario %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>
