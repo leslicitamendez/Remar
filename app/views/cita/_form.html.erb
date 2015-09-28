@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
+    <%= f.date_select :fecha, :start_year =>2015, :last_year =>2016%>
   </div>
   <div class="field">
     <%= f.label :hora %><br>
@@ -24,7 +24,7 @@
     <%= f.text_area :ubicación %>
   </div>
   <div class="field">
-    <%= f.label :nombreDonante %><br>
+    <%= f.label :nombrecontacto %><br>
     <%= f.text_field :nombreDonante %>
   </div>
   <div class="field">
@@ -32,6 +32,6 @@
     <%= f.text_area :descripcionDonacion %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit %>
   </div>
 <% end %>

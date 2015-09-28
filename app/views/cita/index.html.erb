@@ -1,13 +1,11 @@
 <h1>Lista de Cita</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Fecha</th>
       <th>Hora</th>
-      <th>Ubicación</th>
-      <th>Nombredonante</th>
-      <th>Descripciondonacion</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,12 +15,9 @@
       <tr>
         <td><%= citum.fecha %></td>
         <td><%= citum.hora %></td>
-        <td><%= citum.ubicación %></td>
-        <td><%= citum.nombreDonante %></td>
-        <td><%= citum.descripcionDonacion %></td>
-        <td><%= link_to 'Show', citum %></td>
-        <td><%= link_to 'Edit', edit_citum_path(citum) %></td>
-        <td><%= link_to 'Destroy', citum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', citum, :class => 'btn btn-mini btn-info active'%></td>
+        <td><%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +25,5 @@
 
 <br>
 
-<%= link_to 'Agregar Cita', new_citum_path %>
+<%= link_to 'Agregar Cita', new_citum_path,:class => 'btn btn-mini btn-success active' %>
+
