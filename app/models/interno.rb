@@ -17,13 +17,13 @@ class Interno < ActiveRecord::Base
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
 
-	validates :direccion, presence: {:message => "- El nombre es un campo obligatorio"}
+	validates :direccion, presence: {:message => "- La Direccion es un campo obligatorio"}
 	validates :direccion, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 	validates :direccion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un direccion" }
 
-	validates :zona, presence: {:message => "- El nombre es un campo obligatorio"}
+	validates :zona, presence: {:message => "- La zona es un campo obligatorio"}
 	validates :zona, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
-	validates :zona, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para una zonanombre" }
+	validates :zona, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para una zona" }
 
 	
 end
