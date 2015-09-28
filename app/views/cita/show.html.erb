@@ -10,7 +10,21 @@
   <%= @citum.hora %>
 </p>
 
+<p>
+  <strong>Ubicación:</strong>
+  <%= @citum.ubicación %>
+</p>
 
+<p>
+  <strong>Nombredonante:</strong>
+  <%= @citum.nombreDonante %>
+</p>
 
-<%= link_to 'Edit', edit_citum_path(@citum) %> |
-<%= link_to 'Back', cita_path %>
+<p>
+  <strong>Descripciondonacion:</strong>
+  <%= @citum.descripcionDonacion %>
+</p>
+
+<%= link_to 'Edit', edit_citum_path(@citum) , :class => 'btn btn-mini btn-default'  %> |
+<%= link_to 'Back', cita_path , :class => 'btn btn-mini btn-default'  %>
+<%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %>
