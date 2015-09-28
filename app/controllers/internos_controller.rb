@@ -69,6 +69,6 @@ class InternosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interno_params
-      params.require(:interno).permit(:fechaIngreso, :nombres, :apellidoPaterno, :apellidoMaterno, :ci, :estadoCivil, :edad, :conyugue, :numeroDHijos, :lugarDNacimiento, :fechaDNacimiento, :direccion, :zona, :telefono, :referencias, :estudios, :profesionUOficio, :enfermedades, :causaInternacion, :tiempoDConsumo, :centroAnterior, :tiempoEstancia, :motivoDRetiro, :ordenJudicial, :observaciones)
+      params.require(:interno).permit(:sexo, :estado, :fechaIngreso, :nombre, :apellido1, :apellido2, :ci, :estadoCivil, :lugarNacimiento, :fechaNacimiento, :direccion, :zona, :telefono, :estudios, :profesion, :oficio)
     end
 end

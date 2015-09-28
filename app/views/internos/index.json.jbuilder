@@ -1,4 +1,4 @@
 json.array!(@internos) do |interno|
-  json.extract! interno, :id, :fechaIngreso, :nombres, :apellidoPaterno, :apellidoMaterno, :ci, :estadoCivil, :edad, :conyugue, :numeroDHijos, :lugarDNacimiento, :fechaDNacimiento, :direccion, :zona, :telefono, :referencias, :estudios, :profesionUOficio, :enfermedades, :causaInternacion, :tiempoDConsumo, :centroAnterior, :tiempoEstancia, :motivoDRetiro, :ordenJudicial, :observaciones
+  json.extract! interno, :id, :sexo, :estado, :fechaIngreso, :nombre, :apellido1, :apellido2, :ci, :estadoCivil, :lugarNacimiento, :fechaNacimiento, :direccion, :zona, :telefono, :estudios, :profesion, :oficio
   json.url interno_url(interno, format: :json)
 end
