@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fecha %><br>
+    <%= f.label :fecha, 'Fecha (*)' %><br>
     <%= f.date_select :fecha, :start_year =>2015, :last_year =>2016%>
   </div>
   <div class="field">
-    <%= f.label :hora %><br>
+    <%= f.label :hora,'Hora (*)' %><br>
     <%= f.time_select :hora %>
   </div>
   <div class="field">
-    <%= f.label :ubicación %><br>
+    <%= f.label :ubicación,'ubicación (*)' %><br>
     <%= f.text_area :ubicación %>
   </div>
   <div class="field">
-    <%= f.label :nombrecontacto %><br>
+    <%= f.label :nombrecontacto,'Nombre del Contacto (*)' %><br>
     <%= f.text_field :nombreDonante %>
   </div>
   <div class="field">
