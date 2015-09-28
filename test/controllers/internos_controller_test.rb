@@ -18,7 +18,7 @@ class InternosControllerTest < ActionController::TestCase
 
   test "should create interno" do
     assert_difference('Interno.count') do
-      post :create, interno: { apellidoMaterno: @interno.apellidoMaterno, apellidoPaterno: @interno.apellidoPaterno, causaInternacion: @interno.causaInternacion, centroAnterior: @interno.centroAnterior, ci: @interno.ci, conyugue: @interno.conyugue, direccion: @interno.direccion, edad: @interno.edad, enfermedades: @interno.enfermedades, estadoCivil: @interno.estadoCivil, estudios: @interno.estudios, fechaDNacimiento: @interno.fechaDNacimiento, fechaIngreso: @interno.fechaIngreso, lugarDNacimiento: @interno.lugarDNacimiento, motivoDRetiro: @interno.motivoDRetiro, nombres: @interno.nombres, numeroDHijos: @interno.numeroDHijos, observaciones: @interno.observaciones, ordenJudicial: @interno.ordenJudicial, profesionUOficio: @interno.profesionUOficio, referencias: @interno.referencias, telefono: @interno.telefono, tiempoDConsumo: @interno.tiempoDConsumo, tiempoEstancia: @interno.tiempoEstancia, zona: @interno.zona }
+      post :create, interno: { apellido1: @interno.apellido1, apellido2: @interno.apellido2, ci: @interno.ci, direccion: @interno.direccion, estado: @interno.estado, estadoCivil: @interno.estadoCivil, estudios: @interno.estudios, fechaIngreso: @interno.fechaIngreso, fechaNacimiento: @interno.fechaNacimiento, lugarNacimiento: @interno.lugarNacimiento, nombre: @interno.nombre, oficio: @interno.oficio, profesion: @interno.profesion, sexo: @interno.sexo, telefono: @interno.telefono, zona: @interno.zona }
     end
 
     assert_redirected_to interno_path(assigns(:interno))
@@ -35,7 +35,7 @@ class InternosControllerTest < ActionController::TestCase
   end
 
   test "should update interno" do
-    patch :update, id: @interno, interno: { apellidoMaterno: @interno.apellidoMaterno, apellidoPaterno: @interno.apellidoPaterno, causaInternacion: @interno.causaInternacion, centroAnterior: @interno.centroAnterior, ci: @interno.ci, conyugue: @interno.conyugue, direccion: @interno.direccion, edad: @interno.edad, enfermedades: @interno.enfermedades, estadoCivil: @interno.estadoCivil, estudios: @interno.estudios, fechaDNacimiento: @interno.fechaDNacimiento, fechaIngreso: @interno.fechaIngreso, lugarDNacimiento: @interno.lugarDNacimiento, motivoDRetiro: @interno.motivoDRetiro, nombres: @interno.nombres, numeroDHijos: @interno.numeroDHijos, observaciones: @interno.observaciones, ordenJudicial: @interno.ordenJudicial, profesionUOficio: @interno.profesionUOficio, referencias: @interno.referencias, telefono: @interno.telefono, tiempoDConsumo: @interno.tiempoDConsumo, tiempoEstancia: @interno.tiempoEstancia, zona: @interno.zona }
+    patch :update, id: @interno, interno: { apellido1: @interno.apellido1, apellido2: @interno.apellido2, ci: @interno.ci, direccion: @interno.direccion, estado: @interno.estado, estadoCivil: @interno.estadoCivil, estudios: @interno.estudios, fechaIngreso: @interno.fechaIngreso, fechaNacimiento: @interno.fechaNacimiento, lugarNacimiento: @interno.lugarNacimiento, nombre: @interno.nombre, oficio: @interno.oficio, profesion: @interno.profesion, sexo: @interno.sexo, telefono: @interno.telefono, zona: @interno.zona }
     assert_redirected_to interno_path(assigns(:interno))
   end
 

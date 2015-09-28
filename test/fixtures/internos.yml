@@ -1,55 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fechaIngreso: 2015-09-15
-  nombres: MyString
-  apellidoPaterno: MyString
-  apellidoMaterno: MyString
-  ci: 1
+  sexo: MyString
+  estado: false
+  fechaIngreso: 2015-09-28
+  nombre: MyString
+  apellido1: MyString
+  apellido2: MyString
+  ci: MyString
   estadoCivil: MyString
-  edad: 1
-  conyugue: MyString
-  numeroDHijos: 1
-  lugarDNacimiento: MyString
-  fechaDNacimiento: 2015-09-15
+  lugarNacimiento: MyString
+  fechaNacimiento: 2015-09-28
   direccion: MyText
   zona: MyString
-  telefono: 1
-  referencias: MyText
+  telefono: MyString
   estudios: MyString
-  profesionUOficio: MyString
-  enfermedades: MyText
-  causaInternacion: MyText
-  tiempoDConsumo: 1
-  centroAnterior: MyString
-  tiempoEstancia: 1
-  motivoDRetiro: MyText
-  ordenJudicial: MyString
-  observaciones: MyText
+  profesion: MyString
+  oficio: MyString
 
 two:
-  fechaIngreso: 2015-09-15
-  nombres: MyString
-  apellidoPaterno: MyString
-  apellidoMaterno: MyString
-  ci: 1
+  sexo: MyString
+  estado: false
+  fechaIngreso: 2015-09-28
+  nombre: MyString
+  apellido1: MyString
+  apellido2: MyString
+  ci: MyString
   estadoCivil: MyString
-  edad: 1
-  conyugue: MyString
-  numeroDHijos: 1
-  lugarDNacimiento: MyString
-  fechaDNacimiento: 2015-09-15
+  lugarNacimiento: MyString
+  fechaNacimiento: 2015-09-28
   direccion: MyText
   zona: MyString
-  telefono: 1
-  referencias: MyText
+  telefono: MyString
   estudios: MyString
-  profesionUOficio: MyString
-  enfermedades: MyText
-  causaInternacion: MyText
-  tiempoDConsumo: 1
-  centroAnterior: MyString
-  tiempoEstancia: 1
-  motivoDRetiro: MyText
-  ordenJudicial: MyString
-  observaciones: MyText
+  profesion: MyString
+  oficio: MyString

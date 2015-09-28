@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :internos
+
   resources :produccions
 
   resources :historia_clinicas
@@ -13,8 +15,6 @@ Rails.application.routes.draw do
   resources :cita
 
   resources :gasto_internos
-
-  resources :internos
 
   resources :products
 

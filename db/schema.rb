@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928034932) do
+ActiveRecord::Schema.define(version: 20150928105237) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -63,34 +63,24 @@ ActiveRecord::Schema.define(version: 20150928034932) do
   add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
 
   create_table "internos", force: true do |t|
+    t.string   "sexo"
+    t.boolean  "estado"
     t.date     "fechaIngreso"
-    t.string   "nombres"
-    t.string   "apellidoPaterno"
-    t.string   "apellidoMaterno"
-    t.integer  "ci"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.string   "ci"
     t.string   "estadoCivil"
-    t.integer  "edad"
-    t.string   "conyugue"
-    t.integer  "numeroDHijos"
-    t.string   "lugarDNacimiento"
-    t.date     "fechaDNacimiento"
+    t.string   "lugarNacimiento"
+    t.date     "fechaNacimiento"
     t.text     "direccion"
     t.string   "zona"
-    t.integer  "telefono"
-    t.text     "referencias"
+    t.string   "telefono"
     t.string   "estudios"
-    t.string   "profesionUOficio"
-    t.text     "enfermedades"
-    t.text     "causaInternacion"
-    t.integer  "tiempoDConsumo"
-    t.string   "centroAnterior"
-    t.integer  "tiempoEstancia"
-    t.text     "motivoDRetiro"
-    t.string   "ordenJudicial"
-    t.text     "observaciones"
+    t.string   "profesion"
+    t.string   "oficio"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "fase"
   end
 
   create_table "produccions", force: true do |t|
