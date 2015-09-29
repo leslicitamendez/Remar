@@ -4,12 +4,17 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:name]
+      @products = Product.where("name like ?", "%#{params[:name]}%")
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
@@ -26,29 +31,24 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      flash[:success] = 'Producto creado exitosamente'
+      redirect_to '/products'
+    else
+      render action: "new"
     end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
+    @product = Product.find(params[:id])
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+        flash[:success] = "Producto actualizado exitosamente"
+        redirect_to '/products'
       else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /products/1
@@ -59,6 +59,26 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def buscar
+    @products = Product.where("name like ?", "%#{params[:name]}%")
+    render 'index'
+  end
+
+  def buscar(nombre)
+    items = Array.new 
+    aux = Product.all
+    if nombre != "" && nombre != nil
+        aux.each do |item|
+          if (item.correspondeAnombre(nombre))
+            items.push(item)
+          end
+        end
+    else
+      items = aux
+    end
+    return items
   end
 
   private
