@@ -10,6 +10,8 @@ class InternosController < ApplicationController
   # GET /internos/1
   # GET /internos/1.json
   def show
+    @interno=Interno.find(params[:id])
+    @conyugue=@interno.conyugue
   end
 
   # GET /internos/new
@@ -69,6 +71,6 @@ class InternosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interno_params
-      params.require(:interno).permit(:sexo, :estado, :fechaIngreso, :nombre, :apellido1, :apellido2, :ci, :estadoCivil, :lugarNacimiento, :fechaNacimiento, :direccion, :zona, :telefono, :estudios, :profesion, :oficio)
+      params.require(:interno).permit(:nombre, :apellido1, :apellido2, :sexo, :ci, :estadoCivil, :direccion, :zona, :telefono, :fechaNacimiento, :lugarNacimiento, :estudios, :profesion, :oficio, :fechaIngreso)
     end
 end

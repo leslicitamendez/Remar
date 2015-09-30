@@ -1,33 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Sexo:</strong>
-  <%= @interno.sexo %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @interno.estado %>
-</p>
-
-<p>
-  <strong>Fecha de ingreso:</strong>
-  <%= @interno.fechaIngreso %>
-</p>
-
-<p>
   <strong>Nombre:</strong>
   <%= @interno.nombre %>
 </p>
 
 <p>
-  <strong>Apellido Paterno:</strong>
+  <strong>Apellido1:</strong>
   <%= @interno.apellido1 %>
 </p>
 
 <p>
-  <strong>Apellido Materno:</strong>
+  <strong>Apellido2:</strong>
   <%= @interno.apellido2 %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @interno.sexo %>
 </p>
 
 <p>
@@ -38,16 +28,6 @@
 <p>
   <strong>Estadocivil:</strong>
   <%= @interno.estadoCivil %>
-</p>
-
-<p>
-  <strong>Lugar de nacimiento:</strong>
-  <%= @interno.lugarNacimiento %>
-</p>
-
-<p>
-  <strong>Fecha de nacimiento:</strong>
-  <%= @interno.fechaNacimiento %>
 </p>
 
 <p>
@@ -66,6 +46,16 @@
 </p>
 
 <p>
+  <strong>Fechanacimiento:</strong>
+  <%= @interno.fechaNacimiento %>
+</p>
+
+<p>
+  <strong>Lugarnacimiento:</strong>
+  <%= @interno.lugarNacimiento %>
+</p>
+
+<p>
   <strong>Estudios:</strong>
   <%= @interno.estudios %>
 </p>
@@ -80,5 +70,65 @@
   <%= @interno.oficio %>
 </p>
 
+<p>
+  <strong>Fechaingreso:</strong>
+  <%= @interno.fechaIngreso %>
+</p>
+
 <%= link_to 'Edit', edit_interno_path(@interno) %> |
 <%= link_to 'Back', internos_path %>
+
+<% if @conyugue== nil %>
+<%= link_to 'Agregar conyugue', pareja_path(@interno.id) %>
+<% end %>
+
+<br><br>
+<% if @conyugue != nil %>
+     <p>
+      <strong>Estado:</strong>
+      <%= @conyugue.estado %>
+    </p>
+
+    <p>
+      <strong>Nombre:</strong>
+      <%= @conyugue.nombre %>
+    </p>
+
+    <p>
+      <strong>Apellido1:</strong>
+      <%= @conyugue.apellido1 %>
+    </p>
+
+    <p>
+      <strong>Apellido2:</strong>
+      <%= @conyugue.apellido2 %>
+    </p>
+
+    <p>
+      <strong>Ci:</strong>
+      <%= @conyugue.ci %>
+    </p>
+
+    <p>
+      <strong>Lugarnacimiento:</strong>
+      <%= @conyugue.lugarNacimiento %>
+    </p>
+
+    <p>
+      <strong>Fechanacimiento:</strong>
+      <%= @conyugue.fechaNacimiento %>
+    </p>
+
+    <p>
+      <strong>Telefono:</strong>
+      <%= @conyugue.telefono %>
+    </p>
+
+    <p>
+      <strong>Direccion:</strong>
+      <%= @conyugue.direccion %>
+    </p>
+
+    <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id) %>
+<% end %>
+

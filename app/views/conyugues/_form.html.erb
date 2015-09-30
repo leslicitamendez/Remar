@@ -1,0 +1,55 @@
+<%= form_for(@conyugue) do |f| %>
+  <% if @conyugue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conyugue.errors.count, "error") %> prohibited this conyugue from being saved:</h2>
+
+      <ul>
+      <% @conyugue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <input type="hidden" name="interno_id" value="<%= @id %>" >
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido1 %><br>
+    <%= f.text_field :apellido1 %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido2 %><br>
+    <%= f.text_field :apellido2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ci %><br>
+    <%= f.text_field :ci %>
+  </div>
+  <div class="field">
+    <%= f.label :lugarNacimiento %><br>
+    <%= f.text_field :lugarNacimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :fechaNacimiento %><br>
+    <%= f.date_select :fechaNacimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_area :direccion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

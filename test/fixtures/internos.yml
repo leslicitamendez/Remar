@@ -1,37 +1,35 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  sexo: MyString
-  estado: false
-  fechaIngreso: 2015-09-28
   nombre: MyString
   apellido1: MyString
   apellido2: MyString
-  ci: MyString
+  sexo: MyString
+  ci: 1
   estadoCivil: MyString
-  lugarNacimiento: MyString
-  fechaNacimiento: 2015-09-28
   direccion: MyText
   zona: MyString
-  telefono: MyString
+  telefono: 1
+  fechaNacimiento: 2015-09-29
+  lugarNacimiento: MyString
   estudios: MyString
   profesion: MyString
   oficio: MyString
+  fechaIngreso: 2015-09-29
 
 two:
-  sexo: MyString
-  estado: false
-  fechaIngreso: 2015-09-28
   nombre: MyString
   apellido1: MyString
   apellido2: MyString
-  ci: MyString
+  sexo: MyString
+  ci: 1
   estadoCivil: MyString
-  lugarNacimiento: MyString
-  fechaNacimiento: 2015-09-28
   direccion: MyText
   zona: MyString
-  telefono: MyString
+  telefono: 1
+  fechaNacimiento: 2015-09-29
+  lugarNacimiento: MyString
   estudios: MyString
   profesion: MyString
   oficio: MyString
+  fechaIngreso: 2015-09-29

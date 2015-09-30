@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928105237) do
+ActiveRecord::Schema.define(version: 20150930051447) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20150928105237) do
     t.text     "descripcionDonacion"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "conyugues", force: true do |t|
+    t.string   "estado"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.integer  "ci"
+    t.string   "lugarNacimiento"
+    t.date     "fechaNacimiento"
+    t.integer  "telefono"
+    t.text     "direccion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
   end
 
   create_table "egresos", force: true do |t|
@@ -63,22 +78,21 @@ ActiveRecord::Schema.define(version: 20150928105237) do
   add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
 
   create_table "internos", force: true do |t|
-    t.string   "sexo"
-    t.boolean  "estado"
-    t.date     "fechaIngreso"
     t.string   "nombre"
     t.string   "apellido1"
     t.string   "apellido2"
-    t.string   "ci"
+    t.string   "sexo"
+    t.integer  "ci"
     t.string   "estadoCivil"
-    t.string   "lugarNacimiento"
-    t.date     "fechaNacimiento"
     t.text     "direccion"
     t.string   "zona"
-    t.string   "telefono"
+    t.integer  "telefono"
+    t.date     "fechaNacimiento"
+    t.string   "lugarNacimiento"
     t.string   "estudios"
     t.string   "profesion"
     t.string   "oficio"
+    t.date     "fechaIngreso"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

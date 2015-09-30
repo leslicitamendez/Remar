@@ -1,1 +1,1 @@
-json.extract! @interno, :id, :sexo, :estado, :fechaIngreso, :nombre, :apellido1, :apellido2, :ci, :estadoCivil, :lugarNacimiento, :fechaNacimiento, :direccion, :zona, :telefono, :estudios, :profesion, :oficio, :created_at, :updated_at
+json.extract! @interno, :id, :nombre, :apellido1, :apellido2, :sexo, :ci, :estadoCivil, :direccion, :zona, :telefono, :fechaNacimiento, :lugarNacimiento, :estudios, :profesion, :oficio, :fechaIngreso, :created_at, :updated_at
