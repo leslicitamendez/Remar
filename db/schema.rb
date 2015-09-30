@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150930051447) do
-=======
-ActiveRecord::Schema.define(version: 20150928104448) do
->>>>>>> c951fab130d739f978e25571c9fbdb8abe0f392e
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -81,7 +77,6 @@ ActiveRecord::Schema.define(version: 20150928104448) do
 
   add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
 
-
   create_table "internos", force: true do |t|
     t.string   "nombre"
     t.string   "apellido1"
@@ -100,8 +95,8 @@ ActiveRecord::Schema.define(version: 20150928104448) do
     t.date     "fechaIngreso"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "fase"
   end
-
 
   create_table "produccions", force: true do |t|
     t.string   "estado"
