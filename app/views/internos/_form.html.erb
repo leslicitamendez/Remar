@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :apellido1 %><br>
+    <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
     <%= f.text_field :apellido1 %>
   </div>
   <div class="field">
-    <%= f.label :apellido2 %><br>
+    <%= f.label :apellido2, 'Apellido Materno (*)' %><br>
     <%= f.text_field :apellido2 %>
   </div>
   <div class="field">
-    <%= f.label :sexo %><br>
-    <%= f.text_field :sexo %>
+    <%= f.label :sexo, 'Sexo (*)' %><br>
+    <%= f.select :sexo, ['Masculino', 'Femenino'] %>
   </div>
   <div class="field">
-    <%= f.label :ci %><br>
+    <%= f.label :ci, 'C.I. (*)' %><br>
     <%= f.number_field :ci %>
   </div>
   <div class="field">
-    <%= f.label :estadoCivil %><br>
-    <%= f.text_field :estadoCivil %>
+    <%= f.label :estadoCivil, 'Estado Civil (*)' %><br>
+    <%= f.select :estadoCivil, ['Soltero', 'Casado', 'Viudo', 'Divorciado'] %>
   </div>
   <div class="field">
-    <%= f.label :direccion %><br>
+    <%= f.label :direccion, 'Direccion (*)' %><br>
     <%= f.text_area :direccion %>
   </div>
   <div class="field">
@@ -48,11 +48,11 @@
     <%= f.number_field :telefono %>
   </div>
   <div class="field">
-    <%= f.label :fechaNacimiento %><br>
-    <%= f.date_select :fechaNacimiento %>
+    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
+    <%= f.date_select :fechaNacimiento, { :start_year => 1940 } %>
   </div>
   <div class="field">
-    <%= f.label :lugarNacimiento %><br>
+    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
     <%= f.text_field :lugarNacimiento %>
   </div>
   <div class="field">
@@ -68,7 +68,7 @@
     <%= f.text_field :oficio %>
   </div>
   <div class="field">
-    <%= f.label :fechaIngreso %><br>
+    <%= f.label :fechaIngreso, 'Fecha de Ingreso (*)' %><br>
     <%= f.date_select :fechaIngreso %>
   </div>
   <div class="actions">
