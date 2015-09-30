@@ -15,8 +15,7 @@
       <tr>
         <td><%= citum.fecha %></td>
         <td><%= citum.hora %></td>
-        <td><%= link_to 'Mostrar', citum, :class => 'btn btn-mini btn-info active'%></td>
-        <td><%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
+        <td><%= link_to 'Mostrar', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
         
       </tr>
     <% end %>

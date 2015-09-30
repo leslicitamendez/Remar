@@ -15,7 +15,7 @@
         <td><%= recepcion_donativo.fecha %></td>
         <td><%= recepcion_donativo.nombreDonante %></td>
         <td><%= link_to 'Mostrar', recepcion_donativo, :class => 'btn btn-mini btn-info active' %></td>
-        <td><%= link_to 'Edit', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Editar', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>
         
       </tr>
     <% end %>
@@ -25,4 +25,4 @@
 <br>
 
 <%= link_to 'Ingresar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %>
-<%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %>
+<!-- <%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %> -->

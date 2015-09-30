@@ -1,0 +1,45 @@
+<%= form_for(@voluntario) do |f| %>
+  <% if @voluntario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voluntario.errors.count, "error") %> prohibited this voluntario from being saved:</h2>
+
+      <ul>
+      <% @voluntario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido1 %><br>
+    <%= f.text_field :apellido1 %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido2 %><br>
+    <%= f.text_field :apellido2 %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :NivelConfianza %><br>
+    <%= f.number_field :NivelConfianza %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.number_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :ci %><br>
+    <%= f.text_field :ci %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Registrar",:class => 'btn btn-mini btn-success active' %>
+  </div>
+<% end %>
