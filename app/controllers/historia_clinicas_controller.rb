@@ -28,29 +28,24 @@ class HistoriaClinicasController < ApplicationController
   def create
     @historia_clinica = HistoriaClinica.new(historia_clinica_params)
 
-    respond_to do |format|
-      if @historia_clinica.save
-        format.html { redirect_to @historia_clinica, notice: 'Historia clinica was successfully created.' }
-        format.json { render :show, status: :created, location: @historia_clinica }
+    if @historia_clinica.save
+        flash[:success] = 'Historia clinica creada exitosamente'
+        redirect_to '/historia_clinicas'
       else
-        format.html { render :new }
-        format.json { render json: @historia_clinica.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /historia_clinicas/1
   # PATCH/PUT /historia_clinicas/1.json
   def update
-    respond_to do |format|
+    @historia_clinica = HistoriaClinica.find(params[:id])
       if @historia_clinica.update(historia_clinica_params)
-        format.html { redirect_to @historia_clinica, notice: 'Historia clinica was successfully updated.' }
-        format.json { render :show, status: :ok, location: @historia_clinica }
+        flash[:success] = "Historia clinica actualizada exitosamente"
+        redirect_to '/historia_clinicas'
       else
-        format.html { render :edit }
-        format.json { render json: @historia_clinica.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /historia_clinicas/1

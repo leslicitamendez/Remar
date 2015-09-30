@@ -28,29 +28,24 @@ class ProduccionsController < ApplicationController
   def create
     @produccion = Produccion.new(produccion_params)
 
-    respond_to do |format|
       if @produccion.save
-        format.html { redirect_to @produccion, notice: 'Produccion was successfully created.' }
-        format.json { render :show, status: :created, location: @produccion }
+        flash[:success] = 'Produccion creada exitosamente'
+        redirect_to '/produccions'
       else
-        format.html { render :new }
-        format.json { render json: @produccion.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /produccions/1
   # PATCH/PUT /produccions/1.json
   def update
-    respond_to do |format|
+    @product = Produccion.find(params[:id])
       if @produccion.update(produccion_params)
-        format.html { redirect_to @produccion, notice: 'Produccion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @produccion }
+        flash[:success] = "Produccion actualizada exitosamente"
+        redirect_to '/produccions'
       else
-        format.html { render :edit }
-        format.json { render json: @produccion.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /produccions/1

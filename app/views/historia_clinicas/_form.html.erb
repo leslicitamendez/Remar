@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :interno %>
-    <%= f.collection_select(:interno_id, Interno.all, :id, :nombres) %>
+    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
     <!--%= f.select :interno_id, options_for_select(@internos.collect{ |u| [u.nombres, u.id] }) %-->
   </div>
 

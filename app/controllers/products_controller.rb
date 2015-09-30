@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where("name LIKE ?", params[:search], params[:search])
+    @products = Product.where("name LIKE ?", "%#{params[:search]}%")
     @search = params[:search]
     render :index
   end
