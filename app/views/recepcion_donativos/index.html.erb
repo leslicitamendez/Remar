@@ -1,14 +1,10 @@
 <h1>Lista de donativos</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Fecha</th>
-      <th>Nombredonante</th>
-      <th>Articulo</th>
-      <th>Cantidad</th>
-      <th>Descripcion</th>
-      <th>Id voluntario</th>
+      <th>Nombre Donante</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +14,9 @@
       <tr>
         <td><%= recepcion_donativo.fecha %></td>
         <td><%= recepcion_donativo.nombreDonante %></td>
-        <td><%= recepcion_donativo.articulo %></td>
-        <td><%= recepcion_donativo.cantidad %></td>
-        <td><%= recepcion_donativo.descripcion %></td>
-        <td><%= recepcion_donativo.id_voluntario %></td>
-        <td><%= link_to 'Show', recepcion_donativo %></td>
-        <td><%= link_to 'Edit', edit_recepcion_donativo_path(recepcion_donativo) %></td>
-        <td><%= link_to 'Destroy', recepcion_donativo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', recepcion_donativo, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Edit', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Recepcion donativo', new_recepcion_donativo_path %>
+<%= link_to 'Ingresar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %>
+<%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %>

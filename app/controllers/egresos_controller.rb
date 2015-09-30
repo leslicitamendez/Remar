@@ -26,29 +26,24 @@ class EgresosController < ApplicationController
   def create
     @egreso = Egreso.new(egreso_params)
 
-    respond_to do |format|
-      if @egreso.save
-        format.html { redirect_to @egreso, notice: 'Egreso was successfully created.' }
-        format.json { render :show, status: :created, location: @egreso }
+    if @egreso.save
+        flash[:success] = 'Egreso creado exitosamente'
+        redirect_to '/egresos'
       else
-        format.html { render :new }
-        format.json { render json: @egreso.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /egresos/1
   # PATCH/PUT /egresos/1.json
   def update
-    respond_to do |format|
+    @egreso = Egreso.find(params[:id])
       if @egreso.update(egreso_params)
-        format.html { redirect_to @egreso, notice: 'Egreso was successfully updated.' }
-        format.json { render :show, status: :ok, location: @egreso }
+        flash[:success] = "Egreso actualizado exitosamente"
+        redirect_to '/egresos'
       else
-        format.html { render :edit }
-        format.json { render json: @egreso.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /egresos/1

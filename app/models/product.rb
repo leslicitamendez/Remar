@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
+	#attr_accessible :name
+
 	has_many :produccions
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
+	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
 	
 	validates :name, presence: {:message => "- El nombre del producto es un campo obligatorio"}
 	validates :name, uniqueness: {case_sensitive: false, :message => "- El producto ya existe"}

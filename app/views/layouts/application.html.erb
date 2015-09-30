@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Remar</title>
+  <title>REMAR</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
+	<!-- header -->
+	<header>
+		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container" style="height: 50px;">
+                <div class="navbar-header">
+                    <a href="/"> <img src="/images/logo_remar.png" width="80"></a>
+                </div>
+                <div class="navbar-text navbar-right">
+                    <div class="header clearfix">
+						<ul class="nav nav-pills pull-right">
+							<li role="presentation" class="active">
+								<a href="/">Inicio</a>
+							</li>
+							<li role="presentation">
+								<a href="#">Acerca</a>
+							</li>
+							<li role="presentation">
+								<a href="#">Contacto</a>
+							</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+        </div>
+	</header>
 
 	<div class="container">
+		<% flash.each do |key,value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
+
 		<%= yield %>
 	</div>
+
+
+</div>
 
 </body>
 </html>

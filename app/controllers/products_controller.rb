@@ -4,12 +4,19 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+      @products = Product.all
+  end
+
+  def search
+    @products = Product.where("name LIKE ?", "%#{params[:search]}%")
+    @search = params[:search]
+    render :index
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    #@product = Product.find_by_id(params[:id])
   end
 
   # GET /products/new
@@ -19,6 +26,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    #@product = Product.find_by_id(params[:id])
   end
 
   # POST /products
@@ -26,29 +34,24 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      flash[:success] = 'Producto creado exitosamente'
+      redirect_to '/products'
+    else
+      render action: "new"
     end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    respond_to do |format|
+    @product = Product.find(params[:id])
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+        flash[:success] = "Producto actualizado exitosamente"
+        redirect_to '/products'
       else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /products/1

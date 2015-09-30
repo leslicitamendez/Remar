@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   get '/historia_clinicas/new/:id' => 'historia_clinicas#new'
   get '/produccions/new/:id' => 'produccions#new'
 
+<<<<<<< HEAD
   get '/conyugues/new/:id' => 'conyugues#new', :as => 'pareja'
+=======
+  get '/products/search' => 'products#search'
+>>>>>>> c951fab130d739f978e25571c9fbdb8abe0f392e
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
