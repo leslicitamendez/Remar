@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	attr_accessible :name
+	#attr_accessible :name
 
 	has_many :produccions
 
@@ -13,14 +13,4 @@ class Product < ActiveRecord::Base
 
 	validates :description, presence: {:message => "- La descripcion es un campo obligatorio"}
 	validates :state, presence: {:message => "- El estado del producto es un campo obligatorio"}
-
-	def correspondeAnombre(nombre)
-      parametros = nombre.split(' ')
-      parametros.each do |parametro|
-        if self.name.downcase.include?(parametro.downcase)
-          return true
-        end
-      end
-      false
-    end
 end

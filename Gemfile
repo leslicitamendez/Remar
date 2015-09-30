@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "protected_attributes", "~> 1.0.5"
+gem "realtime-validations"
 
 gem 'validates_timeliness', '~> 3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
