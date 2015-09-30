@@ -66,6 +66,6 @@ class HistoriaClinicasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def historia_clinica_params
-      params.require(:historia_clinica).permit(:enfermedades, :causa_internacion, :observaciones, :interno_id)
+      params.require(:historia_clinica).permit(:enfermedades, :causa_internacion, :observaciones, :interno_id, :fecha)
     end
 end
