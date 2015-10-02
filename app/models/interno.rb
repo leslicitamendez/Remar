@@ -20,7 +20,7 @@ class Interno < ActiveRecord::Base
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
 	validates :nombre, presence: {:message => "- El nombre es un campo obligatorio"}
-	validates :nombre, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
+	validates :nombre, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
 
@@ -28,7 +28,9 @@ class Interno < ActiveRecord::Base
 	#validates :direccion, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 	validates :direccion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un direccion" }
 
-	
+	validates :estadoCivil, presence: {:message => "- El Estado Civil es un campo obligatorio"}
+
+	validates :sexo, presence: {:message => "- El Estado Civil es un campo obligatorio"}
 
 	
 end
