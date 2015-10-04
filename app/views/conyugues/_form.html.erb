@@ -13,9 +13,10 @@
 
 
   <input type="hidden" name="interno_id" value="<%= @id %>" >
+  
   <div class="field">
     <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
+    <%= f.check_box :estado %>
   </div>
   <div class="field">
     <%= f.label :nombre %><br>

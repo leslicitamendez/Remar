@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930213323) do
+ActiveRecord::Schema.define(version: 20151004152229) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150930213323) do
   end
 
   create_table "conyugues", force: true do |t|
-    t.string   "estado"
+    t.boolean  "estado",          limit: 255
     t.string   "nombre"
     t.string   "apellido1"
     t.string   "apellido2"
