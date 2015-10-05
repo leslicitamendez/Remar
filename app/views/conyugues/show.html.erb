@@ -2,7 +2,7 @@
 
 <p>
   <strong>Estado:</strong>
-  <%= @conyugue.estado %>
+  <%= @conyugue.estado == true ? 'Habilitado'  : 'Deshabilitado' %>
 </p>
 
 <p>
@@ -11,27 +11,27 @@
 </p>
 
 <p>
-  <strong>Apellido1:</strong>
+  <strong>Apellido Paterno:</strong>
   <%= @conyugue.apellido1 %>
 </p>
 
 <p>
-  <strong>Apellido2:</strong>
+  <strong>Apellido Materno:</strong>
   <%= @conyugue.apellido2 %>
 </p>
 
 <p>
-  <strong>Ci:</strong>
+  <strong>CI:</strong>
   <%= @conyugue.ci %>
 </p>
 
 <p>
-  <strong>Lugarnacimiento:</strong>
+  <strong>Lugar de Nacimiento:</strong>
   <%= @conyugue.lugarNacimiento %>
 </p>
 
 <p>
-  <strong>Fechanacimiento:</strong>
+  <strong>Fecha de Nacimiento:</strong>
   <%= @conyugue.fechaNacimiento %>
 </p>
 
@@ -44,6 +44,7 @@
   <strong>Direccion:</strong>
   <%= @conyugue.direccion %>
 </p>
-
-<%= link_to 'Edit', edit_conyugue_path(@conyugue) %> |
-<%= link_to 'Back', conyugues_path %>
+<br>
+<%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue), :class => 'btn btn-mini btn-info active'  %>
+<br> <br>
+<%= link_to 'Atras', conyugues_path, :class => 'btn btn-mini btn-default' %>

@@ -4,4 +4,5 @@ class Conyugue < ActiveRecord::Base
   def default_values
     self.estado ||= 'true'
   end
+  
 end

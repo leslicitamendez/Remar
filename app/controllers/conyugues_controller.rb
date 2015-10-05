@@ -5,6 +5,9 @@ class ConyuguesController < ApplicationController
   # GET /conyugues.json
   def index
     @conyugues = Conyugue.all
+    if(params["palabra"]!=nil)
+        @conyugues=Conyugue.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+    end
   end
 
   # GET /conyugues/1
