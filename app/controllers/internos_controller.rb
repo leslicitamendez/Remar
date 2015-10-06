@@ -12,6 +12,8 @@ class InternosController < ApplicationController
   def show
     @interno=Interno.find(params[:id])
     @conyugue=@interno.conyugue
+
+    
   end
 
   # GET /internos/new

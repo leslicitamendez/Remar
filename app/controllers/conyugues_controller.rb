@@ -33,7 +33,7 @@ class ConyuguesController < ApplicationController
 
     respond_to do |format|
       if @conyugue.save
-        format.html { redirect_to @conyugue, notice: 'Conyugue was successfully created.' }
+        format.html { redirect_to @conyugue, notice: 'Conyugue se creo satisfactoriamente.' }
         format.json { render :show, status: :created, location: @conyugue }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class ConyuguesController < ApplicationController
   def update
     respond_to do |format|
       if @conyugue.update(conyugue_params)
-        format.html { redirect_to @conyugue, notice: 'Conyugue was successfully updated.' }
+        format.html { redirect_to @conyugue, notice: 'Conyugue se actualizo satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @conyugue }
       else
         format.html { render :edit }

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :conducta
+
+  resources :hijos
+
   resources :voluntarios
 
   resources :conyugues
@@ -27,6 +31,10 @@ Rails.application.routes.draw do
 
 
   get '/conyugues/new/:id' => 'conyugues#new', :as => 'pareja'
+
+  get '/hijos/new/:id' => 'hijos#new', :as => 'fis'
+
+  get '/referencias/new/:id' => 'referencias#new', :as => 'respalda'
 
   get '/products/search' => 'products#search'
 

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @conductum.estado %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @conductum.fecha %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @conductum.descripcion %>
+</p>
+
+<p>
+  <strong>Tipoconducta:</strong>
+  <%= @conductum.tipoConducta %>
+</p>
+
+<%= link_to 'Edit', edit_conductum_path(@conductum) %> |
+<%= link_to 'Back', conducta_path %>

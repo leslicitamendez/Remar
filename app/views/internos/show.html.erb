@@ -7,6 +7,7 @@
     <td>
 
       <h4>Datos de Interno</h4>
+      
       <p>
         <strong>Nombre:</strong>
         <%= @interno.nombre %>
@@ -148,16 +149,58 @@
       </td>
     </tr>
 </table>
+
+
+    
+
 <br>
 
 <% if @conyugue== nil %>
   <%= link_to 'Agregar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  &nbsp &nbsp &nbsp
 <% end %>
 
-<% if @conyugue != nil %>
-  <%= link_to 'Editar Interno', edit_interno_path(@interno), :class => 'btn btn-mini btn-info active'  %> &nbsp &nbsp &nbsp
-    <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id), :class => 'btn btn-mini btn-warning active'    %>&nbsp &nbsp &nbsp
+
+<% if @conyugue != nil %> 
+    <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id), :class => 'btn btn-mini btn-warning active'    %>
+    &nbsp &nbsp &nbsp
 <% end %>
+
+<% if @hijo== nil %>
+  <%= link_to 'Registrar Hijo', fis_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  <br><br>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%= link_to 'Atras', internos_path, :class => 'btn btn-mini btn-default'  %>
 

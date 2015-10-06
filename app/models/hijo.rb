@@ -1,12 +1,9 @@
-class Interno < ActiveRecord::Base
-	has_one :historia_clinica
-	has_many :egreso_internos
-	has_one :conyugue
-	has_one :referencia
-	has_many :hijos
+class Hijo < ActiveRecord::Base
+	has_one :interno
 
-
-
+  def default_values
+    self.estado ||= 'true'
+  end
 
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	validates :ci, uniqueness: { :message => "- El carnet ya existe"}
@@ -26,25 +23,9 @@ class Interno < ActiveRecord::Base
 	validates :nombre, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
-
-	validates :direccion, presence: {:message => "- La Direccion es un campo obligatorio"}
-	validates :direccion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un direccion" }
-	validates :direccion, format: { with: /\A[a-zA-Z0-9 ]+\z/, message: "- Solo se aceptan letras"}
-
-	validates :estadoCivil, presence: {:message => "- El Estado Civil es un campo obligatorio"}
-
-	validates :sexo, presence: {:message => "- El Estado Civil es un campo obligatorio"}
-
-	validates :telefono, length: { maximum: 10, too_long: "- %{count} caracteres es la longitud maxima permitida" }
-	validates :telefono, length: { minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }, :allow_blank => true
-	validates :telefono,    :numericality => true, :allow_blank => true
-
-	validates :profesion, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
+validates :sexo, presence: {:message => "- Es un campo obligatorio el campo sexo"}
 	
-	validates :oficio, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
-
-	validates :estudios, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
 
 	validates :lugarNacimiento, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
-
+  
 end

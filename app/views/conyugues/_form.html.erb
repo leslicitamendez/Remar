@@ -40,7 +40,7 @@
   </div>
   <div class="field">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
-    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year, :end_year => Time.now.year-70} %>
+    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
    
   </div>
   <div class="field">
@@ -52,6 +52,6 @@
     <%= f.text_area :direccion %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>
