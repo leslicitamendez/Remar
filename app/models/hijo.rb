@@ -1,5 +1,6 @@
 class Hijo < ActiveRecord::Base
 	has_one :interno
+	before_save :default_values
 
   def default_values
     self.estado ||= 'true'
