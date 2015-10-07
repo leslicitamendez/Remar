@@ -13,7 +13,10 @@
 
 
   <input type="hidden" name="interno_id" value="<%= @id %>" >
-  
+  <div class="field">
+    <%= f.label :estado, 'c.i. del interno' %><br>
+    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
+  </div>
   <div class="field">
     <%= f.label :estado %><br>
     <%= f.check_box :estado %>
