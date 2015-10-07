@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Montobs:</strong>
+  <%= @ingreso.montoBs %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @ingreso.concepto %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ingreso.fecha %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @ingreso.estado %>
+</p>
+
+<%= link_to 'Editar', edit_ingreso_path(@ingreso), :class => 'btn btn-mini btn-default' %> |
+<%= link_to 'Atras', ingresos_path,:class => 'btn btn-mini btn-default' %>

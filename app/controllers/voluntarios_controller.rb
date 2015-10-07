@@ -15,6 +15,7 @@ class VoluntariosController < ApplicationController
   # GET /voluntarios/new
   def new
     @voluntario = Voluntario.new
+    
   end
 
   # GET /voluntarios/1/edit
@@ -71,4 +72,5 @@ class VoluntariosController < ApplicationController
     def voluntario_params
       params.require(:voluntario).permit(:nombre, :apellido1, :apellido2, :direccion, :NivelConfianza, :telefono, :ci)
     end
+    
 end

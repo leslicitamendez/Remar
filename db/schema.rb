@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004152229) do
+ActiveRecord::Schema.define(version: 20151007055938) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -54,6 +54,20 @@ ActiveRecord::Schema.define(version: 20151004152229) do
     t.string   "concepto"
   end
 
+  create_table "entrega_productos", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.boolean  "estado"
+    t.integer  "product_id"
+    t.integer  "voluntario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entrega_productos", ["product_id"], name: "index_entrega_productos_on_product_id"
+  add_index "entrega_productos", ["voluntario_id"], name: "index_entrega_productos_on_voluntario_id"
+
   create_table "gasto_internos", force: true do |t|
     t.date     "fecha"
     t.string   "concepto"
@@ -77,6 +91,20 @@ ActiveRecord::Schema.define(version: 20151004152229) do
   end
 
   add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
+
+  create_table "ingresos", force: true do |t|
+    t.float    "montoBs"
+    t.string   "concepto"
+    t.date     "fecha"
+    t.boolean  "estado"
+    t.integer  "venta_id"
+    t.integer  "recepcionDonativo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingresos", ["recepcionDonativo_id"], name: "index_ingresos_on_recepcionDonativo_id"
+  add_index "ingresos", ["venta_id"], name: "index_ingresos_on_venta_id"
 
   create_table "internos", force: true do |t|
     t.string   "nombre"
@@ -128,7 +156,37 @@ ActiveRecord::Schema.define(version: 20151004152229) do
     t.string   "id_voluntario"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "voluntario_id"
   end
+
+  create_table "rendicion_productos", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.text     "observaciones"
+    t.boolean  "estado"
+    t.integer  "Product_id"
+    t.integer  "Voluntario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rendicion_productos", ["Product_id"], name: "index_rendicion_productos_on_Product_id"
+  add_index "rendicion_productos", ["Voluntario_id"], name: "index_rendicion_productos_on_Voluntario_id"
+
+  create_table "venta", force: true do |t|
+    t.integer  "cantidad"
+    t.date     "feche"
+    t.float    "precioUnidad"
+    t.boolean  "estado"
+    t.integer  "entregaProducto_id"
+    t.integer  "rendicionProducto_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venta", ["entregaProducto_id"], name: "index_venta_on_entregaProducto_id"
+  add_index "venta", ["rendicionProducto_id"], name: "index_venta_on_rendicionProducto_id"
 
   create_table "voluntarios", force: true do |t|
     t.string   "nombre"

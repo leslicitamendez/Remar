@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @entrega_producto.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @entrega_producto.hora %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @entrega_producto.cantidad %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @entrega_producto.estado %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @entrega_producto.product %>
+</p>
+
+<p>
+  <strong>Voluntario:</strong>
+  <%= @entrega_producto.voluntario %>
+</p>
+
+<%= link_to 'Editar', edit_entrega_producto_path(@entrega_producto), :class => 'btn btn-mini btn-default'%> |
+<%= link_to 'Atras', entrega_productos_path,:class => 'btn btn-mini btn-default'%>

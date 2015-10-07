@@ -1,0 +1,29 @@
+<h1>Lista entrega de productos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Cantidad</th>
+      <th>Product</th>
+      <th>Voluntario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entrega_productos.each do |entrega_producto| %>
+      <tr>
+        <td><%= entrega_producto.fecha %></td>
+        <td><%= entrega_producto.cantidad %></td>
+        <td><%= entrega_producto.product %></td>
+        <td><%= entrega_producto.voluntario %></td>
+        <td><%= link_to 'Mostrar', entrega_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entrega_producto_path(entrega_producto), :class => 'btn btn-mini btn-warning active'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Entrega producto', new_entrega_producto_path,:class => 'btn btn-mini btn-success active'%>

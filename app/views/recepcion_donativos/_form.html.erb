@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :Voluntario %>
+    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :nombre ) %>
+  </div>
   <div class="field">
     <%= f.label :fecha,'Fecha (*)' %><br>
     <%= f.date_select :fecha %>

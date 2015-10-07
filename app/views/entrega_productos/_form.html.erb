@@ -1,0 +1,37 @@
+<%= form_for(@entrega_producto) do |f| %>
+  <% if @entrega_producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entrega_producto.errors.count, "error") %> prohibited this entrega_producto from being saved:</h2>
+
+      <ul>
+      <% @entrega_producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha, 'Fecha (*)'%><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :hora %><br>
+    <%= f.time_select :hora %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad, 'Cantidad (*)' %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.collection_select(:product_id, Product.all, :id, :code) %>
+  </div>
+  <div class="field">
+    <%= f.label :voluntario_id %><br>
+    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :nombre) %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+  </div>
+<% end %>

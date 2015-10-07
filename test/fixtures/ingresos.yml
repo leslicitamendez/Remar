@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  montoBs: 1.5
+  concepto: MyString
+  fecha: 2015-10-07
+  estado: false
+  venta_id: 
+  recepcionDonativo_id: 
+
+two:
+  montoBs: 1.5
+  concepto: MyString
+  fecha: 2015-10-07
+  estado: false
+  venta_id: 
+  recepcionDonativo_id: 

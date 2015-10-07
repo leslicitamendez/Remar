@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :ingresos
+
+  resources :venta
+
+  resources :entrega_productos
+
+  resources :rendicion_productos
+
   resources :voluntarios
 
   resources :conyugues

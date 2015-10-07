@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @rendicion_producto.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @rendicion_producto.hora %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @rendicion_producto.cantidad %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @rendicion_producto.observaciones %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @rendicion_producto.Product %>
+</p>
+
+<p>
+  <strong>Voluntario:</strong>
+  <%= @rendicion_producto.Voluntario %>
+</p>
+
+<%= link_to 'Editar', edit_rendicion_producto_path(@rendicion_producto), :class => 'btn btn-mini btn-default'%> |
+<%= link_to 'Atras', rendicion_productos_path,:class => 'btn btn-mini btn-default' %>

@@ -1,4 +1,7 @@
 class RecepcionDonativo < ActiveRecord::Base
+
+	belongs_to :voluntario
+	
 	validates :nombreDonante, presence: {:message => "- El nombre es un campo obligatorio"}
 	validates_date :fecha, :on => :create, :on_or_before => :today, :on_or_before_message => 'solo se registran donativos a futuro'
 	validates :articulo, presence: {:message => "- El tipo de Articulo es un campo obligatorio"}

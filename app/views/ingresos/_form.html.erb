@@ -1,0 +1,29 @@
+<%= form_for(@ingreso) do |f| %>
+  <% if @ingreso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingreso.errors.count, "error") %> prohibited this ingreso from being saved:</h2>
+
+      <ul>
+      <% @ingreso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :montoBs, 'Monto Bs (*)' %><br>
+    <%= f.text_field :montoBs %>
+  </div>
+  <div class="field">
+    <%= f.label :concepto, 'Concepto (*)' %><br>
+    <%= f.text_field :concepto %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha, 'Fecha (*)' %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+  </div>
+<% end %>
