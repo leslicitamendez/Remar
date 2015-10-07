@@ -4,4 +4,12 @@ class Egreso < ActiveRecord::Base
 	validates :concepto, length: { maximum: 30, :message => "No debe tener mas de 30 caracteres"}
 
 	validates :monto, presence: {:message => "- Es un campo obligatorio"}
+
+	def self.search(search)
+		if search
+			where('concepto LIKE ?', "%#{search}%")
+		else
+			scoped
+		end
+	end
 end

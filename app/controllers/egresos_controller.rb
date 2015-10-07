@@ -4,7 +4,10 @@ class EgresosController < ApplicationController
   # GET /egresos
   # GET /egresos.json
   def index
-    @egresos = Egreso.all
+    #@egresos = Egreso.all
+    @palabra = ''
+    @palabra = params[:palabra]
+    @egresos = Egreso.where("concepto LIKE ?", "%#{@palabra}%")
   end
 
   # GET /egresos/1

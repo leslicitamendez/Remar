@@ -1,5 +1,12 @@
 <h1>Lista de Egresos</h1>
 
+  <div align="right">
+    <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
+      Buscar Egreso: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Egreso", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div>
+
 <table class="table table-striped">
   <thead>
     <tr>

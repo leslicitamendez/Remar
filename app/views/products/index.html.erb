@@ -12,6 +12,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Estado</th>
       <!--th colspan="3"></th-->
       <th></th>
       <th></th>
@@ -22,6 +23,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= product.state %></td>
         <td><%= link_to 'Ver', product, :class => 'btn btn-mini btn-info active' %></td>
         <td><%= link_to 'Editar', edit_product_path(product), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>

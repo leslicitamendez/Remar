@@ -4,7 +4,12 @@ class ProduccionsController < ApplicationController
   # GET /produccions
   # GET /produccions.json
   def index
-    @produccions = Produccion.all
+    #@produccions = Produccion.all
+    @palabra = ''
+    @palabra = params[:palabra]
+    #@producto = Product.find(:product_id)
+    #@produccion.producto = @producto
+    @produccions = Produccion.where("product_id LIKE ?", "%#{@palabra}%")
   end
 
   # GET /produccions/1

@@ -23,10 +23,6 @@
     <%= f.label :description, 'Descripcion' %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :state, 'Estado' %><br>
-    <%= f.select :state, ['Activo', 'Inactivo'] %>
-  </div>
   <br><br>
   <div class="actions">
     <%= f.submit (@product.new_record? ? 'Registrar Producto' : 'Editar Producto') , :class => "btn btn-mini btn-success" %>
