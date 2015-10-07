@@ -5,6 +5,9 @@ class ConyuguesController < ApplicationController
   # GET /conyugues.json
   def index
     @conyugues = Conyugue.all
+    if(params["palabra"]!=nil)
+        @conyugues=Conyugue.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+    end
   end
 
   # GET /conyugues/1
@@ -30,7 +33,7 @@ class ConyuguesController < ApplicationController
 
     respond_to do |format|
       if @conyugue.save
-        format.html { redirect_to @conyugue, notice: 'Conyugue was successfully created.' }
+        format.html { redirect_to @conyugue, notice: 'Conyugue se creo satisfactoriamente.' }
         format.json { render :show, status: :created, location: @conyugue }
       else
         format.html { render :new }
@@ -44,7 +47,7 @@ class ConyuguesController < ApplicationController
   def update
     respond_to do |format|
       if @conyugue.update(conyugue_params)
-        format.html { redirect_to @conyugue, notice: 'Conyugue was successfully updated.' }
+        format.html { redirect_to @conyugue, notice: 'Conyugue se actualizo satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @conyugue }
       else
         format.html { render :edit }

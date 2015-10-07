@@ -19,7 +19,7 @@
     <%= f.check_box :estado %>
   </div>
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
@@ -40,7 +40,8 @@
   </div>
   <div class="field">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
-    <%= f.date_select :fechaNacimiento %>
+    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+   
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
@@ -51,6 +52,6 @@
     <%= f.text_area :direccion %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>

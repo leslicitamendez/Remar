@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20151007055938) do
     t.datetime "updated_at"
   end
 
+  create_table "conducta", force: true do |t|
+    t.boolean  "estado"
+    t.date     "fecha"
+    t.text     "descripcion"
+    t.string   "tipoConducta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
+
   create_table "conyugues", force: true do |t|
     t.boolean  "estado",          limit: 255
     t.string   "nombre"
@@ -79,6 +89,20 @@ ActiveRecord::Schema.define(version: 20151007055938) do
   end
 
   add_index "gasto_internos", ["interno_id"], name: "index_gasto_internos_on_interno_id"
+
+  create_table "hijos", force: true do |t|
+    t.boolean  "estado"
+    t.string   "sexo"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.integer  "ci"
+    t.date     "fechaNacimiento"
+    t.string   "lugarNacimiento"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
 
   create_table "historia_clinicas", force: true do |t|
     t.text     "enfermedades"

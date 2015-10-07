@@ -5,6 +5,9 @@ class InternosController < ApplicationController
   # GET /internos.json
   def index
     @internos = Interno.all
+    if(params["palabra"]!=nil)
+        @internos=Interno.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+    end
   end
 
   # GET /internos/1
@@ -12,6 +15,9 @@ class InternosController < ApplicationController
   def show
     @interno=Interno.find(params[:id])
     @conyugue=@interno.conyugue
+
+
+    
   end
 
   # GET /internos/new
