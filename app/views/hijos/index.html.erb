@@ -1,0 +1,41 @@
+<h1>Lista de hijos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Sexo</th>
+      <th>Nombre</th>
+      <th>Apellido1</th>
+      <th>Apellido2</th>
+      <th>Ci</th>
+      <th>Fechanacimiento</th>
+      <th>Lugarnacimiento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hijos.each do |hijo| %>
+      <tr>
+        <td><%= hijo.estado %></td>
+        <td><%= hijo.sexo %></td>
+        <td><%= hijo.nombre %></td>
+        <td><%= hijo.apellido1 %></td>
+        <td><%= hijo.apellido2 %></td>
+        <td><%= hijo.ci %></td>
+        <td><%= hijo.fechaNacimiento.strftime("%d, %B, %Y") %></td>
+        <td><%= hijo.lugarNacimiento %></td>
+        <td><%= link_to 'Ver Hijo', hijo, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Hijo', edit_hijo_path(hijo),  :class => 'btn btn-mini btn-warning active'  %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Registrar Hijo', new_hijo_path, :class => 'btn btn-mini btn-success active' %>
+<br>
+
+

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-10-06
+  hora: 2015-10-06 22:04:35
+  cantidad: 1
+  estado: false
+  product_id: 
+  voluntario_id: 
+
+two:
+  fecha: 2015-10-06
+  hora: 2015-10-06 22:04:35
+  cantidad: 1
+  estado: false
+  product_id: 
+  voluntario_id: 

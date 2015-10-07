@@ -1,134 +1,206 @@
 <p id="notice"><%= notice %></p>
+<h2>VER INTERNO</h2>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @interno.nombre %>
-</p>
 
-<p>
-  <strong>Apellido1:</strong>
-  <%= @interno.apellido1 %>
-</p>
+<table>
+  <tr>
+    <td>
 
-<p>
-  <strong>Apellido2:</strong>
-  <%= @interno.apellido2 %>
-</p>
+      <h4>Datos de Interno</h4>
+      
+      <p>
+        <strong>Nombre:</strong>
+        <%= @interno.nombre %>
+      </p>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @interno.sexo %>
-</p>
+      <p>
+        <strong>Apellido Paterno:</strong>
+        <%= @interno.apellido1 %>
+      </p>
 
-<p>
-  <strong>Ci:</strong>
-  <%= @interno.ci %>
-</p>
+      <p>
+        <strong>Apellido Materno:</strong>
+        <%= @interno.apellido2 %>
+      </p>
 
-<p>
-  <strong>Estadocivil:</strong>
-  <%= @interno.estadoCivil %>
-</p>
+      <p>
+        <strong>Sexo:</strong>
+        <%= @interno.sexo %>
+      </p>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @interno.direccion %>
-</p>
+      <p>
+        <strong>CI:</strong>
+        <%= @interno.ci %>
+      </p>
 
-<p>
-  <strong>Zona:</strong>
-  <%= @interno.zona %>
-</p>
+      <p>
+        <strong>Estado Civil:</strong>
+        <%= @interno.estadoCivil %>
+      </p>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @interno.telefono %>
-</p>
+      <p>
+        <strong>Direccion:</strong>
+        <%= @interno.direccion %>
+      </p>
 
-<p>
-  <strong>Fechanacimiento:</strong>
-  <%= @interno.fechaNacimiento %>
-</p>
+      <p>
+        <strong>Zona:</strong>
+        <%= @interno.zona %>
+      </p>
 
-<p>
-  <strong>Lugarnacimiento:</strong>
-  <%= @interno.lugarNacimiento %>
-</p>
+      <p>
+        <strong>Telefono:</strong>
+        <%= @interno.telefono %>
+      </p>
 
-<p>
-  <strong>Estudios:</strong>
-  <%= @interno.estudios %>
-</p>
+      <p>
+        <strong>Fecha de Nacimiento:</strong>
+        <%= @interno.fechaNacimiento %>
+      </p>
 
-<p>
-  <strong>Profesion:</strong>
-  <%= @interno.profesion %>
-</p>
+      <p>
+        <strong>Lugar de Nacimiento:</strong>
+        <%= @interno.lugarNacimiento %>
+      </p>
 
-<p>
-  <strong>Oficio:</strong>
-  <%= @interno.oficio %>
-</p>
+      <p>
+        <strong>Estudios:</strong>
+        <%= @interno.estudios %>
+      </p>
 
-<p>
-  <strong>Fechaingreso:</strong>
-  <%= @interno.fechaIngreso %>
-</p>
+      <p>
+        <strong>Profesion:</strong>
+        <%= @interno.profesion %>
+      </p>
 
-<%= link_to 'Edit', edit_interno_path(@interno) %> |
-<%= link_to 'Back', internos_path %>
+      <p>
+        <strong>Oficio:</strong>
+        <%= @interno.oficio %>
+      </p>
+
+      <p>
+        <strong>Fecha de Ingreso:</strong>
+        <%= @interno.fechaIngreso %>
+      </p>
+    </td>
+
+    <td width="200px">
+
+    </td>
+    
+    <td>
+      <% if @conyugue != nil %>
+
+         <h4>Datos de Conyugue</h4>
+           <p>
+            <strong>Estado:</strong>
+            <%= @conyugue.estado %>
+          </p>
+
+          <p>
+            <strong>Nombre:</strong>
+            <%= @conyugue.nombre %>
+          </p>
+
+          <p>
+            <strong>Apellido Paterno:</strong>
+            <%= @conyugue.apellido1 %>
+          </p>
+
+          <p>
+            <strong>Apellido Materno:</strong>
+            <%= @conyugue.apellido2 %>
+          </p>
+
+          <p>
+            <strong>CI:</strong>
+            <%= @conyugue.ci %>
+          </p>
+
+          <p>
+            <strong>Lugar de Nacimiento:</strong>
+            <%= @conyugue.lugarNacimiento %>
+          </p>
+
+          <p>
+            <strong>Fecha de Nacimiento:</strong>
+            <%= @conyugue.fechaNacimiento %>
+          </p>
+
+          <p>
+            <strong>Telefono:</strong>
+            <%= @conyugue.telefono %>
+          </p>
+
+          <p>
+            <strong>Direccion:</strong>
+            <%= @conyugue.direccion %>
+          </p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        <% end %>
+      </td>
+    </tr>
+</table>
+
+
+    
+
+<br>
 
 <% if @conyugue== nil %>
-<%= link_to 'Agregar conyugue', pareja_path(@interno.id) %>
+  <%= link_to 'Agregar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  &nbsp &nbsp &nbsp
 <% end %>
 
-<br><br>
-<% if @conyugue != nil %>
-     <p>
-      <strong>Estado:</strong>
-      <%= @conyugue.estado %>
-    </p>
 
-    <p>
-      <strong>Nombre:</strong>
-      <%= @conyugue.nombre %>
-    </p>
-
-    <p>
-      <strong>Apellido1:</strong>
-      <%= @conyugue.apellido1 %>
-    </p>
-
-    <p>
-      <strong>Apellido2:</strong>
-      <%= @conyugue.apellido2 %>
-    </p>
-
-    <p>
-      <strong>Ci:</strong>
-      <%= @conyugue.ci %>
-    </p>
-
-    <p>
-      <strong>Lugarnacimiento:</strong>
-      <%= @conyugue.lugarNacimiento %>
-    </p>
-
-    <p>
-      <strong>Fechanacimiento:</strong>
-      <%= @conyugue.fechaNacimiento %>
-    </p>
-
-    <p>
-      <strong>Telefono:</strong>
-      <%= @conyugue.telefono %>
-    </p>
-
-    <p>
-      <strong>Direccion:</strong>
-      <%= @conyugue.direccion %>
-    </p>
-
-    <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id) %>
+<% if @conyugue != nil %> 
+    <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id), :class => 'btn btn-mini btn-warning active'    %>
+    &nbsp &nbsp &nbsp
 <% end %>
+
+<% if @hijo== nil %>
+  <%= link_to 'Registrar Hijo', fis_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  <br><br>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= link_to 'Atras', internos_path, :class => 'btn btn-mini btn-default'  %>
 

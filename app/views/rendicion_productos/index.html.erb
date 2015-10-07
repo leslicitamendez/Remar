@@ -1,0 +1,30 @@
+<h1>Lista rendicion de productos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Cantidad</th>
+      <th>Product</th>
+      <th>Voluntario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rendicion_productos.each do |rendicion_producto| %>
+      <tr>
+        <td><%= rendicion_producto.fecha %></td>
+        <td><%= rendicion_producto.cantidad %></td>
+        <td><%= rendicion_producto.Product %></td>
+        <td><%= rendicion_producto.Voluntario %></td>
+        <td><%= link_to 'Mostrar', rendicion_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_rendicion_producto_path(rendicion_producto), :class => 'btn btn-mini btn-warning active' %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Rendicion producto', new_rendicion_producto_path ,:class => 'btn btn-mini btn-success active'%>

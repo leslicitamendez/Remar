@@ -1,0 +1,28 @@
+<h1>Lista Ingresos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Montobs</th>
+      <th>Concepto</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingresos.each do |ingreso| %>
+      <tr>
+        <td><%= ingreso.montoBs %></td>
+        <td><%= ingreso.concepto %></td>
+        <td><%= ingreso.fecha %></td>
+        <td><%= link_to 'Mostrar', ingreso, :class => 'btn btn-mini btn-info active'%><%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Destroy', ingreso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrar Ingreso', new_ingreso_path,:class => 'btn btn-mini btn-success active' %>

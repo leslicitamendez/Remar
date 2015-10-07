@@ -11,67 +11,142 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre, 'Nombre (*)' %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
-    <%= f.text_field :apellido1 %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido2, 'Apellido Materno (*)' %><br>
-    <%= f.text_field :apellido2 %>
-  </div>
-  <div class="field">
-    <%= f.label :sexo, 'Sexo (*)' %><br>
-    <%= f.select :sexo, ['Masculino', 'Femenino'] %>
-  </div>
-  <div class="field">
-    <%= f.label :ci, 'C.I. (*)' %><br>
-    <%= f.number_field :ci %>
-  </div>
-  <div class="field">
-    <%= f.label :estadoCivil, 'Estado Civil (*)' %><br>
-    <%= f.select :estadoCivil, ['Soltero', 'Casado', 'Viudo', 'Divorciado'] %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion, 'Direccion (*)' %><br>
-    <%= f.text_area :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :zona %><br>
-    <%= f.text_field :zona %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
-    <%= f.date_select :fechaNacimiento, { :start_year => 1940 } %>
-  </div>
-  <div class="field">
-    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
-    <%= f.text_field :lugarNacimiento %>
-  </div>
-  <div class="field">
-    <%= f.label :estudios %><br>
-    <%= f.text_field :estudios %>
-  </div>
-  <div class="field">
-    <%= f.label :profesion %><br>
-    <%= f.text_field :profesion %>
-  </div>
-  <div class="field">
-    <%= f.label :oficio %><br>
-    <%= f.text_field :oficio %>
-  </div>
-  <div class="field">
-    <%= f.label :fechaIngreso, 'Fecha de Ingreso (*)' %><br>
-    <%= f.date_select :fechaIngreso %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        
+
+
+
+  <table width="100%" >
+    <tr height= "80 px">
+      <td >
+
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field" >
+          <%= f.label :fechaIngreso, 'Fecha de Ingreso (*)' %><br>
+          <%= f.date_select :fechaIngreso,  {:start_year => Time.now.year, :end_year => 2000} %>
+        </div>
+      </td>
+
+      <td>
+      </td>
+    </tr>
+
+
+    <tr height= "60 px">
+      <td width="33%" align="center" >
+        <div class="field">
+          <%= f.label :nombre, 'Nombre (*)' %><br>
+          <%= f.text_field :nombre %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
+          <%= f.text_field :apellido1 %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :apellido2, 'Apellido Materno (*)' %><br>
+          <%= f.text_field :apellido2 %>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr height= "80 px">
+      <td width="33%" align="center">  
+        <div class="field">
+          <%= f.label :sexo, 'Sexo (*)' %><br>
+          <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :ci, 'C.I. (*)' %><br>
+          <%= f.number_field :ci %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :estadoCivil, 'Estado Civil (*)' %><br>
+          <%= f.select :estadoCivil, ['','Soltero', 'Casado', 'Viudo', 'Divorciado'] %>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr height= "80 px">
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :direccion, 'Direccion (*)' %><br>
+          <%= f.text_area :direccion %>
+        </div>
+      </td>
+      
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :zona %><br>
+          <%= f.text_field :zona %>
+        </div>
+      </td>
+      
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :telefono %><br>
+          <%= f.number_field :telefono %>
+        </div>
+      </td>
+    </tr>
+
+    <tr height= "80 px">
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
+          <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
+          <%= f.text_field :lugarNacimiento %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :estudios %><br>
+          <%= f.text_field :estudios %>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr height= "80 px">
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :profesion %><br>
+          <%= f.text_field :profesion %>
+        </div>
+      </td>
+
+      <td width="33%" align="center">
+        <div class="field">
+          <%= f.label :oficio %><br>
+          <%= f.text_field :oficio %>
+        </div>
+      </td>
+    </tr>
+
+
+  </table>
+     <div class="actions">
+          <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-mini btn-success" %>
+        </div>
 <% end %>

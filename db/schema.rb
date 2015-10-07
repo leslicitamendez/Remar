@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930213323) do
+ActiveRecord::Schema.define(version: 20151007055938) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -30,8 +30,18 @@ ActiveRecord::Schema.define(version: 20150930213323) do
     t.datetime "updated_at"
   end
 
+  create_table "conducta", force: true do |t|
+    t.boolean  "estado"
+    t.date     "fecha"
+    t.text     "descripcion"
+    t.string   "tipoConducta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
+
   create_table "conyugues", force: true do |t|
-    t.string   "estado"
+    t.boolean  "estado",          limit: 255
     t.string   "nombre"
     t.string   "apellido1"
     t.string   "apellido2"
@@ -54,6 +64,20 @@ ActiveRecord::Schema.define(version: 20150930213323) do
     t.string   "concepto"
   end
 
+  create_table "entrega_productos", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.boolean  "estado"
+    t.integer  "product_id"
+    t.integer  "voluntario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entrega_productos", ["product_id"], name: "index_entrega_productos_on_product_id"
+  add_index "entrega_productos", ["voluntario_id"], name: "index_entrega_productos_on_voluntario_id"
+
   create_table "gasto_internos", force: true do |t|
     t.date     "fecha"
     t.string   "concepto"
@@ -66,6 +90,20 @@ ActiveRecord::Schema.define(version: 20150930213323) do
 
   add_index "gasto_internos", ["interno_id"], name: "index_gasto_internos_on_interno_id"
 
+  create_table "hijos", force: true do |t|
+    t.boolean  "estado"
+    t.string   "sexo"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.integer  "ci"
+    t.date     "fechaNacimiento"
+    t.string   "lugarNacimiento"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
+
   create_table "historia_clinicas", force: true do |t|
     t.text     "enfermedades"
     t.text     "causa_internacion"
@@ -77,6 +115,20 @@ ActiveRecord::Schema.define(version: 20150930213323) do
   end
 
   add_index "historia_clinicas", ["interno_id"], name: "index_historia_clinicas_on_interno_id"
+
+  create_table "ingresos", force: true do |t|
+    t.float    "montoBs"
+    t.string   "concepto"
+    t.date     "fecha"
+    t.boolean  "estado"
+    t.integer  "venta_id"
+    t.integer  "recepcionDonativo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingresos", ["recepcionDonativo_id"], name: "index_ingresos_on_recepcionDonativo_id"
+  add_index "ingresos", ["venta_id"], name: "index_ingresos_on_venta_id"
 
   create_table "internos", force: true do |t|
     t.string   "nombre"
@@ -128,7 +180,37 @@ ActiveRecord::Schema.define(version: 20150930213323) do
     t.string   "id_voluntario"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "voluntario_id"
   end
+
+  create_table "rendicion_productos", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.text     "observaciones"
+    t.boolean  "estado"
+    t.integer  "Product_id"
+    t.integer  "Voluntario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rendicion_productos", ["Product_id"], name: "index_rendicion_productos_on_Product_id"
+  add_index "rendicion_productos", ["Voluntario_id"], name: "index_rendicion_productos_on_Voluntario_id"
+
+  create_table "venta", force: true do |t|
+    t.integer  "cantidad"
+    t.date     "feche"
+    t.float    "precioUnidad"
+    t.boolean  "estado"
+    t.integer  "entregaProducto_id"
+    t.integer  "rendicionProducto_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venta", ["entregaProducto_id"], name: "index_venta_on_entregaProducto_id"
+  add_index "venta", ["rendicionProducto_id"], name: "index_venta_on_rendicionProducto_id"
 
   create_table "voluntarios", force: true do |t|
     t.string   "nombre"

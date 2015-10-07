@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: false
+  fecha: 2015-10-05
+  descripcion: MyText
+  tipoConducta: MyString
+
+two:
+  estado: false
+  fecha: 2015-10-05
+  descripcion: MyText
+  tipoConducta: MyString

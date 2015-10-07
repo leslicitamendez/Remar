@@ -1,0 +1,37 @@
+<%= form_for(@ventum) do |f| %>
+  <% if @ventum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ventum.errors.count, "error") %> prohibited this ventum from being saved:</h2>
+
+      <ul>
+      <% @ventum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cantidad,'Cantidad (*)' %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha, 'Fecha (*)' %><br>
+    <%= f.date_select :feche %>
+  </div>
+  <div class="field">
+    <%= f.label :precioUnidad, 'Precio unidad (*)' %><br>
+    <%= f.text_field :precioUnidad %>
+  </div>
+  <div class="field">
+    <%= f.label :entregaProducto_id %><br>
+    <%= f.collection_select(:entregaProducto_id, EntregaProducto.all, :id, :id) %>
+  </div>
+  <div class="field">
+    <%= f.label :rendicionProducto_id %><br>
+    <%= f.collection_select(:rendicionProducto_id, RendicionProducto.all, :id, :id) %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 class Voluntario < ActiveRecord::Base
 
+	has_many :recepcion_donativos
+
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	validates :ci, uniqueness: { :message => "- El carnet ya existe"}
 	validates :ci, format: { with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}
@@ -19,5 +21,11 @@ class Voluntario < ActiveRecord::Base
 
 	validates :NivelConfianza, :numericality => {:greater_than_or_equal_to => 0, :message => "- nivel de confianza entre 0-100"}
 	validates :NivelConfianza, :numericality => {:less_than_or_equal_to => 100, :message => "- nivel de confianza entre 0-100"}
+
+	before_save :default_values
+
+	def default_values
+    self.estado ||= 'true'
+  end
 
 end

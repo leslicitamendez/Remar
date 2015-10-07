@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-10-05
+  hora: 2015-10-05 11:44:04
+  cantidad: 1
+  observaciones: MyText
+  estado: false
+  Product_id: 
+  Voluntario_id: 
+
+two:
+  fecha: 2015-10-05
+  hora: 2015-10-05 11:44:04
+  cantidad: 1
+  observaciones: MyText
+  estado: false
+  Product_id: 
+  Voluntario_id: 

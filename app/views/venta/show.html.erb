@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @ventum.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ventum.feche %>
+</p>
+
+<p>
+  <strong>Preciounidad:</strong>
+  <%= @ventum.precioUnidad %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @ventum.estado %>
+</p>
+
+<p>
+  <strong>Entregaproducto:</strong>
+  <%= @ventum.entregaProducto %>
+</p>
+
+<p>
+  <strong>Rendicionproducto:</strong>
+  <%= @ventum.rendicionProducto %>
+</p>
+
+<%= link_to 'Editar', edit_ventum_path(@ventum), :class => 'btn btn-mini btn-default' %> |
+<%= link_to 'Atras', venta_path,:class => 'btn btn-mini btn-default' %>

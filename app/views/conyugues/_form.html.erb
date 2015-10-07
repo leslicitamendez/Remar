@@ -14,32 +14,37 @@
 
   <input type="hidden" name="interno_id" value="<%= @id %>" >
   <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
+    <%= f.label :estado, 'c.i. del interno' %><br>
+    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
   </div>
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :apellido1 %><br>
+    <%= f.label :apellido1, 'Apellido Paterno' %>   <br>
     <%= f.text_field :apellido1 %>
   </div>
   <div class="field">
-    <%= f.label :apellido2 %><br>
+     <%= f.label :apellido1, 'Apellido Materno' %><br>
     <%= f.text_field :apellido2 %>
   </div>
   <div class="field">
-    <%= f.label :ci %><br>
+    <%= f.label :ci, 'CI' %><br>
     <%= f.text_field :ci %>
   </div>
   <div class="field">
-    <%= f.label :lugarNacimiento %><br>
+    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento' %><br>
     <%= f.text_field :lugarNacimiento %>
   </div>
   <div class="field">
-    <%= f.label :fechaNacimiento %><br>
-    <%= f.date_select :fechaNacimiento %>
+    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
+    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+   
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
@@ -50,6 +55,6 @@
     <%= f.text_area :direccion %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>
