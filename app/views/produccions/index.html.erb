@@ -1,5 +1,12 @@
 <h1>Lista de Producciones</h1>
 
+  <div align="right">
+    <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
+      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Código de producto", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div>
+
 <table class="table table-striped">
   <thead>
     <tr>

@@ -12,6 +12,15 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   # GET /products/1.json
+
+  def activo
+    @product.activo
+      respond_to do |format|
+      format.html { redirect_to products_url }
+      format.json { head :no_content }
+    end
+  end
+
   def show
     #@product = Product.find_by_id(params[:id])
   end
@@ -23,13 +32,16 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    #@product = Product.find_by_id(params[:id])
+    @product = Product.find(params[:id])
+    @product.state = 'Inactivo'
+    @product.save
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.state = 'Activo'
 
     if @product.save
       flash[:success] = 'Producto creado exitosamente'

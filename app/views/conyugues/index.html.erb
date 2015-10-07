@@ -69,7 +69,7 @@ $('#the-basics .typeahead').typeahead({
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Nombre De Interno</th>
+      <th>CI De Interno</th>
       <th>Estado</th>
       <th>Nombre</th>
       <th>Apellido Paterno</th>
@@ -82,7 +82,7 @@ $('#the-basics .typeahead').typeahead({
   <tbody>
     <% @conyugues.each do |conyugue| %>
       <tr>
-        <td><%= conyugue.interno.nombre+" "+conyugue.interno.apellido1+" "+conyugue.interno.apellido2   %></td>
+        <td></td>
         <td><%= conyugue.estado %></td>
         <td><%= conyugue.nombre %></td>
         <td><%= conyugue.apellido1 %></td>
@@ -96,5 +96,6 @@ $('#the-basics .typeahead').typeahead({
 
 <br>
 
+<%= link_to 'Registrar Producto', new_conyugue_path, :class => 'btn btn-mini btn-success active' %>
 
 <h4><%= link_to 'Atras', welcome_index_path, :class => 'btn btn-mini btn-default'  %></h4>
