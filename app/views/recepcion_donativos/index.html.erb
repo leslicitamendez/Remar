@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Fecha</th>
       <th>Nombre Donante</th>
       <th colspan="3"></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @recepcion_donativos.each do |recepcion_donativo| %>
       <tr>
+        <td><%= recepcion_donativo.id %></td>
         <td><%= recepcion_donativo.fecha %></td>
         <td><%= recepcion_donativo.nombreDonante %></td>
         <td><%= link_to 'Mostrar', recepcion_donativo, :class => 'btn btn-mini btn-info active' %> <%= link_to 'Editar', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>

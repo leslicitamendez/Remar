@@ -5,7 +5,11 @@ class VoluntariosController < ApplicationController
   # GET /voluntarios.json
   def index
     @voluntarios = Voluntario.all
+    if(params["palabra"]!=nil)
+        @voluntarios=Voluntario.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+    end
   end
+
 
   # GET /voluntarios/1
   # GET /voluntarios/1.json

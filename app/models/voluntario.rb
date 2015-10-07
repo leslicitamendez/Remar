@@ -10,8 +10,8 @@ class Voluntario < ActiveRecord::Base
 	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
 	validates :apellido1, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
-
-	validates :apellido2, presence: {:message => "- El apellido Materno es un campo obligatorio"}
+	
+	validates :apellido2, presence: {:message => "- El apellido Paterno es un campo obligatorio"}
 	validates :apellido2, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
@@ -22,10 +22,7 @@ class Voluntario < ActiveRecord::Base
 	validates :NivelConfianza, :numericality => {:greater_than_or_equal_to => 0, :message => "- nivel de confianza entre 0-100"}
 	validates :NivelConfianza, :numericality => {:less_than_or_equal_to => 100, :message => "- nivel de confianza entre 0-100"}
 
-	before_save :default_values
-
-	def default_values
-    self.estado ||= 'true'
-  end
+	
+  
 
 end
