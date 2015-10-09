@@ -5,6 +5,9 @@ class VentaController < ApplicationController
   # GET /venta.json
   def index
     @venta = Ventum.all
+    if(params["palabra"]!=nil)
+        @voluntarios=Ventum.where("feche=?  OR precioUnidad=? OR cantidad =?", params["palabra"] , params["palabra"] , params["palabra"])    
+    end
   end
 
   # GET /venta/1

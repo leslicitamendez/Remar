@@ -22,12 +22,12 @@
 
 <p>
   <strong>Entregaproducto:</strong>
-  <%= @ventum.entregaProducto %>
+  <%= @ventum.try(:id) %>
 </p>
 
 <p>
   <strong>Rendicionproducto:</strong>
-  <%= @ventum.rendicionProducto %>
+  <%= @ventum.try(:id) %>
 </p>
 
 <%= link_to 'Editar', edit_ventum_path(@ventum), :class => 'btn btn-mini btn-default' %> |

@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre,'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :apellido1 %><br>
+    <%= f.label :apellido1, 'Apellido 1 (*)' %><br>
     <%= f.text_field :apellido1 %>
   </div>
   <div class="field">
@@ -28,7 +28,7 @@
     <%= f.text_field :direccion %>
   </div>
   <div class="field">
-    <%= f.label :NivelConfianza %><br>
+    <%= f.label :NivelConfianza, 'Nivel de Confianza (*)' %><br>
     <%= f.number_field :NivelConfianza %>
   </div>
   <div class="field">
@@ -36,7 +36,7 @@
     <%= f.number_field :telefono %>
   </div>
   <div class="field">
-    <%= f.label :ci %><br>
+    <%= f.label :ci ,'Ci (*)' %><br>
     <%= f.text_field :ci %>
   </div>
   <div class="actions">

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Id:</strong>
+  <%= @entrega_producto.id %>
+</p>
+
+<p>
   <strong>Fecha:</strong>
   <%= @entrega_producto.fecha %>
 </p>
@@ -22,12 +27,12 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @entrega_producto.product %>
+  <%= @entrega_producto.try(:id) %>
 </p>
 
 <p>
   <strong>Voluntario:</strong>
-  <%= @entrega_producto.voluntario %>
+  <%= @entrega_producto.try(:id) %>
 </p>
 
 <%= link_to 'Editar', edit_entrega_producto_path(@entrega_producto), :class => 'btn btn-mini btn-default'%> |

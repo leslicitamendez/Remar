@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Fecha</th>
       <th>Cantidad</th>
       <th>Product</th>
@@ -14,10 +15,11 @@
   <tbody>
     <% @rendicion_productos.each do |rendicion_producto| %>
       <tr>
+        <td><%= rendicion_producto.id %></td>
         <td><%= rendicion_producto.fecha %></td>
         <td><%= rendicion_producto.cantidad %></td>
-        <td><%= rendicion_producto.Product %></td>
-        <td><%= rendicion_producto.Voluntario %></td>
+        <td><%= rendicion_producto.try(:id) %></td>
+        <td><%= rendicion_producto.try(:id) %></td>
         <td><%= link_to 'Mostrar', rendicion_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_rendicion_producto_path(rendicion_producto), :class => 'btn btn-mini btn-warning active' %></td>
         
       </tr>
