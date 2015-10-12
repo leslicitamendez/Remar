@@ -6,8 +6,9 @@ class InternosController < ApplicationController
   def index
     @internos = Interno.all
     if(params["palabra"]!=nil)
-        @internos=Interno.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+        @internos=Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params["palabra"])    
     end
+
   end
 
   # GET /internos/1
@@ -15,6 +16,8 @@ class InternosController < ApplicationController
   def show
     @interno=Interno.find(params[:id])
     @conyugue=@interno.conyugue
+
+    @hijos=@interno.hijos
 
 
     

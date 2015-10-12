@@ -5,7 +5,10 @@ class Interno < ActiveRecord::Base
 	has_one :referencia
 	has_many :hijos
 
+def full_name
+  "#{self.nombre} #{self.apellido1} #{self.apellido2}"
 
+end
 
 
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
@@ -46,5 +49,7 @@ class Interno < ActiveRecord::Base
 	validates :estudios, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
 
 	validates :lugarNacimiento, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+
+
 
 end
