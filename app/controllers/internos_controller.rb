@@ -18,6 +18,7 @@ class InternosController < ApplicationController
     @conyugue=@interno.conyugue
 
     @hijos=@interno.hijos
+    @conducta=@interno.conducta
     
 
 

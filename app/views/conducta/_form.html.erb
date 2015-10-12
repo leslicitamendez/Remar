@@ -19,6 +19,10 @@
     <%= f.check_box :estado %>
   </div>
   <div class="field">
+    <%= f.label :tipoConducta, 'Tipo de Conducta (*)' %><br>
+    <%= f.select :tipoConducta, ['','Agresion', 'Robo', 'Indiciplina'] %>
+  </div>
+  <div class="field">
     <%= f.label :fecha %><br>
     <%= f.date_select :fecha %>
   </div>
@@ -26,11 +30,7 @@
     <%= f.label :descripcion, 'Descripcion (*)' %><br>
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
-    <%= f.label :tipoConducta, 'Tipo de Conducta (*)' %><br>
-    <%= f.select :tipoConducta, ['','Agresion', 'Robo', 'Indiciplina'] %>
-    
-  </div>
+  
   <div class="actions">
     <%= f.submit (@conductum.new_record? ? 'Registrar Conducta' : 'Guardar Conducta') , :class => "btn btn-mini btn-success" %>
   </div>

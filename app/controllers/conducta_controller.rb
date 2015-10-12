@@ -26,6 +26,7 @@ class ConductaController < ApplicationController
   # POST /conducta.json
   def create
     @conductum = Conductum.new(conductum_params)
+    @conductum.interno_id=params[:interno_id]
 
     respond_to do |format|
       if @conductum.save

@@ -3,7 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      
+      <th>Interno_id</th>
       <th>Estado</th>
       <th>Fecha</th>
       <th>Descripcion</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @conducta.each do |conductum| %>
       <tr>
-       
+        <td><%= conductum.interno_id %></td>
         <td><%= conductum.estado %></td>
         <td><%= conductum.fecha %></td>
         <td><%= conductum.descripcion %></td>
