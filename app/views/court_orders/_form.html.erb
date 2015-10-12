@@ -1,0 +1,28 @@
+<%= form_for(@court_order) do |f| %>
+  <% if @court_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@court_order.errors.count, "error") %> prohibited this court_order from being saved:</h2>
+
+      <ul>
+      <% @court_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<input type="hidden" name="interno_id" value="<%= @id %>" >
+
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.check_box :estado %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit  (@courtOrder.new_record? ? 'Registrar Orden Judicial' : 'Guardar Orden Judicial') , :class => "btn btn-mini btn-success" %>
+  </div>
+<% end %>

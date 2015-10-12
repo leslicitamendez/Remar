@@ -69,7 +69,7 @@ $('#the-basics .typeahead').typeahead({
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>CI De Interno</th>
+  
       <th>Estado</th>
       <th>Nombre</th>
       <th>Apellido Paterno</th>
@@ -82,14 +82,14 @@ $('#the-basics .typeahead').typeahead({
   <tbody>
     <% @conyugues.each do |conyugue| %>
       <tr>
-        <td><%= conyugue.interno_id %></td>
+        
         <td><%= conyugue.estado %></td>
         <td><%= conyugue.nombre %></td>
         <td><%= conyugue.apellido1 %></td>
         <td><%= conyugue.apellido2 %></td>
         <td><%= link_to 'Ver Conyugue', conyugue, :class => 'btn btn-mini btn-info active'  %></td>
         <td><%= link_to 'Editar Conyugue', edit_conyugue_path(conyugue),  :class => 'btn btn-mini btn-warning active'  %></td>
-        <td><%= link_to 'Destroy', conyugue, method: :delete, data: { confirm: 'Esta usted seguro?' } %></td>
+        <td><%= link_to 'Borrar Conyugue', conyugue, :class => 'btn btn-mini btn-success active', method: :delete, data: { confirm: 'Esta usted seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -97,6 +97,6 @@ $('#the-basics .typeahead').typeahead({
 
 <br>
 
-<%= link_to 'Registrar Producto', new_conyugue_path, :class => 'btn btn-mini btn-success active' %>
+<% link_to 'Registrar Conyugue', new_conyugue_path, :class => 'btn btn-mini btn-success active' %>
 
-<h4><%= link_to 'Atras', welcome_index_path, :class => 'btn btn-mini btn-default'  %></h4>
+<h4><%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %></h4>

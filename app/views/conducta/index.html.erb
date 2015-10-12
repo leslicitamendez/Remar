@@ -1,8 +1,9 @@
-<h1>Listing conducta</h1>
+<h1>Lista de conductas</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
+      
       <th>Estado</th>
       <th>Fecha</th>
       <th>Descripcion</th>
@@ -14,13 +15,14 @@
   <tbody>
     <% @conducta.each do |conductum| %>
       <tr>
+       
         <td><%= conductum.estado %></td>
         <td><%= conductum.fecha %></td>
         <td><%= conductum.descripcion %></td>
         <td><%= conductum.tipoConducta %></td>
-        <td><%= link_to 'Show', conductum %></td>
-        <td><%= link_to 'Edit', edit_conductum_path(conductum) %></td>
-        <td><%= link_to 'Destroy', conductum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Conducta', conductum, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Conducta', edit_conductum_path(conductum),  :class => 'btn btn-mini btn-warning active'   %></td>
+        <td><% link_to 'Destroy', conductum, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-success active' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Conductum', new_conductum_path %>
+<% link_to 'Registrar Conducta', new_conductum_path %>
+<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %>
