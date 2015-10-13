@@ -1,5 +1,12 @@
 <h1>Lista de Historias Clinicas</h1>
 
+<div align="right">
+    <%= form_tag({:controller => "historia_clinicas", :action => "index"}, :method => :get) do %>
+      Buscar Interno: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Carnet Interno", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
