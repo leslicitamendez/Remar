@@ -151,12 +151,77 @@
 </table>
 
 
-    
+  <br>
+  <h4>Lista de Hijos del Interno</h4>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Sexo</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>CI</th>
+      <th>Fecha de nacimiento</th>
+      <th>Lugar de nacimiento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hijos.each do |hijo| %>
+      <tr>
+        <td><%= hijo.estado %></td>
+        <td><%= hijo.sexo %></td>
+        <td><%= hijo.nombre %></td>
+        <td><%= hijo.apellido1 %></td>
+        <td><%= hijo.apellido2 %></td>
+        <td><%= hijo.ci %></td>
+        <td><%= hijo.fechaNacimiento.strftime("%d, %B, %Y") %></td>
+        <td><%= hijo.lugarNacimiento %></td>
+        <td><%= link_to 'Ver Hijo', hijo, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Hijo', edit_hijo_path(hijo),  :class => 'btn btn-mini btn-warning active'  %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>  
+
+<br> 
+<h4>Lista de Conducta</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Interno_id</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Descripcion</th>
+      <th>Tipoconducta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conducta.each do |conductum| %>
+      <tr>
+        <td><%= conductum.interno_id %></td>
+        <td><%= conductum.estado %></td>
+        <td><%= conductum.fecha %></td>
+        <td><%= conductum.descripcion %></td>
+        <td><%= conductum.tipoConducta %></td>
+        <td><%= link_to 'Ver Conducta', conductum, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Conducta', edit_conductum_path(conductum),  :class => 'btn btn-mini btn-warning active'   %></td>
+        <td><% link_to 'Destroy', conductum, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-success active' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
 <% if @conyugue== nil %>
-  <%= link_to 'Agregar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  <%= link_to 'Registrar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
   &nbsp &nbsp &nbsp
 <% end %>
 
@@ -171,36 +236,17 @@
   <br><br>
 <% end %>
 
+<%= link_to 'Registrar Conducta', memo_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  &nbsp &nbsp &nbsp
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<% if @contact== nil %>
+  <%= link_to 'Registrar Referencia', contacto_path(@interno.id),:class => 'btn btn-mini btn-success active' %>
+  &nbsp &nbsp &nbsp
+<% end %>
 
 
 
 <%= link_to 'Atras', internos_path, :class => 'btn btn-mini btn-default'  %>
+
+
 

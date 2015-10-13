@@ -1,0 +1,40 @@
+<h1>Lista de Referencias</h1>
+
+<table  class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sexo</th>
+      <th>Nombre</th>
+      <th>Apellido1</th>
+      <th>Apellido2</th>
+      <th>Ci</th>
+      <th>Telefono</th>
+      <th>Direccion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+    
+        <td><%= contact.sexo %></td>
+        <td><%= contact.nombre %></td>
+        <td><%= contact.apellido1 %></td>
+        <td><%= contact.apellido2 %></td>
+        <td><%= contact.ci %></td>
+        <td><%= contact.telefono %></td>
+        <td><%= contact.direccion %></td>
+        <td><%= link_to 'Ver Referencia', contact, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Referencia', edit_contact_path(contact), :class => 'btn btn-mini btn-warning active'  %></td>
+        <td><%= link_to 'Borrar Referencia', contact, method: :delete, data: { confirm: 'Esta Usted seguro?' } , :class => 'btn btn-mini btn-success active'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% link_to 'New Contact', new_contact_path %>
+<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+

@@ -7,6 +7,9 @@ class Conyugue < ActiveRecord::Base
   end
 
 
+def full_name
+  "#{self.nombre} #{self.apellido1} #{self.apellido2}"
+end
 
   	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	validates :ci, uniqueness: { :message => "- El carnet ya existe"}

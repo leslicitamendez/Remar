@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
 //= require turbolinks
 //= require bootstrap-typeahead-rails
 //= require_tree .

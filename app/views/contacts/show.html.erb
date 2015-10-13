@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @contact.sexo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @contact.nombre %>
+</p>
+
+<p>
+  <strong>Apellido1:</strong>
+  <%= @contact.apellido1 %>
+</p>
+
+<p>
+  <strong>Apellido2:</strong>
+  <%= @contact.apellido2 %>
+</p>
+
+<p>
+  <strong>Ci:</strong>
+  <%= @contact.ci %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @contact.telefono %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @contact.direccion %>
+</p>
+
+<% link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%>

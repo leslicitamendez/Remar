@@ -36,7 +36,7 @@ var substringMatcher = function(strs) {
   };
 };
 
-<% @prueba=(@internos.map(&:nombre)+@internos.map(&:apellido1)+@internos.map(&:apellido2)).to_json.html_safe %>
+<% @prueba=(@internos.map(&:full_name)).to_json.html_safe %>
 var states = <%= @prueba %>;
 
 $('#the-basics .typeahead').typeahead({
@@ -89,4 +89,11 @@ $('#the-basics .typeahead').typeahead({
 <br><br>
 
 <h4><%= link_to 'Registrar Interno', new_interno_path,:class => 'btn btn-mini btn-success active' %></h4>
-<h4><%= link_to 'Atras', welcome_index_path, :class => 'btn btn-mini btn-default'  %></h4>
+<h4><%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %></h4>
+
+
+
+
+
+
+

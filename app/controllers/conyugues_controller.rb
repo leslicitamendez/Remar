@@ -6,7 +6,7 @@ class ConyuguesController < ApplicationController
   def index
     @conyugues = Conyugue.all
     if(params["palabra"]!=nil)
-        @conyugues=Conyugue.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+        @conyugues=Conyugue.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params["palabra"])    
     end
   end
 

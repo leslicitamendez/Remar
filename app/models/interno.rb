@@ -4,8 +4,13 @@ class Interno < ActiveRecord::Base
 	has_one :conyugue
 	has_one :referencia
 	has_many :hijos
+	has_many :conducta
+	has_many :contacts
 
+def full_name
+  "#{self.nombre} #{self.apellido1} #{self.apellido2}"
 
+end
 
 
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
@@ -14,9 +19,9 @@ class Interno < ActiveRecord::Base
 	validates :ci, length: { maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	validates :ci, length: { minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }
 	
-	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
+	validates :apellido1, presence: {:message => "- El apellido paterno es un campo obligatorio"}
 	validates :apellido1, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
-	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
+	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Paterno" }
 
 	validates :apellido2, presence: {:message => "- El apellido Materno es un campo obligatorio"}
 	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
@@ -39,12 +44,14 @@ class Interno < ActiveRecord::Base
 	validates :telefono, length: { minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }, :allow_blank => true
 	validates :telefono,    :numericality => true, :allow_blank => true
 
-	validates :profesion, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
+	validates :profesion, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo profesion"}, allow_blank: true
 	
-	validates :oficio, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
+	validates :oficio, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo oficio"}, allow_blank: true
 
-	validates :estudios, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}, allow_blank: true
+	validates :estudios, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo Estudios"}, allow_blank: true
 
-	validates :lugarNacimiento, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :lugarNacimiento, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo Lugar de Nacimiento"}
+
+
 
 end

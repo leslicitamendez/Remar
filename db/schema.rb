@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007055938) do
+ActiveRecord::Schema.define(version: 20151012140457) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20151007055938) do
     t.integer  "interno_id"
   end
 
+  create_table "contacts", force: true do |t|
+    t.string   "sexo"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.integer  "ci"
+    t.integer  "telefono"
+    t.text     "direccion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
+
   create_table "conyugues", force: true do |t|
     t.boolean  "estado",          limit: 255
     t.string   "nombre"
@@ -54,6 +67,16 @@ ActiveRecord::Schema.define(version: 20151007055938) do
     t.datetime "updated_at"
     t.integer  "interno_id"
   end
+
+  create_table "court_orders", force: true do |t|
+    t.text     "descripcion"
+    t.boolean  "estado"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "court_orders", ["interno_id"], name: "index_court_orders_on_interno_id"
 
   create_table "egresos", force: true do |t|
     t.string   "estado"
