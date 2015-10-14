@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :egreso_produccions
+
+  resources :egreso_internos
+
   resources :court_orders
 
   resources :contacts

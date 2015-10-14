@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @egreso_interno.interno.nombre %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @egreso_interno.concepto %>
+</p>
+
+<p>
+  <strong>Monto Bs.:</strong>
+  <%= @egreso_interno.monto %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @egreso_interno.observaciones %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @egreso_interno.fecha %>
+</p>
+
+<br>
+<%= link_to 'Atras', egreso_internos_path, :class => 'btn btn-mini btn-default' %>

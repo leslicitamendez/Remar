@@ -7,13 +7,20 @@ class ProduccionsController < ApplicationController
     #@produccions = Produccion.all
     @palabra = ''
     @palabra = params[:palabra]
-    #@producto = Product.find(:product_id)
-    #@produccion.producto = @producto
     @produccions = Produccion.where("product_id LIKE ?", "%#{@palabra}%")
   end
 
   # GET /produccions/1
   # GET /produccions/1.json
+
+  def activo
+    @produccion.activo
+      respond_to do |format|
+      format.html { redirect_to produccions_url }
+      format.json { head :no_content }
+    end
+  end
+
   def show
   end
 
@@ -32,6 +39,7 @@ class ProduccionsController < ApplicationController
   # POST /produccions.json
   def create
     @produccion = Produccion.new(produccion_params)
+    @produccion.estado = 'Activo'
 
       if @produccion.save
         flash[:success] = 'Produccion creada exitosamente'

@@ -15,23 +15,17 @@
     <%= f.label :producto %>
     <%= f.collection_select(:product_id, Product.all, :id, :code) %>
   </div>
-
   <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.select :estado, ['Activo', 'Inactivo'] %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_produccion %><br>
+    <%= f.label :fecha_produccion, 'Fecha de Produccion *' %><br>
     <%= f.date_select :fecha_produccion %>
   </div>
   <div class="field">
-    <%= f.label :fecha_vencimiento %><br>
+    <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
     <%= f.date_select :fecha_vencimiento %>
-  </div>
-  <!--div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.text_field :product_id %>
-  </div-->
+  </div><br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
   <div class="actions">
     <%= f.submit (@produccion.new_record? ? 'Registrar Produccion' : 'Editar Produccion') , :class => "btn btn-mini btn-success" %>
   </div>

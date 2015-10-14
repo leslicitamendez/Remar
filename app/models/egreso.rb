@@ -1,15 +1,22 @@
 class Egreso < ActiveRecord::Base
 	validates :concepto, presence: {:message => "- Es un campo obligatorio"}
-	#validates :concepto, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
-	validates :concepto, length: { maximum: 30, :message => "No debe tener mas de 30 caracteres"}
+	validates :concepto, length: { maximum: 50, :message => "No debe tener mas de 50 caracteres"}
 
 	validates :monto, presence: {:message => "- Es un campo obligatorio"}
+	validates :monto, :numericality => {:greater_than => 0, :message => "- El monto debe ser mayor a 0"}
 
+	validates_date :fecha, :on => :create, :on_or_before => :today, :on_or_before_message => 'No se registran Egresos a futuro'
+	
 	def self.search(search)
 		if search
 			where('concepto LIKE ?', "%#{search}%")
 		else
 			scoped
 		end
+	end
+
+	def activo
+		self.estado = 'Activo'
+		self.save!
 	end
 end

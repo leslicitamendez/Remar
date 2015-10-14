@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <th>Concepto</th>
-      <th>Monto</th>
+      <th>Monto Bs</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,8 +21,8 @@
       <tr>
         <td><%= egreso.concepto %></td>
         <td><%= egreso.monto %></td>
-        <td><%= link_to 'Ver', egreso, :class => 'btn btn-mini btn-info active' %></td>
-        <td><%= link_to 'Editar', edit_egreso_path(egreso), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Ver Egreso', egreso, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Egreso', edit_egreso_path(egreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %>
   </tbody>

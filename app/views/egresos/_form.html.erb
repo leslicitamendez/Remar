@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :concepto %><br>
+    <%= f.label :concepto, 'Concepto *' %><br>
     <%= f.text_field :concepto %>
   </div>
   <div class="field">
-    <%= f.label :monto %><br>
-    <%= f.number_field :monto %>
+    <%= f.label :monto, 'Monto Bs. *' %><br>
+    <%= f.text_field :monto %>
   </div>
   <div class="field">
-    <%= f.label :fecha %><br>
+    <%= f.label :fecha, 'Fecha *' %><br>
     <%= f.date_select :fecha %>
+  </div><br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
   </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.select :estado, ['Activo', 'Inactivo'] %>
-  </div><br>
+  <br><br>
   <div class="actions">
     <%= f.submit (@egreso.new_record? ? 'Registrar Egreso' : 'Editar Egreso') , :class => "btn btn-mini btn-success" %>
   </div>

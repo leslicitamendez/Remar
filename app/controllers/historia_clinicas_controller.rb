@@ -7,7 +7,7 @@ class HistoriaClinicasController < ApplicationController
     #@historia_clinicas = HistoriaClinica.all
     @palabra = ''
     @palabra = params[:palabra]
-    historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
+    @historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
   end
 
   # GET /historia_clinicas/1

@@ -1,0 +1,30 @@
+<%= form_for(@egreso_produccion) do |f| %>
+  <% if @egreso_produccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@egreso_produccion.errors.count, "error") %> prohibited this egreso_produccion from being saved:</h2>
+
+      <ul>
+      <% @egreso_produccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :egreso %><br>
+    <%= f.collection_select(:egreso_id, Egreso.all, :id, :concepto) %>
+  </div>
+  <div class="field">
+    <%= f.label :produccion %><br>
+    <%= f.collection_select(:produccion_id, Produccion.all, :id, :id) %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones, 'Observaciones *' %><br>
+    <%= f.text_area :observaciones %>
+  </div><br><br>
+  <label>* Los campos con asterisco, son obligatorios.</label><br><br>
+  <div class="actions">
+    <%= f.submit (@egreso_produccion.new_record? ? 'Registrar Egreso Produccion' : 'Editar Egreso Produccion') , :class => "btn btn-mini btn-success" %>
+  </div>
+<% end %>
