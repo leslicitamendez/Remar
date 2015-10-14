@@ -51,7 +51,10 @@
     <%= f.label :direccion, 'Direccion (*)' %><br>
     <%= f.text_area :direccion %>
   </div>
+
+  
+
   <div class="actions">
-    <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %>
+    <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %> 
   </div>
 <% end %>
