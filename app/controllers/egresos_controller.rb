@@ -12,6 +12,14 @@ class EgresosController < ApplicationController
 
   # GET /egresos/1
   # GET /egresos/1.json
+  def activo
+    @egreso.activo
+      respond_to do |format|
+      format.html { redirect_to egresos_url }
+      format.json { head :no_content }
+    end
+  end
+
   def show
   end
 
@@ -28,6 +36,7 @@ class EgresosController < ApplicationController
   # POST /egresos.json
   def create
     @egreso = Egreso.new(egreso_params)
+    @egreso.estado = 'Activo'
 
     if @egreso.save
         flash[:success] = 'Egreso creado exitosamente'

@@ -18,11 +18,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :enfermedades %><br>
+    <%= f.label :enfermedades, 'Enfermedades *' %><br>
     <%= f.text_area :enfermedades %>
   </div>
   <div class="field">
-    <%= f.label :causa_internacion %><br>
+    <%= f.label :causa_internacion, 'Causa Internacion *' %><br>
     <%= f.text_area :causa_internacion %>
   </div>
   <div class="field">
@@ -30,13 +30,13 @@
     <%= f.text_area :observaciones %>
   </div>
   <div class="field">
-    <%= f.label :fecha %><br>
+    <%= f.label :fecha, 'Fecha *' %><br>
     <%= f.date_select :fecha %>
+  </div><br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
   </div>
-  <!--div class="field">
-    <%= f.label :interno_id %><br>
-    <%= f.text_field :interno_id %>
-  </div-->
+  <br><br>
   <div class="actions">
     <%= f.submit (@historia_clinica.new_record? ? 'Registrar Historia Clinica' : 'Editar Historia Clinica') , :class => "btn btn-mini btn-success" %>
   </div>

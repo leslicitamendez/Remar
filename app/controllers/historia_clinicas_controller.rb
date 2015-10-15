@@ -4,7 +4,10 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas
   # GET /historia_clinicas.json
   def index
-    @historia_clinicas = HistoriaClinica.all
+    #@historia_clinicas = HistoriaClinica.all
+    @palabra = ''
+    @palabra = params[:palabra]
+    @historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
   end
 
   # GET /historia_clinicas/1

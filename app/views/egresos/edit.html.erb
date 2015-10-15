@@ -1,5 +1,11 @@
 <h1>Editar Egreso</h1>
 
-<%= render 'form' %>
+<%= form_for(@egreso) do |f| %>
+  <div class="field">
+	    <%= f.label :estado, 'Estado *' %><br>
+	    <%= f.select :estado, ['Activo', 'Inactivo'] %>
+  </div>
+  <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Atras', egresos_path, :class => 'btn btn-mini btn-default' %>

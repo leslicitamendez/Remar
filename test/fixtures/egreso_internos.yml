@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concepto: MyString
+  monto: 1.5
+  observaciones: MyText
+  fecha: 2015-10-13
+  interno_id: 
+  egreso_id: 
+
+two:
+  concepto: MyString
+  monto: 1.5
+  observaciones: MyText
+  fecha: 2015-10-13
+  interno_id: 
+  egreso_id: 

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Egreso:</strong>
+  <%= @egreso_produccion.egreso.concepto %>
+</p>
+
+<p>
+  <strong>Produccion:</strong>
+  <%= @egreso_produccion.produccion_id %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @egreso_produccion.observaciones %>
+</p>
+<br>
+<%= link_to 'Atras', egreso_produccions_path, :class => 'btn btn-mini btn-default' %>

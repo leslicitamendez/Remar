@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :code, 'Codigo' %><br>
+    <%= f.label :code, 'Codigo *' %><br>
     <%= f.text_field :code %>
   </div>
   <div class="field">
-    <%= f.label :name, 'Nombre' %><br>
+    <%= f.label :name, 'Nombre *' %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description, 'Descripcion' %><br>
+    <%= f.label :description, 'Descripcion *' %><br>
     <%= f.text_area :description %>
+  </div>
+  <br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
   </div>
   <br><br>
   <div class="actions">
