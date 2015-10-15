@@ -1,0 +1,45 @@
+<%= form_for(@egreso_interno) do |f| %>
+  <% if @egreso_interno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@egreso_interno.errors.count, "error") %> prohibited this egreso_interno from being saved:</h2>
+
+      <ul>
+      <% @egreso_interno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :interno %><br>
+    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
+  </div>
+  <!--div class="field">
+    <%= f.label :egreso %><br>
+    <%= f.collection_select(:egreso_id, Egreso.all, :id, :concepto) %>
+  </div-->
+  <div class="field">
+    <%= f.label :concepto, 'Concepto *' %><br>
+    <%= f.text_field :concepto %>
+  </div>
+  <div class="field">
+    <%= f.label :monto, 'Monto Bs. *' %><br>
+    <%= f.text_field :monto %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br>
+    <%= f.text_area :observaciones %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha, 'Fecha *' %><br>
+    <%= f.date_select :fecha %>
+  </div><br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div>
+  <br><br>
+  <div class="actions">
+    <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-mini btn-success" %>
+  </div>
+<% end %>

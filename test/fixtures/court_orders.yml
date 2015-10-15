@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  estado: false
+  interno_id: 
+
+two:
+  descripcion: MyText
+  estado: false
+  interno_id: 

@@ -1,0 +1,2 @@
+module EgresoInternosHelper
+end

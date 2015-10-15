@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  resources :egreso_produccions
+
+  resources :egreso_internos
+
+  resources :court_orders
+
+  resources :contacts
+
   resources :ingresos
 
   resources :venta
@@ -41,7 +49,11 @@ Rails.application.routes.draw do
 
   get '/conyugues/new/:id' => 'conyugues#new', :as => 'pareja'
 
+   get '/contacts/new/:id' => 'contacts#new', :as => 'contacto'
+
   get '/hijos/new/:id' => 'hijos#new', :as => 'fis'
+
+  get '/conductas/new/:id' => 'conducta#new', :as => 'memo'
 
   get '/referencias/new/:id' => 'referencias#new', :as => 'respalda'
 

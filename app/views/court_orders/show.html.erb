@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @court_order.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @court_order.estado %>
+</p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @court_order.interno %>
+</p>
+
+<%= link_to 'Edit', edit_court_order_path(@court_order) %> |
+<%= link_to 'Back', court_orders_path %>

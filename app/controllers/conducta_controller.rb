@@ -15,6 +15,7 @@ class ConductaController < ApplicationController
   # GET /conducta/new
   def new
     @conductum = Conductum.new
+    @id=(params[:id])
   end
 
   # GET /conducta/1/edit
@@ -25,10 +26,11 @@ class ConductaController < ApplicationController
   # POST /conducta.json
   def create
     @conductum = Conductum.new(conductum_params)
+    @conductum.interno_id=params[:interno_id]
 
     respond_to do |format|
       if @conductum.save
-        format.html { redirect_to @conductum, notice: 'Conductum was successfully created.' }
+        format.html { redirect_to @conductum, notice: 'Conducta fue creada satisfactoriamente.' }
         format.json { render :show, status: :created, location: @conductum }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ConductaController < ApplicationController
   def update
     respond_to do |format|
       if @conductum.update(conductum_params)
-        format.html { redirect_to @conductum, notice: 'Conductum was successfully updated.' }
+        format.html { redirect_to @conductum, notice: 'Conducta fue actualizada satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @conductum }
       else
         format.html { render :edit }

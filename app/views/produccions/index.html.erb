@@ -2,7 +2,7 @@
 
   <div align="right">
     <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
-      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Código de producto", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "ID de producto", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div>
@@ -10,7 +10,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Product</th>
+      <th>ID Producto</th>
       <th>Estado</th>
       <th>Fecha produccion</th>
       <th>Fecha vencimiento</th>
@@ -21,12 +21,12 @@
   <tbody>
     <% @produccions.each do |produccion| %>
       <tr>
-        <td><%= produccion.product.code %></td>
+        <td><%= produccion.product_id %></td>
         <td><%= produccion.estado %></td>
         <td><%= produccion.fecha_produccion %></td>
         <td><%= produccion.fecha_vencimiento %></td>
-        <td><%= link_to 'Ver', produccion, :class => 'btn btn-mini btn-info active' %></td>
-        <td><%= link_to 'Editar', edit_produccion_path(produccion), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Ver Produccion', produccion, :class => 'btn btn-mini btn-info active' %></td>
+        <td><%= link_to 'Editar Produccion', edit_produccion_path(produccion), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %>
   </tbody>

@@ -6,8 +6,9 @@ class InternosController < ApplicationController
   def index
     @internos = Interno.all
     if(params["palabra"]!=nil)
-        @internos=Interno.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+        @internos=Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params["palabra"])    
     end
+
   end
 
   # GET /internos/1
@@ -15,6 +16,10 @@ class InternosController < ApplicationController
   def show
     @interno=Interno.find(params[:id])
     @conyugue=@interno.conyugue
+
+    @hijos=@interno.hijos
+    @conducta=@interno.conducta
+    
 
 
     
@@ -36,7 +41,7 @@ class InternosController < ApplicationController
 
     respond_to do |format|
       if @interno.save
-        format.html { redirect_to @interno, notice: 'Interno was successfully created.' }
+        format.html { redirect_to @interno, notice: 'Interno fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @interno }
       else
         format.html { render :new }
@@ -50,7 +55,7 @@ class InternosController < ApplicationController
   def update
     respond_to do |format|
       if @interno.update(interno_params)
-        format.html { redirect_to @interno, notice: 'Interno was successfully updated.' }
+        format.html { redirect_to @interno, notice: 'Interno fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @interno }
       else
         format.html { render :edit }
@@ -64,7 +69,7 @@ class InternosController < ApplicationController
   def destroy
     @interno.destroy
     respond_to do |format|
-      format.html { redirect_to internos_url, notice: 'Interno was successfully destroyed.' }
+      format.html { redirect_to internos_url, notice: 'Interno fue borrado exitosamente.' }
       format.json { head :no_content }
     end
   end

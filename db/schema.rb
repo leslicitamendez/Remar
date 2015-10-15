@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007055938) do
+ActiveRecord::Schema.define(version: 20151014044025) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20151007055938) do
     t.integer  "interno_id"
   end
 
+  create_table "contacts", force: true do |t|
+    t.string   "sexo"
+    t.string   "nombre"
+    t.string   "apellido1"
+    t.string   "apellido2"
+    t.integer  "ci"
+    t.integer  "telefono"
+    t.text     "direccion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interno_id"
+  end
+
   create_table "conyugues", force: true do |t|
     t.boolean  "estado",          limit: 255
     t.string   "nombre"
@@ -55,9 +68,44 @@ ActiveRecord::Schema.define(version: 20151007055938) do
     t.integer  "interno_id"
   end
 
+  create_table "court_orders", force: true do |t|
+    t.text     "descripcion"
+    t.boolean  "estado"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "court_orders", ["interno_id"], name: "index_court_orders_on_interno_id"
+
+  create_table "egreso_internos", force: true do |t|
+    t.string   "concepto"
+    t.float    "monto"
+    t.text     "observaciones"
+    t.date     "fecha"
+    t.integer  "interno_id"
+    t.integer  "egreso_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "egreso_internos", ["egreso_id"], name: "index_egreso_internos_on_egreso_id"
+  add_index "egreso_internos", ["interno_id"], name: "index_egreso_internos_on_interno_id"
+
+  create_table "egreso_produccions", force: true do |t|
+    t.text     "observaciones"
+    t.integer  "egreso_id"
+    t.integer  "produccion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "egreso_produccions", ["egreso_id"], name: "index_egreso_produccions_on_egreso_id"
+  add_index "egreso_produccions", ["produccion_id"], name: "index_egreso_produccions_on_produccion_id"
+
   create_table "egresos", force: true do |t|
     t.string   "estado"
-    t.integer  "monto"
+    t.float    "monto"
     t.date     "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"

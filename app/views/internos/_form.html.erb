@@ -107,14 +107,14 @@
     <tr height= "80 px">
       <td width="33%" align="center">
         <div class="field">
-          <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
+          <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
           <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
         </div>
       </td>
 
       <td width="33%" align="center">
         <div class="field">
-          <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
+          <%= f.label :lugarNacimiento, 'Lugar de Nacimiento' %><br>
           <%= f.text_field :lugarNacimiento %>
         </div>
       </td>

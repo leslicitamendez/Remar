@@ -1,9 +1,8 @@
-<center>
 	<p id="notice"><%= notice %></p>
 
 	<p>
-	  <strong>Product:</strong>
-	  <%= @produccion.product.code %>
+	  <strong>Producto:</strong>
+	  <%= @produccion.product.name %>
 	</p>
 
 	<p>
@@ -12,14 +11,14 @@
 	</p>
 
 	<p>
-	  <strong>Fecha produccion:</strong>
+	  <strong>Fecha de Produccion:</strong>
 	  <%= @produccion.fecha_produccion %>
 	</p>
 
 	<p>
-	  <strong>Fecha vencimiento:</strong>
+	  <strong>Fecha de Vencimiento:</strong>
 	  <%= @produccion.fecha_vencimiento %>
 	</p>
-</center>
 
-<%= link_to 'Atras', produccions_path %>
+<br><br>
+<%= link_to 'Atras', produccions_path, :class => 'btn btn-mini btn-default' %>

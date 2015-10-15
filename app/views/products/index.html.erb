@@ -5,7 +5,7 @@
       Buscar Producto: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Nombre de producto", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
-  </div>
+  </div><br>
 
 
 <table class="table table-striped">
@@ -22,10 +22,10 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.state %></td>
-        <td><%= link_to 'Ver', product, :class => 'btn btn-mini btn-info active' %></td>
-        <td><%= link_to 'Editar', edit_product_path(product), :class => 'btn btn-mini btn-warning active' %></td>
+        <td width="10%"><%= product.name %></td>
+        <td width="10%"><%= product.state %></td>
+        <td width="10%" align="left"><%= link_to 'Ver Producto', product, :class => 'btn btn-mini btn-info active' %></td>
+        <td width="10%" align="left"><%= link_to 'Editar Producto', edit_product_path(product), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %>
   </tbody>

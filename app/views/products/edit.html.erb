@@ -1,21 +1,9 @@
 <h1>Editar Producto</h1>
 
 <%= form_for(@product) do |f| %>
-	<!--% if @product.errors.any? %-->
-    <!--div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div-->
-  <!--% end %-->
-
   <div class="field">
-	    <%= f.label :state, 'Estado' %><br>
-	    <%= f.select :state, ['Inactivo'] %>
+	    <%= f.label :state, 'Estado *' %><br>
+	    <%= f.select :state, ['Activo', 'Inactivo'] %>
   </div>
   <%= render 'form' %>
 <% end %>
