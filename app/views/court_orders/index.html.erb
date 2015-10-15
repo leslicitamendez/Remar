@@ -1,4 +1,4 @@
-<h1>Listing court_orders</h1>
+<h1>Lista de Ordenes Judiciales</h1>
 
 <table class="table table-striped">
   <thead>
@@ -15,15 +15,14 @@
       <tr>
         <td><%= court_order.descripcion %></td>
         <td><%= court_order.estado %></td>
-        
-        <td><%= link_to 'Show', court_order %></td>
         <td><%= link_to 'Edit', edit_court_order_path(court_order) %></td>
-        <td><%= link_to 'Destroy', court_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Court order', new_court_order_path %>
+<%= link_to 'Registrar Orden Judicial', new_court_order_path %>

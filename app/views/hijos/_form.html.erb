@@ -19,11 +19,11 @@
     <%= f.check_box :estado %>
   </div>
   <div class="field">
-    <%= f.label :sexo %><br>
+    <%= f.label :sexo, 'Sexo (*)' %><br>
     <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
   </div>
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
@@ -39,7 +39,7 @@
     <%= f.number_field :ci %>
   </div>
   <div class="field">
-    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
+    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
     <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
   </div>
   <div class="field">

@@ -33,8 +33,11 @@ class ConyuguesController < ApplicationController
 
     respond_to do |format|
       if @conyugue.save
-        format.html { redirect_to @conyugue, notice: 'Conyugue se creo satisfactoriamente.' }
+        format.html { redirect_to internos_path, notice: 'Conyugue se creo satisfactoriamente.' }
         format.json { render :show, status: :created, location: @conyugue }
+
+          
+         
       else
         format.html { render :new }
         format.json { render json: @conyugue.errors, status: :unprocessable_entity }
@@ -47,7 +50,7 @@ class ConyuguesController < ApplicationController
   def update
     respond_to do |format|
       if @conyugue.update(conyugue_params)
-        format.html { redirect_to @conyugue, notice: 'Conyugue se actualizo satisfactoriamente.' }
+        format.html { redirect_to internos_path, notice: 'Conyugue se actualizo satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @conyugue }
       else
         format.html { render :edit }
@@ -61,8 +64,9 @@ class ConyuguesController < ApplicationController
   def destroy
     @conyugue.destroy
     respond_to do |format|
-      format.html { redirect_to conyugues_url, notice: 'Conyugue was successfully destroyed.' }
+      format.html { redirect_to internos_path, notice: 'Conyugue was successfully destroyed.' }
       format.json { head :no_content }
+
     end
   end
 

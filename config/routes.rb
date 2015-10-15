@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   get '/conductas/new/:id' => 'conducta#new', :as => 'memo'
 
+  get '/court_orders/new/:id' => 'court_orders#new', :as => 'orden'
+
   get '/referencias/new/:id' => 'referencias#new', :as => 'respalda'
 
   get '/products/search' => 'products#search'

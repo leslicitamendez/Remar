@@ -26,6 +26,7 @@ class CourtOrdersController < ApplicationController
   # POST /court_orders.json
   def create
     @court_order = CourtOrder.new(court_order_params)
+    @court_order.interno_id=params[:interno_id]
 
     respond_to do |format|
       if @court_order.save

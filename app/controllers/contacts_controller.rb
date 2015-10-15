@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
+    @contact.interno_id=params[:interno_id]
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Referencia se creo satisfactoriamente.' }
