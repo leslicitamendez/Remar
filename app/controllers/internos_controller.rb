@@ -19,6 +19,9 @@ class InternosController < ApplicationController
 
     @hijos=@interno.hijos
     @conducta=@interno.conducta
+    @contact=@interno.contact
+    @court_orders=@interno.court_orders
+
     
 
 

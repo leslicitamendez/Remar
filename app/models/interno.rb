@@ -5,7 +5,8 @@ class Interno < ActiveRecord::Base
 	has_one :referencia
 	has_many :hijos
 	has_many :conducta
-	has_many :contacts
+	has_one :contact
+	has_many :court_orders
 
 def full_name
   "#{self.nombre} #{self.apellido1} #{self.apellido2}"
@@ -50,7 +51,7 @@ end
 
 	validates :estudios, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo Estudios"}, allow_blank: true
 
-	validates :lugarNacimiento, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras en el campo Lugar de Nacimiento"}
+	validates :lugarNacimiento, presence: {:message => "- Lugar de Nacimiento es un campo obligatorio"} 
 
 
 
