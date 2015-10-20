@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20151014044025) do
 
   create_table "egresos", force: true do |t|
     t.string   "estado"
-    t.float    "monto"
+    t.integer  "monto"
     t.date     "fecha"
     t.datetime "created_at"
     t.datetime "updated_at"
