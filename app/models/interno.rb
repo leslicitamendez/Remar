@@ -7,6 +7,7 @@ class Interno < ActiveRecord::Base
 	has_many :conducta
 	has_one :contact
 	has_many :court_orders
+	has_many :rehabs
 
 def full_name
   "#{self.nombre} #{self.apellido1} #{self.apellido2}"

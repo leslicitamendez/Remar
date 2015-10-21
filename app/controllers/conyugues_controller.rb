@@ -32,6 +32,7 @@ class ConyuguesController < ApplicationController
     @conyugue.interno_id=params[:interno_id]
 
     respond_to do |format|
+
       if @conyugue.save
         format.html { redirect_to internos_path, notice: 'Conyugue se creo satisfactoriamente.' }
         format.json { render :show, status: :created, location: @conyugue }
@@ -41,6 +42,7 @@ class ConyuguesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @conyugue.errors, status: :unprocessable_entity }
+
       end
     end
   end
