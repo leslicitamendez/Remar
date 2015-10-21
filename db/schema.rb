@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20151021133849) do
     t.string   "estado"
     t.date     "fecha_produccion"
     t.date     "fecha_vencimiento"
+    t.integer  "cantidad"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -218,6 +219,7 @@ ActiveRecord::Schema.define(version: 20151021133849) do
     t.string   "code"
     t.text     "description"
     t.string   "state"
+    t.string   "unity"
   end
 
   create_table "recepcion_donativos", force: true do |t|

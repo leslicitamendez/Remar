@@ -2,7 +2,7 @@
 
   <div align="right">
     <%= form_tag({:controller => "egreso_internos", :action => "index"}, :method => :get) do %>
-      Buscar Interno: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "ID Interno", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      Buscar Interno: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Nombre de Interno", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div>
@@ -13,8 +13,6 @@
       <th>Interno</th>
       <th>Concepto</th>
       <th>Monto Bs.</th>
-      <th>Observaciones</th>
-      <th>Fecha</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +20,7 @@
   <tbody>
     <% @egreso_internos.each do |egreso_interno| %>
       <tr>
-        <td><%= egreso_interno.interno_id %></td>
+        <td><%= Interno.find(egreso_interno.interno_id.to_i).nombre %></td>
         <td><%= egreso_interno.concepto %></td>
         <td><%= egreso_interno.monto %></td>
         <td><%= link_to 'Ver Egreso Interno', egreso_interno, :class => 'btn btn-mini btn-info active' %></td>

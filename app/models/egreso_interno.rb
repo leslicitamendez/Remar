@@ -13,9 +13,19 @@ class EgresoInterno < ActiveRecord::Base
 
   def self.search(search)
   	if search
-  		where('interno_id like ?', "%#{search}%")
+  		where('interno like ?', "%#{search}%")
   	else
   		scoped
   	end
   end
+
+  def correspondeAinterno(interno)
+    parametros = interno.split(' ')
+    parametros.each do |parametro|
+      if Interno.find(self.interno_id.to_i).nombre.downcase.include?(parametro.downcase)
+        return true
+      end
+    end
+    false
+  end 
 end
