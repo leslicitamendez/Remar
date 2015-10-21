@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Ci:</strong>
+  <%= @voluntario.ci %>
+</p>
+
+<p>
   <strong>Nombre:</strong>
   <%= @voluntario.nombre %>
 </p>
 
 <p>
-  <strong>Apellido1:</strong>
+  <strong>Apellido Paterno:</strong>
   <%= @voluntario.apellido1 %>
 </p>
 
 <p>
-  <strong>Apellido2:</strong>
+  <strong>Apellido Materno:</strong>
   <%= @voluntario.apellido2 %>
 </p>
 
@@ -21,19 +26,12 @@
 </p>
 
 <p>
-  <strong>Nivelconfianza:</strong>
-  <%= @voluntario.NivelConfianza %>
-</p>
-
-<p>
   <strong>Telefono:</strong>
   <%= @voluntario.telefono %>
 </p>
 
 <p>
-  <strong>Ci:</strong>
-  <%= @voluntario.ci %>
+  <strong>Nivel de confianza 0-100:</strong>
+  <%= @voluntario.NivelConfianza %>
 </p>
-
-<%= link_to 'Editar', edit_voluntario_path(@voluntario) , :class => 'btn btn-mini btn-default' %> |
 <%= link_to 'Atras', voluntarios_path , :class => 'btn btn-mini btn-default' %>

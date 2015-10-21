@@ -4,7 +4,7 @@ class CitaController < ApplicationController
   # GET /cita
   # GET /cita.json
   def index
-    @cita = Citum.all
+    @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=? AND estado!='Cancelada'", Date.today)
   end
 
   # GET /cita/1
@@ -26,29 +26,23 @@ class CitaController < ApplicationController
   def create
     @citum = Citum.new(citum_params)
 
-    respond_to do |format|
       if @citum.save
-        format.html { redirect_to @citum, notice: 'Citum was successfully created.' }
-        format.json { render :show, status: :created, location: @citum }
+        flash[:success] = 'Cita creada exitosamente' 
+        redirect_to '/cita'
       else
-        format.html { render :new }
-        format.json { render json: @citum.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /cita/1
   # PATCH/PUT /cita/1.json
   def update
-    respond_to do |format|
       if @citum.update(citum_params)
-        format.html { redirect_to @citum, notice: 'Citum was successfully updated.' }
-        format.json { render :show, status: :ok, location: @citum }
+        flash[:success] =  'Cita actualizada exitosamente' 
+        redirect_to '/cita'
       else
-        format.html { render :edit }
-        format.json { render json: @citum.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # DELETE /cita/1
@@ -69,6 +63,6 @@ class CitaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def citum_params
-      params.require(:citum).permit(:fecha, :hora, :ubicación, :nombreDonante, :descripcionDonacion)
+      params.require(:citum).permit(:fecha, :hora, :ubicación, :nombreDonante, :descripcionDonacion, :estado)
     end
 end

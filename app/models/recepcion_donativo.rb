@@ -16,4 +16,5 @@ class RecepcionDonativo < ActiveRecord::Base
       !self.fecha.blank? and self.fecha > Date.today
   	end
 
+
 end

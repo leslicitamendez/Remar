@@ -11,4 +11,8 @@ class Citum < ActiveRecord::Base
       !self.fecha.blank? and self.fecha <= Date.today
     end
 
+    def default_values
+    	self.estado = "Pendiente"
+  	end
+
 end

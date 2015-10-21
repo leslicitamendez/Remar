@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014044025) do
+ActiveRecord::Schema.define(version: 20151021114032) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151014044025) do
     t.text     "descripcionDonacion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "estado"
   end
 
   create_table "conducta", force: true do |t|
@@ -241,10 +242,12 @@ ActiveRecord::Schema.define(version: 20151014044025) do
     t.integer  "Voluntario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "entrega_productos_id"
   end
 
   add_index "rendicion_productos", ["Product_id"], name: "index_rendicion_productos_on_Product_id"
   add_index "rendicion_productos", ["Voluntario_id"], name: "index_rendicion_productos_on_Voluntario_id"
+  add_index "rendicion_productos", ["entrega_productos_id"], name: "index_rendicion_productos_on_entrega_productos_id"
 
   create_table "venta", force: true do |t|
     t.integer  "cantidad"

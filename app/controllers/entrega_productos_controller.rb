@@ -10,6 +10,8 @@ class EntregaProductosController < ApplicationController
   # GET /entrega_productos/1
   # GET /entrega_productos/1.json
   def show
+  #   @entrega_producto=EntregaProducto.find(params[:id])
+  #   @rendicion_producto=@entrega_producto.rendicion_producto
   end
 
   # GET /entrega_productos/new
@@ -26,29 +28,23 @@ class EntregaProductosController < ApplicationController
   def create
     @entrega_producto = EntregaProducto.new(entrega_producto_params)
 
-    respond_to do |format|
       if @entrega_producto.save
-        format.html { redirect_to @entrega_producto, notice: 'Entrega producto was successfully created.' }
-        format.json { render :show, status: :created, location: @entrega_producto }
+        flash[:success] =  'Entrega producto creado exitosamente' 
+        redirect_to '/entrega_productos'
       else
-        format.html { render :new }
-        format.json { render json: @entrega_producto.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /entrega_productos/1
   # PATCH/PUT /entrega_productos/1.json
   def update
-    respond_to do |format|
       if @entrega_producto.update(entrega_producto_params)
-        format.html { redirect_to @entrega_producto, notice: 'Entrega producto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @entrega_producto }
+        flash[:success] =  'Entrega producto actualizado exitosamente' 
+        redirect_to '/entrega_productos'
       else
-        format.html { render :edit }
-        format.json { render json: @entrega_producto.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # DELETE /entrega_productos/1

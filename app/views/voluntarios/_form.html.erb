@@ -12,34 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre,'Nombre (*)' %><br>
+    <%= f.label :ci ,'Ci *' %><br>
+    <%= f.text_field :ci %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre,'Nombre *' %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :apellido1, 'Apellido 1 (*)' %><br>
+    <%= f.label :apellido1, 'Apellido Paterno *' %><br>
     <%= f.text_field :apellido1 %>
   </div>
   <div class="field">
-    <%= f.label :apellido2 %><br>
+    <%= f.label :apellido2, 'Apellido Materno *' %><br>
     <%= f.text_field :apellido2 %>
-  </div>
+  </div>  
   <div class="field">
     <%= f.label :direccion %><br>
     <%= f.text_field :direccion %>
   </div>
   <div class="field">
-    <%= f.label :NivelConfianza, 'Nivel de Confianza (*)' %><br>
-    <%= f.number_field :NivelConfianza %>
-  </div>
-  <div class="field">
     <%= f.label :telefono %><br>
     <%= f.number_field :telefono %>
-  </div>
+  </div>    
   <div class="field">
-    <%= f.label :ci ,'Ci (*)' %><br>
-    <%= f.text_field :ci %>
+    <%= f.label :NivelConfianza, 'Nivel de Confianza 0-100 *' %><br>
+    <%= f.number_field :NivelConfianza %>
   </div>
+
   <div class="actions">
-    <%= f.submit "Registrar",:class => 'btn btn-mini btn-success active' %>
+    <%= f.submit (@voluntario.new_record? ? 'Registrar Voluntario' : 'Editar Voluntario'),:class => 'btn btn-mini btn-success active' %>
   </div>
 <% end %>

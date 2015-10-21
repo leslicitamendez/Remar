@@ -31,7 +31,12 @@
     <%= f.label :descripcionDonacion %><br>
     <%= f.text_area :descripcionDonacion %>
   </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.select :estado, ['Pendiente','Cancelada','Concretada'] %>
+  </div>  
+
   <div class="actions">
-      <%= f.submit "Aceptar",:class => 'btn btn-mini btn-success active'%>
+      <%= f.submit (@citum.new_record? ? 'Registrar Cita' : 'Editar Cita'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

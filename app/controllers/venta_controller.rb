@@ -28,30 +28,23 @@ class VentaController < ApplicationController
   # POST /venta.json
   def create
     @ventum = Ventum.new(ventum_params)
-
-    respond_to do |format|
       if @ventum.save
-        format.html { redirect_to @ventum, notice: 'Ventum was successfully created.' }
-        format.json { render :show, status: :created, location: @ventum }
+        flash[:success] =  'Venta creada exitosamente' 
+        redirect_to '/venta'
       else
-        format.html { render :new }
-        format.json { render json: @ventum.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /venta/1
   # PATCH/PUT /venta/1.json
   def update
-    respond_to do |format|
       if @ventum.update(ventum_params)
-        format.html { redirect_to @ventum, notice: 'Ventum was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ventum }
+        flash[:success] =   'Venta actualizada exitosamente' 
+        redirect_to '/venta'
       else
-        format.html { render :edit }
-        format.json { render json: @ventum.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /venta/1

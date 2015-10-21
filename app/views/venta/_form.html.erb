@@ -32,6 +32,6 @@
     <%= f.collection_select(:rendicionProducto_id, RendicionProducto.all, :id, :id) %>
   </div>
   <div class="actions">
-    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+    <%= f.submit (@ventum.new_record? ? 'Registrar Venta' : 'Editar Venta'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

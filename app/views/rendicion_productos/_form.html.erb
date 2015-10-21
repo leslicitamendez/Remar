@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <input type="hidden" name="entrega_productos_id" value="<%= @id %>" >
   <div class="field">
     <%= f.label :fecha , 'Fecha (*)'%><br>
     <%= f.date_select :fecha %>
@@ -34,9 +35,9 @@
   </div>
   <div class="field">
     <%= f.label :Voluntario_id %><br>Voluntario_id
-    <%= f.collection_select(:Voluntario_id, Voluntario.all, :id, :nombre) %>    
+    <%= f.collection_select(:Voluntario_id, Voluntario.all, :id, :full_name) %>    
   </div>
   <div class="actions">
-    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+    <%= f.submit (@rendicion_producto.new_record? ? 'Registrar Rendicion' : 'Editar Rendicion'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

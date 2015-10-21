@@ -4,7 +4,7 @@ class RendicionProductosController < ApplicationController
   # GET /rendicion_productos
   # GET /rendicion_productos.json
   def index
-    @rendicion_productos = RendicionProducto.all
+    @rendicion_productos = RendicionProducto.order("fecha DESC, hora DESC").all
   end
 
   # GET /rendicion_productos/1
@@ -15,6 +15,7 @@ class RendicionProductosController < ApplicationController
   # GET /rendicion_productos/new
   def new
     @rendicion_producto = RendicionProducto.new
+    @id=(params[:id])
   end
 
   # GET /rendicion_productos/1/edit
@@ -23,32 +24,27 @@ class RendicionProductosController < ApplicationController
 
   # POST /rendicion_productos
   # POST /rendicion_productos.json
+  
   def create
     @rendicion_producto = RendicionProducto.new(rendicion_producto_params)
-
-    respond_to do |format|
+    @rendicion_producto.entrega_productos_id=params[:entrega_producto_id]
       if @rendicion_producto.save
-        format.html { redirect_to @rendicion_producto, notice: 'Rendicion producto was successfully created.' }
-        format.json { render :show, status: :created, location: @rendicion_producto }
+        flash[:success] = 'Rendicion producto creado exitosamente' 
+        redirect_to '/rendicion_productos'
       else
-        format.html { render :new }
-        format.json { render json: @rendicion_producto.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /rendicion_productos/1
   # PATCH/PUT /rendicion_productos/1.json
   def update
-    respond_to do |format|
       if @rendicion_producto.update(rendicion_producto_params)
-        format.html { redirect_to @rendicion_producto, notice: 'Rendicion producto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rendicion_producto }
+        flash[:success] ='Rendicion producto actualizado exitosamente' 
+        redirect_to '/rendicion_productos'
       else
-        format.html { render :edit }
-        format.json { render json: @rendicion_producto.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /rendicion_productos/1

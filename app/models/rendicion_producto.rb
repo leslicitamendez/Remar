@@ -1,6 +1,9 @@
 class RendicionProducto < ActiveRecord::Base
   belongs_to :Product
   belongs_to :Voluntario
+  belongs_to :entregaProducto
+
+  has_one :ventum
 
   validate :date_cannot_be_in_the_future
   
