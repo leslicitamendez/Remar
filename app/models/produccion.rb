@@ -1,6 +1,10 @@
 class Produccion < ActiveRecord::Base
   belongs_to :product
 
+  validates :cantidad, presence: {:message => "- Es un campo obligatorio"}
+  validates :cantidad, :numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}
+  validates :cantidad, length: {maximum: 4, too_long: "- %{count} caracteres es la longitud maxima permitida"}
+
   def self.search(search)
 	if search
 		where('product like ?', "%#{search}%")

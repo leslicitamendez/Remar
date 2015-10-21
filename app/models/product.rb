@@ -13,8 +13,10 @@ class Product < ActiveRecord::Base
 	validates :name, format: { with: /\A[a-zA-Z ]+\z/, :message => "Solo se aceptan letras" }
 
 	validates :description, presence: {:message => "- La descripcion es un campo obligatorio"}
+	validates :description, length: {maximum: 100, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
 	validates :unity, presence: {:message => "- La unidad del producto es un campo obligatorio"}
+	validates :unity, length: {maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
 	def self.search(search)
 		if search

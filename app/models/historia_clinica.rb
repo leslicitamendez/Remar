@@ -2,9 +2,11 @@ class HistoriaClinica < ActiveRecord::Base
   belongs_to :interno
 
   validates :enfermedades, presence: {:message => "- Es un campo obligatorio"}
+  validates :enfermedades, length: {maximum: 50, too_long: "- %{count} caracteres es la longitud maxima permitida"}
   #validates :enfermedades, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 
   validates :causa_internacion, presence: {:message => "- Es un campo obligatorio"}
+  validates :causa_internacion, length: {maximum: 50, too_long: "- %{count} caracteres es la longitud maxima permitida"}
   #validates :causa_internacion, format: { with: /\A[a-zA-Z]+\z/, message: "- Solo se aceptan letras"}
 
   #validates :observaciones, presence: {:message => "- Es un campo obligatorio"}
