@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Enfermedades:</strong>
+  <%= @rehab.enfermedades %>
+</p>
+
+<p>
+  <strong>Causa de internacion:</strong>
+  <%= @rehab.causaInternacion %>
+</p>
+
+<p>
+  <strong>Tiempo de consumo:</strong>
+  <%= @rehab.tiempoConsumo %>
+</p>
+
+<p>
+  <strong>Centro anterior:</strong>
+  <%= @rehab.centroAnterior %>
+</p>
+
+<p>
+  <strong>Nombre de Centro:</strong>
+  <%= @rehab.nombreCentre %>
+</p>
+
+<p>
+  <strong>Tiempo de estancia:</strong>
+  <%= @rehab.tiempoEstancia %>
+</p>
+
+<p>
+  <strong>Motivo de retiro:</strong>
+  <%= @rehab.motivoRetiro %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @rehab.observaciones %>
+</p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @rehab.interno_id %>
+</p>
+
+<% link_to 'Edit', edit_rehab_path(@rehab) %> |
+
+<%= link_to 'Atras', rehabs_path, :class => 'btn btn-mini btn-default'  %>

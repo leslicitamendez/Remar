@@ -5,9 +5,25 @@ class ProduccionsController < ApplicationController
   # GET /produccions.json
   def index
     #@produccions = Produccion.all
-    @palabra = ''
-    @palabra = params[:palabra]
-    @produccions = Produccion.where("product_id LIKE ?", "%#{@palabra}%")
+    #@palabra = ''
+    #@palabra = params[:palabra]
+    #@produccions = Produccion.where("product_id LIKE ?", "%#{@palabra}%")
+    @produccions = buscar(params[:palabra])
+  end
+
+  def buscar(producto)
+    items = Array.new
+    aux = Produccion.all
+    if producto != "" && producto != nil
+      aux.each do |item|
+        if (item.correspondeAProducto(producto))
+          items.push(item)
+        end
+      end
+      else
+        items = aux
+      end
+      return items
   end
 
   # GET /produccions/1
@@ -79,6 +95,6 @@ class ProduccionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produccion_params
-      params.require(:produccion).permit(:estado, :fecha_produccion, :fecha_vencimiento, :product_id)
+      params.require(:produccion).permit(:estado, :fecha_produccion, :fecha_vencimiento, :product_id, :cantidad)
     end
 end

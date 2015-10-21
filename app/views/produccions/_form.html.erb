@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= f.label :producto %>
-    <%= f.collection_select(:product_id, Product.all, :id, :code) %>
+    <%= f.collection_select(:product_id, Product.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad, 'Cantidad *'%> &nbsp;&nbsp;
+    <%= f.number_field :cantidad %>
   </div>
   <div class="field">
     <%= f.label :fecha_produccion, 'Fecha de Produccion *' %><br>

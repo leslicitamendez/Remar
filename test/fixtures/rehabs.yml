@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enfermedades: MyText
+  causaInternacion: MyText
+  tiempoConsumo: 1
+  centroAnterior: MyString
+  nombreCentre: MyString
+  tiempoEstancia: 1
+  motivoRetiro: MyText
+  observaciones: 
+  interno_id: 1
+
+two:
+  enfermedades: MyText
+  causaInternacion: MyText
+  tiempoConsumo: 1
+  centroAnterior: MyString
+  nombreCentre: MyString
+  tiempoEstancia: 1
+  motivoRetiro: MyText
+  observaciones: 
+  interno_id: 1

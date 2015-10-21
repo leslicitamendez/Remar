@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021114032) do
+
+ActiveRecord::Schema.define(version: 20151021133849) do
+
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 20151021114032) do
     t.integer  "interno_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "numero"
   end
 
   add_index "court_orders", ["interno_id"], name: "index_court_orders_on_interno_id"
@@ -204,6 +207,7 @@ ActiveRecord::Schema.define(version: 20151021114032) do
     t.string   "estado"
     t.date     "fecha_produccion"
     t.date     "fecha_vencimiento"
+    t.integer  "cantidad"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -218,6 +222,7 @@ ActiveRecord::Schema.define(version: 20151021114032) do
     t.string   "code"
     t.text     "description"
     t.string   "state"
+    t.string   "unity"
   end
 
   create_table "recepcion_donativos", force: true do |t|
@@ -230,6 +235,20 @@ ActiveRecord::Schema.define(version: 20151021114032) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "voluntario_id"
+  end
+
+  create_table "rehabs", force: true do |t|
+    t.text     "enfermedades"
+    t.text     "causaInternacion"
+    t.integer  "tiempoConsumo"
+    t.string   "centroAnterior"
+    t.string   "nombreCentre"
+    t.integer  "tiempoEstancia"
+    t.text     "motivoRetiro"
+    t.text     "observaciones"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rendicion_productos", force: true do |t|
