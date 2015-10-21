@@ -5,9 +5,25 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas.json
   def index
     #@historia_clinicas = HistoriaClinica.all
-    @palabra = ''
-    @palabra = params[:palabra]
-    @historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
+    #@palabra = ''
+    #@palabra = params[:palabra]
+    #@historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
+    @historia_clinicas = buscar(params[:palabra])
+  end
+
+  def buscar(interno)
+    items = Array.new
+    aux = HistoriaClinica.all
+    if interno != "" && interno != nil
+      aux.each do |item|
+        if(item.correspondeAinterno(interno))
+          items.push(item)
+        end
+      end
+    else
+      items = aux
+    end
+    return items
   end
 
   # GET /historia_clinicas/1

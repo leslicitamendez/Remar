@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
 	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
+	validates :code, length: { maximum: 5, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	
 	validates :name, presence: {:message => "- El nombre del producto es un campo obligatorio"}
 	validates :name, uniqueness: {case_sensitive: false, :message => "- El producto ya existe"}
@@ -12,6 +13,8 @@ class Product < ActiveRecord::Base
 	validates :name, format: { with: /\A[a-zA-Z ]+\z/, :message => "Solo se aceptan letras" }
 
 	validates :description, presence: {:message => "- La descripcion es un campo obligatorio"}
+
+	validates :unity, presence: {:message => "- La unidad del producto es un campo obligatorio"}
 
 	def self.search(search)
 		if search

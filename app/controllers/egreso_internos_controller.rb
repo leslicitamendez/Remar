@@ -5,9 +5,25 @@ class EgresoInternosController < ApplicationController
   # GET /egreso_internos.json
   def index
     #@egreso_internos = EgresoInterno.all
-    @palabra = ''
-    @palabra = params[:palabra]
-    @egreso_internos = EgresoInterno.where("interno_id LIKE ?", "%#{@palabra}%")
+    #@palabra = ''
+    #@palabra = params[:palabra]
+    #@egreso_internos = EgresoInterno.where("interno_id LIKE ?", "%#{@palabra}%")
+    @egreso_internos = buscar(params[:palabra])
+  end
+
+  def buscar(interno)
+    items = Array.new
+    aux = EgresoInterno.all
+    if interno != "" && interno != nil
+      aux.each do |item|
+        if(item.correspondeAinterno(interno))
+          items.push(item)
+        end
+      end
+    else
+      items = aux
+    end
+    return items
   end
 
   # GET /egreso_internos/1
