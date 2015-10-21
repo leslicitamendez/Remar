@@ -2,7 +2,7 @@ class Ingreso < ActiveRecord::Base
   belongs_to :venta
   belongs_to :recepcionDonativo
 
-  validates_date :fecha, :on => :create, :on_or_before => :today, :on_or_before_message => 'No se registran Ingresos a futuro'
+  
 
   validates :concepto, presence: {:message => "- El concepto es un campo obligatorio"}
   
@@ -14,5 +14,12 @@ class Ingreso < ActiveRecord::Base
   def default_values
     self.estado ||= 'true'
   end
+
+  validate :date_cannot_be_in_the_future
+
+  def date_cannot_be_in_the_future
+    errors.add(:fecha, "No se registran Ingresos a futuro") if
+      !self.fecha.blank? and self.fecha > Date.today
+    end
 
 end

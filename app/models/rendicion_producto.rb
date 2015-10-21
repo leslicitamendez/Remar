@@ -2,7 +2,7 @@ class RendicionProducto < ActiveRecord::Base
   belongs_to :Product
   belongs_to :Voluntario
 
-  validates_date :fecha, :on => :create, :on_or_before => :today, :on_or_before_message => 'No se registran rendiciones a futuro'
+  validate :date_cannot_be_in_the_future
   
   validates :cantidad, presence: {:message => "- La cantidad es un campo obligatorio"}
   validates :cantidad, :numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}
@@ -11,6 +11,11 @@ class RendicionProducto < ActiveRecord::Base
 
   def default_values
     self.estado ||= 'true'
+  end
+
+  def date_cannot_be_in_the_future
+    errors.add(:fecha, "No se registran rendiciones a futuro") if
+      !self.fecha.blank? and self.fecha > Date.today
   end
 
 end
