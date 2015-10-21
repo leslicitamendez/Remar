@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Numero de orden:</strong>
+  <%= @court_order.numero %>
+</p>
+
+<p>
   <strong>Descripcion:</strong>
   <%= @court_order.descripcion %>
 </p>
@@ -15,5 +20,5 @@
   <%= @court_order.interno %>
 </p>
 
-<%= link_to 'Edit', edit_court_order_path(@court_order) %> |
-<%= link_to 'Back', court_orders_path %>
+<% link_to 'Edit', edit_court_order_path(@court_order) %> |
+<%= link_to 'Atras', court_orders_path, :class => 'btn btn-mini btn-default'  %>

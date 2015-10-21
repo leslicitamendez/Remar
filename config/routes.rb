@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :rehabs
+
   resources :egreso_produccions
 
   resources :egreso_internos
@@ -58,6 +60,8 @@ Rails.application.routes.draw do
   get '/court_orders/new/:id' => 'court_orders#new', :as => 'orden'
 
   get '/referencias/new/:id' => 'referencias#new', :as => 'respalda'
+
+  get '/rehabs/new/:id' => 'rehabs#new', :as => 'rehaba'
 
   get '/products/search' => 'products#search'
 

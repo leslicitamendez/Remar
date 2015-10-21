@@ -21,6 +21,7 @@ class InternosController < ApplicationController
     @conducta=@interno.conducta
     @contact=@interno.contact
     @court_orders=@interno.court_orders
+    @rehabs=@interno.rehabs
 
     
 
