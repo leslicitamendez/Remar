@@ -71,6 +71,6 @@ class CourtOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def court_order_params
-      params.require(:court_order).permit(:descripcion, :estado, :interno_id)
+      params.require(:court_order).permit(:numero, :descripcion, :estado, :interno_id)
     end
 end
