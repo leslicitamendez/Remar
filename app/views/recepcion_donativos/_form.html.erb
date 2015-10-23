@@ -39,6 +39,6 @@
     <%= f.text_field :id_voluntario %>
   </div> -->
   <div class="actions">
-    <%= f.submit "Registrar",:class => 'btn btn-mini btn-success active'%>
+    <%= f.submit (@recepcion_donativo.new_record? ? 'Registrar Donativo' : 'Editar Donativo'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

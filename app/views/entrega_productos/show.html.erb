@@ -1,39 +1,107 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+      </th>
+      <th>
+        Productos Entregados
+      </th>
+      <th>
 
-<p>
-  <strong>Id:</strong>
-  <%= @entrega_producto.id %>
-</p>
+          <% if @rendicion_producto== nil %>
+            <!-- <%= link_to 'Registrar Rendicion', rendicion_path(@entrega_producto.id),:class => 'btn btn-mini btn-success active' %> -->
+            <br><br>
+          <% end %>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @entrega_producto.fecha %>
-</p>
 
-<p>
-  <strong>Hora:</strong>
-  <%= @entrega_producto.hora %>
-</p>
+          <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+          <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Id:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.id %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Fecha:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.fecha %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Hora:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.hora.strftime("%I:%M %p") %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Cantidad:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.cantidad %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Producto:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.product.code %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Voluntario:</strong>
+      </td>
+      <td>
+        <%= @entrega_producto.voluntario.full_name %>
+      </td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Cantidad:</strong>
-  <%= @entrega_producto.cantidad %>
-</p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @entrega_producto.estado %>
-</p>
-
-<p>
-  <strong>Product:</strong>
-  <%= @entrega_producto.try(:id) %>
-</p>
-
-<p>
-  <strong>Voluntario:</strong>
-  <%= @entrega_producto.try(:id) %>
-</p>
-
-<%= link_to 'Editar', edit_entrega_producto_path(@entrega_producto), :class => 'btn btn-mini btn-default'%> |
 <%= link_to 'Atras', entrega_productos_path,:class => 'btn btn-mini btn-default'%>

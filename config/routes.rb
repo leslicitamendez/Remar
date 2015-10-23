@@ -62,6 +62,8 @@ Rails.application.routes.draw do
   get '/products/search' => 'products#search'
 
 
+  get '/rendicion_productos/new/:id' => 'rendicion_productos#new', :as => 'rendicion'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

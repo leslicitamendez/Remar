@@ -12,7 +12,7 @@
 
 <p>
   <strong>Hora:</strong>
-  <%= @rendicion_producto.hora %>
+  <%= @rendicion_producto.hora.strftime("%I:%M %p") %>
 </p>
 
 <p>
@@ -26,14 +26,13 @@
 </p>
 
 <p>
-  <strong>Product:</strong>
-  <%= @rendicion_producto.try(:id) %>
+  <strong>Producto:</strong>
+  <%= @rendicion_producto.Product.code %>
 </p>
 
 <p>
   <strong>Voluntario:</strong>
-  <%= @rendicion_producto.try(:id) %>
+  <%= @rendicion_producto.Voluntario.full_name %>
 </p>
 
-<%= link_to 'Editar', edit_rendicion_producto_path(@rendicion_producto), :class => 'btn btn-mini btn-default'%> |
 <%= link_to 'Atras', rendicion_productos_path,:class => 'btn btn-mini btn-default' %>

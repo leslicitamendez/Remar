@@ -18,8 +18,8 @@
         <td><%= entrega_producto.id %></td>
         <td><%= entrega_producto.fecha %></td>
         <td><%= entrega_producto.cantidad %></td>
-        <td><%= entrega_producto.try(:id) %></td>
-        <td><%= entrega_producto.try(:id) %></td>
+        <td><%= entrega_producto.product.code %></td>
+        <td><%= entrega_producto.voluntario.full_name %></td>
         <td><%= link_to 'Mostrar', entrega_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entrega_producto_path(entrega_producto), :class => 'btn btn-mini btn-warning active'%></td>
       </tr>
     <% end %>

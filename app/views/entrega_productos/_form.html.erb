@@ -29,9 +29,9 @@
   </div>
   <div class="field">
     <%= f.label :voluntario_id %><br>
-    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :nombre) %>
+    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :full_name) %>
   </div>
   <div class="actions">
-    <%= f.submit 'Aceptar',:class => 'btn btn-mini btn-success active'%>
+    <%= f.submit (@entrega_producto.new_record? ? 'Registrar Entrega' : 'Editar Entrega'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

@@ -3,9 +3,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>id</th>
       <th>Fecha</th>
-      <th>Hora</th>      
+      <th>Hora</th>
+      <th>Ubicacion</th>
+      <th>Nombre Contacto</th>            
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,9 +14,10 @@
   <tbody>
     <% @cita.each do |citum| %>
       <tr>
-        <td><%= citum.id %></td>
         <td><%= citum.fecha %></td>
-        <td><%= citum.hora %></td>
+        <td><%= citum.hora.strftime("%I:%M %p") %></td>
+        <td><%= citum.ubicación %></td>
+        <td><%= citum.nombreDonante %></td>
         <td><%= link_to 'Mostrar', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
         
       </tr>
@@ -26,5 +28,4 @@
 <br>
 
 <%= link_to 'Agregar Cita', new_citum_path,:class => 'btn btn-mini btn-success active' %>
-<%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %>
 

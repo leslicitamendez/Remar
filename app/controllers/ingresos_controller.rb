@@ -26,29 +26,23 @@ class IngresosController < ApplicationController
   def create
     @ingreso = Ingreso.new(ingreso_params)
 
-    respond_to do |format|
       if @ingreso.save
-        format.html { redirect_to @ingreso, notice: 'Ingreso was successfully created.' }
-        format.json { render :show, status: :created, location: @ingreso }
+        flash[:success] = 'Ingreso creada exitosamente' 
+        redirect_to '/ingresos'
       else
-        format.html { render :new }
-        format.json { render json: @ingreso.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /ingresos/1
   # PATCH/PUT /ingresos/1.json
   def update
-    respond_to do |format|
       if @ingreso.update(ingreso_params)
-        format.html { redirect_to @ingreso, notice: 'Ingreso was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ingreso }
+        flash[:success] =  'Ingreso actualizado exitosamente' 
+        redirect_to '/ingresos'
       else
-        format.html { render :edit }
-        format.json { render json: @ingreso.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /ingresos/1

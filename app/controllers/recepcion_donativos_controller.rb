@@ -4,7 +4,7 @@ class RecepcionDonativosController < ApplicationController
   # GET /recepcion_donativos
   # GET /recepcion_donativos.json
   def index
-    @recepcion_donativos = RecepcionDonativo.all
+    @recepcion_donativos = RecepcionDonativo.all.paginate(page: params[:page], per_page: 5).order('fecha DESC')
   end
 
   # GET /recepcion_donativos/1
@@ -26,29 +26,23 @@ class RecepcionDonativosController < ApplicationController
   def create
     @recepcion_donativo = RecepcionDonativo.new(recepcion_donativo_params)
 
-    respond_to do |format|
       if @recepcion_donativo.save
-        format.html { redirect_to @recepcion_donativo, notice: 'Recepcion donativo was successfully created.' }
-        format.json { render :show, status: :created, location: @recepcion_donativo }
+        flash[:success] = 'Recepcion donativo creado exitosamente' 
+        redirect_to '/recepcion_donativos'
       else
-        format.html { render :new }
-        format.json { render json: @recepcion_donativo.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /recepcion_donativos/1
   # PATCH/PUT /recepcion_donativos/1.json
   def update
-    respond_to do |format|
       if @recepcion_donativo.update(recepcion_donativo_params)
-        format.html { redirect_to @recepcion_donativo, notice: 'Recepcion donativo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recepcion_donativo }
+        flash[:success] = 'Recepcion donativo actualizado exitosamente' 
+        redirect_to '/recepcion_donativos'
       else
-        format.html { render :edit }
-        format.json { render json: @recepcion_donativo.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /recepcion_donativos/1

@@ -5,8 +5,10 @@ class VoluntariosController < ApplicationController
   # GET /voluntarios.json
   def index
     @voluntarios = Voluntario.all
+    @palabra = ''
+      @palabra = params[:palabra]
     if(params["palabra"]!=nil)
-        @voluntarios=Voluntario.where("nombre=?  OR apellido1=? OR apellido2 =?", params["palabra"] , params["palabra"] , params["palabra"])    
+        @voluntarios=Voluntario.where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
     end
   end
 
@@ -31,29 +33,23 @@ class VoluntariosController < ApplicationController
   def create
     @voluntario = Voluntario.new(voluntario_params)
 
-    respond_to do |format|
       if @voluntario.save
-        format.html { redirect_to @voluntario, notice: 'Voluntario was successfully created.' }
-        format.json { render :show, status: :created, location: @voluntario }
+        flash[:success] = 'Voluntario creado exitosamente' 
+        redirect_to '/voluntarios'
       else
-        format.html { render :new }
-        format.json { render json: @voluntario.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PATCH/PUT /voluntarios/1
   # PATCH/PUT /voluntarios/1.json
   def update
-    respond_to do |format|
       if @voluntario.update(voluntario_params)
-        format.html { redirect_to @voluntario, notice: 'Voluntario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @voluntario }
+         flash[:success] = 'Voluntario actualizado exitosamente' 
+        redirect_to '/voluntarios'
       else
-        format.html { render :edit }
-        format.json { render json: @voluntario.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /voluntarios/1
