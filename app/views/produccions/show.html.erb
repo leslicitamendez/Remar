@@ -6,18 +6,28 @@
 	</p>
 
 	<p>
+		<strong>Cantidad:</strong>
+		<%= @produccion.cantidad %>
+	</p>
+
+	<p>
+		<strong>Unidad:</strong>
+		<%= @produccion.product.unity %>
+	</p>
+
+	<p>
 	  <strong>Estado:</strong>
 	  <%= @produccion.estado %>
 	</p>
 
 	<p>
 	  <strong>Fecha de Produccion:</strong>
-	  <%= @produccion.fecha_produccion %>
+	  <%= @produccion.fecha_produccion.strftime("%d/%m/%Y") %>
 	</p>
 
 	<p>
 	  <strong>Fecha de Vencimiento:</strong>
-	  <%= @produccion.fecha_vencimiento %>
+	  <%= @produccion.fecha_vencimiento.strftime("%d/%m/%Y") %>
 	</p>
 
 <br><br>

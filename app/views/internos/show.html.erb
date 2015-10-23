@@ -1,16 +1,30 @@
-<p id="notice"><%= notice %></p>
-<h2>VER INTERNO</h2>
+<html>
+<head>
+    <title>Interno</title>
+      <style type="text/css">
+        .visibleDiv
+        {
+            position: fixed;
+            top: 140px;
+            left: 10px;
+            text-align: left;
+        }
+        #der {  text-align: right; width: 30%;}
+      </style>
 
-<script type="text/css">
-  div { position: absolute; top: 0px; left: 0px; background-color: #b0c4de;}
-</script>
+</head>
+
+<p id="notice"><%= notice %></p>
+<h2 align="center">VER INTERNO</h2>
+
+
 
 
 
 <table>
   <tr>
     <td width="32%">
-        <div >
+        <div class="visibleDiv">
             <% if @conyugue== nil %>
               <%= link_to 'Registrar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             <% end %>
@@ -34,8 +48,11 @@
 
             <%= link_to 'Registrar Orden Judicial',  orden_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             <br><br>
+            <%= link_to 'Registrar rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+            <br><br>
 
-            <%= link_to 'Atras', internos_path, :class => 'btn btn-mini btn-default'  %>
+            <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+
         </div>
     </td>
 
@@ -47,265 +64,290 @@
 
 
       <td>
-          <table>
+          <table align="right" >
             <tr>
-              <td>
+                <td>
 
-                <h4>Datos de Interno</h4>
-                
-                <p>
-                  <strong>Nombre:</strong>
-                  <%= @interno.nombre %>
-                </p>
-
-                <p>
-                  <strong>Apellido Paterno:</strong>
-                  <%= @interno.apellido1 %>
-                </p>
-
-                <p>
-                  <strong>Apellido Materno:</strong>
-                  <%= @interno.apellido2 %>
-                </p>
-
-                <p>
-                  <strong>Sexo:</strong>
-                  <%= @interno.sexo %>
-                </p>
-
-                <p>
-                  <strong>CI:</strong>
-                  <%= @interno.ci %>
-                </p>
-
-                <p>
-                  <strong>Estado Civil:</strong>
-                  <%= @interno.estadoCivil %>
-                </p>
-
-                <p>
-                  <strong>Direccion:</strong>
-                  <%= @interno.direccion %>
-                </p>
-
-                <p>
-                  <strong>Zona:</strong>
-                  <%= @interno.zona %>
-                </p>
-
-                <p>
-                  <strong>Telefono:</strong>
-                  <%= @interno.telefono %>
-                </p>
-
-                <p>
-                  <strong>Fecha de Nacimiento:</strong>
-                  <%= @interno.fechaNacimiento %>
-                </p>
-
-                <p>
-                  <strong>Lugar de Nacimiento:</strong>
-                  <%= @interno.lugarNacimiento %>
-                </p>
-
-                <p>
-                  <strong>Estudios:</strong>
-                  <%= @interno.estudios %>
-                </p>
-
-                <p>
-                  <strong>Profesion:</strong>
-                  <%= @interno.profesion %>
-                </p>
-
-                <p>
-                  <strong>Oficio:</strong>
-                  <%= @interno.oficio %>
-                </p>
-
-                <p>
-                  <strong>Fecha de Ingreso:</strong>
-                  <%= @interno.fechaIngreso %>
-                </p>
+                      <h4>Datos de Interno</h4>
+                      
+                      <p>
+                        <strong>Nombre:</strong>
+                        <%= @interno.nombre %>
+                      </p>
+                      <p>
+                        <strong>Apellido Paterno:</strong>
+                        <%= @interno.apellido1 %>
+                      </p>
+                      <p>
+                        <strong>Apellido Materno:</strong>
+                        <%= @interno.apellido2 %>
+                      </p>
+                      <p>
+                        <strong>Sexo:</strong>
+                        <%= @interno.sexo %>
+                      </p>
+                      <p>
+                        <strong>CI:</strong>
+                        <%= @interno.ci %>
+                      </p>
+                      <p>
+                        <strong>Estado Civil:</strong>
+                        <%= @interno.estadoCivil %>
+                      </p>
+                      <p>
+                        <strong>Direccion:</strong>
+                        <%= @interno.direccion %>
+                      </p>
+                      <p>
+                        <strong>Zona:</strong>
+                        <%= @interno.zona %>
+                      </p>
+                      <p>
+                        <strong>Telefono:</strong>
+                        <%= @interno.telefono %>
+                      </p>
+                      <p>
+                        <strong>Fecha de Nacimiento:</strong>
+                        <%= @interno.fechaNacimiento %>
+                      </p>
+                      <p>
+                        <strong>Lugar de Nacimiento:</strong>
+                        <%= @interno.lugarNacimiento %>
+                      </p>
+                      <p>
+                        <strong>Estudios:</strong>
+                        <%= @interno.estudios %>
+                      </p>
+                      <p>
+                        <strong>Profesion:</strong>
+                        <%= @interno.profesion %>
+                      </p>
+                      <p>
+                        <strong>Oficio:</strong>
+                        <%= @interno.oficio %>
+                      </p>
+                      <p>
+                        <strong>Fecha de Ingreso:</strong>
+                        <%= @interno.fechaIngreso %>
+                      </p>
               </td>
 
-              <td width="200px">
 
-              </td>
+
+
+                    <td width="200px">
+                    </td>
               
+
+
+                    <td>
+                      <% if @conyugue != nil %>
+
+                         <h4>Datos de Conyugue</h4>
+                           
+                          <p>
+                            <strong>Nombre:</strong>
+                            <%= @conyugue.nombre %>
+                          </p>
+
+                          <p>
+                            <strong>Apellido Paterno:</strong>
+                            <%= @conyugue.apellido1 %>
+                          </p>
+
+                          <p>
+                            <strong>Apellido Materno:</strong>
+                            <%= @conyugue.apellido2 %>
+                          </p>
+
+                          <p>
+                            <strong>CI:</strong>
+                            <%= @conyugue.ci %>
+                          </p>
+
+                          <p>
+                            <strong>Lugar de Nacimiento:</strong>
+                            <%= @conyugue.lugarNacimiento %>
+                          </p>
+
+                          <p>
+                            <strong>Fecha de Nacimiento:</strong>
+                            <%= @conyugue.fechaNacimiento %>
+                          </p>
+
+                          <p>
+                            <strong>Telefono:</strong>
+                            <%= @conyugue.telefono %>
+                          </p>
+
+                          <p>
+                            <strong>Direccion:</strong>
+                            <%= @conyugue.direccion %>
+                          </p>
+                          <p>
+                            <strong>Estado:</strong>
+                            <%= @conyugue.estado %>
+                          </p>
+
+                          <br>
+                          <br>
+
+                          <br>
+                          <br>
+                          <br>
+
+
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                        <% end %>
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td bgcolor="#FF0000">-</td>
+                    <td bgcolor="red">-</td>
+                    <td bgcolor="red">-</td>
+                </tr>
+
+                    <tr>       
+                        <td colspan="3">
+
+                                <br><br><br>
+                                <h4>Lista de Hijos del Interno</h4>
+
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    
+                                    <th>Nombre</th>
+                                    <th>Apellido Paterno</th>
+                                    <th>Apellido Materno</th>
+                                    <th>Estado</th>
+                                    <th>Sexo</th>
+                                    <th>CI</th>
+                                    <th>Fecha de nacimiento</th>
+                                    <th>Lugar de nacimiento</th>
+                                    <th colspan="3"></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <% @hijos.each do |hijo| %>
+                                    <tr>
+                                      <td><%= hijo.nombre %></td>
+                                      <td><%= hijo.apellido1 %></td>
+                                      <td><%= hijo.apellido2 %></td>
+                                      <td><%= hijo.estado %></td>
+                                      <td><%= hijo.sexo %></td>
+                                      
+                                      <td><%= hijo.ci %></td>
+                                      <td><%= hijo.fechaNacimiento.strftime("%d, %B, %Y") %></td>
+                                      <td><%= hijo.lugarNacimiento %></td>
+                                      <% link_to 'Ver Hijo', hijo, :class => 'btn btn-mini btn-info active' %>
+                                      <td><%= link_to 'Editar Hijo', edit_hijo_path(hijo),  :class => 'btn btn-mini btn-warning active'  %></td>
+                                      
+                                    </tr>
+                                  <% end %>
+                                </tbody>
+                              </table>  
+                           </td>
+                      </tr>
+                      <tr>
+                    <td bgcolor="#FF0000">-</td>
+                    <td bgcolor="red">-</td>
+                    <td bgcolor="red">-</td>
+                </tr>
+
+         <tr>
               <td>
-                <% if @conyugue != nil %>
+                    <br><br><br>
+          
+                      <h4>Lista de Conductas</h4>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Tipoconducta</th>
+                            <th>Descripcion</th>
+                            
+                            <th colspan="3"></th>
+                          </tr>
+                        </thead>
 
-                   <h4>Datos de Conyugue</h4>
-                     
-                    <p>
-                      <strong>Nombre:</strong>
-                      <%= @conyugue.nombre %>
-                    </p>
-
-                    <p>
-                      <strong>Apellido Paterno:</strong>
-                      <%= @conyugue.apellido1 %>
-                    </p>
-
-                    <p>
-                      <strong>Apellido Materno:</strong>
-                      <%= @conyugue.apellido2 %>
-                    </p>
-
-                    <p>
-                      <strong>CI:</strong>
-                      <%= @conyugue.ci %>
-                    </p>
-
-                    <p>
-                      <strong>Lugar de Nacimiento:</strong>
-                      <%= @conyugue.lugarNacimiento %>
-                    </p>
-
-                    <p>
-                      <strong>Fecha de Nacimiento:</strong>
-                      <%= @conyugue.fechaNacimiento %>
-                    </p>
-
-                    <p>
-                      <strong>Telefono:</strong>
-                      <%= @conyugue.telefono %>
-                    </p>
-
-                    <p>
-                      <strong>Direccion:</strong>
-                      <%= @conyugue.direccion %>
-                    </p>
-                    <p>
-                      <strong>Estado:</strong>
-                      <%= @conyugue.estado %>
-                    </p>
-
-                    <br>
-                    <br>
-
-                    <br>
-                    <br>
-                    <br>
-
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                  <% end %>
+                        <tbody>
+                          <% @conducta.each do |conductum| %>
+                            <tr>
+                              
+                              <td><%= conductum.estado %></td>
+                              <td><%= conductum.fecha %></td>
+                              <td><%= conductum.tipoConducta %></td>
+                              <td><%= conductum.descripcion %></td>
+                              
+                              
+                              <td><%= link_to 'Editar Conducta', edit_conductum_path(conductum),  :class => 'btn btn-mini btn-warning active'   %></td>
+                              
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
                 </td>
-              </tr>
-          </table>
+            </tr>
 
-
-            <br><br><br>
-            <h4>Lista de Hijos del Interno</h4>
-
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                
-                <th>Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th>
-                <th>Estado</th>
-                <th>Sexo</th>
-                <th>CI</th>
-                <th>Fecha de nacimiento</th>
-                <th>Lugar de nacimiento</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @hijos.each do |hijo| %>
-                <tr>
-                  <td><%= hijo.nombre %></td>
-                  <td><%= hijo.apellido1 %></td>
-                  <td><%= hijo.apellido2 %></td>
-                  <td><%= hijo.estado %></td>
-                  <td><%= hijo.sexo %></td>
-                  
-                  <td><%= hijo.ci %></td>
-                  <td><%= hijo.fechaNacimiento.strftime("%d, %B, %Y") %></td>
-                  <td><%= hijo.lugarNacimiento %></td>
-                  <% link_to 'Ver Hijo', hijo, :class => 'btn btn-mini btn-info active' %>
-                  <td><%= link_to 'Editar Hijo', edit_hijo_path(hijo),  :class => 'btn btn-mini btn-warning active'  %></td>
-                  
+<tr>
+                    <td bgcolor="#FF0000">-</td>
+                    <td bgcolor="red">-</td>
+                    <td bgcolor="red">-</td>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>  
 
-          <br> <br><br>
-          <h4>Lista de Conducta</h4>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                
-                <th>Estado</th>
-                <th>Fecha</th>
-                <th>Tipoconducta</th>
-                <th>Descripcion</th>
-                
-                <th colspan="3"></th>
-              </tr>
-            </thead>
+            <tr>
+                <td colspan="3">
+                        <br><br><br>
+         
+                            <h4>Persona de Referencia</h4>
+                            <%if @contact != nil%>
+                                <table  class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th>Nombre</th>
+                                      <th>Apellido Paterno</th>
+                                      <th>Apellido Materno</th>
+                                      <th>CI</th>
+                                      <th>Sexo</th>
+                                      <th>Telefono</th>
+                                      <th>Direccion</th>
+                                      <th colspan="3"></th>
+                                    </tr>
+                                  </thead>
 
-            <tbody>
-              <% @conducta.each do |conductum| %>
-                <tr>
-                  
-                  <td><%= conductum.estado %></td>
-                  <td><%= conductum.fecha %></td>
-                  <td><%= conductum.tipoConducta %></td>
-                  <td><%= conductum.descripcion %></td>
-                  
-                  
-                  <td><%= link_to 'Editar Conducta', edit_conductum_path(conductum),  :class => 'btn btn-mini btn-warning active'   %></td>
-                  
+                                  <tbody>
+                                      <tr>                     
+                                        <td><%= @contact.nombre %></td>
+                                        <td><%= @contact.apellido1 %></td>
+                                        <td><%= @contact.apellido2 %></td>
+                                        <td><%= @contact.ci %></td>
+                                        <td><%= @contact.sexo %></td>
+                                        <td><%= @contact.telefono %></td>
+                                        <td><%= @contact.direccion %></td>
+                                        <td><%= link_to 'Ver Referencia', @contact, :class => 'btn btn-mini btn-info active' %></td>
+                                        <td><%= link_to 'Editar Referencia', edit_contact_path(@contact), :class => 'btn btn-mini btn-warning active'  %></td>
+                                        <td><%= link_to 'Borrar Referencia', @contact, method: :delete, data: { confirm: 'Esta Usted seguro?' } , :class => 'btn btn-mini btn-success active'%></td>
+                                      </tr>
+                                  </tbody>
+
+                                </table>
+                              <%end%>
+                        </td>
+                      </tr>
+                      <tr>
+                    <td bgcolor="#FF0000">-</td>
+                    <td bgcolor="red">-</td>
+                    <td bgcolor="red">-</td>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
-
-
-          <br><br><br>
-          <h4>Persona de Referencia</h4>
-          <%if @contact != nil%>
-              <table  class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Apellido Paterno</th>
-                    <th>Apellido Materno</th>
-                    <th>CI</th>
-                    <th>Sexo</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
-                    <th colspan="3"></th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                    <tr>                     
-                      <td><%= @contact.nombre %></td>
-                      <td><%= @contact.apellido1 %></td>
-                      <td><%= @contact.apellido2 %></td>
-                      <td><%= @contact.ci %></td>
-                      <td><%= @contact.sexo %></td>
-                      <td><%= @contact.telefono %></td>
-                      <td><%= @contact.direccion %></td>
-                      <td><%= link_to 'Ver Referencia', @contact, :class => 'btn btn-mini btn-info active' %></td>
-                      <td><%= link_to 'Editar Referencia', edit_contact_path(@contact), :class => 'btn btn-mini btn-warning active'  %></td>
-                      <td><%= link_to 'Borrar Referencia', @contact, method: :delete, data: { confirm: 'Esta Usted seguro?' } , :class => 'btn btn-mini btn-success active'%></td>
-                    </tr>
-                </tbody>
-
-              </table>
-              <%end%>
+                  </table>
 
 
 
@@ -327,12 +369,60 @@
                               <tr>
                                 <td><%= court_order.descripcion %></td>
                                 <td><%= court_order.estado %></td>
-                                <td><%= link_to 'Editar Orden Judicial', edit_court_order_path(court_order), :class => 'btn btn-mini btn-success active' %></td>
+                                <td><%= link_to 'Editar Orden Judicial', edit_court_order_path(court_order), :class => 'btn btn-mini btn-warning active' %></td>
                                 
                               </tr>
+
                             <% end %>
                           </tbody>
+<tr></tr>
+  <tr></tr>
+  <tr>
+                    <td bgcolor="#FF0000" height="10px">-</td>
+                    <td bgcolor="red">-</td>
+                    <td bgcolor="red">-</td>
+                </tr>
                         </table>
+
+
+                        <h4>Lista de rehabilitacion</h4>
+
+<table  class="table table-striped">
+  <thead>
+  
+    <tr>
+      <th>Enfermedades</th>
+      <th>Causa de internacion</th>
+      <th>Tiempo de consumo</th>
+      <th>Centro anterior</th>
+      <th>Nombre de centro</th>
+      <th>Tiempo de estancia</th>
+      <th>Motivo de retiro</th>
+      <th>Observaciones</th>
+      <th>Interno</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rehabs.each do |rehab| %>
+      <tr>
+        <td><%= rehab.enfermedades %></td>
+        <td><%= rehab.causaInternacion %></td>
+        <td><%= rehab.tiempoConsumo %></td>
+        <td><%= rehab.centroAnterior %></td>
+        <td><%= rehab.nombreCentre %></td>
+        <td><%= rehab.tiempoEstancia %></td>
+        <td><%= rehab.motivoRetiro %></td>
+        <td><%= rehab.observaciones %></td>
+        <td><%= rehab.interno_id %></td>
+        <td><%= link_to 'Show', rehab %></td>
+        <td><%= link_to 'Edit', edit_rehab_path(rehab) %></td>
+        <td><%= link_to 'Destroy', rehab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
                              
 
@@ -340,7 +430,7 @@
     </tr>
 </table>
 
-<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+
 
 
 
