@@ -1,7 +1,7 @@
 class EntregaProducto < ActiveRecord::Base
   belongs_to :product
   belongs_to :voluntario
-  has_one :rendicionProducto
+  has_many :rendicionProductos
 
   validates :cantidad, presence: {:message => "- La cantidad es un campo obligatorio"}
   validates :cantidad, :numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}

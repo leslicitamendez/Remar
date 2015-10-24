@@ -20,6 +20,7 @@
         <td><%= rendicion_producto.Product.code %></td>
         <td><%= rendicion_producto.cantidad %></td>        
         <td><%= rendicion_producto.Voluntario.full_name %></td>
+        <td><%= rendicion_producto.entrega_productos_id %></td>
         <td><%= link_to 'Mostrar', rendicion_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_rendicion_producto_path(rendicion_producto), :class => 'btn btn-mini btn-warning active' %></td>
         
       </tr>
