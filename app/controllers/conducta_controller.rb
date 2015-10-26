@@ -28,29 +28,28 @@ class ConductaController < ApplicationController
     @conductum = Conductum.new(conductum_params)
     @conductum.interno_id=params[:interno_id]
 
-    respond_to do |format|
+    
       if @conductum.save
-        format.html { redirect_to @conductum, notice: 'Conducta fue creada satisfactoriamente.' }
-        format.json { render :show, status: :created, location: @conductum }
+        flash[:success] = 'Conducta fue creado exitosamente'
+        redirect_to @conductum
       else
-        format.html { render :new }
-        format.json { render json: @conductum.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
+    
+    
   end
 
   # PATCH/PUT /conducta/1
   # PATCH/PUT /conducta/1.json
   def update
-    respond_to do |format|
+    
       if @conductum.update(conductum_params)
-        format.html { redirect_to @conductum, notice: 'Conducta fue actualizada satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @conductum }
+        flash[:success] = 'Conducta fue actualizado exitosamente'
+        redirect_to @conductum
       else
-        format.html { render :edit }
-        format.json { render json: @conductum.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+ 
   end
 
   # DELETE /conducta/1

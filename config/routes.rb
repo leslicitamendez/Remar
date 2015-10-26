@@ -63,6 +63,7 @@ Rails.application.routes.draw do
 
   get '/rehabs/new/:id' => 'rehabs#new', :as => 'rehaba'
 
+  get '/entrega_productos/new/:id' => 'entrega_productos#new', :as => 'entrega'
   get '/products/search' => 'products#search'
 
 

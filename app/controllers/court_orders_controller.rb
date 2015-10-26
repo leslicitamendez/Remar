@@ -28,29 +28,27 @@ class CourtOrdersController < ApplicationController
     @court_order = CourtOrder.new(court_order_params)
     @court_order.interno_id=params[:interno_id]
 
-    respond_to do |format|
+    
       if @court_order.save
-        format.html { redirect_to @court_order, notice: 'Orden Judicial creada correctamente.' }
-        format.json { render :show, status: :created, location: @court_order }
+         flash[:success] = 'Orden Judicial fue creado exitosamente'
+          redirect_to @court_order
       else
-        format.html { render :new }
-        format.json { render json: @court_order.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
+    
   end
 
   # PATCH/PUT /court_orders/1
   # PATCH/PUT /court_orders/1.json
   def update
-    respond_to do |format|
+   
       if @court_order.update(court_order_params)
-        format.html { redirect_to @court_order, notice: 'Se actualizo correctamente Orden Judicial.' }
-        format.json { render :show, status: :ok, location: @court_order }
+        flash[:success] = 'Orden Judicial fue actualizada exitosamente'
+          redirect_to @court_order
       else
-        format.html { render :edit }
-        format.json { render json: @court_order.errors, status: :unprocessable_entity }
+       render action: "edit"
       end
-    end
+    
   end
 
   # DELETE /court_orders/1

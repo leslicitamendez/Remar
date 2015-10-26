@@ -31,34 +31,28 @@ class ConyuguesController < ApplicationController
     @conyugue = Conyugue.new(conyugue_params)
     @conyugue.interno_id=params[:interno_id]
 
-    respond_to do |format|
+    
 
       if @conyugue.save
-        format.html { redirect_to internos_path, notice: 'Conyugue se creo satisfactoriamente.' }
-        format.json { render :show, status: :created, location: @conyugue }
-
-          
-         
+         flash[:success] = 'Conyugue fue creado exitosamente'
+          redirect_to @conyugue   
       else
-        format.html { render :new }
-        format.json { render json: @conyugue.errors, status: :unprocessable_entity }
-
+        render action: "new"
       end
-    end
+  
   end
 
   # PATCH/PUT /conyugues/1
   # PATCH/PUT /conyugues/1.json
   def update
-    respond_to do |format|
+    
       if @conyugue.update(conyugue_params)
-        format.html { redirect_to internos_path, notice: 'Conyugue se actualizo satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @conyugue }
+        flash[:success] = 'Conyugue fue actualizado exitosamente'
+          redirect_to @conyugue
       else
-        format.html { render :edit }
-        format.json { render json: @conyugue.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+   
   end
 
   # DELETE /conyugues/1

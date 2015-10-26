@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Interno:</strong>
+  <%= @court_order.interno.nombre %>&nbsp<%= @court_order.interno.apellido1 %>&nbsp<%= @court_order.interno.apellido2 %>
+</p>
+
+<p>
   <strong>Descripcion:</strong>
   <%= @court_order.descripcion %>
 </p>
@@ -15,10 +20,6 @@
   <%= @court_order.estado %>
 </p>
 
-<p>
-  <strong>Interno:</strong>
-  <%= @court_order.interno %>
-</p>
 
-<% link_to 'Edit', edit_court_order_path(@court_order) %> |
+
 <%= link_to 'Atras', court_orders_path, :class => 'btn btn-mini btn-default'  %>

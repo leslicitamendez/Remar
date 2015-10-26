@@ -43,29 +43,25 @@ class InternosController < ApplicationController
   def create
     @interno = Interno.new(interno_params)
 
-    respond_to do |format|
+    
       if @interno.save
-        format.html { redirect_to @interno, notice: 'Interno fue creado exitosamente.' }
-        format.json { render :show, status: :created, location: @interno }
+        flash[:success] = 'Interno fue creado exitosamente'
+        redirect_to  @interno
       else
-        format.html { render :new }
-        format.json { render json: @interno.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
+    
   end
 
   # PATCH/PUT /internos/1
   # PATCH/PUT /internos/1.json
   def update
-    respond_to do |format|
       if @interno.update(interno_params)
-        format.html { redirect_to @interno, notice: 'Interno fue actualizado exitosamente.' }
-        format.json { render :show, status: :ok, location: @interno }
+        flash[:success] = "Interno actualizado exitosamente"
+        redirect_to  @interno
       else
-        format.html { render :edit }
-        format.json { render json: @interno.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /internos/1

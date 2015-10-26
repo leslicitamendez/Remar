@@ -1,7 +1,7 @@
 class Voluntario < ActiveRecord::Base
 
 	has_many :recepcion_donativos
-
+	has_many :entrega_productos
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	validates :ci, uniqueness: { :message => "- El carnet ya existe"}
 	validates :ci, format: { with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}

@@ -25,32 +25,33 @@ class HijosController < ApplicationController
   # POST /hijos
   # POST /hijos.json
   def create
+    
     @hijo = Hijo.new(hijo_params)
     @hijo.interno_id=params[:interno_id]
 
-    respond_to do |format|
-      if @hijo.save
-        format.html { redirect_to @hijo, notice: 'Hijo was successfully created.' }
-        format.json { render :show, status: :created, location: @hijo }
-      else
-        format.html { render :new }
-        format.json { render json: @hijo.errors, status: :unprocessable_entity }
-      end
+  
+    if ((DateTime.now-@hijo.fechaNacimiento).to_i<=6569)
+      @hijo.estado=true
     end
+      if @hijo.save
+        flash[:success] = 'Hijo fue creado exitosamente'
+        redirect_to @hijo
+      else
+        render action: "new"
+      end
   end
 
   # PATCH/PUT /hijos/1
   # PATCH/PUT /hijos/1.json
   def update
-    respond_to do |format|
+    
       if @hijo.update(hijo_params)
-        format.html { redirect_to @hijo, notice: 'Hijo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hijo }
+        flash[:success] = 'Hijo fue actualizado exitosamente'
+        redirect_to @hijo
       else
-        format.html { render :edit }
-        format.json { render json: @hijo.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+  
   end
 
   # DELETE /hijos/1
@@ -62,6 +63,8 @@ class HijosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

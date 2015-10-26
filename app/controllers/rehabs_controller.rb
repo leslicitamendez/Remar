@@ -15,6 +15,7 @@ class RehabsController < ApplicationController
   # GET /rehabs/new
   def new
     @rehab = Rehab.new
+    @id=(params[:id])
   end
 
   # GET /rehabs/1/edit
@@ -25,30 +26,28 @@ class RehabsController < ApplicationController
   # POST /rehabs.json
   def create
     @rehab = Rehab.new(rehab_params)
-
-    respond_to do |format|
+    @rehab.interno_id=params[:interno_id]
+   
       if @rehab.save
-        format.html { redirect_to @rehab, notice: 'Rehabilitacion fue creada satisfactoriamente.' }
-        format.json { render :show, status: :created, location: @rehab }
+        flash[:success] = 'Rehabilitacion fue creado exitosamente'
+        redirect_to @rehab
       else
-        format.html { render :new }
-        format.json { render json: @rehab.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
+   
   end
 
   # PATCH/PUT /rehabs/1
   # PATCH/PUT /rehabs/1.json
   def update
-    respond_to do |format|
+    
       if @rehab.update(rehab_params)
-        format.html { redirect_to @rehab, notice: 'Rehabilitacion fue actualizada satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @rehab }
+        flash[:success] = 'Rehabilitacion fue actualizada exitosamente'
+        redirect_to @rehab
       else
-        format.html { render :edit }
-        format.json { render json: @rehab.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+    
   end
 
   # DELETE /rehabs/1

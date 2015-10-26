@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @contact.sexo %>
-</p>
 
 <p>
   <strong>Nombre:</strong>
@@ -21,6 +17,12 @@
 </p>
 
 <p>
+  <strong>Sexo:</strong>
+  <%= @contact.sexo %>
+</p>
+
+
+<p>
   <strong>Ci:</strong>
   <%= @contact.ci %>
 </p>
@@ -35,5 +37,5 @@
   <%= @contact.direccion %>
 </p>
 
-<% link_to 'Edit', edit_contact_path(@contact) %> |
+<% link_to 'Edit', edit_contact_path(@contact) %> 
 <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%>

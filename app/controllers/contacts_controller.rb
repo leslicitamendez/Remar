@@ -27,29 +27,27 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.interno_id=params[:interno_id]
-    respond_to do |format|
+    
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Referencia se creo satisfactoriamente.' }
-        format.json { render :show, status: :created, location: @contact }
+        flash[:success] = 'Referencia fue creado exitosamente'
+        redirect_to  @contact 
       else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
+    
   end
 
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
-    respond_to do |format|
+  
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Referencia se actualizo satisfactoriamente.' }
-        format.json { render :show, status: :ok, location: @contact }
+        flash[:success] = 'Referencia fue actualizado exitosamente'
+        redirect_to  @contact 
       else
-        format.html { render :edit }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
-    end
+  
   end
 
   # DELETE /contacts/1

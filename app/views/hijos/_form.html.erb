@@ -14,14 +14,8 @@
    <input type="hidden" name="interno_id" value="<%= @id %>" >
 
    
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.check_box :estado %>
-  </div>
-  <div class="field">
-    <%= f.label :sexo, 'Sexo (*)' %><br>
-    <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
-  </div>
+  
+  
   <div class="field">
     <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
@@ -35,15 +29,19 @@
     <%= f.text_field :apellido2 %>
   </div>
   <div class="field">
+    <%= f.label :sexo, 'Sexo (*)' %><br>
+    <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
+  </div>
+  <div class="field">
     <%= f.label :ci %><br>
     <%= f.number_field :ci %>
   </div>
   <div class="field">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
-    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-40, :end_year => Time.now.year} %>
   </div>
   <div class="field">
-    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento' %><br>
+    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
     <%= f.text_field :lugarNacimiento %>
   </div>
   <div class="actions">

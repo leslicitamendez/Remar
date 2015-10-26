@@ -17,6 +17,7 @@ class EntregaProductosController < ApplicationController
   # GET /entrega_productos/new
   def new
     @entrega_producto = EntregaProducto.new
+    @id=(params[:id])
   end
 
   # GET /entrega_productos/1/edit
@@ -27,6 +28,7 @@ class EntregaProductosController < ApplicationController
   # POST /entrega_productos.json
   def create
     @entrega_producto = EntregaProducto.new(entrega_producto_params)
+    @entrega_producto.voluntario_id=params[:voluntario_id]
 
       if @entrega_producto.save
         flash[:success] =  'Entrega producto creado exitosamente' 

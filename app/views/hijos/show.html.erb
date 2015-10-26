@@ -3,9 +3,23 @@
 
 
 
+
+
+
+
 <p>
-  <strong>Estado:</strong>
-  <%= @hijo.estado %>
+  <strong>Nombre:</strong>
+  <%= @hijo.nombre %>
+</p>
+
+<p>
+  <strong>Apellido Paterno:</strong>
+  <%= @hijo.apellido1 %>
+</p>
+
+<p>
+  <strong>Apellido Materno:</strong>
+  <%= @hijo.apellido2 %>
 </p>
 
 <p>
@@ -14,34 +28,26 @@
 </p>
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @hijo.nombre %>
-</p>
-
-<p>
-  <strong>Apellido1:</strong>
-  <%= @hijo.apellido1 %>
-</p>
-
-<p>
-  <strong>Apellido2:</strong>
-  <%= @hijo.apellido2 %>
-</p>
-
-<p>
   <strong>Ci:</strong>
   <%= @hijo.ci %>
 </p>
 
 <p>
-  <strong>Fechanacimiento:</strong>
-  <%= @hijo.fechaNacimiento %>
+  <strong>Fecha de Nacimiento:</strong>
+  <%= @hijo.fechaNacimiento.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
-  <strong>Lugarnacimiento:</strong>
+  <strong>Lugar de Nacimiento:</strong>
   <%= @hijo.lugarNacimiento %>
 </p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @hijo.estado %>
+</p>
+
+
 
 
 <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %>

@@ -1,10 +1,6 @@
 class Hijo < ActiveRecord::Base
 	has_one :interno
-	before_save :default_values
 
-  def default_values
-    self.estado ||= 'true'
-  end
 
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	validates :ci, uniqueness: { :message => "- El carnet ya existe"}
@@ -16,8 +12,7 @@ class Hijo < ActiveRecord::Base
 	validates :apellido1, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
-	validates :apellido2, presence: {:message => "- El apellido Materno es un campo obligatorio"}
-	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
 	validates :nombre, presence: {:message => "- El nombre es un campo obligatorio"}
