@@ -24,7 +24,7 @@
       <td width="33%" align="center">
         <div class="field" >
           <%= f.label :fechaIngreso, 'Fecha de Ingreso (*)' %><br>
-          <%= f.date_select :fechaIngreso,  {:start_year => Time.now.year, :end_year => 2000} %>
+          <%= f.date_select :fechaIngreso,  {order: [ :day, :month, :year],:start_year => Time.now.year, :end_year => 2000} %>
         </div>
       </td>
 
@@ -108,7 +108,7 @@
       <td width="33%" align="center">
         <div class="field">
           <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
-          <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+          <%= f.date_select :fechaNacimiento, {order: [ :day, :month, :year], :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
         </div>
       </td>
 

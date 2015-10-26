@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
-    <%= f.date_select :fechaNacimiento, { :start_year => Time.now.year-40, :end_year => Time.now.year} %>
+    <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
   </div>
   <div class="field">
     <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>

@@ -107,7 +107,7 @@
                       </p>
                       <p>
                         <strong>Fecha de Nacimiento:</strong>
-                        <%= @interno.fechaNacimiento.strftime("%m/%d/%Y") %>
+                        <%= @interno.fechaNacimiento.strftime("%d/%m/%Y") %>
                       </p>
                       <p>
                         <strong>Lugar de Nacimiento:</strong>
@@ -127,7 +127,7 @@
                       </p>
                       <p>
                         <strong>Fecha de Ingreso:</strong>
-                        <%= @interno.fechaIngreso.strftime("%m/%d/%Y") %>
+                        <%= @interno.fechaIngreso.strftime("%d/%m/%Y") %>
                       </p>
               </td>
 
@@ -171,7 +171,7 @@
 
                           <p>
                             <strong>Fecha de Nacimiento:</strong>
-                            <%= @conyugue.fechaNacimiento.strftime("%m/%d/%Y") %>
+                            <%= @conyugue.fechaNacimiento.strftime("%d/%m/%Y") %>
                           </p>
 
                           <p>
@@ -278,7 +278,7 @@
                                 <% @conducta.each do |conductum| %>
                                   <tr>
                                     
-                                    <td><%= conductum.fecha.strftime("%m/%d/%Y") %></td>
+                                    <td><%= conductum.fecha.strftime("%d/%m/%Y") %></td>
                                     <td><%= conductum.tipoConducta %></td>
                                     <td><%= conductum.descripcion %></td>
                                     
