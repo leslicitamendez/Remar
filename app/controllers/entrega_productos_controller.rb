@@ -10,8 +10,8 @@ class EntregaProductosController < ApplicationController
   # GET /entrega_productos/1
   # GET /entrega_productos/1.json
   def show
-  #   @entrega_producto=EntregaProducto.find(params[:id])
-  #   @rendicion_producto=@entrega_producto.rendicion_producto
+    @entrega_producto=EntregaProducto.find(params[:id])
+    @rendicion_producto=@entrega_producto.rendicion_producto
   end
 
   # GET /entrega_productos/new

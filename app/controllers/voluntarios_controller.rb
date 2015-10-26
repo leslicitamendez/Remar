@@ -10,6 +10,7 @@ class VoluntariosController < ApplicationController
     if(params["palabra"]!=nil)
         @voluntarios=Voluntario.where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
     end
+    @page = params[:page]
   end
 
 

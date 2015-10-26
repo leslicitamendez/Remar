@@ -2,22 +2,23 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <div><strong>Voluntario: </strong> <%= @entrega_producto.voluntario.full_name %><br>
+        <strong>Producto: </strong> <%= @entrega_producto.product.code %>
+      </div>
+    </tr>
+    <tr>
       <th>
       </th>
       <th>
         Productos Entregados
       </th>
       <th>
-
-          <% if @rendicion_producto== nil %>
-            <!-- <%= link_to 'Registrar Rendicion', rendicion_path(@entrega_producto.id),:class => 'btn btn-mini btn-success active' %> -->
-            <br><br>
-          <% end %>
-
-
-          <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
-          <% end %>
+        <% if @rendicion_producto== nil %>
+          <%= link_to 'Registrar Rendicion', rendicion_path(@entrega_producto.id),:class => 'btn btn-mini btn-success active' %>
+        <% end %>
+        <% if @rendicion_producto != nil %>           
+          Productos Devueltos
+        <% end %>         
       </th>
     </tr>
   </thead>
@@ -31,33 +32,7 @@
       </td>
       <td>
         <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Fecha:</strong>
-      </td>
-      <td>
-        <%= @entrega_producto.fecha %>
-      </td>
-      <td>
-        <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <strong>Hora:</strong>
-      </td>
-      <td>
-        <%= @entrega_producto.hora.strftime("%I:%M %p") %>
-      </td>
-      <td>
-        <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+          <%= @rendicion_producto.id %>               
         <% end %>
       </td>
     </tr>
@@ -70,36 +45,57 @@
       </td>
       <td>
         <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+          <%= @rendicion_producto.cantidad %>                
         <% end %>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>Producto:</strong>
+        <strong>Fecha:</strong>
       </td>
       <td>
-        <%= @entrega_producto.product.code %>
+        <%= @entrega_producto.fecha %>
       </td>
       <td>
         <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+          <%= @rendicion_producto.fecha %>              
         <% end %>
       </td>
     </tr>
     <tr>
       <td>
-        <strong>Voluntario:</strong>
+        <strong>Hora:</strong>
       </td>
       <td>
-        <%= @entrega_producto.voluntario.full_name %>
+        <%= @entrega_producto.hora.strftime("%I:%M %p") %>
       </td>
       <td>
         <% if @rendicion_producto != nil %> 
-              <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'    %><br><br>                
+          <%= @rendicion_producto.hora.strftime("%I:%M %p") %>             
         <% end %>
       </td>
     </tr>
+    <tr>
+      <td>
+      </td>
+      <td></td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+          <strong>Observaciones:</strong>
+          <%= @rendicion_producto.observaciones %>
+        <% end %>
+      </td>
+    </tr>    
+    <tr>
+      <td>
+      </td>
+      <td></td>
+      <td>
+        <% if @rendicion_producto != nil %> 
+          <%= link_to 'Editar Rendicon', edit_rendicion_producto_path(@rendicion_producto.id), :class => 'btn btn-mini btn-warning active'%>
+        <% end %>
+      </td>
+    </tr>   
   </tbody>
 </table>
 

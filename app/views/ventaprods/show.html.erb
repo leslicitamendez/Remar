@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @ventaprod.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ventaprod.fecha %>
+</p>
+
+<p>
+  <strong>Preciounidad:</strong>
+  <%= @ventaprod.precioUnidad %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @ventaprod.estado %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @ventaprod.observaciones %>
+</p>
+
+<p>
+  <strong>Rendicionprod:</strong>
+  <%= @ventaprod.rendicionprod %>
+</p>
+
+<p>
+  <strong>Entregaprod:</strong>
+  <%= @ventaprod.entregaprod %>
+</p>
+
+<%= link_to 'Edit', edit_ventaprod_path(@ventaprod) %> |
+<%= link_to 'Back', ventaprods_path %>

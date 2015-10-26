@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-10-25
+  hora: 2015-10-25 12:51:13
+  cantidad: 1
+  observaciones: MyText
+  estado: false
+  entregaprod_id: 
+
+two:
+  fecha: 2015-10-25
+  hora: 2015-10-25 12:51:13
+  cantidad: 1
+  observaciones: MyText
+  estado: false
+  entregaprod_id: 

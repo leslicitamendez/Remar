@@ -1,0 +1,35 @@
+<%= form_for(@rendicionprod) do |f| %>
+  <% if @rendicionprod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rendicionprod.errors.count, "error") %> prohibited this rendicionprod from being saved:</h2>
+
+      <ul>
+      <% @rendicionprod.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input type="hidden" name="id" value="<%= @id %>" >
+
+  
+  <div class="field">
+    <%= f.label :cantidad, 'cantidad(*)' %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha , 'Fecha (*)'%><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :hora %><br>
+    <%= f.time_select :hora %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br>
+    <%= f.text_area :observaciones %>
+  </div>
+  <div class="actions">
+    <%= f.submit (@rendicionprod.new_record? ? 'Registrar Rendicion' : 'Editar Rendicion'),:class => 'btn btn-mini btn-success active'%>
+  </div>
+<% end %>

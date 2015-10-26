@@ -15,11 +15,13 @@
   <tbody>
     <% @entrega_productos.each do |entrega_producto| %>
       <tr>
-        <td><%= entrega_producto.id %></td>
+        <td><%= entrega_producto.id %></td>D
         <td><%= entrega_producto.fecha %></td>
         <td><%= entrega_producto.cantidad %></td>
+
         <td><%= entrega_producto.product_id %></td>
         <td><%= entrega_producto.voluntario_id %></td>
+
         <td><%= link_to 'Mostrar', entrega_producto, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entrega_producto_path(entrega_producto), :class => 'btn btn-mini btn-warning active'%></td>
       </tr>
     <% end %>

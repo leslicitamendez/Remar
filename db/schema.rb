@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021133849) do
+
+ActiveRecord::Schema.define(version: 20151026025155) do
+
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -127,6 +129,21 @@ ActiveRecord::Schema.define(version: 20151021133849) do
 
   add_index "entrega_productos", ["product_id"], name: "index_entrega_productos_on_product_id"
   add_index "entrega_productos", ["voluntario_id"], name: "index_entrega_productos_on_voluntario_id"
+
+  create_table "entregaprods", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.text     "observaciones"
+    t.boolean  "estado"
+    t.integer  "voluntario_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entregaprods", ["product_id"], name: "index_entregaprods_on_product_id"
+  add_index "entregaprods", ["voluntario_id"], name: "index_entregaprods_on_voluntario_id"
 
   create_table "gasto_internos", force: true do |t|
     t.date     "fecha"
@@ -259,12 +276,21 @@ ActiveRecord::Schema.define(version: 20151021133849) do
     t.integer  "Voluntario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "entrega_productos_id"
+    t.integer  "entrega_producto_id"
   end
 
-  add_index "rendicion_productos", ["Product_id"], name: "index_rendicion_productos_on_Product_id"
-  add_index "rendicion_productos", ["Voluntario_id"], name: "index_rendicion_productos_on_Voluntario_id"
-  add_index "rendicion_productos", ["entrega_productos_id"], name: "index_rendicion_productos_on_entrega_productos_id"
+  create_table "rendicionprods", force: true do |t|
+    t.date     "fecha"
+    t.time     "hora"
+    t.integer  "cantidad"
+    t.text     "observaciones"
+    t.boolean  "estado"
+    t.integer  "entregaprod_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rendicionprods", ["entregaprod_id"], name: "index_rendicionprods_on_entregaprod_id"
 
   create_table "venta", force: true do |t|
     t.integer  "cantidad"
@@ -279,6 +305,21 @@ ActiveRecord::Schema.define(version: 20151021133849) do
 
   add_index "venta", ["entregaProducto_id"], name: "index_venta_on_entregaProducto_id"
   add_index "venta", ["rendicionProducto_id"], name: "index_venta_on_rendicionProducto_id"
+
+  create_table "ventaprods", force: true do |t|
+    t.integer  "cantidad"
+    t.date     "fecha"
+    t.float    "precioUnidad"
+    t.boolean  "estado"
+    t.text     "observaciones"
+    t.integer  "rendicionprod_id"
+    t.integer  "entregaprod_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ventaprods", ["entregaprod_id"], name: "index_ventaprods_on_entregaprod_id"
+  add_index "ventaprods", ["rendicionprod_id"], name: "index_ventaprods_on_rendicionprod_id"
 
   create_table "voluntarios", force: true do |t|
     t.string   "nombre"

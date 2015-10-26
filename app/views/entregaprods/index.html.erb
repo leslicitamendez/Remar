@@ -1,0 +1,55 @@
+<h1>Lista entrega de productos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% if @page == nil %>
+      <% @page=1 %> 
+      <%end%>
+      <% if @page.to_i > 1 %>
+      <%= link_to 'Anterior','/entregaprods?&page='+(@page.to_i-1).to_s, :class => 'btn btn-mini btn-default' %> 
+      <%end%>
+      <% if @page.to_i*5 < @entregaprods.length %>
+      <%= link_to 'Siguiente','/entregaprods?&page='+(@page.to_i+1).to_s, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+    </tr>    
+    <tr>
+
+      <th>Fecha</th>
+      <th>Voluntario</th>
+      <th>Product</th>
+      <th>Cantidad</th>      
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entregaprods.each_with_index do |entregaprod, index| %>
+      <% if index < @page.to_i*5 && index >= (@page.to_i-1)*5%>
+      <tr>
+        <td><%= entregaprod.fecha %></td>        
+        <td><%= entregaprod.voluntario %></td>
+        <td><%= entregaprod.product %></td> 
+        <td><%= entregaprod.cantidad %></td>
+        <td>
+          <% if Entregaprod.find(entregaprod.id).rendicionprod == nil %>
+            <strong style="color:#DF3A01">Pendiente</strong>
+          <%elsif Entregaprod.find(entregaprod.id).ventaprod == nil %>
+            <strong style="color:#DF7401">Pendiente</strong>
+          <%end%>        
+          <% if Entregaprod.find(entregaprod.id).ventaprod != nil %>
+            <strong style="color:#04B431">Completo</strong>
+          <%end%>
+        </td>
+        <td><%= link_to 'Mostrar', entregaprod, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entregaprod_path(entregaprod), :class => 'btn btn-mini btn-warning active'%></td>
+      </tr>
+      <%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Entrega producto', new_entregaprod_path,:class => 'btn btn-mini btn-success active'%>
+

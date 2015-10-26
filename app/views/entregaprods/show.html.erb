@@ -1,0 +1,147 @@
+<p id="notice"><%= notice %></p>
+<div align="center">
+  <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
+  <strong>Producto: </strong> <%= @entregaprod.product %><br>
+  <% if @ventaprod != nil %> 
+    <strong>Precio Unitario: </strong>
+    <%= @ventaprod.precioUnidad %> Bs. <br>
+    <strong>Precio Total: </strong>
+    <%= @ventaprod.precioUnidad*@ventaprod.cantidad %> Bs.      
+  <% end %>
+</div>
+<table class="table table-striped">
+  <thead>    
+    <tr>
+      <th>
+      </th>
+      <th>
+        Productos Entregados
+      </th>
+      <th>
+        <% if @rendicionprod== nil %>
+          <%= link_to 'Registrar Rendicion', rend_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
+        <% end %>
+        <% if @rendicionprod != nil %>           
+          Productos Devueltos
+        <% end %>         
+      </th>
+      <th>
+        <% if @ventaprod== nil && @rendicionprod != nil  %>
+          <%= link_to 'Registrar Venta', vent_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
+        <% end %>
+        <% if @ventaprod != nil %>           
+          Productos Vendidos
+        <% end %>         
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Id:</strong>
+      </td>
+      <td>
+        <%= @entregaprod.id %>
+      </td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <%= @rendicionprod.id %>               
+        <% end %>
+      </td>
+      <td>
+        <% if @ventaprod != nil %> 
+          <%= @ventaprod.id %>               
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Cantidad:</strong>
+      </td>
+      <td>
+        <%= @entregaprod.cantidad %>
+      </td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <%= @rendicionprod.cantidad %>                
+        <% end %>
+      </td>
+      <td>
+        <% if @ventaprod != nil %> 
+          <%= @ventaprod.cantidad %>                
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Fecha:</strong>
+      </td>
+      <td>
+        <%= @entregaprod.fecha %>
+      </td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <%= @rendicionprod.fecha %>              
+        <% end %>
+      </td>
+      <td>
+        <% if @ventaprod != nil %> 
+          <%= @ventaprod.fecha %>              
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Hora:</strong>
+      </td>
+      <td>
+        <%= @entregaprod.hora.strftime("%I:%M %p") %>
+      </td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <%= @rendicionprod.hora.strftime("%I:%M %p") %>             
+        <% end %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td></td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <% if @rendicionprod.observaciones != "" %> 
+            <strong>Observaciones:</strong>
+            <%= @rendicionprod.observaciones %>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if @ventaprod != nil %> 
+          <% if @ventaprod.observaciones != "" %> 
+            <strong>Observaciones: </strong>
+            <%= @ventaprod.observaciones %>  
+          <% end %>       
+        <% end %>
+      </td>
+    </tr>    
+    <tr>
+      <td>        
+      </td>
+      <td>
+        <%= link_to 'Editar Entrega', edit_entregaprod_path(@entregaprod), :class => 'btn btn-mini btn-warning active' %> 
+      </td>
+      <td>
+        <% if @rendicionprod != nil %> 
+          <%= link_to 'Editar Rendicion', edit_rendicionprod_path(@rendicionprod.id), :class => 'btn btn-mini btn-warning active'%>
+        <% end %>
+      </td>
+      <td>
+        <% if @ventaprod != nil %> 
+          <%= link_to 'Editar Venta', edit_ventaprod_path(@ventaprod.id), :class => 'btn btn-mini btn-warning active'%>
+        <% end %>
+      </td>
+    </tr>   
+  </tbody>
+</table>
+<%= link_to 'Atras', entregaprods_path,:class => 'btn btn-mini btn-default' %>
