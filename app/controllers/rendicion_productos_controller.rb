@@ -27,7 +27,7 @@ class RendicionProductosController < ApplicationController
   
   def create
     @rendicion_producto = RendicionProducto.new(rendicion_producto_params)
-    @rendicion_producto.entrega_productos_id=params[:id]
+    @rendicion_producto.entrega_producto_id=params[:id]
       if @rendicion_producto.save
         flash[:success] = 'Rendicion producto creado exitosamente' 
         redirect_to '/rendicion_productos'
@@ -41,7 +41,7 @@ class RendicionProductosController < ApplicationController
   def update
       if @rendicion_producto.update(rendicion_producto_params)
         flash[:success] ='Rendicion producto actualizado exitosamente' 
-        redirect_to '/rendicion_productos'
+        redirect_to '/entrega_productos'
       else
         render action: "edit"
       end

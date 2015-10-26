@@ -1,6 +1,5 @@
 class Ventum < ActiveRecord::Base
   belongs_to :entregaProducto
-  belongs_to :rendicionProducto
 
   validate :date_cannot_be_in_the_future
 

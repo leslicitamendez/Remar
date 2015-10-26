@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad: 1
+  fecha: 2015-10-25
+  precioUnidad: 1.5
+  estado: 
+  observaciones: MyText
+  rendicionprod_id: 
+  entregaprod_id: 
+
+two:
+  cantidad: 1
+  fecha: 2015-10-25
+  precioUnidad: 1.5
+  estado: 
+  observaciones: MyText
+  rendicionprod_id: 
+  entregaprod_id: 

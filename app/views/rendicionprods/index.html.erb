@@ -1,0 +1,35 @@
+<h1>Lista rendicion de productos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Cantidad</th>
+      <th>Observaciones</th>
+      <th>Estado</th>
+      <th>Entregaprod</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rendicionprods.each do |rendicionprod| %>
+      <tr>
+        <td><%= rendicionprod.fecha %></td>
+        <td><%= rendicionprod.hora %></td>
+        <td><%= rendicionprod.cantidad %></td>
+        <td><%= rendicionprod.observaciones %></td>
+        <td><%= rendicionprod.estado %></td>
+        <td><%= rendicionprod.entregaprod %></td>
+        <td><%= link_to 'Show', rendicionprod %></td>
+        <td><%= link_to 'Edit', edit_rendicionprod_path(rendicionprod) %></td>
+        <td><%= link_to 'Destroy', rendicionprod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rendicionprod', new_rendicionprod_path %>

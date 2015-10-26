@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 	#attr_accessible :name
 
 	has_many :produccions
+	has_many :entregaProducto
+	has_many :rendicionProducto
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
 	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
@@ -30,4 +32,7 @@ class Product < ActiveRecord::Base
 		self.state = 'Activo'
 		self.save!
 	end
+	def to_s
+    	code.to_s+" "+name.to_s
+  	end
 end

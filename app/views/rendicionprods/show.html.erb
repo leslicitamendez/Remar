@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @rendicionprod.cantidad %>
+</p>
+<p>
+  <strong>Id:</strong>
+  <%= @rendicionprod.id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @rendicionprod.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @rendicionprod.hora.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @rendicionprod.observaciones %>
+</p>
+
+<%= link_to 'Atras', rendicionprods_path,:class => 'btn btn-mini btn-default' %>

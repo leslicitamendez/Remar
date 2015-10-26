@@ -10,20 +10,8 @@ class EntregaProductosController < ApplicationController
   # GET /entrega_productos/1
   # GET /entrega_productos/1.json
   def show
-   # @interno=Interno.find(params[:id])
-    #@conyugue=@interno.conyugue
-
-    #@hijos=@interno.hijos
-    #@conducta=@interno.conducta
-    #@contact=@interno.contact
-    #@court_orders=@interno.court_orders
-    #@rehabs=@interno.rehabs
-
     @entrega_producto=EntregaProducto.find(params[:id])
-    #@rendicion_productos=@entrega_producto.rendicion_productos
     @rendicion_producto=@entrega_producto.rendicion_producto
-  #   @entrega_producto=EntregaProducto.find(params[:id])
-  #   @rendicion_producto=@entrega_producto.rendicion_producto
   end
 
   # GET /entrega_productos/new
