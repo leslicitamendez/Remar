@@ -4,7 +4,30 @@ class RecepcionDonativosController < ApplicationController
   # GET /recepcion_donativos
   # GET /recepcion_donativos.json
   def index
-    @recepcion_donativos = RecepcionDonativo.all.paginate(page: params[:page], per_page: 5).order('fecha DESC')
+    #@recepcion_donativos = RecepcionDonativo.all.paginate(page: params[:page], per_page: 5).order('fecha DESC')
+    #@palabra = ''
+    #@palabra = params[:palabra].to_date
+    #@fec=Date.parse("@palabra.to_s")
+    if params[:palabra2]==nil ||  params[:palabra2]== ''
+      params[:palabra2]=Date.today.to_s
+    end
+    if params[:palabra] &&  params[:palabra]!= '' 
+      begin
+        @recepcion_donativos = RecepcionDonativo.order("fecha DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+      rescue Exception => e
+        flash[:success] = 'Por favor ingrese una fecha valida'
+        params.delete :palabra
+        redirect_to '/recepcion_donativos'
+      end
+    else
+      begin
+        @recepcion_donativos = RecepcionDonativo.order("fecha DESC").where("fecha <=?", params[:palabra2].to_date)
+      rescue Exception => e
+        flash[:success] = 'Por favor ingrese una fecha valida'
+        params.delete :palabra2
+        redirect_to '/recepcion_donativos'
+      end
+    end
   end
 
   # GET /recepcion_donativos/1

@@ -23,6 +23,15 @@ class EntregaprodsController < ApplicationController
   # GET /entregaprods/new
   def new
     @entregaprod = Entregaprod.new
+    @voluntarios = Voluntario.all
+    @productos = Product.all
+    if @voluntarios.length == 0
+      flash[:success] =  'Por favor Registre un Voluntario antes de continuar' 
+      redirect_to '/voluntarios'      
+    elsif @productos.length == 0
+      flash[:success] =  'Por favor Registre un Producto antes de continuar' 
+      redirect_to '/products'      
+    end
   end
 
   # GET /entregaprods/1/edit

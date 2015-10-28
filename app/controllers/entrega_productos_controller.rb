@@ -18,6 +18,14 @@ class EntregaProductosController < ApplicationController
   def new
     @entrega_producto = EntregaProducto.new
     @id=(params[:id])
+    @voluntarios = Voluntario.all
+    @productos = Producto.all
+    if @voluntarios == nil
+        flash[:success] =  'Por favor Registre al menos un Voluntario' 
+        redirect_to '/voluntarios'
+      else
+        render action: "new"
+      end
   end
 
   # GET /entrega_productos/1/edit
