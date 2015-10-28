@@ -1,7 +1,9 @@
 <%= form_for(@conyugue) do |f| %>
   <% if @conyugue.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@conyugue.errors.count, "error") %> - corrija los siguientes errores:</h2>
+
+      <h2><%= pluralize(@conyugue.errors.count, "error") %>, corrija los siguientes errores:</h2>
+
 
       <ul>
       <% @conyugue.errors.full_messages.each do |message| %>

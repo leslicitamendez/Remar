@@ -1,7 +1,7 @@
 <%= form_for(@interno) do |f| %>
   <% if @interno.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@interno.errors.count, "error") %> prohibited this interno from being saved:</h2>
+      <h2><%= pluralize(@interno.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @interno.errors.full_messages.each do |message| %>

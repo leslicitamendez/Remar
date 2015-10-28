@@ -6,7 +6,7 @@ class EgresoInterno < ActiveRecord::Base
   validates :concepto, length: { maximum: 30, :message => "No debe tener mas de 50 caracteres"}
 
   validates :monto, presence: {:message => "- Es un campo obligatorio"}
-  validates :monto, :numericality => {:greater_than => 0, :message => "- El monto debe ser mayor a 0"}
+  validates :monto, allow_blank: true, :numericality => {:greater_than => 0, :message => "- El monto debe ser mayor a 0"}
   validates :monto, length: {maximum: 10, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
   validates :fecha, presence: {:message => "- Es un campo obligatorio"}
