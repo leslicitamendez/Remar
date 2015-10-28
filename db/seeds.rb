@@ -24,4 +24,3 @@ internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Attridge', sexo: 'M
 
 
 
-

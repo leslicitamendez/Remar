@@ -30,14 +30,16 @@ class ConyuguesController < ApplicationController
   def create
     @conyugue = Conyugue.new(conyugue_params)
     @conyugue.interno_id=params[:interno_id]
+    @interno=Interno.find(params[:interno_id])
 
     
 
       if @conyugue.save
          flash[:success] = 'Conyugue fue creado exitosamente'
-          redirect_to @conyugue   
+          redirect_to @interno 
       else
-        render action: "new"
+        render "new", :id => @conyugue.interno_id
+        
       end
   
   end
@@ -45,10 +47,9 @@ class ConyuguesController < ApplicationController
   # PATCH/PUT /conyugues/1
   # PATCH/PUT /conyugues/1.json
   def update
-    
       if @conyugue.update(conyugue_params)
-        flash[:success] = 'Conyugue fue actualizado exitosamente'
-          redirect_to @conyugue
+         flash[:success] = 'Conyugue fue creado exitosamente'
+         redirect_to @conyugue 
       else
         render action: "edit"
       end
@@ -60,7 +61,7 @@ class ConyuguesController < ApplicationController
   def destroy
     @conyugue.destroy
     respond_to do |format|
-      format.html { redirect_to internos_path, notice: 'Conyugue was successfully destroyed.' }
+      format.html { redirect_to internos_path, notice: 'Conyugue fue borrado satisfactoriamente.' }
       format.json { head :no_content }
 
     end

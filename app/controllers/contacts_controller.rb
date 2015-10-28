@@ -54,10 +54,10 @@ class ContactsController < ApplicationController
   # DELETE /contacts/1.json
   def destroy
     @contact.destroy
-    respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Referencia se borro satisfactoriamente.' }
-      format.json { head :no_content }
-    end
+    
+      flash[:success] = 'Referencia fue borrada exitosamente'
+      redirect_to  '/internos'
+    
   end
 
   private

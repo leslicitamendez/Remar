@@ -11,11 +11,11 @@ def full_name
 end
 
 	validates :descripcion, presence: {:message => "- La Direccion es un campo obligatorio"}
-	validates :descripcion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un descripcion" }
+	validates :descripcion, length: { maximum: 35, muy_largo: "- %{count} caracteres es la longitud maxima permitida para un descripcion" }
 	validates :descripcion, format: { with: /\A[a-zA-Z0-9 ]+\z/, message: "- Solo se aceptan letras"}
 
 
-  	validates :tipoConducta, presence: {:message => "- El carnet es un campo obligatorio"}
+  	validates :tipoConducta, presence: {:message => "- Tipo de conducta es un campo obligatorio"}
 	
 	
 	
