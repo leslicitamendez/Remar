@@ -1,7 +1,7 @@
 <%= form_for(@conductum) do |f| %>
   <% if @conductum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@conductum.errors.count, "error") %> prohibited this conductum from being saved:</h2>
+      <h2><%= pluralize(@conductum.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @conductum.errors.full_messages.each do |message| %>

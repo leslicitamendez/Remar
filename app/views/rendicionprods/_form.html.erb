@@ -1,7 +1,7 @@
 <%= form_for(@rendicionprod) do |f| %>
   <% if @rendicionprod.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@rendicionprod.errors.count, "error") %> prohibited this rendicionprod from being saved:</h2>
+      <h2><%= pluralize(@rendicionprod.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @rendicionprod.errors.full_messages.each do |message| %>

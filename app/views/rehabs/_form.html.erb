@@ -1,7 +1,7 @@
 <%= form_for(@rehab) do |f| %>
   <% if @rehab.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@rehab.errors.count, "error") %> prohibited this rehab from being saved:</h2>
+      <h2><%= pluralize(@rehab.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @rehab.errors.full_messages.each do |message| %>

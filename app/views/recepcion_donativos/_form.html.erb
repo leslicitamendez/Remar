@@ -1,7 +1,7 @@
 <%= form_for(@recepcion_donativo) do |f| %>
   <% if @recepcion_donativo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recepcion_donativo.errors.count, "error") %> prohibited this recepcion_donativo from being saved:</h2>
+      <h2><%= pluralize(@recepcion_donativo.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @recepcion_donativo.errors.full_messages.each do |message| %>

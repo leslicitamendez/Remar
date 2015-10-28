@@ -1,7 +1,7 @@
 <%= form_for(@egreso) do |f| %>
   <% if @egreso.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@egreso.errors.count, "error") %> prohibited this egreso from being saved:</h2>
+      <h2><%= pluralize(@egreso.errors.count, "error") %>, corrija los siguientes errores:</h2>
 
       <ul>
       <% @egreso.errors.full_messages.each do |message| %>
