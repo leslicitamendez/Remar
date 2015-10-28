@@ -1,5 +1,11 @@
 <h1>Lista de donativos</h1>
-<%= will_paginate @recepcion_donativos, :previous_label => 'Anterior', :next_label => 'Siguiente', :class => 'btn btn-mini btn-default'%>
+<div align="right">
+  <%= form_tag({:controller => "recepcion_donativos", :action => "index"}, :method => :get) do %>
+    Buscar Donativo: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Donativo aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Donativo aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+  <% end %>
+</div><br>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -24,7 +30,7 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @recepcion_donativos, :previous_label => 'Anterior', :next_label => 'Siguiente', :class => 'btn btn-mini btn-default'%>
+
 <br>
 
 <%= link_to 'Ingresar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %>

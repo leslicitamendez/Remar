@@ -333,6 +333,7 @@ ActiveRecord::Schema.define(version: 20151026025155) do
     t.string   "ci"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sexo"
   end
 
 end
