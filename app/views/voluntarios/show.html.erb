@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Sexo:</strong>
+  <%= @voluntario.sexo %>
+</p>
+
+<p>
   <strong>Direccion:</strong>
   <%= @voluntario.direccion %>
 </p>
@@ -34,5 +39,5 @@
   <strong>Nivel de confianza 0-100:</strong>
   <%= @voluntario.NivelConfianza %>
 </p>
- <%= link_to 'Registrar Entrega Producto', entrega_path(@voluntario.id),:class => 'btn btn-mini btn-success active' %><br><br>
+ 
 <%= link_to 'Atras', voluntarios_path , :class => 'btn btn-mini btn-default' %>

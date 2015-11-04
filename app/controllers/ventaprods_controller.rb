@@ -16,6 +16,7 @@ class VentaprodsController < ApplicationController
   def new
     @ventaprod = Ventaprod.new
     @id=(params[:id])
+    @rendicion_id=(params[:rendicion_id])
   end
 
   # GET /ventaprods/1/edit
@@ -25,25 +26,46 @@ class VentaprodsController < ApplicationController
   # POST /ventaprods
   # POST /ventaprods.json
   def create
-    @ventaprod = Ventaprod.new(ventaprod_params)
-    @ventaprod.entregaprod_id=params[:id]
-      if @ventaprod.save
-        flash[:success] = 'Venta producto creado exitosamente' 
+    begin
+      @ventaprod = Ventaprod.new(ventaprod_params)
+      @ren = Rendicionprod.find(params[:rendicion_id])
+      @entregaprod=Entregaprod.find(params[:id])
+      @ventaprod.entregaprod_id=params[:id]
+      @ventaprod.rendicionprod_id=params[:rendicion_id]
+      if @entregaprod.cantidad.to_i- @ren.cantidad.to_i < @ventaprod.cantidad.to_i
+        flash[:warning] = 'No puede vender mas producto del rendido' 
+        redirect_to '/entregaprods/'+params[:id]      
+      elsif @ventaprod.save
+        flash[:success] = 'Venta producto creado exitosamente'
         redirect_to '/entregaprods/'+params[:id]
       else
         render action: "new"
-      end
+      end      
+    rescue Exception => e
+      redirect_to '/entregaprods/'+params[:id]
+    end
   end
 
   # PATCH/PUT /ventaprods/1
   # PATCH/PUT /ventaprods/1.json
   def update
-    if @ventaprod.update(ventaprod_params)
-      flash[:success] ='Venta producto actualizado exitosamente' 
+    begin
+      @ren = Rendicionprod.find(@ventaprod.rendicionprod_id)
+      @entregaprod=Entregaprod.find(@ventaprod.entregaprod_id)
+      @actu=params[:ventaprod]
+      if @entregaprod.cantidad.to_i- @ren.cantidad.to_i < @actu[:cantidad].to_i
+        flash[:warning] = 'No puede vender mas producto del rendido' 
+        redirect_to '/entregaprods/'+@ventaprod.entregaprod_id.to_s
+      elsif @ventaprod.update(ventaprod_params)
+        flash[:success] ='Venta producto actualizado exitosamente' 
+        redirect_to '/entregaprods/'+@ventaprod.entregaprod_id.to_s
+      else
+        render action: "edit"
+      end      
+    rescue Exception => e
       redirect_to '/entregaprods/'+@ventaprod.entregaprod_id.to_s
-    else
-      render action: "edit"
     end
+      
   end
 
   # DELETE /ventaprods/1

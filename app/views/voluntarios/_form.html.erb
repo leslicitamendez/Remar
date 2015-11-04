@@ -26,7 +26,11 @@
   <div class="field">
     <%= f.label :apellido2, 'Apellido Materno *' %><br>
     <%= f.text_field :apellido2 %>
-  </div>  
+  </div>
+  <div class="field">
+    <%= f.label :sexo, 'Sexo (*)' %><br>
+    <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
+  </div> 
   <div class="field">
     <%= f.label :direccion %><br>
     <%= f.text_field :direccion %>
@@ -39,6 +43,7 @@
     <%= f.label :NivelConfianza, 'Nivel de Confianza 0-100 *' %><br>
     <%= f.number_field :NivelConfianza %>
   </div>
+
 
   <div class="actions">
     <%= f.submit (@voluntario.new_record? ? 'Registrar Voluntario' : 'Editar Voluntario'),:class => 'btn btn-mini btn-success active' %>

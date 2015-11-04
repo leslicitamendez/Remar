@@ -27,7 +27,7 @@
       </th>
       <th>
         <% if @ventaprod== nil && @rendicionprod != nil  %>
-          <%= link_to 'Registrar Venta', vent_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
+          <%= link_to 'Registrar Venta', vent_path(:rendicion_id => @rendicionprod.id),:class => 'btn btn-mini btn-success active' %>
         <% end %>
         <% if @ventaprod != nil %>           
           Productos Vendidos
