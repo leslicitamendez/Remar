@@ -26,24 +26,44 @@ class RendicionprodsController < ApplicationController
   # POST /rendicionprods.json
   def create
     @rendicionprod = Rendicionprod.new(rendicionprod_params)
-    @rendicionprod.entregaprod_id=params[:id]
-      if @rendicionprod.save
+    begin
+      @entregaprod=Entregaprod.find(params[:id])
+      @rendicionprod.entregaprod_id=params[:id]
+      if @entregaprod.cantidad.to_i < @rendicionprod.cantidad.to_i
+        flash[:warning] = 'No puede devolver mas producto del entregado' 
+        redirect_to '/entregaprods/'+params[:id]     
+      elsif @rendicionprod.save
         flash[:success] = 'Rendicion producto creado exitosamente' 
         redirect_to '/entregaprods/'+params[:id]
       else
         render action: "new"
       end
+      
+    rescue Exception => e
+      redirect_to '/entregaprods/'+params[:id]
+    end
+    
   end
 
   # PATCH/PUT /rendicionprods/1
   # PATCH/PUT /rendicionprods/1.json
   def update
-    if @rendicionprod.update(rendicionprod_params)
-      flash[:success] ='Rendicion producto actualizado exitosamente' 
+    begin
+      @entregaprod=Entregaprod.find(@rendicionprod.entregaprod_id)
+      @actu=params[:rendicionprod]
+      if @entregaprod.cantidad.to_i < @actu[:cantidad].to_i
+        flash[:warning] = 'No puede devolver mas producto del entregado' 
+        redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+      elsif @rendicionprod.update(rendicionprod_params)
+        flash[:success] ='Rendicion producto actualizado exitosamente' 
+        redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+      else
+        render action: "edit"
+      end      
+    rescue Exception => e
       redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
-    else
-      render action: "edit"
     end
+    
   end
 
   # DELETE /rendicionprods/1

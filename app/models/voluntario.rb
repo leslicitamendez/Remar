@@ -23,6 +23,8 @@ class Voluntario < ActiveRecord::Base
 	validates :nombre, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
+	validates :sexo, presence: {:message => "- El sexo es un campo obligatorio"}
+
 	validates :NivelConfianza, :numericality => {:greater_than_or_equal_to => 0, :message => "- nivel de confianza entre 0-100"}
 	validates :NivelConfianza, :numericality => {:less_than_or_equal_to => 100, :message => "- nivel de confianza entre 0-100"}
 
