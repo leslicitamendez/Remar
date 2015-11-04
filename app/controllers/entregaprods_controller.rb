@@ -5,10 +5,25 @@ class EntregaprodsController < ApplicationController
   # GET /entregaprods.json
   def index
     #@entregaprods = Entregaprod.all.order("fecha DESC, hora DESC")
-    @palabra = ''
-    @palabra = params[:palabra]
-    @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", "%#{@palabra}%")
-    @page = params[:page]  
+    #@palabra = ''
+    #@palabra = params[:palabra]
+    #@entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", "%#{@palabra}%")
+    @page = params[:page]
+    begin
+      if params[:palabra] &&  params[:palabra]!= '' 
+        if params[:palabra2]==nil ||  params[:palabra2]== ''
+          @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", params[:palabra].to_date)
+        else
+          @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+        end
+      else
+        @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha =?", Date.today)
+      end       
+    rescue Exception => e
+      flash[:success] = 'Por favor ingrese una fecha valida'
+      params.delete :palabra2
+      redirect_to '/entregaprods'      
+    end 
   end
 
   # GET /entregaprods/1

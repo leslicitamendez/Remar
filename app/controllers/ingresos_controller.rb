@@ -4,7 +4,26 @@ class IngresosController < ApplicationController
   # GET /ingresos
   # GET /ingresos.json
   def index
-    @ingresos = Ingreso.all
+    if params[:palabra2]==nil ||  params[:palabra2]== ''
+      params[:palabra2]=Date.today.to_s
+    end
+    if params[:palabra] &&  params[:palabra]!= '' 
+      begin
+        @ingresos = Ingreso.order("fecha DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+      rescue Exception => e
+        flash[:success] = 'Por favor ingrese una fecha valida'
+        params.delete :palabra
+        redirect_to '/ingresos'
+      end
+    else
+      begin
+        @ingresos = Ingreso.order("fecha DESC").where("fecha <=?", params[:palabra2].to_date)
+      rescue Exception => e
+        flash[:success] = 'Por favor ingrese una fecha valida'
+        params.delete :palabra2
+        redirect_to '/ingresos'
+      end
+    end
   end
 
   # GET /ingresos/1

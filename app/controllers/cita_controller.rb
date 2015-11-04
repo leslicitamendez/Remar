@@ -4,7 +4,25 @@ class CitaController < ApplicationController
   # GET /cita
   # GET /cita.json
   def index
-    @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=? AND estado!='Cancelada'", Date.today)
+  #  if params[:palabra2]==nil ||  params[:palabra2]== ''
+   #   params[:palabra2]=Date.today.to_s
+   # end
+    begin
+      if params[:palabra] &&  params[:palabra]!= '' 
+        if params[:palabra2]==nil ||  params[:palabra2]== ''
+          @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=?", params[:palabra].to_date)
+        else
+          @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+        end
+      else
+        @cita = Citum.order("fecha ASC, hora ASC").where("fecha =? AND estado!='Cancelada'", Date.today)
+      end       
+    rescue Exception => e
+      flash[:success] = 'Por favor ingrese una fecha valida'
+      params.delete :palabra2
+      redirect_to '/cita'      
+    end
+    #@cita = Citum.order("fecha ASC, hora ASC").where("fecha >=? AND estado!='Cancelada'", Date.today)
   end
 
   # GET /cita/1
