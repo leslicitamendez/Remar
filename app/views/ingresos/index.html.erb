@@ -1,4 +1,10 @@
 <h1>Lista Ingresos</h1>
+<div align="right">
+  <%= form_tag({:controller => "ingresos", :action => "index"}, :method => :get) do %>
+    Buscar Ingresos: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Ingreso aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Ingreso aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+  <% end %>
+</div><br>
 
 <table class="table table-striped">
   <thead>
@@ -18,7 +24,7 @@
         <td><%= ingreso.montoBs %></td>
         <td><%= ingreso.concepto %></td>
         <td><%= ingreso.fecha %></td>
-        <td><%= link_to 'Mostrar', ingreso, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Ver', ingreso, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %>
   </tbody>

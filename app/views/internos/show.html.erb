@@ -261,6 +261,11 @@
                           <br><br><br>
                 
                             <h4>Lista de Conductas</h4>
+
+
+                            <% @indi=0 %>
+                            <% @agre=0 %>
+                            <% @robo=0 %>
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -274,6 +279,7 @@
                                 </tr>
                               </thead>
 
+
                               <tbody>
                                 <% @conducta.each do |conductum| %>
                                   <tr>
@@ -282,13 +288,30 @@
                                     <td><%= conductum.tipoConducta %></td>
                                     <td><%= conductum.descripcion %></td>
                                     
+
                                     
                                     <td><%= link_to 'Editar Conducta', edit_conductum_path(conductum),  :class => 'btn btn-mini btn-warning active'   %></td>
                                     
                                   </tr>
+                                  <% if(conductum.tipoConducta=="Agresion")%>
+                                    <% @agre=@agre+1 %>
+                                  <%end%>
+                                  <% if(conductum.tipoConducta=="Robo")%>
+                                    <% @robo=@robo+1 %>
+                                  <%end%>
+                                  <% if(conductum.tipoConducta=="Indiciplina")%>
+                                    <% @indi=@indi+1 %>
+                                  <%end%>
+
                                 <% end %>
                               </tbody>
                             </table>
+                            <h3>REPORTE DE CONDUCTA</h3>
+                            <P><strong>Cantidad de casos de Indiciplina: </strong><%= @indi %></P>
+                            <P><strong>Cantidad de casos de Robo: </strong><%= @robo %></P>
+                            <P><strong>Cantidad de casos de Agresiones: </strong><%= @agre %></P>
+                            <P><%=%></P>
+                            <P><%=%></P>
                       </td>
             </tr>
 

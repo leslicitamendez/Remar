@@ -1,4 +1,14 @@
-<h1>Lista entrega de productos</h1>
+<% if params[:palabra]==nil ||  params[:palabra]== '' %>
+  <h1>ventas de hoy</h1>
+<%else%>
+  <h1>Buscar ventas</h1>
+<%end%>
+<div align="right">
+  <%= form_tag({:controller => "entregaprods", :action => "index"}, :method => :get) do %>
+    Buscar cita: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
+  <% end %>
+</div><br>
 
 <table class="table table-striped">
   <thead>
@@ -7,10 +17,10 @@
       <% @page=1 %> 
       <%end%>
       <% if @page.to_i > 1 %>
-      <%= link_to 'Anterior','/entregaprods?&page='+(@page.to_i-1).to_s, :class => 'btn btn-mini btn-default' %> 
+      <%= link_to 'Anterior','/entregaprods?&page='+(@page.to_i-1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s, :class => 'btn btn-mini btn-default' %> 
       <%end%>
       <% if @page.to_i*5 < @entregaprods.length %>
-      <%= link_to 'Siguiente','/entregaprods?&page='+(@page.to_i+1).to_s, :class => 'btn btn-mini btn-default' %>
+      <%= link_to 'Siguiente','/entregaprods?&page='+(@page.to_i+1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s, :class => 'btn btn-mini btn-default' %>
       <%end%>
     </tr>    
     <tr>
@@ -42,7 +52,7 @@
             <strong style="color:#04B431">Completo</strong>
           <%end%>
         </td>
-        <td><%= link_to 'Mostrar', entregaprod, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entregaprod_path(entregaprod), :class => 'btn btn-mini btn-warning active'%></td>
+        <td><%= link_to 'Ver', entregaprod, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_entregaprod_path(entregaprod), :class => 'btn btn-mini btn-warning active'%></td>
       </tr>
       <%end%>
     <% end %>
