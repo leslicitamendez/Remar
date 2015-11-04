@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   get '/historia_clinicas/new/:id' => 'historia_clinicas#new'
   get '/produccions/new/:id' => 'produccions#new'
 
+  get 'egresos/buscar_reporte' => 'egresos#buscar_reporte'
+  get 'egresos/buscar_entre_fechas' => 'egresos#buscar_entre_fechas'
 
   get '/conyugues/new/:id' => 'conyugues#new', :as => 'pareja'
 

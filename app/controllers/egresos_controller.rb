@@ -20,6 +20,15 @@ class EgresosController < ApplicationController
     end
   end
 
+  def buscar_entre_fechas
+    if params[:fecha_inicio] != "" || params[:fecha_fin] != ""
+      fecha_inicio = Date.parse(params[:fecha_inicio])
+      fecha_fin = Date.parse(params[:fecha_fin])
+      @egresos = Egreso.where(:created_at => fecha_inicio.beginning_of_day..fecha_fin.end_of_day)
+      render 'index'
+    end
+  end
+
   def show
   end
 
