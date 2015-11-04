@@ -71,7 +71,7 @@ class VoluntariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voluntario_params
-      params.require(:voluntario).permit(:nombre, :apellido1, :apellido2, :direccion, :NivelConfianza, :telefono, :ci)
+      params.require(:voluntario).permit(:nombre, :apellido1, :apellido2, :direccion, :NivelConfianza, :telefono, :ci, :sexo)
     end
     
 end

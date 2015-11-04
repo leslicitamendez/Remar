@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026025155) do
+ActiveRecord::Schema.define(version: 20151104003452) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"

@@ -48,12 +48,22 @@ class RendicionprodsController < ApplicationController
   # PATCH/PUT /rendicionprods/1
   # PATCH/PUT /rendicionprods/1.json
   def update
-    if @rendicionprod.update(rendicionprod_params)
-      flash[:success] ='Rendicion producto actualizado exitosamente' 
+    begin
+      @entregaprod=Entregaprod.find(@rendicionprod.entregaprod_id)
+      @actu=params[:rendicionprod]
+      if @entregaprod.cantidad.to_i < @actu[:cantidad].to_i
+        flash[:warning] = 'No puede devolver mas producto del entregado' 
+        redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+      elsif @rendicionprod.update(rendicionprod_params)
+        flash[:success] ='Rendicion producto actualizado exitosamente' 
+        redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+      else
+        render action: "edit"
+      end      
+    rescue Exception => e
       redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
-    else
-      render action: "edit"
     end
+    
   end
 
   # DELETE /rendicionprods/1
