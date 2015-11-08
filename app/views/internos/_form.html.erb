@@ -138,7 +138,8 @@
       <td width="33%" align="center">
         <div class="field">
           <%= f.label :estudios %><br>
-          <%= f.text_field :estudios %>
+          
+          <%= f.select :estudios, ['','Ninguno', 'Primaria','Secundaria', 'Bachiller', 'Universitario', 'Superior'] %>
         </div>
       </td>
     </tr>

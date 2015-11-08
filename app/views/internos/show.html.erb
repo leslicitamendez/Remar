@@ -27,7 +27,7 @@
         <div class="visibleDiv">
 
             <% if @conyugue== nil %>
-              <%= link_to 'Registrar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <%= link_to 'Registrar Conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             <% end %>
 
             <% if @conyugue != nil %> 
@@ -47,7 +47,7 @@
             <% end %>
 
             <%= link_to 'Registrar Orden Judicial',  orden_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <%= link_to 'Registrar rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+            <%= link_to 'Registrar Rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             
 
             <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
@@ -210,7 +210,7 @@
 
                                 <br><br><br>
                                 <h4>Lista de Hijos del Interno</h4>
-
+                              <%if (@hijos==nil)%>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -247,6 +247,7 @@
                                   <% end %>
                                 </tbody>
                               </table>  
+                              <%end%>
                            </td>
             </tr>
             
@@ -266,6 +267,7 @@
                             <% @indi=0 %>
                             <% @agre=0 %>
                             <% @robo=0 %>
+                            <%if (@conducta==nil)%>
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -307,9 +309,10 @@
                               </tbody>
                             </table>
                             <h3>REPORTE DE CONDUCTA</h3>
-                            <P><strong>Cantidad de casos de Indiciplina: </strong><%= @indi %></P>
-                            <P><strong>Cantidad de casos de Robo: </strong><%= @robo %></P>
-                            <P><strong>Cantidad de casos de Agresiones: </strong><%= @agre %></P>
+                            <P><%= @indi %><strong>&nbsp &nbsp Casos de Indiciplina  </strong></P>
+                            <P><%= @robo %><strong>&nbsp &nbsp Casos de Robo </strong></P>
+                            <P><%= @agre %><strong>&nbsp &nbsp Casos de Agresiones </strong></P>
+                            <%end%>
                             <P><%=%></P>
                             <P><%=%></P>
                       </td>
@@ -371,7 +374,7 @@
                     <td colspan="3">
                         <br><br><br>
                         <h4>Lista de ordenes Judiciales</h4>
-
+                              <%if @court_orders==nil%>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -394,6 +397,7 @@
                                  <% end %>
                                 </tbody>
                               </table>
+                              <%end%>
                     </td>
             </tr>
 
@@ -406,8 +410,8 @@
             <tr>
                       <td colspan="3">
                       <br><br><br>
-                        <h4>Lista de rehabilitacion</h4>
-
+                        <h4>Lista de Rehabilitacion</h4>
+                        <%if (@rehabs==nil)%>
                         <table  class="table table-striped">
                           <thead>
                           
@@ -436,7 +440,7 @@
                           </tbody>
                         </table>
 
-
+                        <%end%>
                       </td>
             </tr>
    </table>
