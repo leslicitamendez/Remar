@@ -4,6 +4,7 @@ class Voluntario < ActiveRecord::Base
 
 	has_many :entregaProductos
 	has_many :entregaprod
+	has_many :citas
 
 
 	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
