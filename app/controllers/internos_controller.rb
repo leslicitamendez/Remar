@@ -23,7 +23,11 @@ class InternosController < ApplicationController
     @court_orders=@interno.court_orders
     @rehabs=@interno.rehabs
 
-    
+    @indisciplina = @interno.conducta.where(:tipoConducta => 'Indisciplina' ) 
+    @robo = @interno.conducta.where(:tipoConducta => 'Robo' ) 
+    @agresion = @interno.conducta.where(:tipoConducta => 'Agresion' ) 
+
+   
 
 
     
