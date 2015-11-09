@@ -78,7 +78,8 @@ Rails.application.routes.draw do
   get '/rendicionprods/new/:id' => 'rendicionprods#new', :as => 'rend'
 
   get '/ventaprods/new/:id' => 'ventaprods#new', :as => 'vent'
-  
+
+  get '/ingresos/new/:id' => 'ingresos#new', :as => 'ingre'  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -34,6 +34,7 @@ class IngresosController < ApplicationController
   # GET /ingresos/new
   def new
     @ingreso = Ingreso.new
+    @id=(params[:id])
   end
 
   # GET /ingresos/1/edit
@@ -44,7 +45,9 @@ class IngresosController < ApplicationController
   # POST /ingresos.json
   def create
     @ingreso = Ingreso.new(ingreso_params)
-
+    @ventaprod= Ventaprod.find(params[:id])
+    @ingreso.ventaprod_id=params[:id]
+    @ingreso.montoBs = @ventaprod.precioUnidad*@ventaprod.cantidad
       if @ingreso.save
         flash[:success] = 'Ingreso creada exitosamente' 
         redirect_to '/ingresos'
@@ -82,6 +85,6 @@ class IngresosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingreso_params
-      params.require(:ingreso).permit(:montoBs, :concepto, :fecha, :estado, :venta_id, :recepcionDonativo_id)
+      params.require(:ingreso).permit(:montoBs, :concepto, :fecha, :estado, :ventaprod_id, :recepcionDonativo_id)
     end
 end

@@ -30,6 +30,9 @@ class CitaController < ApplicationController
   def show
   end
 
+  def enviar
+  end
+
   # GET /cita/new
   def new
     @citum = Citum.new
@@ -43,7 +46,7 @@ class CitaController < ApplicationController
   # POST /cita.json
   def create
     @citum = Citum.new(citum_params)
-
+      @citum.estado='Pendiente'
       if @citum.save
         flash[:success] = 'Cita creada exitosamente' 
         redirect_to '/cita'
@@ -81,6 +84,6 @@ class CitaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def citum_params
-      params.require(:citum).permit(:fecha, :hora, :ubicación, :nombreDonante, :descripcionDonacion, :estado)
+      params.require(:citum).permit(:fecha, :hora, :ubicación, :nombreDonante, :telefono, :voluntario_id, :descripcionDonacion, :estado)
     end
 end

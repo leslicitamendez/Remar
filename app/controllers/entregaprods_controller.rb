@@ -33,6 +33,7 @@ class EntregaprodsController < ApplicationController
      @entregaprod=Entregaprod.find(params[:id])
     @rendicionprod=@entregaprod.rendicionprod
     @ventaprod=@entregaprod.ventaprod
+    @ingreso=@entregaprod.ingreso
   end
 
   # GET /entregaprods/new

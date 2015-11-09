@@ -35,4 +35,8 @@ class Product < ActiveRecord::Base
 	def to_s
     	code.to_s+" "+name.to_s
   	end
+
+  	def full_code
+		"#{self.code} - #{self.name} "
+	end 
 end

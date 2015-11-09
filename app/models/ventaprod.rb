@@ -1,6 +1,7 @@
 class Ventaprod < ActiveRecord::Base
   belongs_to :rendicionprod
   belongs_to :entregaprod
+  has_one :ingreso
 
   validate :date_cannot_be_in_the_future
   

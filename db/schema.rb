@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104003452) do
+ActiveRecord::Schema.define(version: 20151109112128) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -29,7 +29,11 @@ ActiveRecord::Schema.define(version: 20151104003452) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "estado"
+    t.integer  "telefono"
+    t.integer  "voluntario_id"
   end
+
+  add_index "cita", ["voluntario_id"], name: "index_cita_on_voluntario_id"
 
   create_table "conducta", force: true do |t|
     t.boolean  "estado"
@@ -186,14 +190,14 @@ ActiveRecord::Schema.define(version: 20151104003452) do
     t.string   "concepto"
     t.date     "fecha"
     t.boolean  "estado"
-    t.integer  "venta_id"
+    t.integer  "ventaprod_id"
     t.integer  "recepcionDonativo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "ingresos", ["recepcionDonativo_id"], name: "index_ingresos_on_recepcionDonativo_id"
-  add_index "ingresos", ["venta_id"], name: "index_ingresos_on_venta_id"
+  add_index "ingresos", ["ventaprod_id"], name: "index_ingresos_on_ventaprod_id"
 
   create_table "internos", force: true do |t|
     t.string   "nombre"

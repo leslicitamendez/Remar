@@ -38,6 +38,9 @@
           <% if citum.estado == 'Pendiente' %>
             <strong style="color:#DF7401">Pendiente</strong>
           <%end%>
+          <% if citum.estado == 'Enviado' %>
+            <strong style="color:#04B431">Enviado</strong>
+          <%end%>
         </td>
         <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
         
