@@ -6,7 +6,10 @@
     <strong>Precio Unitario: </strong>
     <%= @ventaprod.precioUnidad %> Bs. <br>
     <strong>Precio Total: </strong>
-    <%= @ventaprod.precioUnidad*@ventaprod.cantidad %> Bs.      
+    <%= @ventaprod.precioUnidad*@ventaprod.cantidad %> Bs.  <br>
+    <% if @ingreso== nil %>
+      <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id),:class => 'btn btn-mini btn-success active' %>
+    <% end %>    
   <% end %>
 </div>
 <table class="table table-striped">

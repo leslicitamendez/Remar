@@ -1,7 +1,6 @@
 class Ingreso < ActiveRecord::Base
-  belongs_to :venta
   belongs_to :recepcionDonativo
-
+  belongs_to :ventaprod
   
 
   validates :concepto, presence: {:message => "- El concepto es un campo obligatorio"}

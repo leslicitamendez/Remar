@@ -3,6 +3,7 @@ class Entregaprod < ActiveRecord::Base
   belongs_to :product
   has_one :rendicionprod
   has_one :ventaprod
+  has_one :ingreso , through: :ventaprod
 
   validates :cantidad, presence: {:message => "- La cantidad es un campo obligatorio"}
   validates :cantidad, :numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}
