@@ -4,10 +4,12 @@ class EgresosController < ApplicationController
   # GET /egresos
   # GET /egresos.json
   def index
-    #@egresos = Egreso.all
-    @palabra = ''
-    @palabra = params[:palabra]
-    @egresos = Egreso.where("concepto LIKE ?", "%#{@palabra}%")
+    if params[:fecha_fin] == nil || params[:fecha_fin] == ""
+      params[:fecha_fin]=Date.today
+      @egresos = Egreso.order("fecha DESC").where("fecha <= ?", params[:fecha_fin])
+    else
+      @egresos = Egreso.order("fecha DESC").where("fecha >= ? and fecha <= ?", params[:fecha_inicio], params[:fecha_fin])
+    end
   end
 
   # GET /egresos/1
@@ -21,12 +23,8 @@ class EgresosController < ApplicationController
   end
 
   def buscar_entre_fechas
-    if params[:fecha_inicio] != "" || params[:fecha_fin] != ""
-      fecha_inicio = Date.parse(params[:fecha_inicio])
-      fecha_fin = Date.parse(params[:fecha_fin])
-      @egresos = Egreso.where(:created_at => fecha_inicio.beginning_of_day..fecha_fin.end_of_day)
-      render 'index'
-    end
+      
+    @egresos = Egreso.where("fecha >= ? AND fecha <= ?", "#{@fecha_inicio}", "#{@fecha_fin}")
   end
 
   def show
