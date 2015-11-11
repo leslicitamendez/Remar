@@ -56,9 +56,13 @@ class ProduccionsController < ApplicationController
   def create
     @produccion = Produccion.new(produccion_params)
     @produccion.estado = 'Activo'
-
+    @stock = Stock.find_by product_id: @produccion.product_id 
       if @produccion.save
-        flash[:success] = 'Produccion creada exitosamente'
+        if @stock
+          @stock.cantidad += @produccion.cantidad.to_i
+          @stock.save
+        end
+        flash[:success] = @stock.cantidad.to_s+'Produccion creada exitosamente'
         redirect_to '/produccions'
       else
         render action: "new"

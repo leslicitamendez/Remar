@@ -6,7 +6,7 @@ class RendicionprodsController < ApplicationController
   def index
     @rendicionprods = Rendicionprod.all
   end
-
+ 
   # GET /rendicionprods/1
   # GET /rendicionprods/1.json
   def show
@@ -29,10 +29,14 @@ class RendicionprodsController < ApplicationController
     begin
       @entregaprod=Entregaprod.find(params[:id])
       @rendicionprod.entregaprod_id=params[:id]
+
+      @stock = Stock.find_by product_id: @entregaprod.product_id
+      @stock.cantidad += @rendicionprod.cantidad
+
       if @entregaprod.cantidad.to_i < @rendicionprod.cantidad.to_i
         flash[:warning] = 'No puede devolver mas producto del entregado' 
         redirect_to '/entregaprods/'+params[:id]     
-      elsif @rendicionprod.save
+      elsif @rendicionprod.save && @stock.save
         flash[:success] = 'Rendicion producto creado exitosamente' 
         redirect_to '/entregaprods/'+params[:id]
       else
@@ -51,11 +55,16 @@ class RendicionprodsController < ApplicationController
     begin
       @entregaprod=Entregaprod.find(@rendicionprod.entregaprod_id)
       @actu=params[:rendicionprod]
+
+      @stock = Stock.find_by product_id: @entregaprod.product_id
+      @editar = @actu[:cantidad].to_i - @rendicionprod.cantidad.to_i
+      @stock.cantidad +=@editar
+
       if @entregaprod.cantidad.to_i < @actu[:cantidad].to_i
         flash[:warning] = 'No puede devolver mas producto del entregado' 
         redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
-      elsif @rendicionprod.update(rendicionprod_params)
-        flash[:success] ='Rendicion producto actualizado exitosamente' 
+      elsif @rendicionprod.update(rendicionprod_params) && @stock.save
+        flash[:success] ='Rendicion producto actualizado exitosamente'
         redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
       else
         render action: "edit"

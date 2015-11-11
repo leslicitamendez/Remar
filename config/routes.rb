@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 
+
   resources :cities
+
+  resources :stocks
+
 
   resources :ventaprods
 

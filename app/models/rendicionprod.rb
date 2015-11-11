@@ -5,7 +5,7 @@ class Rendicionprod < ActiveRecord::Base
   validate :date_cannot_be_in_the_future
   
   validates :cantidad, presence: {:message => "- La cantidad es un campo obligatorio"}
-  validates :cantidad, :numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}
+  validates :cantidad, :numericality => {:greater_than => -1, :message => "- La cantidad debe ser mayor a 0"}
 
   before_save :default_values
 
