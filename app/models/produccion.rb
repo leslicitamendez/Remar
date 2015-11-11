@@ -1,5 +1,6 @@
 class Produccion < ActiveRecord::Base
   belongs_to :product
+  has_one :stock
 
   validates :cantidad, presence: {:message => "- Es un campo obligatorio"}
   validates :cantidad, allow_blank: true,:numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}

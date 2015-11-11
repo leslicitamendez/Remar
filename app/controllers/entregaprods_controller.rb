@@ -41,6 +41,8 @@ class EntregaprodsController < ApplicationController
     @entregaprod = Entregaprod.new
     @voluntarios = Voluntario.all
     @productos = Product.all
+
+
     if @voluntarios.length == 0
       flash[:success] =  'Por favor Registre un Voluntario antes de continuar' 
       redirect_to '/voluntarios'      
@@ -48,6 +50,10 @@ class EntregaprodsController < ApplicationController
       flash[:success] =  'Por favor Registre un Producto antes de continuar' 
       redirect_to '/products'      
     end
+    # respond_to do |format|
+    #   msg = { :status => "ok", :message => "Success!", :html => "<b>...</b>" }
+    #   format.json  { render :json => msg } # don't do msg.to_json
+    # end
   end
 
   # GET /entregaprods/1/edit
@@ -58,7 +64,13 @@ class EntregaprodsController < ApplicationController
   # POST /entregaprods.json
   def create
     @entregaprod = Entregaprod.new(entregaprod_params)
-    if @entregaprod.save
+    @stock = Stock.find_by product_id: @entregaprod.product_id 
+    if @entregaprod.cantidad.to_i > @stock.cantidad.to_i
+        flash[:warning] = 'No puede entregar mas del producto existente' 
+        redirect_to '/entregaprods/'
+    elsif @entregaprod.save
+      @stock.cantidad -= @entregaprod.cantidad
+      @stock.save
       flash[:success] =  'Entrega producto creado exitosamente' 
       redirect_to '/entregaprods/'+@entregaprod.id.to_s
     else
@@ -69,11 +81,47 @@ class EntregaprodsController < ApplicationController
   # PATCH/PUT /entregaprods/1
   # PATCH/PUT /entregaprods/1.json
   def update
-    if @entregaprod.update(entregaprod_params)
-      flash[:success] =  'Entrega producto actualizado exitosamente' 
-      redirect_to '/entregaprods/'+@entregaprod.id.to_s
+    @stock = Stock.find_by product_id: @entregaprod.product_id
+    @actu = params[:entregaprod]
+    if @actu[:product_id].to_i == @entregaprod.product_id.to_i
+      @editar = @actu[:cantidad].to_i - @entregaprod.cantidad.to_i
+      if @editar > 0
+        if @editar <= @stock.cantidad.to_i
+          @stock.cantidad -=@editar
+          if @entregaprod.update(entregaprod_params) && @stock.save
+            flash[:success] =  'Entrega producto actualizado exitosamente'
+            redirect_to '/entregaprods/'+@entregaprod.id.to_s
+          else
+            render action: "new"
+          end
+        else
+          flash[:warning] = 'No puede entregar mas del producto existente'
+          redirect_to '/entregaprods/'
+        end
+      else
+        @stock.cantidad -=@editar
+        if @entregaprod.update(entregaprod_params) && @stock.save
+          flash[:success] =  'Entrega producto actualizado exitosamente' 
+          redirect_to '/entregaprods/'+@entregaprod.id.to_s
+        else
+          render action: "new"
+        end
+      end
     else
-      render action: "new"
+      @stock2 = Stock.find_by product_id: @actu[:product_id]
+      if @actu[:cantidad].to_i <= @stock2.cantidad.to_i
+        @stock.cantidad += @entregaprod.cantidad.to_i
+        @stock2.cantidad -= @actu[:cantidad].to_i
+        if @entregaprod.update(entregaprod_params) && @stock.save && @stock2.save
+          flash[:success] =  'Entrega producto actualizado exitosamente'
+          redirect_to '/entregaprods/'+@entregaprod.id.to_s
+        else
+          render action: "new"
+        end
+      else
+        flash[:warning] = 'No puede entregar mas del producto existente'
+        redirect_to '/entregaprods/'
+      end
     end
   end
 

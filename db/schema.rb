@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109112128) do
+ActiveRecord::Schema.define(version: 20151109143713) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -297,6 +297,17 @@ ActiveRecord::Schema.define(version: 20151109112128) do
   end
 
   add_index "rendicionprods", ["entregaprod_id"], name: "index_rendicionprods_on_entregaprod_id"
+
+  create_table "stocks", force: true do |t|
+    t.integer  "produccions_id"
+    t.integer  "cantidad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
+
+  add_index "stocks", ["produccions_id"], name: "index_stocks_on_produccions_id"
+  add_index "stocks", ["product_id"], name: "index_stocks_on_product_id"
 
   create_table "venta", force: true do |t|
     t.integer  "cantidad"

@@ -39,8 +39,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.state = 'Activo'
-
+    @stock = Stock.new
     if @product.save
+        @stock.product_id=@product.id
+        @stock.cantidad=0
+        @stock.save
       flash[:success] = 'Producto creado exitosamente'
       redirect_to '/products'
     else
