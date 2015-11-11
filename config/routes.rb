@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :cities
+
   resources :ventaprods
 
   resources :rendicionprods
@@ -80,6 +82,8 @@ Rails.application.routes.draw do
   get '/ventaprods/new/:id' => 'ventaprods#new', :as => 'vent'
 
   get '/ingresos/new/:id' => 'ingresos#new', :as => 'ingre'  
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

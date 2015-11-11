@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109112128) do
+ActiveRecord::Schema.define(version: 20151111123855) do
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20151109112128) do
   end
 
   add_index "cita", ["voluntario_id"], name: "index_cita_on_voluntario_id"
+
+  create_table "cities", force: true do |t|
+    t.string   "nombre"
+    t.string   "estado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conducta", force: true do |t|
     t.boolean  "estado"

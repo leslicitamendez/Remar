@@ -1,0 +1,27 @@
+<h1>Lista de Ciudades</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Provincia/Pais</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.nombre %></td>
+        <td><%= city.estado %></td>
+        
+        <td><%= link_to 'Editar', edit_city_path(city), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= link_to 'Borrar', city, :class => 'btn btn-mini btn-success active', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Ciudad', new_city_path,:class => 'btn btn-mini btn-success active' %>

@@ -42,24 +42,105 @@
   </div>
   <div class="field">
     <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
-    <%= f.select :lugarNacimiento, ['','
-            DEPARTAMENTO DE COCHABAMBA','Arani','Arque','Provincia Ayopaya','Bolívar','Capinota','Carrasco','Rodeado','Chapare','Esteban Arce','Germán Jordán','Provincia Mizque','Narciso Campero','Punata','Quillacollo','Tapacarí','Tiraque','','','
-            
-            DEPARTAMENTO DE SANTA CRUZ','ndrés Ibáñez','Provincia Ángel Sandoval','Chiquitos','Cordillera','Florida','Germán Busch','Guarayos','Ichilo','Ignacio Warnes','José Miguel de Velasco','Manuel María Caballero','Ñuflo de Chávez','Provincia obispo Santistevan','Sara Vallegrande','','',' 
 
-            DEPARTAMENTO DE LA PAZ','Abel Iturralde','Aroma','Bautista Saavedra','Caranavi','Eliodoro Camacho','Franz Tamayo','Gualberto Villarroel','Provincia Ingavi','Provincia de Inquisivi','José Manuel Pando','José Ramón Loayza','Provincia de Larecaja','Los Andes','Provincia Manco Kapac','Provincia de muñecas','Nor Yungas','Provincia Omasuyos','Provincia Pacajes','Pedro Domingo Murillo','Sud Yungas','Lago Titicaca','','','
 
-            DEPARTAMENTO DE BENI','Provincia de Cercado','Provincia Iténez','José Ballivián ','Mamoré','Provincia Marbán','Moxos','Vaca Díez','Yacuma','','','
 
-            DEPARTAMENTO DE CHUQUISACA','Provincia de Belisario Boeto','Provincia de Hernando Siles','Provincia de Jaime Zudáñez','Provincia de Juana Azurduy de Padilla','Provincia de Luis Calvo','Provincia de Nor Cinti','Provincia de Oropeza','Provincia de Sud Cinti','Provincia de Tomina','Provincia de Yamparáez','','','
-            
-            DEPARTAMENTO DE ORURO','Atahuallpa','Provincia de Carangas','Rodeado','Eduardo Avaroa','Ladislao Cabrera','Costa','Nor Carangas','Pantaleón Dalence','Poopó','Puerto de Mejillones','Sajama','San Pedro de Totora','La provincia Saucarí','Provincia Sebastián Pagador','Provincia Sud Carangas','omas Barrón','','','
-            
-            DEPARTAMENTO DE PANDO','Provincia de Abuná','Federico Román','Madre de Dios','Provincia Manuripi','Nicolás Suárez','','','
-            DEPARTAMENTO DE POTOSI','Alonso de Ibáñez','Antonio Quijarro','Bernardino Bilbao','Charcas','Provincia Chayanta','Cornelio Saavedra','Daniel Fields','Enrique Baldivieso','José María Linares','Modesto Omiste','Nor Chichas','Nor Lípez','Rafael Bustillo','Provincia de Sud Chichas','Sud Lípez','Tomás Frías','','','
-                
-            DEPARTAMENTO DE TARIJA','Aniceto Arce','Provincia de Burdet O’Connor','Provincia de Cercado','Eustaquio Méndez','Gran Chaco','José María Avilés'] %>
+
+
+
+
+
+
+
+
+<%= form_tag("/cities", method: "get") do %>
+   
+
+  <div id="the-basics" > 
+  
+    <input class="typeahead" type="text" name="palabra" placeholder="Buscar por Nombre Completo ">
+    <br>
+
+    
+   
   </div>
+
+  <script type="text/javascript">
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substrRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        // the typeahead jQuery plugin expects suggestions to a
+        // JavaScript object, refer to typeahead docs for more info
+        matches.push({ value: str });
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+<% if (@cities!=nil) %>
+  <% @prueba=(@cities.map(&:ciudad_name)).to_json.html_safe %>
+<% end %>
+var states = <%= @prueba %>;
+
+$('#the-basics .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  displayKey: 'value',
+  source: substringMatcher(states)
+});
+</script>
+
+<% end %>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   <div class="actions">
     <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> 
   </div>

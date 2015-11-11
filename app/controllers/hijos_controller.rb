@@ -16,6 +16,12 @@ class HijosController < ApplicationController
   def new
     @hijo = Hijo.new
     @id=(params[:id])
+    @cities = City.all
+    if(params["palabra"]!=nil)
+        @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
+
+    end
+    
   end
 
   # GET /hijos/1/edit
@@ -28,6 +34,7 @@ class HijosController < ApplicationController
     
     @hijo = Hijo.new(hijo_params)
     @hijo.interno_id=params[:interno_id]
+    @hijo.lugarNacimiento=(params[:palabra])
 
   
     if ((DateTime.now-@hijo.fechaNacimiento).to_i<=6569)
@@ -44,7 +51,7 @@ class HijosController < ApplicationController
   # PATCH/PUT /hijos/1
   # PATCH/PUT /hijos/1.json
   def update
-    
+    @hijo.lugarNacimiento=(params[:palabra])
       if @hijo.update(hijo_params)
         flash[:success] = 'Hijo fue actualizado exitosamente'
         redirect_to @hijo
