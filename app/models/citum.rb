@@ -1,4 +1,6 @@
 class Citum < ActiveRecord::Base
+  belongs_to :voluntario
+
 	validates :ubicación, presence: {:message => "- La ubicacion es un campo obligatorio"}
   validates :ubicación, length: { maximum: 50, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 
@@ -6,13 +8,16 @@ class Citum < ActiveRecord::Base
 	validates :nombreDonante, presence: {:message => "- el nombre es un campo obligatorio"}
   validates :nombreDonante, length: { maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 
+  validates :telefono, format: { with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}
+  validates :telefono, length: { minimum: 6, maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida", too_short: "- %{count} caracteres es la longitud minima permitida" }
+  
+
 	validate :date_cannot_be_in_the_pas
 
   	def date_cannot_be_in_the_pas
-    errors.add(:fecha, "Solo se programaran citas del dia siguiente en adelante") if
-      !self.fecha.blank? and self.fecha <= Date.today
+    errors.add(:fecha, "Solo se programaran citas de hoy en adelante") if
+      !self.fecha.blank? and self.fecha < Date.today
     end
-
     def default_values
     	self.estado = "Pendiente"
   	end

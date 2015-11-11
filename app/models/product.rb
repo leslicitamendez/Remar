@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 	has_many :produccions
 	has_many :entregaProducto
 	has_many :rendicionProducto
+	has_one :stock
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
 	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
@@ -35,4 +36,8 @@ class Product < ActiveRecord::Base
 	def to_s
     	code.to_s+" "+name.to_s
   	end
+
+  	def full_code
+		"#{self.code} - #{self.name} "
+	end 
 end

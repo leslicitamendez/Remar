@@ -11,6 +11,8 @@
         }
         #der {  text-align: right; width: 30%;}
       </style>
+      <script src="chartkick.js"></script>
+      <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
 </head>
 
@@ -27,7 +29,7 @@
         <div class="visibleDiv">
 
             <% if @conyugue== nil %>
-              <%= link_to 'Registrar conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <%= link_to 'Registrar Conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             <% end %>
 
             <% if @conyugue != nil %> 
@@ -47,7 +49,7 @@
             <% end %>
 
             <%= link_to 'Registrar Orden Judicial',  orden_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <%= link_to 'Registrar rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+            <%= link_to 'Registrar Rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
             
 
             <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
@@ -210,7 +212,7 @@
 
                                 <br><br><br>
                                 <h4>Lista de Hijos del Interno</h4>
-
+                              
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -247,6 +249,7 @@
                                   <% end %>
                                 </tbody>
                               </table>  
+                              
                            </td>
             </tr>
             
@@ -266,6 +269,7 @@
                             <% @indi=0 %>
                             <% @agre=0 %>
                             <% @robo=0 %>
+                            
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -299,7 +303,7 @@
                                   <% if(conductum.tipoConducta=="Robo")%>
                                     <% @robo=@robo+1 %>
                                   <%end%>
-                                  <% if(conductum.tipoConducta=="Indiciplina")%>
+                                  <% if(conductum.tipoConducta=="Indisciplina")%>
                                     <% @indi=@indi+1 %>
                                   <%end%>
 
@@ -307,9 +311,18 @@
                               </tbody>
                             </table>
                             <h3>REPORTE DE CONDUCTA</h3>
-                            <P><strong>Cantidad de casos de Indiciplina: </strong><%= @indi %></P>
-                            <P><strong>Cantidad de casos de Robo: </strong><%= @robo %></P>
-                            <P><strong>Cantidad de casos de Agresiones: </strong><%= @agre %></P>
+                            <P><%= @indi %><strong>&nbsp &nbsp Casos de Indisciplina  </strong></P>
+                            <P><%= @robo %><strong>&nbsp &nbsp Casos de Robo </strong></P>
+                            <P><%= @agre %><strong>&nbsp &nbsp Casos de Agresiones </strong></P>
+                                <div> 
+                                <%= line_chart @conducta.group(:created_at).count %>  
+                                                         
+                                </div>
+
+                                
+
+                          
+                            
                             <P><%=%></P>
                             <P><%=%></P>
                       </td>
@@ -371,7 +384,7 @@
                     <td colspan="3">
                         <br><br><br>
                         <h4>Lista de ordenes Judiciales</h4>
-
+                              <%if @court_orders!=nil%>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -394,6 +407,7 @@
                                  <% end %>
                                 </tbody>
                               </table>
+                              <%end%>
                     </td>
             </tr>
 
@@ -406,8 +420,8 @@
             <tr>
                       <td colspan="3">
                       <br><br><br>
-                        <h4>Lista de rehabilitacion</h4>
-
+                        <h4>Lista de Rehabilitacion</h4>
+                        
                         <table  class="table table-striped">
                           <thead>
                           
@@ -436,7 +450,7 @@
                           </tbody>
                         </table>
 
-
+                        
                       </td>
             </tr>
    </table>

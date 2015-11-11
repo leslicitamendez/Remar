@@ -20,10 +20,7 @@
   <%= @rehab.centroAnterior %>
 </p>
 
-<p>
-  <strong>Nombre de Centro:</strong>
-  <%= @rehab.nombreCentre %>
-</p>
+
 
 <p>
   <strong>Tiempo de estancia:</strong>
@@ -40,11 +37,8 @@
   <%= @rehab.observaciones %>
 </p>
 
-<p>
-  <strong>Interno:</strong>
-  <%= @rehab.interno_id %>
-</p>
 
-<% link_to 'Edit', edit_rehab_path(@rehab) %> |
 
-<%= link_to 'Atras', rehabs_path, :class => 'btn btn-mini btn-default'  %>
+<% link_to 'Editar', edit_rehab_path(@rehab) %> 
+
+<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %>

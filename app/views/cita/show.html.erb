@@ -5,6 +5,11 @@
   <%= @citum.id %>
 </p>
 
+<% if @citum.voluntario_id != nil  %>
+  <p><strong>Voluntario: 
+</strong> <%= @citum.voluntario.full_name %></p>
+<%end%>
+
 <p>
   <strong>Fecha:</strong>
   <%= @citum.fecha %>
@@ -23,6 +28,11 @@
 <p>
   <strong>Nombre Contacto:</strong>
   <%= @citum.nombreDonante %>
+</p>
+
+<p>
+  <strong>Telefono de Referencia:</strong>
+  <%= @citum.telefono %>
 </p>
 
 <p>
