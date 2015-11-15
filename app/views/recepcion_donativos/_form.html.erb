@@ -11,33 +11,17 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :Voluntario %>
-    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :nombre ) %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha,'Fecha (*)' %><br>
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :nombreDonante ,'Nombre Donante (*)'%><br>
-    <%= f.text_field :nombreDonante %>
-  </div>
-  <div class="field">
     <%= f.label :articulo ,'Tipo Articulo (*)'%><br>
     <%= f.text_field :articulo %>
   </div>
   <div class="field">
-    <%= f.label :cantidad ,'Cantidad (*)'%><br>
-    <%= f.text_field :cantidad %>
-  </div>
-  <div class="field">
-    <%= f.label :descripcion %><br>
+    <%= f.label :descripcion,'Descripcion (*)' %><br>
     <%= f.text_area :descripcion %>
   </div>
- <!--  <div class="field">
-    <%= f.label :id_voluntario %><br>
-    <%= f.text_field :id_voluntario %>
-  </div> -->
+  <div class="field">
+    <%= f.label :precio ,'Precio Sugerido'%><br>
+    <%= f.text_field :precio %>
+  </div>
   <div class="actions">
     <%= f.submit (@recepcion_donativo.new_record? ? 'Registrar Donativo' : 'Editar Donativo'),:class => 'btn btn-mini btn-success active'%>
   </div>

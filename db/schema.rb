@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151111123855) do
+
 
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
@@ -251,9 +253,9 @@ ActiveRecord::Schema.define(version: 20151111123855) do
 
   create_table "recepcion_donativos", force: true do |t|
     t.date     "fecha"
-    t.string   "nombreDonante"
+    t.string   "estado"
     t.string   "articulo"
-    t.float    "cantidad"
+    t.float    "precio"
     t.text     "descripcion"
     t.string   "id_voluntario"
     t.datetime "created_at"

@@ -8,7 +8,7 @@
     <strong>Precio Total: </strong>
     <%= @ventaprod.precioUnidad*@ventaprod.cantidad %> Bs.  <br>
     <% if @ingreso== nil %>
-      <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id),:class => 'btn btn-mini btn-success active' %>
+      <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id,:donaid => '0'),:class => 'btn btn-mini btn-success active' %>
     <% end %>    
   <% end %>
 </div>
