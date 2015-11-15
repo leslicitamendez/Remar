@@ -34,8 +34,9 @@ class EgresoInternosController < ApplicationController
   # GET /egreso_internos/new
   def new
     @egreso_interno = EgresoInterno.new
-    @interno = Interno.find_by_id(:interno_id)
-    @egreso_interno.interno = @interno
+    # @interno = Interno.find_by_id(:interno_id)
+    # @egreso_interno.interno = @interno
+    @id=(params[:id])
   end
 
   # GET /egreso_internos/1/edit
@@ -46,6 +47,8 @@ class EgresoInternosController < ApplicationController
   # POST /egreso_internos.json
   def create
     @egreso_interno = EgresoInterno.new(egreso_interno_params)
+    @egreso.interno_id=params[:interno_id]
+    @interno=Interno.find(params[:interno_id])
    
       if @egreso_interno.save
         flash[:success] = 'Egreso Interno creado exitosamente'

@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
 	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
+	validates :code, length: { minimum: 5, too_short: "- %{count} caracteres es la longitud minima permitida" }
 	validates :code, length: { maximum: 5, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	
 	validates :name, presence: {:message => "- El nombre del producto es un campo obligatorio"}
