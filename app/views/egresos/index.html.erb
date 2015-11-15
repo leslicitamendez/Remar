@@ -1,17 +1,26 @@
 <h1>Lista de Egresos</h1>
-
-  <div align="right">
+  
+  <!-- <div align="right">
     <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
-      Buscar Egreso: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Egreso", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      Buscar Egreso: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Concepto del egreso", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
-  </div>
+  </div> -->
+  <br>
+  <div align="right">
+    <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
+      Fecha Inicio: <%= date_field "search", params[:search], :name => 'fecha_inicio' %>
+      Fecha Fin: <%= date_field "search", params[:search], :name => 'fecha_fin' %>
+      <%= submit_tag "Buscar Egresos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div><br>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Concepto</th>
       <th>Monto Bs</th>
+      <th>Fecha</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +30,7 @@
       <tr>
         <td><%= egreso.concepto %></td>
         <td><%= egreso.monto %></td>
+        <td><%= egreso.fecha.strftime("%d/%b/%Y") %></td>
         <td><%= link_to 'Ver Egreso', egreso, :class => 'btn btn-mini btn-info active' %></td>
         <td><%= link_to 'Editar Egreso', edit_egreso_path(egreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>

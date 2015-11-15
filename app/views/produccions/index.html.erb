@@ -6,6 +6,14 @@
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div>
+  <br>
+  <div align="right">
+    <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
+      Fecha Inicio: <%= date_field "search", params[:search], :name => 'fecha_inicio' %>
+      Fecha Fin: <%= date_field "search", params[:search], :name => 'fecha_fin' %>
+      <%= submit_tag "Buscar Producción Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div><br>
 
 <table class="table table-striped">
   <thead>

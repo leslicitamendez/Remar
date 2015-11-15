@@ -23,7 +23,11 @@ class InternosController < ApplicationController
     @court_orders=@interno.court_orders
     @rehabs=@interno.rehabs
 
-    
+    @indisciplina = @interno.conducta.where(:tipoConducta => 'Indisciplina' ) 
+    @robo = @interno.conducta.where(:tipoConducta => 'Robo' ) 
+    @agresion = @interno.conducta.where(:tipoConducta => 'Agresion' ) 
+
+   
 
 
     
@@ -32,17 +36,27 @@ class InternosController < ApplicationController
   # GET /internos/new
   def new
     @interno = Interno.new
+    @cities = City.all
+    if(params["palabra"]!=nil)
+        @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
+
+    end
   end
 
   # GET /internos/1/edit
   def edit
+    @cities = City.all
+    if(params["palabra"]!=nil)
+        @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
+
+    end
   end
 
   # POST /internos
   # POST /internos.json
   def create
     @interno = Interno.new(interno_params)
-
+     @interno.lugarNacimiento=(params[:palabra])
     
       if @interno.save
         flash[:success] = 'Interno fue creado exitosamente'
@@ -56,6 +70,7 @@ class InternosController < ApplicationController
   # PATCH/PUT /internos/1
   # PATCH/PUT /internos/1.json
   def update
+    @interno.lugarNacimiento=(params[:palabra])
       if @interno.update(interno_params)
         flash[:success] = "Interno actualizado exitosamente"
         redirect_to  @interno

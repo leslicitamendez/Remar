@@ -66,6 +66,11 @@ class CitaController < ApplicationController
       end
   end
 
+
+  def otrapagina
+    @cita=Citum.all
+
+  end
   # DELETE /cita/1
   # DELETE /cita/1.json
   def destroy

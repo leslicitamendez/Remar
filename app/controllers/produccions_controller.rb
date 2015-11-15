@@ -4,11 +4,12 @@ class ProduccionsController < ApplicationController
   # GET /produccions
   # GET /produccions.json
   def index
-    #@produccions = Produccion.all
-    #@palabra = ''
-    #@palabra = params[:palabra]
-    #@produccions = Produccion.where("product_id LIKE ?", "%#{@palabra}%")
-    @produccions = buscar(params[:palabra])
+    if params[:fecha_fin] == nil || params[:fecha_fin] == ""
+      params[:fecha_fin]=Date.today
+      @produccions = buscar(params[:palabra])
+    else
+        @produccions = Produccion.order("fecha_produccion DESC").where("fecha_produccion >= ? and fecha_produccion <= ?", params[:fecha_inicio], params[:fecha_fin])
+    end
   end
 
   def buscar(producto)

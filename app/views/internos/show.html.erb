@@ -11,6 +11,8 @@
         }
         #der {  text-align: right; width: 30%;}
       </style>
+      <script src="chartkick.js"></script>
+      <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
 </head>
 
@@ -210,7 +212,7 @@
 
                                 <br><br><br>
                                 <h4>Lista de Hijos del Interno</h4>
-                              <%if (@hijos==nil)%>
+                              
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -247,7 +249,7 @@
                                   <% end %>
                                 </tbody>
                               </table>  
-                              <%end%>
+                              
                            </td>
             </tr>
             
@@ -267,7 +269,7 @@
                             <% @indi=0 %>
                             <% @agre=0 %>
                             <% @robo=0 %>
-                            <%if (@conducta==nil)%>
+                            
                             <table class="table table-striped">
                               <thead>
                                 <tr>
@@ -301,7 +303,7 @@
                                   <% if(conductum.tipoConducta=="Robo")%>
                                     <% @robo=@robo+1 %>
                                   <%end%>
-                                  <% if(conductum.tipoConducta=="Indiciplina")%>
+                                  <% if(conductum.tipoConducta=="Indisciplina")%>
                                     <% @indi=@indi+1 %>
                                   <%end%>
 
@@ -309,10 +311,18 @@
                               </tbody>
                             </table>
                             <h3>REPORTE DE CONDUCTA</h3>
-                            <P><%= @indi %><strong>&nbsp &nbsp Casos de Indiciplina  </strong></P>
+                            <P><%= @indi %><strong>&nbsp &nbsp Casos de Indisciplina  </strong></P>
                             <P><%= @robo %><strong>&nbsp &nbsp Casos de Robo </strong></P>
                             <P><%= @agre %><strong>&nbsp &nbsp Casos de Agresiones </strong></P>
-                            <%end%>
+                                <div> 
+                                <%= line_chart @conducta.group(:created_at).count %>  
+                                                         
+                                </div>
+
+                                
+
+                          
+                            
                             <P><%=%></P>
                             <P><%=%></P>
                       </td>
@@ -374,7 +384,7 @@
                     <td colspan="3">
                         <br><br><br>
                         <h4>Lista de ordenes Judiciales</h4>
-                              <%if @court_orders==nil%>
+                              <%if @court_orders!=nil%>
                               <table class="table table-striped">
                                 <thead>
                                   <tr>
@@ -411,7 +421,7 @@
                       <td colspan="3">
                       <br><br><br>
                         <h4>Lista de Rehabilitacion</h4>
-                        <%if (@rehabs==nil)%>
+                        
                         <table  class="table table-striped">
                           <thead>
                           
@@ -440,7 +450,7 @@
                           </tbody>
                         </table>
 
-                        <%end%>
+                        
                       </td>
             </tr>
    </table>
