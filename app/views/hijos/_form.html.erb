@@ -44,21 +44,13 @@
     <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
 
 
-
-
-
-
-
-
-
-
-
-<%= form_tag("/cities", method: "get") do %>
    
 
   <div id="the-basics" > 
-  
-    <input class="typeahead" type="text" name="palabra" placeholder="Buscar por Nombre Completo ">
+    <%= f.text_field :lugarNacimiento, :placeholder => "Buscar por Nombre Completo",:class =>"typeahead" %>
+
+
+    
     <br>
 
     
@@ -107,40 +99,10 @@ $('#the-basics .typeahead').typeahead({
 });
 </script>
 
-<% end %>
+
 <br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   <div class="actions">
     <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> 
   </div>
