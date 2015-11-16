@@ -55,10 +55,16 @@ class VentaprodsController < ApplicationController
       @ren = Rendicionprod.find(@ventaprod.rendicionprod_id)
       @entregaprod=Entregaprod.find(@ventaprod.entregaprod_id)
       @actu=params[:ventaprod]
+      @ingreso=@ventaprod.ingreso 
+
       if @entregaprod.cantidad.to_i- @ren.cantidad.to_i < @actu[:cantidad].to_i
         flash[:warning] = 'No puede vender mas producto del rendido' 
         redirect_to '/entregaprods/'+@ventaprod.entregaprod_id.to_s
       elsif @ventaprod.update(ventaprod_params)
+        if @ingreso!=nil
+          @ingreso.montoBs = @actu[:cantidad].to_i*@actu[:precioUnidad].to_i
+          @ingreso.save
+        end
         flash[:success] ='Venta producto actualizado exitosamente' 
         redirect_to '/entregaprods/'+@ventaprod.entregaprod_id.to_s
       else
