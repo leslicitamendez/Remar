@@ -21,7 +21,7 @@ class RecepcionDonativosController < ApplicationController
       end
     else
       begin
-        @recepcion_donativos = RecepcionDonativo.order("fecha DESC").where("fecha <=?", params[:palabra2].to_date)
+        @recepcion_donativos = RecepcionDonativo.order("id DESC").where("estado = 'Pendiente'")
       rescue Exception => e
         flash[:success] = 'Por favor ingrese una fecha valida'
         params.delete :palabra2
@@ -48,13 +48,14 @@ class RecepcionDonativosController < ApplicationController
   # POST /recepcion_donativos.json
   def create
     @recepcion_donativo = RecepcionDonativo.new(recepcion_donativo_params)
-
-      if @recepcion_donativo.save
-        flash[:success] = 'Recepcion donativo creado exitosamente' 
-        redirect_to '/recepcion_donativos'
-      else
-        render action: "new"
-      end
+    @recepcion_donativo.estado='Pendiente'
+    @recepcion_donativo.fecha=Date.today
+    if @recepcion_donativo.save
+      flash[:success] = 'Recepcion donativo creado exitosamente' 
+      redirect_to '/recepcion_donativos'
+    else
+      render action: "new"
+    end
   end
 
   # PATCH/PUT /recepcion_donativos/1
@@ -86,6 +87,6 @@ class RecepcionDonativosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recepcion_donativo_params
-      params.require(:recepcion_donativo).permit(:fecha, :nombreDonante, :articulo, :cantidad, :descripcion, :id_voluntario)
+      params.require(:recepcion_donativo).permit(:fecha, :nombreDonante, :articulo, :precio, :descripcion, :id_voluntario)
     end
 end

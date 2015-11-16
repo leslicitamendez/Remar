@@ -49,7 +49,6 @@ class InternosController < ApplicationController
     @cities = City.all
     if(params["palabra"]!=nil)
         @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
-
     end
   end
 

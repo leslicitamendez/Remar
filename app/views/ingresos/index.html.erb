@@ -10,9 +10,9 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Montobs</th>
-      <th>Concepto</th>
       <th>Fecha</th>
+      <th>Concepto</th>
+      <th>Montobs</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,10 +21,10 @@
     <% @ingresos.each do |ingreso| %>
       <tr>
         <td><%= ingreso.id %></td>
-        <td><%= ingreso.montoBs %></td>
-        <td><%= ingreso.concepto %></td>
         <td><%= ingreso.fecha %></td>
-        <td><%= link_to 'Ver', ingreso, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
+        <td><%= ingreso.concepto %></td>
+        <td><%= ingreso.montoBs %></td>
+        <td><%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %>
   </tbody>

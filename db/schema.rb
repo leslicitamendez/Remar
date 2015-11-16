@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20151111123855) do
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 523bd4b1f01c9f73bbe4fe04b36304fc5bda2dd4
   create_table "avaluo_donativos", force: true do |t|
     t.float    "montoBs"
     t.text     "observacion"
@@ -251,9 +255,9 @@ ActiveRecord::Schema.define(version: 20151111123855) do
 
   create_table "recepcion_donativos", force: true do |t|
     t.date     "fecha"
-    t.string   "nombreDonante"
+    t.string   "estado"
     t.string   "articulo"
-    t.float    "cantidad"
+    t.float    "precio"
     t.text     "descripcion"
     t.string   "id_voluntario"
     t.datetime "created_at"

@@ -313,11 +313,12 @@
                               </tbody>
                             </table>
                             <h3>REPORTE DE CONDUCTA</h3>
-                            <P><%= @indi %><strong>&nbsp &nbsp Casos de Indisciplina  </strong></P>
-                            <P><%= @robo %><strong>&nbsp &nbsp Casos de Robo </strong></P>
-                            <P><%= @agre %><strong>&nbsp &nbsp Casos de Agresiones </strong></P>
+                            <P><%= @indi %><strong>&nbsp; &nbsp; Casos de Indisciplina  </strong></P>
+                            <P><%= @robo %><strong>&nbsp; &nbsp; Casos de Robo </strong></P>
+                            <P><%= @agre %><strong>&nbsp; &nbsp; Casos de Agresiones </strong></P>
                                 <div> 
-                                <%= line_chart @conducta.group(:created_at).count %>  
+                                <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+                                <%= line_chart @conducta.group_by { |t| t.fecha.month }%>
                                                          
                                 </div>
 

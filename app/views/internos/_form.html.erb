@@ -174,6 +174,7 @@ $('#the-basics .typeahead').typeahead({
         </div>
       </td>
 
+
       <td width="33%" align="center">
         <div class="field">
           <%= f.label :estudios %><br>
@@ -186,7 +187,7 @@ $('#the-basics .typeahead').typeahead({
 
     <tr height= "80 px">
       <td width="33%" align="center">
-        <div class="field">
+        <div class="field" id="profesion-div" style="display: none;">
           <%= f.label :profesion %><br>
           <%= f.text_field :profesion %>
         </div>
@@ -194,8 +195,8 @@ $('#the-basics .typeahead').typeahead({
 
       <td width="33%" align="center">
         <div class="field">
-          <%= f.label :oficio %><br>
-          <%= f.text_field :oficio %>
+          <% f.label :oficio %><br>
+          <% f.text_field :oficio %>
         </div>
       </td>
     </tr>
@@ -206,3 +207,17 @@ $('#the-basics .typeahead').typeahead({
           <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-mini btn-success" %>
         </div>
 <% end %>
+<script>
+$( "#interno_estudios" ).change(function() {
+  var optionSelected = $(this).find("option:selected");
+     var valueSelected  = optionSelected.val();
+     var textSelected   = optionSelected.text();
+  if(textSelected=="Universitario" || textSelected=="Superior")
+    document.getElementById("profesion-div").style.display="block";
+  else
+    document.getElementById("profesion-div").style.display="none";
+
+   
+});
+
+</script>
