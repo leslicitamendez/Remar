@@ -17,10 +17,12 @@ class VentaprodsController < ApplicationController
     @ventaprod = Ventaprod.new
     @id=(params[:id])
     @rendicion_id=(params[:rendicion_id])
+    @entregaprod=Entregaprod.find(params[:id])
   end
 
   # GET /ventaprods/1/edit
   def edit
+    @entregaprod=Entregaprod.find(params[:id])
   end
 
   # POST /ventaprods

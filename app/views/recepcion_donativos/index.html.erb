@@ -1,7 +1,7 @@
 <h1>Lista de donativos para Reventa</h1>
 <div align="right">
   <%= form_tag({:controller => "recepcion_donativos", :action => "index"}, :method => :get) do %>
-    Buscar Donativo: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Donativo aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Donativo aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    Buscar Donativo: &nbsp;&nbsp;Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
     <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
   <% end %>
 </div><br>
@@ -24,7 +24,11 @@
         <th><%= recepcion_donativo.articulo %></th>
         <th><%= recepcion_donativo.descripcion %></th>
         <th><%= recepcion_donativo.precio %></th>
-        <td><%= link_to 'Vender', ingre_path(:id=>'0',:donaid => recepcion_donativo.id),:class => 'btn btn-mini btn-success active' %> <%= link_to 'Editar', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>        
+        <td>
+          <% if recepcion_donativo.estado=='Pendiente'%>
+          <%= link_to 'Vender', ingre_path(:id=>'0',:donaid => recepcion_donativo.id),:class => 'btn btn-mini btn-success active' %>
+          <%end%>
+          <%= link_to 'Editar', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>        
       </tr>
     <% end %>
   </tbody>
