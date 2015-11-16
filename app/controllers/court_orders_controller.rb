@@ -27,6 +27,7 @@ class CourtOrdersController < ApplicationController
   def create
     @court_order = CourtOrder.new(court_order_params)
     @court_order.interno_id=params[:interno_id]
+    @id=@court_order.interno_id
 
     
       if @court_order.save

@@ -28,7 +28,7 @@ class ConductaController < ApplicationController
     @conductum = Conductum.new(conductum_params)
     @conductum.interno_id=params[:interno_id]
 
-    
+    @id=@conductum.interno_id
       if @conductum.save
         flash[:success] = 'Conducta fue creado exitosamente'
         redirect_to @conductum

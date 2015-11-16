@@ -27,7 +27,7 @@ class RehabsController < ApplicationController
   def create
     @rehab = Rehab.new(rehab_params)
     @rehab.interno_id=params[:interno_id]
-   
+    @id=@rehab.interno_id
       if @rehab.save
         flash[:success] = 'Rehabilitacion fue creado exitosamente'
         redirect_to @rehab
