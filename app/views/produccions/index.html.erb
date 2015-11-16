@@ -30,7 +30,7 @@
       <tr>
         <td><%= produccion.cantidad %></td>
         <td><%= Product.find(produccion.product_id.to_i).name %></td>
-        <td><%= produccion.fecha_produccion.strftime("%d/%m/%Y") %></td>
+        <td><%= produccion.fecha_produccion.strftime("%d/%b/%Y") %></td>
         <td><%= link_to 'Ver Produccion', produccion, :class => 'btn btn-mini btn-info active' %></td>
         <td><%= link_to 'Editar Produccion', edit_produccion_path(produccion), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>

@@ -1,11 +1,22 @@
-<% if params[:palabra]==nil ||  params[:palabra]== '' %>
-  <h1>ventas de hoy</h1>
-<%else%>
-  <h1>Buscar ventas</h1>
+<% if params[:palabra2]=='' &&  params[:palabra]== '' &&  params[:producto]== ''%>
+  <h1>ventas de hoy
 <%end%>
+<% if params[:palabra2]!='' &&  params[:palabra]!= '' && params[:producto]== ''%> 
+  <h1>Kadex de Productos&nbsp;
+<%end%>
+<% if params[:producto]!= '' && params[:producto]!= nil%>
+  <h1>Kadex de <%=@nombre.full_code%>&nbsp;
+<%end%> 
+<%if params[:palabra]!='' && params[:palabra]!= nil%>
+  Desde <%=params[:palabra]%>&nbsp;
+<%end%>
+<%if params[:palabra2]!='' && params[:palabra]!= nil%>
+  Hasta <%=params[:palabra2]%>
+<%end%>
+</h1>
 <div align="right">
   <%= form_tag({:controller => "entregaprods", :action => "index"}, :method => :get) do %>
-    Buscar cita: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    Buscar Venta: &nbsp;&nbsp;Producto <%= select_tag "producto", options_from_collection_for_select(@product, "id", "full_code"), include_blank: true%>Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
     <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
   <% end %>
 </div><br>
@@ -27,7 +38,11 @@
 
       <th>Fecha</th>
       <th>Voluntario</th>
-      <th>Product</th>
+      <th>
+      <% if params[:producto]== '' %>
+        Product
+      <%end%>
+      </th>
       <th>Cantidad</th>      
       <th>Estado</th>
       <th colspan="3"></th>
@@ -40,7 +55,11 @@
       <tr>
         <td><%= entregaprod.fecha %></td>        
         <td><%= entregaprod.voluntario %></td>
-        <td><%= entregaprod.product %></td> 
+        <td>
+        <% if params[:producto]== '' %>
+         <%= entregaprod.product %>
+        <%end%>
+        </td>
         <td><%= entregaprod.cantidad %></td>
         <td>
           <% if Entregaprod.find(entregaprod.id).rendicionprod == nil %>

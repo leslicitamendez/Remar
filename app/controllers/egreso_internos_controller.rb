@@ -47,12 +47,12 @@ class EgresoInternosController < ApplicationController
   # POST /egreso_internos.json
   def create
     @egreso_interno = EgresoInterno.new(egreso_interno_params)
-    @egreso.interno_id=params[:interno_id]
-    @interno=Interno.find(params[:interno_id])
+    @egreso_interno.interno_id=params[:interno_id]
+    @id = @egreso_interno.interno_id
    
       if @egreso_interno.save
         flash[:success] = 'Egreso Interno creado exitosamente'
-        redirect_to '/egreso_internos'
+        redirect_to @egreso_interno
       else
         render action: "new"
       end
@@ -64,7 +64,7 @@ class EgresoInternosController < ApplicationController
     @egreso_interno = EgresoInterno.find(params[:id])
       if @egreso_interno.update(egreso_interno_params)
         flash[:success] = "Egreso Interno actualizado exitosamente"
-        redirect_to '/egreso_internos'
+        redirect_to @egreso_interno
       else
         render action: "edit"
       end

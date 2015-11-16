@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       #@products = Product.all
       @palabra = ''
       @palabra = params[:palabra]
-      @products = Product.where("name LIKE ?", "%#{@palabra}%")
+      @products = Product.order(params[:sort]).paginate(:per_page => 5, :page => params[:page]).where("name LIKE ?", "%#{@palabra}%")
   end
 
   # GET /products/1

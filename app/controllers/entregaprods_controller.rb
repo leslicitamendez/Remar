@@ -8,16 +8,24 @@ class EntregaprodsController < ApplicationController
     #@palabra = ''
     #@palabra = params[:palabra]
     #@entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", "%#{@palabra}%")
+    @product=Product.all
     @page = params[:page]
+    if params[:producto] &&  params[:producto]!= ''
+      @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("product_id >=?", params[:producto])
+      @nombre=Product.find(params[:producto])
+    else
+      @entregaprods = Entregaprod.all
+    end 
     begin
+
       if params[:palabra] &&  params[:palabra]!= '' 
         if params[:palabra2]==nil ||  params[:palabra2]== ''
-          @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", params[:palabra].to_date)
+          @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha >=?", params[:palabra].to_date)
         else
-          @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+          @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
         end
       else
-        @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha =?", Date.today)
+        @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha =?", Date.today)
       end       
     rescue Exception => e
       flash[:success] = 'Por favor ingrese una fecha valida'

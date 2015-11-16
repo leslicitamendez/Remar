@@ -12,9 +12,17 @@
   <% end %>
 <input type="hidden" name="id" value="<%= @id %>" >
 <input type="hidden" name="rendicion_id" value="<%= @rendicion_id %>" >
+<div  class="jumbotron" align="center">
+  <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
+  <strong>Producto: </strong> <%= @entregaprod.product %><br>  
+    <strong>Cantidad Entregada: </strong>
+    <%= @entregaprod.cantidad %><br>
+    <strong>Cantidad Devuelta: </strong>
+    <%= @entregaprod.rendicionprod.cantidad %>
+</div>
   <div class="field">
     <%= f.label :cantidad,'Cantidad (*)' %><br>
-    <%= f.number_field :cantidad %>
+    <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i-@entregaprod.rendicionprod.cantidad.to_i%>
   </div>
   <div class="field">
     <%= f.label :precioUnidad, 'Precio unidad (*)' %><br>

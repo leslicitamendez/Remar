@@ -7,16 +7,21 @@ class CitaController < ApplicationController
   #  if params[:palabra2]==nil ||  params[:palabra2]== ''
    #   params[:palabra2]=Date.today.to_s
    # end
-    begin
-      if params[:palabra] &&  params[:palabra]!= '' 
-        if params[:palabra2]==nil ||  params[:palabra2]== ''
-          @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=?", params[:palabra].to_date)
-        else
-          @cita = Citum.order("fecha ASC, hora ASC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
-        end
+    begin 
+      if params[:estado] &&  params[:estado]!= ''
+        @cita = Citum.order("fecha ASC, hora ASC").where("estado=?", params[:estado])
       else
-        @cita = Citum.order("fecha ASC, hora ASC").where("fecha =? AND estado!='Cancelada'", Date.today)
-      end       
+         @cita=Citum.all
+      end 
+        if params[:palabra] &&  params[:palabra]!= '' 
+          if params[:palabra2]==nil ||  params[:palabra2]== ''
+            @cita = @cita.order("fecha ASC, hora ASC").where("fecha >=?", params[:palabra].to_date)
+          else
+            @cita =  @cita.order("fecha ASC, hora ASC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
+          end
+        else
+          @cita =  @cita.order("fecha ASC, hora ASC").where("fecha =? AND estado!='Cancelada'", Date.today)
+        end 
     rescue Exception => e
       flash[:success] = 'Por favor ingrese una fecha valida'
       params.delete :palabra2
@@ -58,6 +63,11 @@ class CitaController < ApplicationController
   # PATCH/PUT /cita/1
   # PATCH/PUT /cita/1.json
   def update
+      @editar=citum_params
+      if @editar[:voluntario_id] != '' && @citum.estado=='Pendiente'
+        @citum.estado='Enviado'
+        @citum.save
+      end
       if @citum.update(citum_params)
         flash[:success] =  'Cita actualizada exitosamente' 
         redirect_to '/cita'

@@ -1,34 +1,36 @@
-<p id="notice"><%= notice %></p>
+<center>
+  <p id="notice"><%= notice %></p>
+  <br><br>
+  <p>
+    <strong>ID del Producto:</strong>
+    <%= @product.id %>
+  </p>
 
-<p>
-	<strong>ID del Producto:</strong>
-	<%= @product.id %>
-</p>
+  <p>
+    <strong>Codigo del Producto:</strong>
+    <%= @product.code %>
+  </p>
 
-<p>
-  <strong>Codigo del Producto:</strong>
-  <%= @product.code %>
-</p>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @product.name %>
+  </p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @product.name %>
-</p>
+  <p>
+    <strong>Unidad:</strong>
+    <%= @product.unity %>
+  </p>
 
-<p>
-  <strong>Unidad:</strong>
-  <%= @product.unity %>
-</p>
+  <p>
+    <strong>Descripcion:</strong>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @product.description %>
-</p>
+  <p>
+    <strong>Estado:</strong>
+    <%= @product.state %>
+  </p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @product.state %>
-</p>
-
-<br><br>
-<%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
+  <br><br>
+  <%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
+</center>

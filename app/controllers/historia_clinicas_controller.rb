@@ -44,11 +44,11 @@ class HistoriaClinicasController < ApplicationController
   def create
     @historia_clinica = HistoriaClinica.new(historia_clinica_params)
     @historia_clinica.interno_id=params[:interno_id]
-    @interno=Interno.find(params[:interno_id])
-    
+    @id = @historia_clinica.interno_id
+
     if @historia_clinica.save
         flash[:success] = 'Historia clinica creada exitosamente'
-        redirect_to '/historia_clinicas'
+        redirect_to @historia_clinica
       else
         render action: "new"
       end
@@ -60,7 +60,7 @@ class HistoriaClinicasController < ApplicationController
     @historia_clinica = HistoriaClinica.find(params[:id])
       if @historia_clinica.update(historia_clinica_params)
         flash[:success] = "Historia clinica actualizada exitosamente"
-        redirect_to '/historia_clinicas'
+        redirect_to @historia_clinica
       else
         render action: "edit"
       end

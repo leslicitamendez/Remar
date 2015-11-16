@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field" id="nombre">
-    <%= f.label :producto %>
+    <%= f.label :producto %><br>
     <%= f.collection_select(:product_id, Product.all, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :cantidad, 'Cantidad *'%> &nbsp;&nbsp;
+    <%= f.label :cantidad, 'Cantidad *'%><br>
     <%= f.number_field :cantidad %>
   </div>
   <div class="field">
-    <%= f.label :fecha_produccion, 'Fecha de Produccion *' %><br>
+    <%= f.label :fecha_produccion, 'Fecha de Producción *' %><br>
     <%= f.date_select :fecha_produccion %>
   </div>
   <div class="field" id="vencimiento-div" style="display: none;">
