@@ -85,7 +85,7 @@ $('#the-basics .typeahead').typeahead({
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @internos, :previous_label => 'Anterior', :next_label => 'Siguiente' %>
 <br><br>
 
 <h4><%= link_to 'Registrar Interno', new_interno_path,:class => 'btn btn-mini btn-success active' %></h4>

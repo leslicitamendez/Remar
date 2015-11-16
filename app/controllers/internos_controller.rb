@@ -4,7 +4,8 @@ class InternosController < ApplicationController
   # GET /internos
   # GET /internos.json
   def index
-    @internos = Interno.all
+#    @internos = Interno.all
+     @internos = Interno.paginate(:page => params[:page], :per_page => 5)
     if(params["palabra"]!=nil)
         @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra])    
     end
