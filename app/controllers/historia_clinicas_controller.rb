@@ -45,7 +45,7 @@ class HistoriaClinicasController < ApplicationController
     @historia_clinica = HistoriaClinica.new(historia_clinica_params)
     @historia_clinica.interno_id=params[:interno_id]
     @interno=Interno.find(params[:interno_id])
-
+    
     if @historia_clinica.save
         flash[:success] = 'Historia clinica creada exitosamente'
         redirect_to '/historia_clinicas'

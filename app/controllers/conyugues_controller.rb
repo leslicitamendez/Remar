@@ -31,7 +31,7 @@ class ConyuguesController < ApplicationController
     @conyugue = Conyugue.new(conyugue_params)
     @conyugue.interno_id=params[:interno_id]
     @interno=Interno.find(params[:interno_id])
-
+    @id=@conyugue.interno_id
     
 
       if @conyugue.save

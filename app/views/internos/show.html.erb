@@ -318,7 +318,7 @@
                             <P><%= @agre %><strong>&nbsp; &nbsp; Casos de Agresiones </strong></P>
                                 <div> 
                                 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-                                <%= line_chart @conducta.group_by { |t| t.fecha.month }%>
+                                <%= line_chart @conducta.group(:fecha).count%>
                                                          
                                 </div>
 

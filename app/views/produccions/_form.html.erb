@@ -24,7 +24,9 @@
     <%= f.date_select :fecha_produccion %>
   </div>
   <div class="field" id="vencimiento-div" style="display: none;">
+
     <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
+
     <%= f.date_select :fecha_vencimiento %>
   </div><br><br>
   <div>
@@ -34,6 +36,7 @@
     <%= f.submit (@produccion.new_record? ? 'Registrar Produccion' : 'Editar Produccion') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>
+
 
 <script>
 $( "#nombre" ).change(function() {
@@ -45,7 +48,10 @@ $( "#nombre" ).change(function() {
   else
     document.getElementById("vencimiento-div").style.display="block";
 
+
    
 });
 
+
 </script>
+
