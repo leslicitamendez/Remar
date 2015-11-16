@@ -11,14 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :interno %><br>
-    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
-  </div>
-  <!--div class="field">
-    <%= f.label :egreso %><br>
-    <%= f.collection_select(:egreso_id, Egreso.all, :id, :concepto) %>
-  </div-->
+  <input type="hidden" name="interno_id" value="<%= @id %>" >
+
   <div class="field">
     <%= f.label :concepto, 'Concepto *' %><br>
     <%= f.text_field :concepto %>

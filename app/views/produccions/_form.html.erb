@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" id="nombre">
     <%= f.label :producto %>
     <%= f.collection_select(:product_id, Product.all, :id, :name) %>
   </div>
@@ -24,7 +24,9 @@
     <%= f.date_select :fecha_produccion %>
   </div>
   <div class="field" id="vencimiento-div" style="display: none;">
-    <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *'  %><br>
+
+    <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
+
     <%= f.date_select :fecha_vencimiento %>
   </div><br><br>
   <div>
@@ -36,20 +38,20 @@
 <% end %>
 
 
-
-
-
 <script>
-$( "#produccion_vencido" ).change(function() {
+$( "#nombre" ).change(function() {
   var optionSelected = $(this).find("option:selected");
      var valueSelected  = optionSelected.val();
      var textSelected   = optionSelected.text();
-  if(textSelected=="Collar" || textSelected=="Manilla"||textSelected=="Anillo")
-    document.getElementById("vencimiento-div").style.display="block";
-  else
+  if(textSelected=="Collar" || textSelected=="Manilla")
     document.getElementById("vencimiento-div").style.display="none";
+  else
+    document.getElementById("vencimiento-div").style.display="block";
+
 
    
 });
 
+
 </script>
+

@@ -57,11 +57,11 @@ Rails.application.routes.draw do
 
   resources :products
 
-  get '/historia_clinicas/new/:id' => 'historia_clinicas#new'
-  get '/produccions/new/:id' => 'produccions#new'
-
   get '/egresos/buscar_reporte' => 'egresos#buscar_reporte', :as => 'buscar_reporte'
   get '/egresos/buscar_entre_fechas' => 'egresos#buscar_entre_fechas', :as => 'buscar_entre_fechas'
+
+  get '/historia_clinicas/new/:id' => 'historia_clinicas#new', :as => 'historia'
+  get '/egreso_internos/new/:id' => 'egreso_internos#new', :as => 'egreso_inter'
 
   get '/conyugues/new/:id' => 'conyugues#new', :as => 'pareja'
 

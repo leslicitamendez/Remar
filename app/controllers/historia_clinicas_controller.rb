@@ -4,10 +4,6 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas
   # GET /historia_clinicas.json
   def index
-    #@historia_clinicas = HistoriaClinica.all
-    #@palabra = ''
-    #@palabra = params[:palabra]
-    #@historia_clinicas = HistoriaClinica.where("interno_id LIKE ?", "%#{@palabra}%")
     @historia_clinicas = buscar(params[:palabra])
   end
 
@@ -34,8 +30,9 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas/new
   def new
     @historia_clinica = HistoriaClinica.new
-    @paciente = Interno.find_by_id(params[:interno_id])
-    @historia_clinica.interno = @paciente
+    # @paciente = Interno.find_by_id(params[:interno_id])
+    # @historia_clinica.interno = @paciente
+    @id=(params[:id])
   end
 
   # GET /historia_clinicas/1/edit
@@ -46,6 +43,8 @@ class HistoriaClinicasController < ApplicationController
   # POST /historia_clinicas.json
   def create
     @historia_clinica = HistoriaClinica.new(historia_clinica_params)
+    @historia_clinica.interno_id=params[:interno_id]
+    @interno=Interno.find(params[:interno_id])
 
     if @historia_clinica.save
         flash[:success] = 'Historia clinica creada exitosamente'

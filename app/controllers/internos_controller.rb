@@ -27,7 +27,8 @@ class InternosController < ApplicationController
     @robo = @interno.conducta.where(:tipoConducta => 'Robo' ) 
     @agresion = @interno.conducta.where(:tipoConducta => 'Agresion' ) 
 
-   
+    @historia_clinicas=@interno.historia_clinicas
+    @egreso_internos=@interno.egreso_internos
 
 
     

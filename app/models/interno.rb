@@ -1,5 +1,5 @@
 class Interno < ActiveRecord::Base
-	has_one :historia_clinica
+	has_many :historia_clinicas
 	has_many :egreso_internos
 	has_one :conyugue
 	has_one :referencia
