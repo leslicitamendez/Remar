@@ -6,7 +6,7 @@ class InternosController < ApplicationController
   def index
     @internos = Interno.all
     if(params["palabra"]!=nil)
-        @internos=Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params["palabra"])    
+        @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra])    
     end
 
   end
