@@ -16,10 +16,12 @@ class RendicionprodsController < ApplicationController
   def new
     @rendicionprod = Rendicionprod.new
     @id=(params[:id])
+    @entregaprod=Entregaprod.find(params[:id])
   end
 
   # GET /rendicionprods/1/edit
   def edit
+    @entregaprod=Entregaprod.find(params[:id])
   end
 
   # POST /rendicionprods

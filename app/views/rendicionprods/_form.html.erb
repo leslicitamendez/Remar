@@ -11,7 +11,12 @@
     </div>
   <% end %>
   <input type="hidden" name="id" value="<%= @id %>" >
-
+<div  class="jumbotron" align="center">
+  <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
+  <strong>Producto: </strong> <%= @entregaprod.product %><br>  
+    <strong>Cantidad Entregada: </strong>
+    <%= @entregaprod.cantidad %> 
+</div>
   
   <div class="field">
     <%= f.label :cantidad, 'cantidad(*)' %><br>

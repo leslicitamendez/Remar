@@ -27,6 +27,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.interno_id=params[:interno_id]
+    @id=@contact.interno_id
     
       if @contact.save
         flash[:success] = 'Referencia fue creado exitosamente'

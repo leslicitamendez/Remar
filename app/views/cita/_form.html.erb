@@ -13,12 +13,14 @@
 
   <div class="field">
     <%= f.label :voluntario_id, 'Voluntario (*)' %><br>
-    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :full_name) %>
+    <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :full_name, :include_blank => true) %>
   </div>
+  <% if @citum.voluntario_id != nil %>
   <div class="field">
     <%= f.label :estado %><br>
     <%= f.select :estado, ['Pendiente','Enviado','Concretada','Cancelada'] %>
-  </div> 
+  </div>
+  <% end %>
   <div class="field">
     <%= f.label :fecha, 'Fecha (*)' %><br>
     <%= f.date_select :fecha, :start_year =>2015, :last_year =>2016%>

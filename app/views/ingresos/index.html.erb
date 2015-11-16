@@ -1,7 +1,7 @@
 <h1>Lista Ingresos</h1>
 <div align="right">
   <%= form_tag({:controller => "ingresos", :action => "index"}, :method => :get) do %>
-    Buscar Ingresos: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Ingreso aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Ingreso aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    Buscar Ingresos: &nbsp;&nbsp;Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
     <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
   <% end %>
 </div><br>

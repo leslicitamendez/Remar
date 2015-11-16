@@ -9,7 +9,7 @@ class Citum < ActiveRecord::Base
   validates :nombreDonante, length: { maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 
   validates :telefono, format: { with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}
-  validates :telefono, length: { minimum: 6, maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida", too_short: "- %{count} caracteres es la longitud minima permitida" }
+  validates :telefono, length: { minimum: 7, maximum: 8, too_long: "- %{count} caracteres es la longitud maxima permitida", too_short: "- %{count} caracteres es la longitud minima permitida" }
   
 
 	validate :date_cannot_be_in_the_pas

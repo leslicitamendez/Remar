@@ -58,7 +58,6 @@ GEM
     mime-types (1.25.1)
     minitest (5.8.0)
     multi_json (1.11.2)
-    novus-nvd3-rails (1.8.1)
     polyglot (0.3.5)
     rack (1.5.5)
     rack-test (0.6.3)
@@ -131,7 +130,6 @@ DEPENDENCIES
   groupdate
   jbuilder (~> 2.0)
   jquery-rails
-  novus-nvd3-rails
   rails (= 4.1.1)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -1,12 +1,14 @@
 <% if params[:palabra]==nil ||  params[:palabra]== '' %>
   <h1>Citas para hoy</h1>
 <%else%>
-  <h1>Buscar Citas</h1>
+  <h1>Historial de Citas</h1>
 <%end%>
-
+<% if params[:estado]!=nil ||  params[:estado]!= '' %>
+  <h1><%= params[:estado]%> </h1>
+<%end%>
 <div align="right">
   <%= form_tag({:controller => "cita", :action => "index"}, :method => :get) do %>
-    Buscar cita: &nbsp;&nbsp;Desde&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= text_field_tag "searchbox2", params[:searchbox2], :placeholder => "Fecha Cita aaaa-mm-dd", :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
+    Buscar cita: &nbsp;&nbsp;Estado;&nbsp;<%= select_tag "estado", options_for_select(['', 'Concretada', 'Cancelada', 'Pendiente','Enviado'])%> &nbsp;&nbsp;Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
     <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
   <% end %>
 </div><br>
@@ -29,20 +31,28 @@
         <td><%= citum.ubicación %></td>
         <td><%= citum.nombreDonante %></td>
         <td>
-          <% if citum.estado == 'Concretada' %>
-            <strong style="color:#04B431">Concretada</strong>
-          <%end%>
-          <% if citum.estado == 'Cancelada' %>
-            <strong style="color:#DF3A01">Cancelada</strong>
-          <%end%>        
-          <% if citum.estado == 'Pendiente' %>
-            <strong style="color:#DF7401">Pendiente</strong>
-          <%end%>
-          <% if citum.estado == 'Enviado' %>
-            <strong style="color:#04B431">Enviado</strong>
+          <% if params[:estado]==nil ||  params[:estado]== '' %>
+
+            <% if citum.estado == 'Concretada' %>
+              <strong style="color:#04B431">Concretada</strong>
+            <%end%>
+            <% if citum.estado == 'Cancelada' %>
+              <strong style="color:#DF3A01">Cancelada</strong>
+            <%end%>        
+            <% if citum.estado == 'Pendiente' %>
+              <strong style="color:#DF7401">Pendiente</strong>
+            <%end%>
+            <% if citum.estado == 'Enviado' %>
+              <strong style="color:#04B431">Enviado</strong>
+            <%end%>
           <%end%>
         </td>
-        <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar/Enviar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
+        <% if citum.estado != 'Pendiente' %>
+          <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
+        <%end%>
+        <% if citum.estado == 'Pendiente' %>
+          <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar/Enviar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>                   
+        <%end%>       
         
       </tr>
     <% end %>
