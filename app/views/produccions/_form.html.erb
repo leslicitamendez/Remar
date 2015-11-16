@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" id="nombre">
     <%= f.label :producto %>
     <%= f.collection_select(:product_id, Product.all, :id, :name) %>
   </div>
@@ -36,14 +36,14 @@
 <% end %>
 
 <script>
-$( "#produccion_producto" ).change(function() {
+$( "#nombre" ).change(function() {
   var optionSelected = $(this).find("option:selected");
      var valueSelected  = optionSelected.val();
      var textSelected   = optionSelected.text();
   if(textSelected=="Collar" || textSelected=="Manilla")
-    document.getElementById("vencimiento-div").style.display="block";
-  else
     document.getElementById("vencimiento-div").style.display="none";
+  else
+    document.getElementById("vencimiento-div").style.display="block";
 
    
 });
