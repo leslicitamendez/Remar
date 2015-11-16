@@ -1,5 +1,5 @@
 <center>
-	<h1>Historia Clínica de <%= @historia_clinica.interno.nombre %></h1>
+	<h1>Historia Clínica de <%= Interno.find(@historia_clinica.interno_id.to_i).nombre %></h1>
 	<br>
 	<p id="notice"><%= notice %></p>
 
