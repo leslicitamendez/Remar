@@ -12,20 +12,20 @@
   <% end %>
 
 <input type="hidden" name="interno_id" value="<%= @id %>" >
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :numero, 'Numero de Orden Judicial (*)' %><br>
     <%= f.text_field :numero %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :descripcion, 'Descripcion de Orden Judicial (*)'%><br>
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :estado %><br>
     <%= f.check_box :estado %>
   </div>
  
-  <div class="actions">
+  <div class="actions" align="center">
     <%= f.submit  (@court_order.new_record? ? 'Registrar Orden Judicial' : 'Guardar Orden Judicial') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>

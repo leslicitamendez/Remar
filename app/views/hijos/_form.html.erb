@@ -16,37 +16,37 @@
    
   
   
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
     <%= f.text_field :apellido1 %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :apellido2, 'Apellido Materno' %><br>
     <%= f.text_field :apellido2 %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :sexo, 'Sexo (*)' %><br>
     <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :ci , 'CI (*)'%><br>
     <%= f.number_field :ci %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
     <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
 
 
    
 
-  <div id="the-basics" > 
+  <div id="the-basics"  align="center"> 
     <%= f.text_field :lugarNacimiento, :placeholder => "Buscar por Nombre Completo",:class =>"typeahead" %>
 
 
@@ -103,7 +103,7 @@ $('#the-basics .typeahead').typeahead({
 <br>
 
 
-  <div class="actions">
+  <div class="actions" align="center">
     <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> 
   </div>
 <% end %>

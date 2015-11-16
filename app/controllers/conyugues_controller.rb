@@ -19,10 +19,19 @@ class ConyuguesController < ApplicationController
   def new
     @conyugue = Conyugue.new
     @id=(params[:id])
+    @cities = City.all
+    if(params["palabra"]!=nil)
+        @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
+    end
+    
   end
 
   # GET /conyugues/1/edit
   def edit
+    @cities = City.all
+    if(params["palabra"]!=nil)
+        @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
+    end
   end
 
   # POST /conyugues
@@ -32,6 +41,7 @@ class ConyuguesController < ApplicationController
     @conyugue.interno_id=params[:interno_id]
     @interno=Interno.find(params[:interno_id])
     @id=@conyugue.interno_id
+    @conyugue.lugarNacimiento=(params[:palabra])
     
 
       if @conyugue.save
@@ -47,6 +57,7 @@ class ConyuguesController < ApplicationController
   # PATCH/PUT /conyugues/1
   # PATCH/PUT /conyugues/1.json
   def update
+    @conyugue.lugarNacimiento=(params[:palabra])
       if @conyugue.update(conyugue_params)
          flash[:success] = 'Conyugue fue creado exitosamente'
          redirect_to @conyugue 

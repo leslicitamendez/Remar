@@ -22,23 +22,23 @@
 
 
  
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :nombre, 'Nombre (*)' %><br>
     <%= f.text_field :nombre %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :apellido1, 'Apellido Paterno (*)' %>   <br>
     <%= f.text_field :apellido1 %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
      <%= f.label :apellido1, 'Apellido Materno' %><br>
     <%= f.text_field :apellido2 %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :ci, 'CI (*)' %><br>
     <%= f.number_field :ci %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
     <%= f.select :lugarNacimiento, ['','
             DEPARTAMENTO DE COCHABAMBA','Arani','Arque','Provincia Ayopaya','Bolívar','Capinota','Carrasco','Rodeado','Chapare','Esteban Arce','Germán Jordán','Provincia Mizque','Narciso Campero','Punata','Quillacollo','Tapacarí','Tiraque','','','
@@ -58,24 +58,24 @@
                 
             DEPARTAMENTO DE TARIJA','Aniceto Arce','Provincia de Burdet O’Connor','Provincia de Cercado','Eustaquio Méndez','Gran Chaco','José María Avilés'] %>
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
     <%= f.date_select :fechaNacimiento, { order: [ :day, :month , :year], :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
    
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :telefono %><br>
     <%= f.number_field :telefono %>
 
   </div>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :direccion, 'Direccion (*)' %><br>
     <%= f.text_area :direccion %>
   </div>
 
   
 
-  <div class="actions">
+  <div class="actions" align="center">
     <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %> 
   </div>
 <% end %>
