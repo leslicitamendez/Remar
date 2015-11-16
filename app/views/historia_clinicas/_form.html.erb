@@ -12,15 +12,9 @@
   <% end %>
 
   <input type="hidden" name="interno_id" value="<%= @id %>" >
-
-  <!--div class="field">
-    <%= f.label :interno %>
-    <%= f.collection_select(:interno_id, Interno.all, :id, :nombre) %>
-    <!--%= f.select :interno_id, options_for_select(@internos.collect{ |u| [u.nombres, u.id] }) %>
-  </div -->
-
+  <br>
   <div class="field">
-    <%= f.label :enfermedades, 'Enfermedades *' %><br>
+    <%= f.label :enfermedades, 'Enfermedad *' %><br>
     <%= f.text_area :enfermedades %>
   </div>
   <div class="field">

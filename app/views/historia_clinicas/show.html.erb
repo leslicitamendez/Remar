@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<center>
+	<h1>Historia Clínica de <%= @historia_clinica.interno.nombre %></h1>
+	<br>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Enfermedades:</strong>
-  <%= @historia_clinica.enfermedades %>
-</p>
+	<p>
+	  <strong>Enfermedad:</strong>
+	  <%= @historia_clinica.enfermedades %>
+	</p>
 
-<p>
-  <strong>Causa internacion:</strong>
-  <%= @historia_clinica.causa_internacion %>
-</p>
+	<p>
+	  <strong>Causa internacion:</strong>
+	  <%= @historia_clinica.causa_internacion %>
+	</p>
 
-<p>
-  <strong>Observaciones:</strong>
-  <%= @historia_clinica.observaciones %>
-</p>
+	<p>
+	  <strong>Observaciones:</strong>
+	  <%= @historia_clinica.observaciones %>
+	</p>
 
-<p>
-	<strong>Fecha:</strong>
-	<%= @historia_clinica.fecha.strftime("%d/%m/%Y") %>
-</p>
-
-
-<%= link_to 'Back', historia_clinicas_path, :class => 'btn btn-mini btn-default' %>
+	<p>
+		<strong>Fecha:</strong>
+		<%= @historia_clinica.fecha.strftime("%d/%m/%Y") %>
+	</p>
+	<br><br>
+	<% link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %>
+</center>

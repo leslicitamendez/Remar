@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :code, 'Codigo *' %><br>
+    <%= f.label :code, 'Código *' %><br>
     <%= f.text_field :code %>
   </div>
   <div class="field">
@@ -21,9 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :unity, 'Unidad *'%><br>
-    <%= f.select :unity, ['','Litros', 'Mililitros','Kilogramos', 'Gramos'] %>
+    <%= f.text_field :unity %>
   <div class="field">
-    <%= f.label :description, 'Descripcion *' %><br>
+    <%= f.label :description, 'Descripción *' %><br>
     <%= f.text_area :description %>
   </div>
   <br><br>

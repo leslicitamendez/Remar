@@ -1,12 +1,14 @@
-<h1>Editar Producto</h1>
+<center>
+	<h1>Editar Producto</h1>
 
-<%= form_for(@product) do |f| %>
-  <div class="field">
-	    <%= f.label :state, 'Estado *' %><br>
-	    <%= f.select :state, ['Activo', 'Inactivo'] %>
-  </div>
-  <%= render 'form' %>
-<% end %>
+	<%= form_for(@product) do |f| %>
+	  <div class="field">
+		    <%= f.label :state, 'Estado *' %><br>
+		    <%= f.select :state, ['Activo', 'Inactivo'] %>
+	  </div>
+	  <%= render 'form' %>
+	<% end %>
 
-<br><br>
-<%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
+	<br><br>
+	<%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
+</center>
