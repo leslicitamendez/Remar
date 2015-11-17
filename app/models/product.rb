@@ -22,6 +22,10 @@ class Product < ActiveRecord::Base
 	validates :unity, presence: {:message => "- La unidad del producto es un campo obligatorio"}
 	validates :unity, length: {maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
+	validates :price, presence: {:message => "- El precio del producto es un campo obligatorio"}
+	validates :price, :numericality => {:greater_than => 0, :message => "- El precio debe ser mayor a 0"}
+	validates :price, length: {maximum: 10, too_long: "- %{count} caracteres es la longitud maxima permitida"}
+
 	def self.search(search)
 		if search
 			where('name LIKE ?', "%#{search}%")

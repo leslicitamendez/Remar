@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'reporte/index'
+
   resources :cities
 
   resources :stocks

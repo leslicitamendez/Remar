@@ -33,6 +33,23 @@ class EgresosController < ApplicationController
   # GET /egresos/new
   def new
     @egreso = Egreso.new
+    @total=0
+    @totalegreso=0
+    @ingresos= Ingreso.all
+    @egresos=Egreso.all
+    @ingresos.each do |ingreso| 
+      if (ingreso.montoBs != nil)
+        @total += ingreso.montoBs
+      end
+    end
+
+    @egresos.each do |egreso| 
+      if (egreso.monto != nil)
+        @totalegreso += egreso.monto
+      end
+    end
+
+    @total-=@totalegreso
   end
 
   # GET /egresos/1/edit
@@ -45,6 +62,27 @@ class EgresosController < ApplicationController
     @egreso = Egreso.new(egreso_params)
     @egreso.estado = 'Activo'
 
+    @total=0
+    @totalegreso=0
+    @ingresos= Ingreso.all
+    @egresos= Egreso.all
+    @ingresos.each do |ingreso| 
+      if (ingreso.montoBs != nil)
+        @total += ingreso.montoBs
+      end
+    end
+
+    @egresos.each do |egre|
+      if (egre.monto!=nil) 
+        @totalegreso += egre.monto
+      end 
+    end 
+  @total-=@totalegreso
+    if @egreso.monto>@total
+      flash[:warning] = 'Egreso no puede ser mayor al monto total'
+      render action: "new"
+    else
+
     if @egreso.save
         flash[:success] = 'Egreso creado exitosamente'
         redirect_to '/egresos'
@@ -52,7 +90,7 @@ class EgresosController < ApplicationController
         render action: "new"
       end
   end
-
+end
   # PATCH/PUT /egresos/1
   # PATCH/PUT /egresos/1.json
   def update
