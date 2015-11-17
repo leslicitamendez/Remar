@@ -6,9 +6,9 @@ class EgresosController < ApplicationController
   def index
     if params[:fecha_fin] == nil || params[:fecha_fin] == ""
       params[:fecha_fin]=Date.today
-      @egresos = Egreso.order("fecha DESC").where("fecha <= ?", params[:fecha_fin])
+      @egresos = Egreso.order("fecha DESC").where("fecha <= ?", params[:fecha_fin].to_date)
     else
-      @egresos = Egreso.order("fecha DESC").where("fecha >= ? and fecha <= ?", params[:fecha_inicio], params[:fecha_fin])
+      @egresos = Egreso.order("fecha DESC").where("fecha >= ? and fecha <= ?", params[:fecha_inicio].to_date, params[:fecha_fin].to_date)
     end
   end
 
