@@ -17,8 +17,16 @@
   </div>
   <div class="field">
     <%= f.label :product_id, 'Producto (*)' %><br>
-    <%= f.collection_select(:product_id, Product.all, :id, :full_code) %>
+    <%= f.collection_select(:product_id, Product.all, :id, :full_code, {include_blank: ''}) %>
   </div>
+  <div class="field" >
+  <% @stockz.each do |s| %>
+  
+    <label id="opcion<%=s.product.id%>" style="display: none;">Cantidad disponible = <%= s.cantidad %></label>
+ 
+  <% end %>
+    <label id="mostrarc" style="display: none;"></label>
+   </div>
   <div class="field">
     <%= f.label :cantidad, 'Cantidad (*)' %><br>
     <%= f.number_field :cantidad %>
@@ -34,4 +42,23 @@
   <div class="actions">
     <%= f.submit (@entregaprod.new_record? ? 'Registrar Entrega' : 'Editar Entrega'),:class => 'btn btn-mini btn-success active'%>
   </div>
+
 <% end %>
+<script>
+(function () {
+    var previous;
+
+    $("#entregaprod_product_id").focus(function () {
+        // Store the current value on focus, before it changes
+        previous = this.value;
+    }).change(function() {
+        // Do something with the previous value after the change
+        var optionSelected = $(this).find("option:selected");
+      var valueSelected  = optionSelected.val();
+      document.getElementById("mostrarc").style.display = "block";
+      document.getElementById("mostrarc").innerHTML = document.getElementById("opcion".concat(valueSelected)).innerHTML;
+    });
+})();
+
+
+</script>

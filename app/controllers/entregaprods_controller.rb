@@ -49,7 +49,7 @@ class EntregaprodsController < ApplicationController
     @entregaprod = Entregaprod.new
     @voluntarios = Voluntario.all
     @productos = Product.all
-
+    @stockz=Stock.all
 
     if @voluntarios.length == 0
       flash[:success] =  'Por favor Registre un Voluntario antes de continuar' 
@@ -66,16 +66,30 @@ class EntregaprodsController < ApplicationController
 
   # GET /entregaprods/1/edit
   def edit
+    begin
+      @stockz=Stock.all
+    rescue Exception => e
+      redirect_to '/entregaprods'
+    end
   end
 
   # POST /entregaprods
   # POST /entregaprods.json
   def create
+    begin
+      
+    @stockz=Stock.all
     @entregaprod = Entregaprod.new(entregaprod_params)
-    @stock = Stock.find_by product_id: @entregaprod.product_id 
+    @stock = Stock.find_by product_id: @entregaprod.product_id
+    if @stock==nil
+      @stock=Stock.new()
+      @stock.product_id=@entregaprod.product_id
+      @stock.cantidad=0
+      @stock.save
+    end
     if @entregaprod.cantidad.to_i > @stock.cantidad.to_i
         flash[:warning] = 'No puede entregar mas del producto existente' 
-        redirect_to '/entregaprods/'
+        render action: "new"
     elsif @entregaprod.save
       @stock.cantidad -= @entregaprod.cantidad
       @stock.save
@@ -84,11 +98,15 @@ class EntregaprodsController < ApplicationController
     else
       render action: "new"
     end
+    rescue Exception => e
+      redirect_to '/entregaprods/new'
+    end
   end
 
   # PATCH/PUT /entregaprods/1
   # PATCH/PUT /entregaprods/1.json
   def update
+    @stockz=Stock.all
     @stock = Stock.find_by product_id: @entregaprod.product_id
     @actu = params[:entregaprod]
     if @actu[:product_id].to_i == @entregaprod.product_id.to_i
@@ -104,7 +122,7 @@ class EntregaprodsController < ApplicationController
           end
         else
           flash[:warning] = 'No puede entregar mas del producto existente'
-          redirect_to '/entregaprods/'
+          render action: "edit"
         end
       else
         @stock.cantidad -=@editar
@@ -128,7 +146,7 @@ class EntregaprodsController < ApplicationController
         end
       else
         flash[:warning] = 'No puede entregar mas del producto existente'
-        redirect_to '/entregaprods/'
+        render action: "edit"
       end
     end
   end
