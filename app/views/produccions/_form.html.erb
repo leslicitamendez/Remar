@@ -31,7 +31,7 @@
     <label>* Los campos con asterisco, son obligatorios. </label>
   </div><br><br>
   <div class="actions">
-    <%= f.submit (@produccion.new_record? ? 'Registrar Produccion' : 'Editar Produccion') , :class => "btn btn-mini btn-success" %>
+    <%= f.submit (@produccion.new_record? ? 'Registrar Producción' : 'Editar Producción') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>
 
@@ -41,7 +41,7 @@ $( "#nombre" ).change(function() {
   var optionSelected = $(this).find("option:selected");
      var valueSelected  = optionSelected.val();
      var textSelected   = optionSelected.text();
-  if(textSelected=="Collar" || textSelected=="Manilla")
+  if(textSelected=="Collar" || textSelected=="Manilla" || textSelected=="Tobillera")
     document.getElementById("vencimiento-div").style.display="none";
   else
     document.getElementById("vencimiento-div").style.display="block";
