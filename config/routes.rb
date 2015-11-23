@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
+
 
 
   resources :units
 
-=======
->>>>>>> c6f987d22b20f75e8dbe7da8917314411f0e2fae
+
   resources :cities
 
   resources :stocks
