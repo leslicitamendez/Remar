@@ -39,8 +39,18 @@ class HijosController < ApplicationController
     
     @hijo = Hijo.new(hijo_params)
     @hijo.interno_id=params[:interno_id]
-  
-     @cities = City.all
+    @hijos = Hijo.all
+    @repetido=false
+    @hijos.each do |son|
+          if (son.ci != nil )
+              if (@hijo.ci == son.ci)
+                @repetido=true
+                
+              end
+          end
+    end 
+
+
     if(params["palabra"]!=nil)
 
         @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
@@ -50,12 +60,18 @@ class HijosController < ApplicationController
     if ((DateTime.now-@hijo.fechaNacimiento).to_i<=6569)
       @hijo.estado=true
     end
+
+    if @repetido==true
+      render action: "new"
+      flash[:warning] = 'CI ya existe'
+    else
       if @hijo.save
         flash[:success] = 'Hijo fue creado exitosamente'
         redirect_to @hijo
       else
         render action: "new"
       end
+    end
   end
 
   # PATCH/PUT /hijos/1
