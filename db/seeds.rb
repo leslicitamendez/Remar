@@ -17,6 +17,15 @@ productos = Product.create([{code: 'CHOCO1', name: 'Chocotejas', unity: 'Gramos'
 	{code: 'JABON7', name: 'Jabon', unity: 'Pieza', price: 7.5, description: 'Jabon aromatico', state: 'Activo'},
 	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'}])
 
+stocks = Stock.create([{product_id: '1', cantidad: '0'},
+	{product_id: '2', cantidad: '0'},
+	{product_id: '3', cantidad: '0'},
+	{product_id: '4', cantidad: '0'},
+	{product_id: '5', cantidad: '0'},
+	{product_id: '6', cantidad: '0'},
+	{product_id: '7', cantidad: '0'},
+	{product_id: '8', cantidad: '0'}])
+
 internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Attridge', sexo: 'Masculino', ci: 999990, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
 	{nombre: 'Alex', apellido1: 'Campos', apellido2: 'Campos', sexo: 'Masculino', ci: 999997, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
 	{nombre: 'Marco', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
