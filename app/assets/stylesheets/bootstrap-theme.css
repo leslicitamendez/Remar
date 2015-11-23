@@ -585,3 +585,62 @@ fieldset[disabled] .btn-danger.active {
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
 }
 /*# sourceMappingURL=bootstrap-theme.css.map */
+#cuadro { 
+  padding: 25px;
+  border: 5px solid #418000;
+    border-radius: 25px;
+  box-shadow: 10px 10px 5px grey;
+  max-width: 600px;
+}
+#cuadro {
+  width: auto;
+  margin:auto;
+  position: relative;
+}
+#cuadromedio {
+  background-color: #ffffff;
+  border: 25px;
+  text-align: center;
+  margin:auto;
+  height:auto;
+}
+#titulo {
+  padding: 25px;
+  position: top left;
+  text-align: left;
+
+  font-family: 'Courier New';
+  font-size: 38px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 41.8px;
+}
+#titulo {
+  padding: 25px;
+  position: top left;
+  text-align: left;
+
+  font-family: 'Courier New';
+  font-size: 38px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 41.8px;
+}
+#subtitulo {
+  padding: 5px;
+  position: top left;
+  text-align: left;
+
+  font-family: 'Courier New';
+  font-size: 25px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 41.8px;
+}
+#linea{
+  border-style: outset;
+  margin: 15px;
+}

@@ -1,6 +1,9 @@
 <% if params[:palabra2]=='' &&  params[:palabra]== '' &&  params[:producto]== ''%>
   <h1>ventas de hoy
 <%end%>
+<% if params[:palabra2]==nil &&  params[:palabra]== nil &&  params[:producto]== nil%>
+  <h1>ventas de hoy
+<%end%>
 <% if params[:palabra2]!='' &&  params[:palabra]!= '' && params[:producto]== ''%> 
   <h1>Kadex de Productos&nbsp;
 <%end%>
