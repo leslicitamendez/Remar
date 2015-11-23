@@ -21,7 +21,7 @@ class RendicionprodsController < ApplicationController
 
   # GET /rendicionprods/1/edit
   def edit
-    @entregaprod=Entregaprod.find(params[:id])
+    @entregaprod=Entregaprod.find(@rendicionprod.entregaprod_id)
   end
 
   # POST /rendicionprods

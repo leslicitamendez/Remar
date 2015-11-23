@@ -1,136 +1,105 @@
 
 <center>
+  <div id="cuadro">
   <p id="notice"><%= notice %></p>
 <div  class="jumbotron" align="center">
+  <div id="subtitulo">
+        Detalle Venta
+  </div>
   <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
   <strong>Producto: </strong> <%= @entregaprod.product %><br>
-  <% if @ventaprod != nil %> 
+  <strong>Cantidad Vendida: </strong>
+    <% if @rendicionprod %>
+    <%= @entregaprod.cantidad.to_i-@rendicionprod.cantidad.to_i %>
+    <%end%>
+    <br>
     <strong>Precio Unitario: </strong>
-    <%= @ventaprod.precioUnidad %> Bs. <br>
+    <%= @entregaprod.product.price %> Bs. <br>
+  <% if @rendicionprod %>  
     <strong>Precio Total: </strong>
-    <%= @ventaprod.precioUnidad*@ventaprod.cantidad %> Bs.  <br>
-    <% if @ingreso== nil %>
-      <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id,:donaid => '0'),:class => 'btn btn-mini btn-success active' %>
-    <% end %>    
+    <%= @entregaprod.product.price*(@entregaprod.cantidad-@rendicionprod.cantidad) %> Bs.  <br>
   <% end %>
+    <% if @ingreso== nil && @ventaprod%>
+      <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id,:donaid => '0'),:class => 'btn btn-mini btn-success active' %>
+    <% end %> 
 </div>
-<table class="table table-striped">
-  <thead>    
-    <tr>
-      <th>
-      </th>
-      <th>
+<div id="linea"></div>
+      <div id="subtitulo">
         Productos Entregados
-      </th>
-      <th>
-        <% if @rendicionprod== nil %>
-          <%= link_to 'Registrar Devolucion', rend_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
-        <% end %>
-        <% if @rendicionprod != nil %>           
-          Productos Devueltos
-        <% end %>         
-      </th>
-      <th>
-        <% if @ventaprod== nil && @rendicionprod != nil  %>
-          <%= link_to 'Registrar Venta', vent_path(:rendicion_id => @rendicionprod.id),:class => 'btn btn-mini btn-success active' %>
-        <% end %>
-        <% if @ventaprod != nil %>           
-          Productos Vendidos
-        <% end %>         
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        <strong>Cantidad:</strong>
-      </td>
-      <td>
-        <%= @entregaprod.cantidad %>
-      </td>
-      <td>
-        <% if @rendicionprod != nil %> 
-          <%= @rendicionprod.cantidad %>                
-        <% end %>
-      </td>
-      <td>
-        <% if @ventaprod != nil %> 
-          <%= @ventaprod.cantidad %>                
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
+      </div>
+      <div>
         <strong>Fecha:</strong>
-      </td>
-      <td>
         <%= @entregaprod.fecha %>
-      </td>
-      <td>
-        <% if @rendicionprod != nil %> 
-          <%= @rendicionprod.fecha %>              
-        <% end %>
-      </td>
-      <td>
-        <% if @ventaprod != nil %> 
-          <%= @ventaprod.fecha %>              
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
+      </div>
+      <div>
         <strong>Hora:</strong>
-      </td>
-      <td>
         <%= @entregaprod.hora.strftime("%I:%M %p") %>
-      </td>
-      <td>
-        <% if @rendicionprod != nil %> 
-          <%= @rendicionprod.hora.strftime("%I:%M %p") %>             
-        <% end %>
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>
-      </td>
-      <td></td>
-      <td>
-        <% if @rendicionprod != nil %> 
+      </div>
+      <div>
+        <strong>Cantidad:</strong>
+        <%= @entregaprod.cantidad %>
+      </div>
+
+      <% if @rendicionprod != nil %> 
+        <div id="subtitulo">
+          Productos Devueltos
+        </div>
+        <div>
+          <strong>Fecha:</strong>
+          <%= @rendicionprod.fecha %>
+        </div>
+        <div>
+          <strong>Hora:</strong>
+          <%= @rendicionprod.hora.strftime("%I:%M %p") %>
+        </div>
+        <div>
+          <strong>Cantidad:</strong>
+          <%= @rendicionprod.cantidad %>
+        </div>
+        <div>
           <% if @rendicionprod.observaciones != "" %> 
             <strong>Observaciones:</strong>
             <%= @rendicionprod.observaciones %>
           <% end %>
-        <% end %>
-      </td>
-      <td>
-        <% if @ventaprod != nil %> 
+        </div>
+        <div>
+          <%= link_to 'Editar Devolucion', edit_rendicionprod_path(@rendicionprod.id), :class => 'btn btn-mini btn-warning active'%>
+        </div>
+      <%else%>
+        <%= link_to 'Registrar Devolucion', rend_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>   
+      <% end %>
+
+      <% if @ventaprod != nil %> 
+        <div id="subtitulo">
+          Productos Vendidos
+        </div>
+        <div>
+          <strong>Fecha:</strong>
+          <%= @ventaprod.fecha %>
+        </div>        
+        <div>
+          <strong>Cantidad:</strong>
+          <%= @ventaprod.cantidad %>
+        </div>
+        <div>
           <% if @ventaprod.observaciones != "" %> 
-            <strong>Observaciones: </strong>
-            <%= @ventaprod.observaciones %>  
-          <% end %>       
-        <% end %>
-      </td>
-    </tr>    
-    <tr>
-      <td>        
-      </td>
-      <td>
-        <%= link_to 'Editar Entrega', edit_entregaprod_path(@entregaprod), :class => 'btn btn-mini btn-warning active' %> 
-      </td>
-      <td>
-        <% if @rendicionprod != nil %> 
-          <%= link_to 'Editar Rendicion', edit_rendicionprod_path(@rendicionprod.id), :class => 'btn btn-mini btn-warning active'%>
-        <% end %>
-      </td>
-      <td>
-        <% if @ventaprod != nil %> 
+            <strong>Observaciones:</strong>
+            <%= @ventaprod.observaciones %>
+          <% end %>
+        </div>
+        <div>
           <%= link_to 'Editar Venta', edit_ventaprod_path(@ventaprod.id), :class => 'btn btn-mini btn-warning active'%>
-        <% end %>
-      </td>
-    </tr>   
-  </tbody>
-</table>
+        </div>
+      <%else%>
+        <div>
+          <% if @rendicionprod != nil %> 
+            <%= link_to 'Registrar Venta', vent_path(:id => @entregaprod.id,:rendicion_id => @rendicionprod.id),:class => 'btn btn-mini btn-success active' %>
+          <%else%>
+            <%= link_to 'Registrar Venta', vent_path(:id => @entregaprod.id,:rendicion_id => 0),:class => 'btn btn-mini btn-success active' %>
+          <% end %>
+        </div>             
+      <% end %>
+    
 <%= link_to 'Atras', entregaprods_path,:class => 'btn btn-mini btn-default' %>
+</div>
 </center>

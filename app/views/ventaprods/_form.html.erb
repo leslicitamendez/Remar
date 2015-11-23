@@ -18,23 +18,25 @@
     <strong>Cantidad Entregada: </strong>
     <%= @entregaprod.cantidad %><br>
     <strong>Cantidad Devuelta: </strong>
+    <%if @entregaprod.rendicionprod %>
     <%= @entregaprod.rendicionprod.cantidad %>
+    <%end%>
 </div>
   <div class="field">
-    <%= f.label :cantidad,'Cantidad (*)' %><br>
-    <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i-@entregaprod.rendicionprod.cantidad.to_i%>
-  </div>
-  <div class="field">
-    <%= f.label :precioUnidad, 'Precio unidad (*)' %><br>
-    <%= f.text_field :precioUnidad %>
-  </div>
-  <div class="field">
-    <%= f.label :observaciones %><br>
-    <%= f.text_area :observaciones %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha, 'Fecha (*)' %><br>
+    <%= f.label :fecha, 'Fecha (*)' %> 
     <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad,'Cantidad Vendida(*)' %>
+    <%if @entregaprod.rendicionprod %>
+      <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i-@entregaprod.rendicionprod.cantidad.to_i%>
+    <%else%>
+      <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i%>
+    <%end%>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones, 'Observaciones Venta' %> 
+    <%= f.text_area :observaciones %>
   </div>
   <div class="actions">
     <%= f.submit (@ventaprod.new_record? ? 'Registrar Venta' : 'Editar Venta'),:class => 'btn btn-mini btn-success active' %>

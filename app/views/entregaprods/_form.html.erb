@@ -1,4 +1,4 @@
-<%= form_for(@entregaprod) do |f| %>
+<div id="cuadromedio"><%= form_for(@entregaprod) do |f| %>
   <% if @entregaprod.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@entregaprod.errors.count, "error") %>, corrija los siguientes errores:</h2>
@@ -10,40 +10,38 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :voluntario_id, 'Voluntario (*)' %><br>
+    <%= f.label :fecha, 'Fecha (*)'%> 
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :hora %> 
+    <%= f.time_select :hora %>
+  </div>
+  <div class="field">
+    <%= f.label :voluntario_id, 'Voluntario (*)' %> 
     <%= f.collection_select(:voluntario_id, Voluntario.all, :id, :full_name) %>
   </div>
   <div class="field">
-    <%= f.label :product_id, 'Producto (*)' %><br>
+    <%= f.label :product_id, 'Producto (*)' %> 
     <%= f.collection_select(:product_id, Product.all, :id, :full_code, {include_blank: ''}) %>
   </div>
   <div class="field" >
-  <% @stockz.each do |s| %>
-  
-    <label id="opcion<%=s.product.id%>" style="display: none;">Cantidad disponible = <%= s.cantidad %></label>
- 
+  <% @stockz.each do |s| %>  
+    <label id="opcion<%=s.product.id%>" style="display: none;">Cantidad disponible = <%= s.cantidad %></label> 
   <% end %>
     <label id="mostrarc" style="display: none;"></label>
    </div>
   <div class="field">
-    <%= f.label :cantidad, 'Cantidad (*)' %><br>
+    <%= f.label :cantidad, 'Cantidad (*)' %> 
     <%= f.number_field :cantidad %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha, 'Fecha (*)'%><br>
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :hora %><br>
-    <%= f.time_select :hora %>
   </div>
   <div class="actions">
     <%= f.submit (@entregaprod.new_record? ? 'Registrar Entrega' : 'Editar Entrega'),:class => 'btn btn-mini btn-success active'%>
   </div>
 
 <% end %>
+</div>
 <script>
 (function () {
     var previous;
