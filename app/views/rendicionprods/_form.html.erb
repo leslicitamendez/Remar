@@ -17,24 +17,24 @@
     <strong>Cantidad Entregada: </strong>
     <%= @entregaprod.cantidad %> 
 </div>
-  
   <div class="field">
-    <%= f.label :cantidad, 'cantidad(*)' %><br>
-    <%= f.number_field :cantidad %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha , 'Fecha (*)'%><br>
+    <%= f.label :fecha , 'Fecha Devolucion(*)'%> 
     <%= f.date_select :fecha %>
   </div>
   <div class="field">
-    <%= f.label :hora %><br>
+    <%= f.label :hora, 'Hora Devolucion(*)' %> 
     <%= f.time_select :hora %>
   </div>
   <div class="field">
-    <%= f.label :observaciones %><br>
+    <%= f.label :cantidad, 'cantidad Devuleta(*)' %> 
+    <%= f.number_field :cantidad , :value =>0%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :observaciones , 'Observaciones Devolucion'%> 
     <%= f.text_area :observaciones %>
   </div>
   <div class="actions">
-    <%= f.submit (@rendicionprod.new_record? ? 'Registrar Rendicion' : 'Editar Rendicion'),:class => 'btn btn-mini btn-success active'%>
+    <%= f.submit (@rendicionprod.new_record? ? 'Registrar Devolucion' : 'Editar Devolucion'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

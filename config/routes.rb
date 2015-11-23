@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+
+
+
+  resources :units
+
+
   resources :cities
 
   resources :stocks
@@ -83,7 +89,7 @@ Rails.application.routes.draw do
 
   get '/rendicionprods/new/:id' => 'rendicionprods#new', :as => 'rend'
 
-  get '/ventaprods/new/:id' => 'ventaprods#new', :as => 'vent'
+  get '/ventaprods/new/:id/:rendicion_id' => 'ventaprods#new', :as => 'vent'
 
   get '/ingresos/new/:id/:donaid' => 'ingresos#new', :as => 'ingre'  
 

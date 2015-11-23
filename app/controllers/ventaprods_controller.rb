@@ -22,18 +22,30 @@ class VentaprodsController < ApplicationController
 
   # GET /ventaprods/1/edit
   def edit
-    @entregaprod=Entregaprod.find(params[:id])
+    @entregaprod=Entregaprod.find(@ventaprod.entregaprod_id)
   end
 
   # POST /ventaprods
   # POST /ventaprods.json
   def create
     begin
-      @ventaprod = Ventaprod.new(ventaprod_params)
-      @ren = Rendicionprod.find(params[:rendicion_id])
+      if params[:rendicion_id] == "0"
+        @ren = Rendicionprod.new
+        @ren.fecha=Date.today
+        @ren.hora=Time.now
+        @ren.cantidad=0
+        @ren.entregaprod_id=params[:id]
+        @ren.estado=true
+        @ren.observaciones="No se REgistro una devolucion fisica"
+        @ren.save
+      else
+        @ren = Rendicionprod.find(params[:rendicion_id])
+      end
+      @ventaprod = Ventaprod.new(ventaprod_params)      
       @entregaprod=Entregaprod.find(params[:id])
       @ventaprod.entregaprod_id=params[:id]
-      @ventaprod.rendicionprod_id=params[:rendicion_id]
+      @ventaprod.rendicionprod_id=@ren.id
+      @ventaprod.precioUnidad=@entregaprod.product.price
       if @entregaprod.cantidad.to_i- @ren.cantidad.to_i < @ventaprod.cantidad.to_i
         flash[:warning] = 'No puede vender mas producto del rendido' 
         redirect_to '/entregaprods/'+params[:id]      
@@ -44,6 +56,7 @@ class VentaprodsController < ApplicationController
         render action: "new"
       end      
     rescue Exception => e
+      flash[:warning] = e.to_s
       redirect_to '/entregaprods/'+params[:id]
     end
   end

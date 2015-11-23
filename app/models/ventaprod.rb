@@ -8,9 +8,6 @@ class Ventaprod < ActiveRecord::Base
   validates :cantidad, presence: {:message => "- La cantidad es un campo obligatorio"}
   validates :cantidad, :numericality => {:greater_than => -1, :message => "- La cantidad debe ser mayor a 0"}
 
-  validates :precioUnidad, presence: {:message => "- El precio es un campo obligatorio"}
-  validates :precioUnidad, :numericality => {:greater_than => 0, :message => "- El precio debe ser mayor a 0"}
-
 
   before_save :default_values
 
