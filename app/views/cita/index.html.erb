@@ -6,11 +6,14 @@
 <% if params[:estado]!=nil ||  params[:estado]!= '' %>
   <h1><%= params[:estado]%> </h1>
 <%end%>
+
 <div align="right">
-  <%= form_tag({:controller => "cita", :action => "index"}, :method => :get) do %>
-    Buscar cita: &nbsp;&nbsp;Estado;&nbsp;<%= select_tag "estado", options_for_select(['', 'Concretada', 'Cancelada', 'Pendiente','Enviado'])%> &nbsp;&nbsp;Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
-    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
-  <% end %>
+    <%= form_tag({:controller => "cita", :action => "index"}, :method => :get) do %>
+      Estado: <%= select_tag "estado", options_for_select(['', 'Concretada', 'Cancelada', 'Pendiente','Enviado'])%>
+      Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+      Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'palabra2', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+      <%= submit_tag "Buscar Citas Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
 </div><br>
 <table class="table table-striped">
   <thead>
@@ -58,7 +61,13 @@
     <% end %>
   </tbody>
 </table>
-
+<script>
+  $('.datepicker').datepicker({
+    weekStart:1,
+  }).on('changeDate', function(e){
+    $(this).datepicker('hide');
+  });
+</script>
 <br>
 
 <%= link_to 'Agregar Cita', new_citum_path,:class => 'btn btn-mini btn-success active' %>

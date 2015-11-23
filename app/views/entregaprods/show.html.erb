@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+
+<center>
+  <p id="notice"><%= notice %></p>
 <div  class="jumbotron" align="center">
   <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
   <strong>Producto: </strong> <%= @entregaprod.product %><br>
@@ -22,7 +24,7 @@
       </th>
       <th>
         <% if @rendicionprod== nil %>
-          <%= link_to 'Registrar Rendicion', rend_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
+          <%= link_to 'Registrar Devolucion', rend_path(@entregaprod.id),:class => 'btn btn-mini btn-success active' %>
         <% end %>
         <% if @rendicionprod != nil %>           
           Productos Devueltos
@@ -39,24 +41,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-        <strong>Id:</strong>
-      </td>
-      <td>
-        <%= @entregaprod.id %>
-      </td>
-      <td>
-        <% if @rendicionprod != nil %> 
-          <%= @rendicionprod.id %>               
-        <% end %>
-      </td>
-      <td>
-        <% if @ventaprod != nil %> 
-          <%= @ventaprod.id %>               
-        <% end %>
-      </td>
-    </tr>
+    
     <tr>
       <td>
         <strong>Cantidad:</strong>
@@ -148,3 +133,4 @@
   </tbody>
 </table>
 <%= link_to 'Atras', entregaprods_path,:class => 'btn btn-mini btn-default' %>
+</center>

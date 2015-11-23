@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
 	validates :name, presence: {:message => "- El nombre del producto es un campo obligatorio"}
 	validates :name, uniqueness: {case_sensitive: false, :message => "- El producto ya existe"}
 	validates :name, length: { maximum: 30, too_long: "- %{count} caracteres es la longitud maxima permitida" }
-	validates :name, format: { allow_blank: true, with: /\A[a-zA-Z ]+\z/, :message => "Solo se aceptan letras" }
+	validates :name, format: { allow_blank: true, with: /\A[a-zA-Z\W]+\z/, :message => "Solo se aceptan letras" }
 
 	validates :description, presence: {:message => "- La descripcion es un campo obligatorio"}
 	validates :description, length: {maximum: 100, too_long: "- %{count} caracteres es la longitud maxima permitida"}
@@ -23,7 +23,8 @@ class Product < ActiveRecord::Base
 	validates :unity, length: {maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
 	validates :price, presence: {:message => "- El precio del producto es un campo obligatorio"}
-	validates :price, :numericality => {:greater_than => 0, :message => "- El precio debe ser mayor a 0"}
+	validates :price, format: { allow_blank: true, with: /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0, :message => "- Solo se aceptan numeros"}
+	#validates :price, :numericality => {:greater_than => 0, :message => "- El precio debe ser mayor a 0"}
 	validates :price, length: {maximum: 10, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
 	def self.search(search)

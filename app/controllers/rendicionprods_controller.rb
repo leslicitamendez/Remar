@@ -37,7 +37,7 @@ class RendicionprodsController < ApplicationController
 
       if @entregaprod.cantidad.to_i < @rendicionprod.cantidad.to_i
         flash[:warning] = 'No puede devolver mas producto del entregado' 
-        redirect_to '/entregaprods/'+params[:id]     
+        render action: "new"     
       elsif @rendicionprod.save && @stock.save
         flash[:success] = 'Rendicion producto creado exitosamente' 
         redirect_to '/entregaprods/'+params[:id]
@@ -46,7 +46,7 @@ class RendicionprodsController < ApplicationController
       end
       
     rescue Exception => e
-      redirect_to '/entregaprods/'+params[:id]
+      render action: "new"
     end
     
   end
@@ -64,7 +64,7 @@ class RendicionprodsController < ApplicationController
 
       if @entregaprod.cantidad.to_i < @actu[:cantidad].to_i
         flash[:warning] = 'No puede devolver mas producto del entregado' 
-        redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+        render action: "edit"
       elsif @rendicionprod.update(rendicionprod_params) && @stock.save
         flash[:success] ='Rendicion producto actualizado exitosamente'
         redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
@@ -72,7 +72,7 @@ class RendicionprodsController < ApplicationController
         render action: "edit"
       end      
     rescue Exception => e
-      redirect_to '/entregaprods/'+@rendicionprod.entregaprod_id.to_s
+      render action: "edit"
     end
     
   end
