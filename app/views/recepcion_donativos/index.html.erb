@@ -1,9 +1,10 @@
 <h1>Lista de donativos para Reventa</h1>
 <div align="right">
-  <%= form_tag({:controller => "recepcion_donativos", :action => "index"}, :method => :get) do %>
-    Buscar Donativo: &nbsp;&nbsp;Desde&nbsp; <%= date_field_tag "searchbox", params[:searchbox], :name => 'palabra' %> &nbsp;&nbsp;Hasta&nbsp; <%= date_field_tag "searchbox2", params[:searchbox2], :name => 'palabra2' %> &nbsp;&nbsp;&nbsp;
-    <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
-  <% end %>
+    <%= form_tag({:controller => "recepcion_donativos", :action => "index"}, :method => :get) do %>
+      Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+      Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'palabra2', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+      <%= submit_tag "Buscar Donativos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
 </div><br>
 
 <table class="table table-striped">
@@ -33,7 +34,13 @@
     <% end %>
   </tbody>
 </table>
-
+<script>
+  $('.datepicker').datepicker({
+    weekStart:1,
+  }).on('changeDate', function(e){
+    $(this).datepicker('hide');
+  });
+</script>
 <br>
 
 <%= link_to 'Ingresar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %>

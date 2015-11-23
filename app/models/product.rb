@@ -8,8 +8,8 @@ class Product < ActiveRecord::Base
 
 	validates :code, presence: {:message => "- El codigo del producto es un campo obligatorio"}
 	validates :code, uniqueness: {case_sensitive: false, :message => "El codigo ya existe"}
-	validates :code, length: { minimum: 5, too_short: "- %{count} caracteres es la longitud minima permitida" }
-	validates :code, length: { maximum: 5, too_long: "- %{count} caracteres es la longitud maxima permitida" }
+#	validates :code, length: { minimum: 5, too_short: "- %{count} caracteres es la longitud minima permitida" }
+	validates :code, length: { maximum: 8, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	
 	validates :name, presence: {:message => "- El nombre del producto es un campo obligatorio"}
 	validates :name, uniqueness: {case_sensitive: false, :message => "- El producto ya existe"}
@@ -21,6 +21,10 @@ class Product < ActiveRecord::Base
 
 	validates :unity, presence: {:message => "- La unidad del producto es un campo obligatorio"}
 	validates :unity, length: {maximum: 20, too_long: "- %{count} caracteres es la longitud maxima permitida"}
+
+	validates :price, presence: {:message => "- El precio del producto es un campo obligatorio"}
+	validates :price, :numericality => {:greater_than => 0, :message => "- El precio debe ser mayor a 0"}
+	validates :price, length: {maximum: 10, too_long: "- %{count} caracteres es la longitud maxima permitida"}
 
 	def self.search(search)
 		if search
@@ -40,5 +44,9 @@ class Product < ActiveRecord::Base
 
   	def full_code
 		"#{self.code} - #{self.name} "
+	end
+
+	def codigo
+
 	end 
 end

@@ -31,12 +31,44 @@ class EgresoInternosController < ApplicationController
   def show
   end
 
+  def dinero_actual()
+    @total=0
+    @total_egreso=0
+    @total_egreso_interno=0
+
+    @ingresos= Ingreso.all
+    @egresos=Egreso.all
+    @egreso_internos=EgresoInterno.all
+
+    @ingresos.each do |ingreso| 
+      if (ingreso.montoBs != nil)
+        @total += ingreso.montoBs
+      end
+    end
+
+    @egresos.each do |egreso| 
+      if (egreso.monto != nil)
+        @total_egreso += egreso.monto
+      end
+    end
+    
+    @egreso_internos.each do |egreso_interno| 
+      if (egreso_interno.monto != nil)
+        @total_egreso_interno += egreso_interno.monto
+      end
+    end
+
+    @total=@total-@total_egreso-@total_egreso_interno
+    return @total
+  end
+
   # GET /egreso_internos/new
   def new
     @egreso_interno = EgresoInterno.new
     # @interno = Interno.find_by_id(:interno_id)
     # @egreso_interno.interno = @interno
     @id=(params[:id])
+    @total=dinero_actual
   end
 
   # GET /egreso_internos/1/edit
@@ -49,25 +81,37 @@ class EgresoInternosController < ApplicationController
     @egreso_interno = EgresoInterno.new(egreso_interno_params)
     @egreso_interno.interno_id=params[:interno_id]
     @id = @egreso_interno.interno_id
-   
+    @total=dinero_actual
+    
+    if @egreso_interno.monto>@total
+      flash[:warning] = 'El monto de egreso no puede ser mayor al monto total'
+      render action: "new"
+    else   
       if @egreso_interno.save
         flash[:success] = 'Egreso Interno creado exitosamente'
         redirect_to @egreso_interno
       else
         render action: "new"
       end
+    end
   end
 
   # PATCH/PUT /egreso_internos/1
   # PATCH/PUT /egreso_internos/1.json
   def update
     @egreso_interno = EgresoInterno.find(params[:id])
+    @total=dinero_actual
+    if @egreso_interno.monto>@total
+      flash[:warning] = 'El monto de egreso no puede ser mayor al monto actual'
+      render action: "edit"
+    else
       if @egreso_interno.update(egreso_interno_params)
         flash[:success] = "Egreso Interno actualizado exitosamente"
         redirect_to @egreso_interno
       else
         render action: "edit"
       end
+    end
   end
 
   # DELETE /egreso_internos/1

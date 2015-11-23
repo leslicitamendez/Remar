@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(version: 20151117213114) do
     t.text     "description"
     t.string   "state"
     t.string   "unity"
+    t.float    "price"
   end
 
   create_table "recepcion_donativos", force: true do |t|

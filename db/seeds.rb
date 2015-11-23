@@ -8,11 +8,14 @@
 
 # PRODUCTOS
 
-productos = Product.create([{code: 'CHO01', name: 'Chocotejas', unity: 'Gramos', description: 'Dulces de chocolate de 25g', state: 'Activo'},
-	{code: 'BIS01', name: 'Collar', unity: 'Gramos', description: 'Collar de perlas', state: 'Activo'},
-	{code: 'BIS02', name: 'Manilla', unity: 'Gramos', description: 'Manilla hecho de shakiras', state: 'Activo'},
-	{code: 'LIM01', name: 'Detergente', unity: 'Mililitros', description: 'Detergente lavavajillas de 1050 ml', state: 'Activo'},
-	{code: 'LIM02', name: 'Shampoo', unity: 'Mililitros', description: 'Shampoo de 500 ml para niños', state: 'Activo'}])
+productos = Product.create([{code: 'CHOCO1', name: 'Chocotejas', unity: 'Gramos', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'COLLA2', name: 'Collar', unity: 'Gramos', price: 25.0, description: 'Collar de perlas', state: 'Activo'},
+	{code: 'MANIL3', name: 'Manilla', unity: 'Gramos', price: 15.0, description: 'Manilla hecho de shakiras', state: 'Activo'},
+	{code: 'DETER4', name: 'Detergente', unity: 'Mililitros', price: 18.0, description: 'Detergente lavavajillas de 1050 ml', state: 'Activo'},
+	{code: 'SHAMP5', name: 'Shampoo', unity: 'Mililitros', price: 27.5, description: 'Shampoo de 500 ml para niños', state: 'Activo'},
+	{code: 'LLAVE6', name: 'Llavero', unity: 'Pieza', price: 20.0, description: 'Llavero artesanal', state: 'Activo'},
+	{code: 'JABON7', name: 'Jabon', unity: 'Pieza', price: 7.5, description: 'Jabon aromatico', state: 'Activo'},
+	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'}])
 
 internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Attridge', sexo: 'Masculino', ci: 999990, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
 	{nombre: 'Alex', apellido1: 'Campos', apellido2: 'Campos', sexo: 'Masculino', ci: 999997, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},

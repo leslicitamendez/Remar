@@ -1,16 +1,16 @@
-<h1>Lista de Producciones</h1>
+<h2>Lista de Producciones</h2>
 
   <div align="right">
     <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
-      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Nombre de producto", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
+      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= select_tag "producto", options_from_collection_for_select(Product.all, :id, :name), :placeholder => "Nombre de producto" %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div>
   <br>
   <div align="right">
     <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
-      Fecha Inicio: <%= date_field "search", params[:search], :name => 'fecha_inicio' %>
-      Fecha Fin: <%= date_field "search", params[:search], :name => 'fecha_fin' %>
+      Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'fecha_inicio', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+      Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'fecha_fin', :placeholder => "dia/mes/año", :class => 'datepicker' %>
       <%= submit_tag "Buscar Producción Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div><br>
@@ -37,6 +37,14 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+  $('.datepicker').datepicker({
+    weekStart:1,
+  }).on('changeDate', function(e){
+    $(this).datepicker('hide');
+  });
+</script>
 
 <br>
 
