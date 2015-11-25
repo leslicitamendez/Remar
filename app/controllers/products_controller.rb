@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     end
 
     if params[:estado] && params[:estado]!=''
-      @products = Product.paginate(:page => params[:page]).where("state=?", params[:estado])
+      @products = Product.paginate(:page => params[:page], :per_page => 4).where("state=?", params[:estado])
     end
   end
 
