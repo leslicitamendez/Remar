@@ -26,7 +26,7 @@
 			        <td><%= historia_clinica.causa_internacion %></td>
 
 			        <td><%= historia_clinica.observaciones %></td>
-			        <td><%= historia_clinica.fecha %></td>
+			        <td><%= historia_clinica.fecha.strftime("%d/%b/%Y") %></td>
 
 
 			        <td><% link_to 'Ver Historia Clinica', historia_clinica, :class => 'btn btn-mini btn-info active' %></td>

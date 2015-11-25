@@ -18,6 +18,10 @@ productos = Product.create([{code: 'CHOCO1', name: 'Chocotejas', unity: 'Gramos'
 	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'}])
 
 
+hijos = Hijo.create([{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1994, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},
+	{nombre: 'Sergio', apellido1: 'Rivera', apellido2: 'Mai', sexo: 'Masculino', ci: 4565981, fechaNacimiento: DateTime.new(1996, 5, 15), lugarNacimiento: 'Cercado Cochabamba', interno_id: '5'}])
+
+
 internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Coca', sexo: 'Masculino', ci: 3938766, estadoCivil: 'Soltero', direccion: 'Chapare', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 2, 28), fechaNacimiento: DateTime.new(1989, 2, 5)},
 	{nombre: 'Juan', apellido1: 'Mamani', apellido2: 'Colque', sexo: 'Masculino', ci: 911348, estadoCivil: 'Divorciado', direccion: 'Capitan Ustariz km 9', lugarNacimiento: 'Nuestra Señora de La Paz La Paz', fechaIngreso: DateTime.new(2015, 1, 5), fechaNacimiento: DateTime.new(1970, 8, 15)},
 	{nombre: 'Rina', apellido1: 'Garcia', apellido2: '', sexo: 'Femenino', ci: 3984622, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Cercado Cochabamba', fechaIngreso: DateTime.new(2015, 4, 23), fechaNacimiento: DateTime.new(1983, 4, 5)},
