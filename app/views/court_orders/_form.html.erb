@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+<table>
+<tr>
+<td>
 <input type="hidden" name="interno_id" value="<%= @id %>" >
   <div class="field" align="center">
     <%= f.label :numero, 'Numero de Orden Judicial (*)' %><br>
@@ -24,7 +26,8 @@
     <%= f.label :estado %><br>
     <%= f.check_box :estado %>
   </div>
- 
+ </td>
+ <td valign="top" style="padding-left: 18%; padding-top: 10%;">
   <div class="actions" align="center">
     <%= f.submit  (@court_order.new_record? ? 'Registrar Orden Judicial' : 'Guardar Orden Judicial') , :class => "btn btn-mini btn-success" %>
   </div>

@@ -14,95 +14,97 @@
    <input type="hidden" name="interno_id" value="<%= @id %>" >
 
    
-  
-  
-  <div class="field" align="center">
-    <%= f.label :nombre, 'Nombre (*)' %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
-    <%= f.text_field :apellido1 %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :apellido2, 'Apellido Materno' %><br>
-    <%= f.text_field :apellido2 %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :sexo, 'Sexo (*)' %><br>
-    <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :ci , 'CI (*)'%><br>
-    <%= f.number_field :ci %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
-    <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
+  <table align="center">
+      <tr>
+          <td>
+              <div class="field" align="center">
+                <%= f.label :nombre, 'Nombre (*)' %><br>
+                <%= f.text_field :nombre %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
+                <%= f.text_field :apellido1 %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :apellido2, 'Apellido Materno' %><br>
+                <%= f.text_field :apellido2 %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :sexo, 'Sexo (*)' %><br>
+                <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :ci , 'CI (*)'%><br>
+                <%= f.number_field :ci %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
+                <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
+              </div>
+              <div class="field" align="center">
+                <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
 
 
+               
+
+              <div id="the-basics"  align="center"> 
+                <%= f.text_field :lugarNacimiento, :placeholder => "Buscar por Nombre Completo",:class =>"typeahead" %>
+
+
+            
+            <br>
+
+        
    
+              </div>
 
-  <div id="the-basics"  align="center"> 
-    <%= f.text_field :lugarNacimiento, :placeholder => "Buscar por Nombre Completo",:class =>"typeahead" %>
+                <script type="text/javascript">
+              var substringMatcher = function(strs) {
+                return function findMatches(q, cb) {
+                  var matches, substrRegex;
 
+                  // an array that will be populated with substring matches
+                  matches = [];
 
-    
-    <br>
+                  // regex used to determine if a string contains the substring `q`
+                  substrRegex = new RegExp(q, 'i');
 
-    
-   
-  </div>
+                  // iterate through the pool of strings and for any string that
+                  // contains the substring `q`, add it to the `matches` array
+                  $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                      // the typeahead jQuery plugin expects suggestions to a
+                      // JavaScript object, refer to typeahead docs for more info
+                      matches.push({ value: str });
+                    }
+                  });
 
-  <script type="text/javascript">
-var substringMatcher = function(strs) {
-  return function findMatches(q, cb) {
-    var matches, substrRegex;
+                  cb(matches);
+                };
+              };
 
-    // an array that will be populated with substring matches
-    matches = [];
+              <% if (@cities!=nil) %>
+                <% @prueba=(@cities.map(&:ciudad_name)).to_json.html_safe %>
+              <% end %>
+              var states = <%= @prueba %>;
 
-    // regex used to determine if a string contains the substring `q`
-    substrRegex = new RegExp(q, 'i');
-
-    // iterate through the pool of strings and for any string that
-    // contains the substring `q`, add it to the `matches` array
-    $.each(strs, function(i, str) {
-      if (substrRegex.test(str)) {
-        // the typeahead jQuery plugin expects suggestions to a
-        // JavaScript object, refer to typeahead docs for more info
-        matches.push({ value: str });
-      }
-    });
-
-    cb(matches);
-  };
-};
-
-<% if (@cities!=nil) %>
-  <% @prueba=(@cities.map(&:ciudad_name)).to_json.html_safe %>
-<% end %>
-var states = <%= @prueba %>;
-
-$('#the-basics .typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
-{
-  name: 'states',
-  displayKey: 'value',
-  source: substringMatcher(states)
-});
-</script>
+              $('#the-basics .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+              },
+              {
+                name: 'states',
+                displayKey: 'value',
+                source: substringMatcher(states)
+              });
+              </script>
 
 
 <br>
 
-
+</td>
+<td  valign="top" style="padding-left: 18%; padding-top: 10%;">
   <div class="actions" align="center">
     <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> 
   </div>

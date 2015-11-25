@@ -17,9 +17,9 @@ end
 	validates :ci, length: { maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	validates :ci, length: { allow_blank: true, minimum: 6, muy_corto: "- %{count} caracteres es la longitud minima permitida" }
 	
-	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
+	validates :apellido1, presence: {:message => "- El apellido Paterno es un campo obligatorio"}
 	validates :apellido1, format: { with: /\A[a-zA-Z ]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
-	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
+	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Paterno" }
 
 	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
