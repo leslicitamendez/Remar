@@ -3,6 +3,67 @@
 	<br>
 	<p id="notice"><%= notice %></p>
 	
+
+
+
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <!--th>Interno</th-->
+      <th>Enfermedades</th>
+      <th>Causa de Internacion</th>
+      <th>Observaciones</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @historia_clinicas.each do |historia_clinica| %>
+
+		    <%if (@historia_clinica.interno_id == historia_clinica.interno_id)%>
+		      <tr>
+
+		        <td><%= historia_clinica.enfermedades %></td>
+		        <td><%= historia_clinica.causa_internacion %></td>
+
+		        <td><%= historia_clinica.observaciones %></td>
+		        <td><%= historia_clinica.fecha %></td>
+
+
+		        <td><% link_to 'Ver Historia Clinica', historia_clinica, :class => 'btn btn-mini btn-info active' %></td>
+		        <td><%= link_to 'Editar Historia Clinica', edit_historia_clinica_path(historia_clinica), :class => 'btn btn-mini btn-warning active' %></td>
+		      </tr>
+		     <%end %>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- "enfermedades"
+    t.text     "causa_internacion"
+    t.text     "observaciones"
+    t.integer  "interno_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "fecha"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<p>
 		<strong>Enfermedad:</strong>
 		<%= @historia_clinica.enfermedades %>
@@ -21,7 +82,7 @@
 	<p>
 		<strong>Fecha:</strong>
 		<%= @historia_clinica.fecha.strftime("%d/%m/%Y") %>
-	</p>
+	</p> -->
 
 	<br><br>
 	<% link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %>

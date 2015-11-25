@@ -476,20 +476,23 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th>Enfermedades</th>
-                        <th>Fecha</th>
+                        <th></th>
+                        <th></th>
                         <th colspan="3"></th>
                       </tr>
                     </thead>
 
                     <tbody>
+                    <% var=1 %>
                       <% @historia_clinicas.each do |historia_clinica| %>
+                      <% if var==1 %>
                         <tr>
-                          <td><%= historia_clinica.enfermedades %></td>
-                          <td><%= historia_clinica.fecha.strftime("%d/%m/%Y") %></td>
+                       
                           <td><%= link_to 'Ver Historia Clinica', historia_clinica, :class => 'btn btn-mini btn-info active' %></td>
-                          <td><%= link_to 'Editar Historia Clinica', edit_historia_clinica_path(historia_clinica), :class => 'btn btn-mini btn-warning active' %></td>
+                          <td><% link_to 'Editar Historia Clinica', edit_historia_clinica_path(historia_clinica), :class => 'btn btn-mini btn-warning active' %></td>
                         </tr>
+                        <%var+=1%>
+                      <% end %>
                       <% end %>
                     </tbody>
                   </table>

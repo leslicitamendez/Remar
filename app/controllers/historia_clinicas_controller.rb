@@ -25,6 +25,7 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas/1
   # GET /historia_clinicas/1.json
   def show
+    @historia_clinicas= HistoriaClinica.all
   end
 
   # GET /historia_clinicas/new
