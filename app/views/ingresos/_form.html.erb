@@ -22,7 +22,7 @@
     <div class="field">
       <input type="hidden" name="donaid" value="<%= @donaid %>" >
       <%= f.label :montoBs, 'Monto Bs (*)' %><br>
-      <%= f.text_field :montoBs, :value => @ventaprod.precioUnidad.to_i*@ventaprod.cantidad.to_i %>
+      <%= f.text_field :montoBs, :value => @ventaprod.entregaprod.product.price.to_f*@ventaprod.cantidad.to_i %>
     </div>          
   <%else%>
     <div class="field">

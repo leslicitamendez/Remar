@@ -8,6 +8,7 @@ class RecepcionDonativosController < ApplicationController
     #@palabra = ''
     #@palabra = params[:palabra].to_date
     #@fec=Date.parse("@palabra.to_s")
+    @page = params[:page]
     if params[:palabra2]==nil ||  params[:palabra2]== ''
       params[:palabra2]=Date.today.to_s
     end

@@ -10,6 +10,15 @@ class EntregaprodsController < ApplicationController
     #@entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", "%#{@palabra}%")
     @product=Product.all
     @page = params[:page]
+    if params[:producto]==nil
+      params[:producto]=''
+    end
+    if params[:palabra]==nil
+      params[:palabra]=''
+    end
+    if params[:palabra2]==nil
+      params[:palabra2]=''
+    end
     if params[:producto] &&  params[:producto]!= ''
       @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("product_id >=?", params[:producto])
       @nombre=Product.find(params[:producto])

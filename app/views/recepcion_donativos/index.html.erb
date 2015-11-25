@@ -19,7 +19,24 @@
   </thead>
 
   <tbody>
-    <% @recepcion_donativos.each do |recepcion_donativo| %>
+    <tr>
+      <% if @page == nil %>
+      <% @page=1 %> 
+      <%end%>
+      <% if @page.to_i > 1 %>
+      <%= link_to 'Anterior','/recepcion_donativos?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+      <% if @page.to_i*5 < @recepcion_donativos.length %>
+        <% if @recepcion_donativos.length%5 >0 %>
+          <% @sumax=1%>
+        <% else %>
+          <% @sumax=0%>
+        <% end %>
+       pagina <%= @page%> de <%= (@recepcion_donativos.length/5)+@sumax %> <%= link_to 'Siguiente','/recepcion_donativos?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+    </tr>
+    <% @recepcion_donativos.each_with_index do |recepcion_donativo, index| %>
+     <% if index < @page.to_i*5 && index >= (@page.to_i-1)*5%>
       <tr>
         <th><%= recepcion_donativo.id %></th>
         <th><%= recepcion_donativo.articulo %></th>
@@ -31,6 +48,7 @@
           <%end%>
           <%= link_to 'Editar', edit_recepcion_donativo_path(recepcion_donativo), :class => 'btn btn-mini btn-warning active' %></td>        
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

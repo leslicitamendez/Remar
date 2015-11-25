@@ -58,10 +58,15 @@ $('#the-basics .typeahead').typeahead({
       <% @page=1 %> 
       <%end%>
       <% if @page.to_i > 1 %>
-      <%= link_to 'Anterior','/voluntarios?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %> 
+      <%= link_to 'Anterior','/voluntarios?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %>
       <%end%>
       <% if @page.to_i*5 < @voluntarios.length %>
-      <%= link_to 'Siguiente','/voluntarios?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %>
+        <% if @voluntarios.length%5 >0 %>
+          <% @sumax=1%>
+        <% else %>
+          <% @sumax=0%>
+        <% end %>
+       pagina <%= @page%> de <%= (@voluntarios.length/5)+@sumax %> <%= link_to 'Siguiente','/voluntarios?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %>
       <%end%>
     </tr>    
     <tr>
