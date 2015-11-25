@@ -1,37 +1,37 @@
 <center>
-  <p id="notice"><%= notice %></p>
-  <br><br>
+  <p id="notice"><%= notice %></p><br><br>
+  
+  <div align="right"><%= link_to 'Productos', products_path, :class => 'btn btn-mini btn-default' %></div><br>
 
-  <p>
-    <strong>Codigo del Producto:</strong>
-    <%= @product.code %>
-  </p>
+  <div class="jumbotron">
+    <p>
+      <strong>Codigo del Producto:</strong>
+      <%= @product.code %>
+    </p>
 
-  <p>
-    <strong>Nombre:</strong>
-    <%= @product.name %>
-  </p>
+    <p>
+      <strong>Nombre:</strong>
+      <%= @product.name %>
+    </p>
 
-  <p>
-    <strong>Unidad:</strong>
-    <%= @product.unity %>
-  </p>
+    <p>
+      <strong>Unidad:</strong>
+      <%= @product.unity %>
+    </p>
 
-  <p>
-    <strong>Precio:</strong>
-    <%= @product.price %>
-  </p>
+    <p>
+      <strong>Precio:</strong>
+      <%= @product.price %>
+    </p>
 
-  <p>
-    <strong>Descripcion:</strong>
-    <%= @product.description %>
-  </p>
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @product.description %>
+    </p>
 
-  <p>
-    <strong>Estado:</strong>
-    <%= @product.state %>
-  </p>
-
-  <br><br>
-  <%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
+    <p>
+      <strong>Estado:</strong>
+      <%= @product.state %>
+    </p>
+  </div>
 </center>

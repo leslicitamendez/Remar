@@ -644,3 +644,19 @@ fieldset[disabled] .btn-danger.active {
   border-style: outset;
   margin: 15px;
 }
+
+#separacion {
+  border: 2px dashed gray;
+  height: 2px;
+  width: 45%;
+  margin-left: 55%;
+  margin-right: 0%; 
+}
+
+#separacion_dos {
+  border: 2px dashed gray;
+  height: 2px;
+  width: 70%;
+  margin-left: 30%;
+  margin-right: 0%; 
+}

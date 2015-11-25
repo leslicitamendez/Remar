@@ -2,13 +2,13 @@
 	<h2>Editar Producto</h2>
 
 	<%= form_for(@product) do |f| %>
+	  <%= render 'form' %>
 	  <div class="field">
 		    <%= f.label :state, 'Estado *' %><br>
 		    <%= f.select :state, ['Activo', 'Inactivo'] %>
+	  </div><br>
+	  <div>
+	    <label>* Los campos con asterisco, son obligatorios. </label>
 	  </div>
-	  <%= render 'form' %>
 	<% end %>
-
-	<br><br>
-	<%= link_to 'Atras', products_path, :class => 'btn btn-mini btn-default' %>
 </center>

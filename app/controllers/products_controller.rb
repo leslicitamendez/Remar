@@ -4,10 +4,16 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-      #@products = Product.all
-      @palabra = ''
-      @palabra = params[:palabra]
-      @products = Product.order(params[:sort]).paginate(:per_page => 5, :page => params[:page]).where("name LIKE ?", "%#{@palabra}%")
+    @palabra=params[:palabra]
+    if params[:palabra] && params[:palabra]!=''
+      @products = Product.paginate(:page => params[:page]).where("name LIKE ?", "%#{@palabra}%")
+    else
+      @products = Product.all.order("name ASC").paginate(:per_page => 4, :page => params[:page])
+    end
+
+    if params[:estado] && params[:estado]!=''
+      @products = Product.paginate(:page => params[:page], :per_page => 4).where("state=?", params[:estado])
+    end
   end
 
   # GET /products/1

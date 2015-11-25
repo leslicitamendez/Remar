@@ -2,12 +2,6 @@
 	<h2>Editar Producción</h2>
 
 	<%= form_for(@produccion) do |f| %>
-	  <div class="field">
-		    <%= f.label :estado, 'Estado *' %><br>
-		    <%= f.select :estado, ['Activo', 'Inactivo'] %>
-	  </div>
 	  <%= render 'form' %>
 	<% end %>
-
-	<%= link_to 'Atras', produccions_path, :class => 'btn btn-mini btn-default' %>
 </center>
