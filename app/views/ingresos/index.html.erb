@@ -1,5 +1,13 @@
 <h1>Lista Ingresos</h1>
 
+Total de ingresos
+<%if params[:palabra]!='' && params[:palabra]!= nil%>
+  Desde <%=params[:palabra]%>&nbsp;
+<%end%>
+<%if params[:palabra2]!='' && params[:palabra]!= nil%>
+  Hasta <%=params[:palabra2]%>
+<%end%>
+  <h1><%= @ingresos.sum(:montoBs)%> Bs.</h1>
 <div align="right">
     <%= form_tag({:controller => "ingresos", :action => "index"}, :method => :get) do %>
       Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
@@ -20,7 +28,24 @@
   </thead>
 
   <tbody>
-    <% @ingresos.each do |ingreso| %>
+    <tr>
+      <% if @page == nil %>
+      <% @page=1 %> 
+      <%end%>
+      <% if @page.to_i > 1 %>
+      <%= link_to 'Anterior','/ingresos?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+      <% if @page.to_i*5 < @ingresos.length %>
+        <% if @ingresos.length%5 >0 %>
+          <% @sumax=1%>
+        <% else %>
+          <% @sumax=0%>
+        <% end %>
+       pagina <%= @page%> de <%= (@ingresos.length/5)+@sumax %> <%= link_to 'Siguiente','/ingresos?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+    </tr>
+    <% @ingresos.each_with_index do |ingreso, index| %>
+    <% if index < @page.to_i*5 && index >= (@page.to_i-1)*5%>
       <tr>
         <td><%= ingreso.id %></td>
         <td><%= ingreso.fecha %></td>
@@ -28,7 +53,7 @@
         <td><%= ingreso.montoBs %></td>
         <td><%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
-    <% end %>
+    <% end %><% end %>
   </tbody>
 </table>
 <script>

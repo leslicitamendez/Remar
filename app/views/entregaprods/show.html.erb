@@ -8,17 +8,18 @@
   </div>
   <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
   <strong>Producto: </strong> <%= @entregaprod.product %><br>
-  <strong>Cantidad Vendida: </strong>
-    <% if @rendicionprod %>
-    <%= @entregaprod.cantidad.to_i-@rendicionprod.cantidad.to_i %>
-    <%end%>
-    <br>
     <strong>Precio Unitario: </strong>
     <%= @entregaprod.product.price %> Bs. <br>
-  <% if @rendicionprod %>  
+  <strong>Cantidad Entregada: </strong>
+  <%= @entregaprod.cantidad.to_i %><br> 
+  <strong>Cantidad Devuelta: </strong> 
+    <% if @rendicionprod %>
+    <%= @rendicionprod.cantidad.to_i %><br>
+    <strong>Cantidad Vendida: </strong>
+    <%= @entregaprod.cantidad.to_i-@rendicionprod.cantidad.to_i %><br>
     <strong>Precio Total: </strong>
     <%= @entregaprod.product.price*(@entregaprod.cantidad-@rendicionprod.cantidad) %> Bs.  <br>
-  <% end %>
+    <%end%>
     <% if @ingreso== nil && @ventaprod%>
       <%= link_to 'Registrar Ingreso', ingre_path(@ventaprod.id,:donaid => '0'),:class => 'btn btn-mini btn-success active' %>
     <% end %> 
