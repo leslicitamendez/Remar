@@ -30,7 +30,7 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @products, :previous_label => 'Anterior', :next_label => 'Siguiente' %>
+<%= will_paginate @products, :previous_label => '&laquo;Anterior', :next_label => 'Siguiente&raquo;' %>
 <br><br>
 <%= link_to 'Registrar Producto', new_product_path, :class => 'btn btn-mini btn-success active' %>
 

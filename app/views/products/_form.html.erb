@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<!--   <div class="field">
+ <!--  <div>
     <%= f.label :code, 'Código *' %><br>
     <%= f.text_field :code %>
   </div> -->
@@ -24,7 +24,7 @@
     <%= f.text_field :unity %>
   </div>
   <div class="field">
-    <%= f.label :price, 'Precio *' %><br>
+    <%= f.label :price, 'Precio en Bs. *' %><br>
     <%= f.text_field :price %>
   </div>
   <div class="field">
@@ -39,4 +39,21 @@
   <div class="actions">
     <%= f.submit (@product.new_record? ? 'Registrar Producto' : 'Editar Producto') , :class => "btn btn-mini btn-success" %>
   </div>
+  <script type="text/javascript">
+    $(function() {
+      var unidades = [
+        "Gramos",
+        "Mililitros",
+        "Pieza"
+      ];
+
+      $("#product_unity").autocomplete({
+        source: unidades,
+          messages: {
+          noResults: '',
+          results: function() {}
+        }
+      });
+    });
+  </script>
 <% end %>
