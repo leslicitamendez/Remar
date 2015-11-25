@@ -19,8 +19,8 @@
 
 
     
-
-
+<table align="center">
+<td>
  
   <div class="field" align="center">
     <%= f.label :nombre, 'Nombre (*)' %><br>
@@ -74,8 +74,13 @@
   </div>
 
   
-
+</td>
+<td valign="top" style="padding-left: 18%; padding-top: 10%;">
   <div class="actions" align="center">
     <%= f.submit (@conyugue.new_record? ? 'Registrar Conyugue' : 'Guardar Conyugue') , :class => "btn btn-mini btn-success" %> 
   </div>
+
+  
+
+
 <% end %>

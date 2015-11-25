@@ -12,7 +12,9 @@
   <% end %>
 <input type="hidden" name="interno_id" value="<%= @id %>" >
 
-  
+  <table align="center">
+  <tr>
+  <td>
   <div class="field" align="center">
     <%= f.label :nombre , 'Nombre (*)'%><br>
     <%= f.text_field :nombre %>
@@ -41,6 +43,8 @@
     <%= f.label :direccion , 'Direccion (*)'%><br>
     <%= f.text_area :direccion %>
   </div>
+  </td>
+  <td valign="top" style="padding-left: 18%; padding-top: 10%;">
   <div class="actions" align="center">
     <%= f.submit (@contact.new_record? ? 'Registrar Referencia' : 'Guardar Referencia') , :class => "btn btn-mini btn-success" %>
   </div>

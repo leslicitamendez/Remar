@@ -1,20 +1,29 @@
 <html>
-<head>
-    <title>Interno</title>
-      <style type="text/css">
-        .visibleDiv
-        {
-            position: fixed;
-            top: 70px;
-            left: 10px;
-            text-align: left;
-        }
-        #der {  text-align: right; width: 30%;}
-      </style>
-      <script src="chartkick.js"></script>
-      <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <head>
+        <title>Interno</title>
+          
+          <style type="text/css">
+            div.visibleDiv
+                {
+                position: fixed;
+                top: 20%;
+                left: 1%;
+                text-align: left;
+                }
+            #der 
+                {  
+                text-align: right; width: 30%;
+                }
+            #arriba
+                {
+                vertical-align:top;
+                }
+          </style>
 
-</head>
+          <script src="chartkick.js"></script>
+          <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+    </head>
 
 <p id="notice"><%= notice %></p>
 <h2 align="center">VER INTERNO</h2>
@@ -23,50 +32,49 @@
 
 
 
-<table>
+<table >
   <tr>
-    <td width="32%" rowspan="15">
-        <div class="visibleDiv">
+      <td width="auto" rowspan="15" valign="top">
+          <div >
 
-            <% if @conyugue== nil %>
-              <%= link_to 'Registrar Conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <% end %>
+              <% if @conyugue== nil %>
+                <%= link_to 'Registrar Conyugue', pareja_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <% end %>
 
-            <% if @conyugue != nil %> 
-                <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id), :class => 'btn btn-mini btn-warning active'    %><br><br>
-                <%= link_to 'Borrar Conyugue', @conyugue, :class => 'btn btn-mini btn-success active', method: :delete, data: { confirm: 'Esta usted seguro?' } %><br><br>
-            <% end %>
+              <% if @conyugue != nil %> 
+                  <%= link_to 'Editar Conyugue', edit_conyugue_path(@conyugue.id), :class => 'btn btn-mini btn-warning active'    %><br><br>
+                  <%= link_to 'Borrar Conyugue', @conyugue, :class => 'btn btn-mini btn-success active', method: :delete, data: { confirm: 'Esta usted seguro?' } %><br><br>
+              <% end %>
 
-            
-            <%= link_to 'Registrar Hijo', fis_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            
-
-            <%= link_to 'Registrar Conducta', memo_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              
+              <%= link_to 'Registrar Hijo', fis_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
               
 
-             <% if @contact== nil %>
-              <%= link_to 'Registrar Referencia', contacto_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <% end %>
+              <%= link_to 'Registrar Conducta', memo_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+                
 
-            <%= link_to 'Registrar Orden Judicial',  orden_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <%= link_to 'Registrar Rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <%= link_to 'Registrar Historia Clinica',  historia_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            <%= link_to 'Registrar Egreso Interno',  egreso_inter_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
-            
+               <% if @contact== nil %>
+                <%= link_to 'Registrar Referencia', contacto_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <% end %>
 
-            <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+              <%= link_to 'Registrar Orden Judicial',  orden_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <%= link_to 'Registrar Rehabilitacion',  rehaba_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <%= link_to 'Registrar Historia Clinica',  historia_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              <%= link_to 'Registrar Egreso Interno',  egreso_inter_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
+              
 
-        </div>
-    </td>
-
-
-
-
+              <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+          </div>
+      </td>
 
 
 
 
-      <td>
+
+
+
+
+      <td style="padding-left: 1%;">
           <table align="right" >
             <tr>
                 <td>
@@ -125,10 +133,7 @@
                         <strong>Profesion:</strong>
                         <%= @interno.profesion %>
                       </p>
-                      <p>
-                        <strong>Oficio:</strong>
-                        <%= @interno.oficio %>
-                      </p>
+                      
                       <p>
                         <strong>Fecha de Ingreso:</strong>
                         <%= @interno.fechaIngreso.strftime("%d/%m/%Y") %>
@@ -138,7 +143,7 @@
 
 
 
-                    <td width="200px">
+                    <td width="1px">
                     </td>
               
 

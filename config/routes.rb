@@ -17,15 +17,15 @@ Rails.application.routes.draw do
 
   resources :entregaprods
 
-  resources :rehabs
+  resources :rehabs, :except => [ :index]
 
   resources :egreso_produccions
 
   resources :egreso_internos
 
-  resources :court_orders
+  resources :court_orders, :except => [ :index]
 
-  resources :contacts
+  resources :contacts, :except => [ :index]
 
   resources :ingresos
 
@@ -37,11 +37,11 @@ Rails.application.routes.draw do
 
   resources :conducta
 
-  resources :hijos
+  resources :hijos, :except => [ :index]
 
   resources :voluntarios
 
-  resources :conyugues
+  resources :conyugues, :except => [ :index]
 
   resources :internos
 

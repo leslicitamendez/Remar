@@ -4,4 +4,8 @@
 
 <% link_to 'Show', @rehab %> |
 
-<%= link_to 'Atras', rehabs_path, :class => 'btn btn-mini btn-default'  %>
+<% link_to 'Atras', rehabs_path, :class => 'btn btn-mini btn-default'  %>
+<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@rehab.interno_id%> >Retornar a interno</a>
+</td>
+</tr>
+</table>

@@ -22,4 +22,8 @@
 
 
 
-<%= link_to 'Atras', court_orders_path, :class => 'btn btn-mini btn-default'  %>
+<% link_to 'Atras', court_orders_path, :class => 'btn btn-mini btn-default'  %>
+<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@court_order.interno_id%> >Retornar a interno</a>
+</td>
+</tr>
+</table>
