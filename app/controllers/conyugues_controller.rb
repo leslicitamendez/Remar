@@ -8,6 +8,7 @@ class ConyuguesController < ApplicationController
     if(params["palabra"]!=nil)
         @conyugues=Conyugue.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params["palabra"])    
     end
+    
   end
 
   # GET /conyugues/1
