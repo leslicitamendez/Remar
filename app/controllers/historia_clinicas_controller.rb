@@ -25,6 +25,7 @@ class HistoriaClinicasController < ApplicationController
   # GET /historia_clinicas/1
   # GET /historia_clinicas/1.json
   def show
+    @historia_clinicas= HistoriaClinica.all
   end
 
   # GET /historia_clinicas/new
@@ -48,7 +49,7 @@ class HistoriaClinicasController < ApplicationController
 
     if @historia_clinica.save
         flash[:success] = 'Historia clinica creada exitosamente'
-        redirect_to @historia_clinica
+        redirect_to '/internos'
       else
         render action: "new"
       end
@@ -60,7 +61,7 @@ class HistoriaClinicasController < ApplicationController
     @historia_clinica = HistoriaClinica.find(params[:id])
       if @historia_clinica.update(historia_clinica_params)
         flash[:success] = "Historia clinica actualizada exitosamente"
-        redirect_to @historia_clinica
+        redirect_to '/internos'
       else
         render action: "edit"
       end

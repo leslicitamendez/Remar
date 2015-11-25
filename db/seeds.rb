@@ -2241,3 +2241,4 @@ ingresos = Ingreso.create!([{monto:5, fecha: '2014-11-19',ventaprod_id:1,concept
 {monto:1050, fecha: '2010-11-7',ventaprod_id:298,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=298'},
 {monto:2240, fecha: '2013-3-4',ventaprod_id:299,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=299'},
 {monto:0, fecha: '2010-1-19',ventaprod_id:300,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=300'}])
+

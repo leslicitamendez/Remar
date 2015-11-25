@@ -1,12 +1,11 @@
 <h2>Lista de Producciones</h2>
-
   <div align="right">
     <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
-      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= select_tag "producto", options_from_collection_for_select(Product.all, :id, :name), :placeholder => "Nombre de producto" %> &nbsp;&nbsp;&nbsp;
+      Buscar Producto: &nbsp;&nbsp;&nbsp; <%= select_tag "producto", options_from_collection_for_select(Product.all, :id, :name), :include_blank => true, :placeholder => "Nombre de producto" %> &nbsp;&nbsp;&nbsp;
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
-  </div>
-  <br>
+  </div><br>
+  <div id="separacion_dos"></div><br>
   <div align="right">
     <%= form_tag({:controller => "produccions", :action => "index"}, :method => :get) do %>
       Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'fecha_inicio', :placeholder => "dia/mes/año", :class => 'datepicker' %>
@@ -14,6 +13,8 @@
       <%= submit_tag "Buscar Producción Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div><br>
+  <div align="right"><%= link_to 'Registrar Produccion', new_produccion_path,:class => 'btn btn-mini btn-success active' %></div>
+
 
 <table class="table table-striped">
   <thead>
@@ -45,7 +46,3 @@
     $(this).datepicker('hide');
   });
 </script>
-
-<br>
-
-<%= link_to 'Registrar Produccion', new_produccion_path,:class => 'btn btn-mini btn-success active' %>
