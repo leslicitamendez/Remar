@@ -4,6 +4,9 @@ class IngresosController < ApplicationController
   # GET /ingresos
   # GET /ingresos.json
   def index
+    @page = params[:page]
+    @palabra2 = params[:palabra2]
+    @palabra = params[:palabra]
     if params[:palabra2]==nil ||  params[:palabra2]== ''
       params[:palabra2]=Date.today.to_s
     end
@@ -24,6 +27,7 @@ class IngresosController < ApplicationController
         redirect_to '/ingresos'
       end
     end
+    @total=@ingresos.sum(:montoBs)
   end
 
   # GET /ingresos/1
@@ -51,6 +55,7 @@ class IngresosController < ApplicationController
   # POST /ingresos
   # POST /ingresos.json
   def create
+    @datos=params[:ingreso]
     @ingreso = Ingreso.new(ingreso_params)
     @id=(params[:id])
     @donaid=(params[:donaid])
@@ -69,7 +74,7 @@ class IngresosController < ApplicationController
     elsif @id != nil && @id != '' && @id != '0'
       @ventaprod= Ventaprod.find(@id)
       @ingreso.ventaprod_id=params[:id]
-      @ingreso.montoBs = @ventaprod.precioUnidad*@ventaprod.cantidad
+      @ingreso.montoBs = @datos[:montoBs]
       #@ventaprod.estado='Vendido'
       @ingreso.concepto='venta Producto codigo='+@ventaprod.entregaprod.product.code.to_s+' nombre='+@ventaprod.entregaprod.product.name.to_s
       @ingreso.fecha=Date.today()

@@ -33,10 +33,16 @@
       <% @page=1 %> 
       <%end%>
       <% if @page.to_i > 1 %>
-      <%= link_to 'Anterior','/entregaprods?&page='+(@page.to_i-1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s, :class => 'btn btn-mini btn-default' %> 
+      <%= link_to 'Anterior','/entregaprods?&page='+(@page.to_i-1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s+'&producto='+params[:producto].to_s, :class => 'btn btn-mini btn-default' %> 
       <%end%>
       <% if @page.to_i*5 < @entregaprods.length %>
-      <%= link_to 'Siguiente','/entregaprods?&page='+(@page.to_i+1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s, :class => 'btn btn-mini btn-default' %>
+        <% if @entregaprods.length%5 >0 %>
+          <% @sumax=1%>
+        <% else %>
+          <% @sumax=0%>
+        <% end %>
+       pagina <%= @page%> de <%= (@entregaprods.length/5)+@sumax %> 
+      <%= link_to 'Siguiente','/entregaprods?&page='+(@page.to_i+1).to_s+'&palabra='+params[:palabra].to_s+'&palabra2='+params[:palabra2].to_s+'&producto='+params[:producto].to_s, :class => 'btn btn-mini btn-default' %>
       <%end%>
     </tr>    
     <tr>

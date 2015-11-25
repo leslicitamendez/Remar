@@ -8,7 +8,7 @@ class VoluntariosController < ApplicationController
     @palabra = ''
       @palabra = params[:palabra]
     if(params["palabra"]!=nil)
-        @voluntarios=Voluntario.where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
+        @voluntarios=Voluntario.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
     end
     @page = params[:page]
   end
