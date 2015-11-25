@@ -13,7 +13,8 @@
       Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'fecha_fin', :placeholder => "dia/mes/año", :class => 'datepicker' %>
       <%= submit_tag "Buscar Egresos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
-  </div><br>
+  </div><br><br>
+  <div align="right"><%= link_to 'Registrar Egreso', new_egreso_path, :class => 'btn btn-mini btn-success active' %></div>
 
 <table class="table table-striped">
   <thead>
@@ -45,7 +46,3 @@
     $(this).datepicker('hide');
   });
 </script>
-
-<br>
-
-<%= link_to 'Registrar Egreso', new_egreso_path, :class => 'btn btn-mini btn-success active' %>

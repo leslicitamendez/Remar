@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="actions" align="right">
+    <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-sm btn-success" %> |
+    <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default' %>
+  </div>
+
   <input type="hidden" name="interno_id" value="<%= @id %>" >
   <br>
   <div class="field">
@@ -31,9 +36,5 @@
   </div><br><br>
   <div>
     <label>* Los campos con asterisco, son obligatorios. </label>
-  </div>
-  <br><br>
-  <div class="actions">
-    <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-mini btn-success" %>
   </div>
 <% end %>

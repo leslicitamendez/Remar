@@ -1,7 +1,8 @@
 <center>
-	<h2>Historia Clínica de <%= Interno.find(@historia_clinica.interno_id.to_i).nombre %></h2>
-	<br>
 	<p id="notice"><%= notice %></p>
+
+	<h2>Historia Clínica de <%= Interno.find(@historia_clinica.interno_id.to_i).nombre %></h2><br>
+	<div align="right"><% link_to 'Internos', internos_path, :class => 'btn btn-mini btn-default' %></div><br>
 	
 	<p>
 		<strong>Enfermedad:</strong>
@@ -22,7 +23,4 @@
 		<strong>Fecha:</strong>
 		<%= @historia_clinica.fecha.strftime("%d/%m/%Y") %>
 	</p>
-
-	<br><br>
-	<% link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %>
 </center>

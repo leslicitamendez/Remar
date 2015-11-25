@@ -6,7 +6,16 @@
       <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
   </div><br>
-
+  <div id="separacion"></div><br>
+  <div align="right">
+    <%= form_tag({:controller => "products", :action => "index"}, :method => :get) do %>
+      Buscar producto por Estado: <%= select_tag "estado", options_for_select(['', 'Activo', 'Inactivo']) %>
+      <%= submit_tag "Filtrar", :name => nil, :class => 'btn btn-mini' %>
+    <% end %>
+  </div><br><br>
+  <div align="right">
+    <%= link_to 'Registrar Producto', new_product_path, :class => 'btn btn-mini btn-success active' %>
+  </div>
 
 <table class="table table-striped">
   <thead>
@@ -30,7 +39,6 @@
     <% end %>
   </tbody>
 </table>
+
 <%= will_paginate @products, :previous_label => '&laquo;Anterior', :next_label => 'Siguiente&raquo;' %>
-<br><br>
-<%= link_to 'Registrar Producto', new_product_path, :class => 'btn btn-mini btn-success active' %>
 

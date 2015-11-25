@@ -1,6 +1,9 @@
 <center>
-  <h1>Egresos de <%= @egreso_interno.interno.nombre %> </h1><br>
   <p id="notice"><%= notice %></p>
+
+  <h1>Egresos de <%= @egreso_interno.interno.nombre %> </h1><br>
+  <div align="right"><%= link_to 'Internos', internos_path, :class => 'btn btn-mini btn-default' %> | 
+    <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %></div>
 
   <p>
     <strong>Concepto:</strong>
@@ -21,6 +24,4 @@
     <strong>Fecha:</strong>
     <%= @egreso_interno.fecha.strftime("%d/%m/%Y") %>
   </p>
-  <br><br>
-  <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default' %>
 </center>

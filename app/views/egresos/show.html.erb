@@ -1,34 +1,28 @@
 <center>
 	<p id="notice"><%= notice %></p>
+	<div align="right"><%= link_to 'Egresos', egresos_path, :class => 'btn btn-mini btn-default' %></div><br>
+	<div class="jumbotron">
+		<p>
+			<strong>Egreso Nº.</strong>
+			<%= @egreso.id %>
+		</p>
 
-	<p>
-		<strong>Egreso Nº.</strong>
-		<%= @egreso.id %>
-	</p>
+		<p>
+			<strong>Concepto:</strong>
+			<%= @egreso.concepto %>
+		</p>
 
-	<p>
-		<strong>Concepto:</strong>
-		<%= @egreso.concepto %>
-	</p>
+		<p>
+		  <strong>Monto Bs:</strong>
+		  <%= @egreso.monto %>
+		</p>
 
-	<p>
-	  <strong>Monto Bs:</strong>
-	  <%= @egreso.monto %>
-	</p>
-
-	<p>
-	  <strong>Fecha:</strong>
-	  <%= @egreso.fecha.strftime("%d/%b/%Y") %>
-	</p>
-
-	<p>
-	  <strong>Estado:</strong>
-	  <%= @egreso.estado %>
-	</p>
-	<br><br>
-	<form>
-		<input type="button" name="imprimir" value="Imprimir" class='btn btn-mini btn-default' onclick="window.print();">
-	</form> <br>
-
-	<%= link_to 'Atras', egresos_path, :class => 'btn btn-mini btn-default' %>
+		<p>
+		  <strong>Fecha:</strong>
+		  <%= @egreso.fecha.strftime("%d/%b/%Y") %>
+		</p><br><br>
+		<form>
+			<input type="button" name="imprimir" value="Imprimir" class='btn btn-sm btn-default' onclick="window.print();">
+		</form> <br>
+	</div>
 </center>
