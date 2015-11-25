@@ -31,7 +31,7 @@ end
 
 	validates :direccion, presence: {:message => "- La Direccion es un campo obligatorio"}
 	validates :direccion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un direccion" }
-	validates :direccion, format: { with: /\A[a-zA-Z0-9 ]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
+	validates :direccion, format: { with: /\A[a-zA-Z0-9 #]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
 
 
 

@@ -11,7 +11,21 @@ class InternosController < ApplicationController
         @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra])    
     end
 
+  if params[:estado] && params[:estado]!=''
+      @internos = Interno.where("state=?", params[:estado])
+    end
   end
+
+
+
+def activo
+    @interno.activo
+      respond_to do |format|
+      format.html { redirect_to products_url }
+      format.json { head :no_content }
+    end
+  end
+
 
   # GET /internos/1
   # GET /internos/1.json
@@ -58,6 +72,7 @@ class InternosController < ApplicationController
   # POST /internos.json
   def create
     @interno = Interno.new(interno_params)
+    @interno.state = 'Activo'
      @interno.lugarNacimiento=(params[:palabra])
     
       if @interno.save
@@ -99,6 +114,6 @@ class InternosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interno_params
-      params.require(:interno).permit(:nombre, :apellido1, :apellido2, :sexo, :ci, :estadoCivil, :direccion, :zona, :telefono, :fechaNacimiento, :lugarNacimiento, :estudios, :profesion, :oficio, :fechaIngreso)
+      params.require(:interno).permit(:nombre, :state, :apellido1, :apellido2, :sexo, :ci, :estadoCivil, :direccion, :zona, :telefono, :fechaNacimiento, :lugarNacimiento, :estudios, :profesion, :oficio, :fechaIngreso)
     end
 end

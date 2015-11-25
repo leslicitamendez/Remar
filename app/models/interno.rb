@@ -54,6 +54,9 @@ end
 
 	validates :lugarNacimiento, presence: {:message => "- Lugar de Nacimiento es un campo obligatorio"} 
 
-
+def activo
+		self.state = 'Activo'
+		self.save!
+	end
 
 end
