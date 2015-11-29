@@ -5,8 +5,8 @@ class Hijo < ActiveRecord::Base
 	#validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
 	#validates :ci, uniqueness: { :message => "- El carnet ya existe"}
 	validates :ci, format: {allow_blank: true, with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}
-	validates :ci, length: { maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida" }
-	validates :ci, length: { minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }
+	#validates :ci, length: { maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida" }
+	#validates :ci, length: { minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }
 	
 	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
 	validates :apellido1, format: {allow_blank: true, with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
