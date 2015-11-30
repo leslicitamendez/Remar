@@ -163,7 +163,7 @@ $('#the-basics .typeahead').typeahead({
 
 <% end %>
 
-<%= link_to "Registrar Ciudad", new_city_path,:class => 'btn btn-mini btn-success active', :target => "_blank" %>
+<% link_to "Registrar Ciudad", new_city_path,:class => 'btn btn-mini btn-success active', :target => "_blank" %>
         </div>
       </td>
 
@@ -211,9 +211,10 @@ $('#the-basics .typeahead').typeahead({
 
 
   </table>
+  <div align="center">
      <div class="actions">
           <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-mini btn-success" %>
-        </div>
+      </div>
 <% end %>
 <script>
 $( "#interno_estudios" ).change(function() {

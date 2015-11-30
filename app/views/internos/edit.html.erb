@@ -1,6 +1,15 @@
-<h1>Editar Interno</h1>
+<h2>Editar Interno</h2>
 
-<%= render 'form' %>
 
-<br>
-<%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %>
+<%= form_for(@interno) do |f| %>
+	  
+	  <div class="field" align="center">
+		    <%= f.label :state, 'Estado *' %><br>
+		    <%= f.select :state, ['Activo', 'Inactivo'] %>
+	  </div><br>
+	  <%= render 'form' %>
+	  
+	<% end %>
+
+<%= link_to 'Internos', internos_path, :class => 'btn btn-mini btn-default'  %>
+</div>

@@ -1,11 +1,15 @@
-<h1>Lista voluntarios</h1>
+<h1>Lista voluntarios
+  <% if params["estado"] && params["estado"] !='' %>
+  <%= params["estado"]+'s' %>
+  <%end%>
+</h1>
 
 <%= form_tag("/voluntarios", method: "get") do %>
    
 
   <div id="the-basics" align="right"> 
-    Buscar Voluntario: <input class="typeahead" type="text" name="palabra" placeholder="Nombre o Apellido a buscar"> 
-    <input type="submit" value="Buscar" class ='btn btn-mini btn-default'>
+     Estado: <%= select_tag "estado", options_for_select([ "Activo", "Inactivo" ]), include_blank: true%> Nombre o Apellido: <input class="typeahead" type="text" name="palabra" placeholder="Nombre o Apellido a buscar"> 
+    <input type="submit" value="Buscar Voluntario" class ='btn btn-mini btn-default'>
   </div>
 
   <script type="text/javascript">
@@ -54,11 +58,16 @@ $('#the-basics .typeahead').typeahead({
 
   <thead>
     <tr>
+      <% if params["estado"] == nil %>
+      <% @estado=''%>
+      <% else%>
+      <% @estado= "&estado="+params["estado"]%>
+      <%end%>
       <% if @page == nil %>
       <% @page=1 %> 
       <%end%>
       <% if @page.to_i > 1 %>
-      <%= link_to 'Anterior','/voluntarios?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %>
+      <%= link_to 'Anterior','/voluntarios?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+@estado, :class => 'btn btn-mini btn-default' %>
       <%end%>
       <% if @page.to_i*5 < @voluntarios.length %>
         <% if @voluntarios.length%5 >0 %>
@@ -66,7 +75,7 @@ $('#the-basics .typeahead').typeahead({
         <% else %>
           <% @sumax=0%>
         <% end %>
-       pagina <%= @page%> de <%= (@voluntarios.length/5)+@sumax %> <%= link_to 'Siguiente','/voluntarios?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s, :class => 'btn btn-mini btn-default' %>
+       pagina <%= @page%> de <%= (@voluntarios.length/5)+@sumax %> <%= link_to 'Siguiente','/voluntarios?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+@estado, :class => 'btn btn-mini btn-default' %>
       <%end%>
     </tr>    
     <tr>

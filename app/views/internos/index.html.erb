@@ -1,57 +1,85 @@
-<h1>Lista de Internos</h1>
+<h2>Lista de Internos</h2>
 
-<%= form_tag("/internos", method: "get") do %>
-   
 
-  <div id="the-basics" align="right"> 
-  Buscar Interno: &nbsp; &nbsp;
-    <input class="typeahead" type="text" name="palabra" placeholder="Buscar por Nombre Completo ">
+<div class="row">
 
-    <input class="btn btn-mini"type="submit" value="Buscar">
-   
+  <div class="col-xs-6">  
+        <div >
+            <h4><%= link_to 'Registrar Interno', new_interno_path,:class => 'btn btn-mini btn-success active' %></h4>
+            <h4><% link_to 'Atras', welcome_index_path, :class => 'btn btn-mini btn-default'  %></h4>
+        </div>
   </div>
 
-  <script type="text/javascript">
-var substringMatcher = function(strs) {
-  return function findMatches(q, cb) {
-    var matches, substrRegex;
+  <div class="col-xs-6" align="right">
+        <div>
+        <br>
+        <br>
+                  <%= form_tag({:controller => "internos", :action => "index"}, :method => :get) do %>
+                    Buscar interno por Estado: <%= select_tag "estado", options_for_select(['', 'Activo', 'Inactivo']) %>
+                    <%= submit_tag "Filtrar", :name => nil, :class => 'btn btn-sm' %>
+                  <% end %>
+         </div><br>
+         <div id="separacion"></div><br>
+              <%= form_tag("/internos", method: "get") do %>
+                 
 
-    // an array that will be populated with substring matches
-    matches = [];
+                <div id="the-basics" > 
+                Buscar Interno: &nbsp; &nbsp;
+                  <input class="typeahead" type="text" name="palabra" placeholder="Buscar por Nombre Completo ">
 
-    // regex used to determine if a string contains the substring `q`
-    substrRegex = new RegExp(q, 'i');
+                  <input class="btn btn-sm"type="submit" value="Buscar">
+                 
+                </div>
 
-    // iterate through the pool of strings and for any string that
-    // contains the substring `q`, add it to the `matches` array
-    $.each(strs, function(i, str) {
-      if (substrRegex.test(str)) {
-        // the typeahead jQuery plugin expects suggestions to a
-        // JavaScript object, refer to typeahead docs for more info
-        matches.push({ value: str });
-      }
-    });
+                <script type="text/javascript">
+              var substringMatcher = function(strs) {
+                return function findMatches(q, cb) {
+                  var matches, substrRegex;
 
-    cb(matches);
-  };
-};
+                  // an array that will be populated with substring matches
+                  matches = [];
 
-<% @prueba=(@internos.map(&:full_name)).to_json.html_safe %>
-var states = <%= @prueba %>;
+                  // regex used to determine if a string contains the substring `q`
+                  substrRegex = new RegExp(q, 'i');
 
-$('#the-basics .typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
-{
-  name: 'states',
-  displayKey: 'value',
-  source: substringMatcher(states)
-});
-</script>
+                  // iterate through the pool of strings and for any string that
+                  // contains the substring `q`, add it to the `matches` array
+                  $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                      // the typeahead jQuery plugin expects suggestions to a
+                      // JavaScript object, refer to typeahead docs for more info
+                      matches.push({ value: str });
+                    }
+                  });
 
-<% end %>
+                  cb(matches);
+                };
+              };
+
+              <% @prueba=(@todos_interno.map(&:full_name)).to_json.html_safe %>
+              var states = <%= @prueba %>;
+
+              $('#the-basics .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+              },
+              {
+                name: 'states',
+                displayKey: 'value',
+                source: substringMatcher(states)
+              });
+              </script>
+
+              <% end %>
+
+
+  </div>  
+</div>
+
+
+<br><br>
+
 
 
 
@@ -78,8 +106,8 @@ $('#the-basics .typeahead').typeahead({
         <td><%= interno.apellido2 %></td>
         <td><%= interno.ci %></td>
         <td><%= interno.fechaIngreso.strftime("%d, %-m, %Y") %></td>
-        <td width="10%" align="center"><%= link_to 'Ver Interno', interno, :class => 'btn btn-mini btn-info active'  %></td>
-        <td width="9%" align="center"><%= link_to 'Editar Interno', edit_interno_path(interno), :class => 'btn btn-mini btn-warning active'  %></td>
+        <td width="10%" align="center"><%= link_to 'Ver Interno', interno, :class => 'btn btn-sm btn-info active'  %></td>
+        <td width="9%" align="center"><%= link_to 'Editar Interno', edit_interno_path(interno), :class => 'btn btn-sm btn-warning active'  %></td>
 
       </tr>
     <% end %>
@@ -88,8 +116,7 @@ $('#the-basics .typeahead').typeahead({
 
 <br><br>
 
-<h4><%= link_to 'Registrar Interno', new_interno_path,:class => 'btn btn-mini btn-success active' %></h4>
-<h4><%= link_to 'Atras', welcome_index_path, :class => 'btn btn-mini btn-default'  %></h4>
+
 
 
 

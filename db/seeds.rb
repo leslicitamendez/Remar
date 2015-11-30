@@ -33,20 +33,46 @@ hijos = Hijo.create([{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana'
 	{nombre: 'Sergio', apellido1: 'Rivera', apellido2: 'Mai', sexo: 'Masculino', ci: 4565981, fechaNacimiento: DateTime.new(1996, 5, 15), lugarNacimiento: 'Cercado Cochabamba', interno_id: '5'}])
 
 
-internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Coca', sexo: 'Masculino', ci: 3938766, estadoCivil: 'Soltero', direccion: 'Chapare', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 2, 28), fechaNacimiento: DateTime.new(1989, 2, 5)},
-	{nombre: 'Juan', apellido1: 'Mamani', apellido2: 'Colque', sexo: 'Masculino', ci: 911348, estadoCivil: 'Divorciado', direccion: 'Capitan Ustariz km 9', lugarNacimiento: 'Nuestra Señora de La Paz La Paz', fechaIngreso: DateTime.new(2015, 1, 5), fechaNacimiento: DateTime.new(1970, 8, 15)},
-	{nombre: 'Rina', apellido1: 'Garcia', apellido2: '', sexo: 'Femenino', ci: 3984622, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Cercado Cochabamba', fechaIngreso: DateTime.new(2015, 4, 23), fechaNacimiento: DateTime.new(1983, 4, 5)},
-	{nombre: 'Yolanda', apellido1: 'Paz', apellido2: 'Casanovas', sexo: 'Femenino', ci: 959314, estadoCivil: 'Divorciada', direccion: 'Blanco Galindo Km. 3.5', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2014, 11, 24), fechaNacimiento: DateTime.new(1969, 5, 7)},
-	{nombre: 'Julio', apellido1: 'Luna', apellido2: '', sexo: 'Masculino', ci: 5757281, estadoCivil: 'Casado', direccion: 'Nuestra SeLa Paz', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 5, 30), fechaNacimiento: DateTime.new(1979, 9, 3)},
-	{nombre: 'Jorge', apellido1: 'Coca', apellido2: 'Quispe', sexo: 'Masculino', ci: 853126, estadoCivil: 'Soltero', direccion: 'Sacaba Cochabamba', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Nina', apellido2: 'Vargas', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'jose', apellido1: 'Valdivia', apellido2: 'Orellana', sexo: 'Masculino', ci: 7236544, estadoCivil: 'Soltero', direccion: 'Avenida Arenal Santa Cruz', lugarNacimiento: 'Santa Cruz Santa Cruz', fechaIngreso: DateTime.new(2014,3,19), fechaNacimiento: DateTime.new(1990, 3, 15)},	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barrientos', apellido2: '', sexo: 'Femenino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Sacaba Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Ana', apellido1: 'Coca', apellido2: '', sexo: 'Femenino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Lola', apellido1: 'Valdicia', apellido2: 'Perez', sexo: 'Femenino', ci: 999991, estadoCivil: 'Casado', direccion: 'Puente Antezana', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Fransisca', apellido1: 'Obama', apellido2: '', sexo: 'Femenino', ci: 999991, estadoCivil: 'Sotero', direccion: 'Coronilla', lugarNacimiento: 'Quillacollo Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Erika', apellido1: 'Perez', apellido2: '', sexo: 'Femenino', ci: 999991, estadoCivil: 'Soltero', direccion: 'Miamicito', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: 'Coca', sexo: 'Femenino', ci: 999991, estadoCivil: 'Soltero', direccion: 'Siles', lugarNacimiento: 'Sacaba Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)}])
+internos = Interno.create([
+	{nombre: 'Fransisco',  state: 'Activo',apellido1: 'Coca', sexo: 'Masculino', ci: 3938766, estadoCivil: 'Soltero', direccion: 'Chapare', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 2, 28), fechaNacimiento: DateTime.new(1989, 2, 5)},
+	{nombre: 'Juan', apellido1: 'Mamani', state: 'Activo', apellido2: 'Colque', sexo: 'Masculino', ci: 911348, estadoCivil: 'Divorciado', direccion: 'Capitan Ustariz km 9', lugarNacimiento: 'Nuestra Señora de La Paz La Paz', fechaIngreso: DateTime.new(2015, 1, 5), fechaNacimiento: DateTime.new(1970, 8, 15)},
+	{nombre: 'Rina', apellido1: 'Garcia', apellido2: '',  state: 'Activo',sexo: 'Femenino', ci: 3984622, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Cercado Cochabamba', fechaIngreso: DateTime.new(2015, 4, 23), fechaNacimiento: DateTime.new(1983, 4, 5)},
+	{nombre: 'Yolanda', apellido1: 'Paz',  state: 'Activo',apellido2: 'Casanovas', sexo: 'Femenino', ci: 959314, estadoCivil: 'Divorciada', direccion: 'Blanco Galindo Km. 3.5', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2014, 11, 24), fechaNacimiento: DateTime.new(1969, 5, 7)},
+	{nombre: 'Julio', apellido1: 'Luna', apellido2: '', state: 'Activo', sexo: 'Masculino', ci: 5757281, estadoCivil: 'Casado', direccion: 'Nuestra SeLa Paz', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 5, 30), fechaNacimiento: DateTime.new(1979, 9, 3)},
+	{nombre: 'Jorge', apellido1: 'Coca', apellido2: 'Quispe', sexo: 'Masculino', state: 'Activo', ci: 853126, estadoCivil: 'Soltero', direccion: 'Sacaba Cochabamba', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Maria', apellido1: 'Nina', apellido2: 'Vargas', sexo: 'Masculino', ci: 4359533, state: 'Activo', estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'jose', apellido1: 'Valdivia', apellido2: 'Orellana',  state: 'Activo',sexo: 'Masculino', ci: 7236544, estadoCivil: 'Soltero', direccion: 'Avenida Arenal Santa Cruz', lugarNacimiento: 'Santa Cruz Santa Cruz', fechaIngreso: DateTime.new(2014,3,19), fechaNacimiento: DateTime.new(1990, 3, 15)},	
+	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Maria', apellido1: 'Barrientos', apellido2: '', sexo: 'Femenino',  state: 'Activo',ci: 863512, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Sacaba Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Ana', apellido1: 'Coca', apellido2: '', sexo: 'Femenino', ci: 3735682,  state: 'Activo',estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Lola', apellido1: 'Valdicia', apellido2: 'Perez', sexo: 'Femenino', ci: 211349,  state: 'Activo',estadoCivil: 'Casado', direccion: 'Puente Antezana', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Fransisca', apellido1: 'Obama', apellido2: '', sexo: 'Femenino', ci: 8127614, estadoCivil: 'Sotero', direccion: 'Coronilla', lugarNacimiento: 'Quillacollo Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Erika', apellido1: 'Perez', apellido2: '', sexo: 'Femenino', ci: 668319, state: 'Activo', estadoCivil: 'Soltero', direccion: 'Miamicito', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
+	{nombre: 'Mario', apellido1: 'Coca', apellido2: 'Coca', sexo: 'Femenino', ci: 9871377,  state: 'Activo',estadoCivil: 'Soltero', direccion: 'Siles', lugarNacimiento: 'Sacaba Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)}
+	])
+
+conyugues = Conyugue.create([
+	   {nombre: 'Marcelino', apellido1: 'Moreno', apellido2: 'Garcia', ci: 4359564 , lugarNacimiento: 'Cercado Cochabamba', fechaNacimiento: DateTime.new(1968, 10, 2), direccion: 'Aroma Nro 1048' , interno_id: 3 },
+	   {nombre: 'Tania', apellido1: 'Colque', apellido2: 'Vaca', ci: 423685, lugarNacimiento: 'San Jose de Chiquitos Santa Cruz', fechaNacimiento: DateTime.new(2015, 4, 13), direccion: 'Ruben Dario Nro 864' , interno_id: 5},
+	   {nombre: 'Dario', apellido1: 'Ruiz', apellido2: '', ci: 3581266, lugarNacimiento: '', fechaNacimiento: DateTime.new(2015, 12, 9), direccion: 'Martin Cardenas 57' , interno_id: 7},
+	   {nombre: 'Gonzalo', apellido1: 'Almanza', apellido2: '', ci: 7869532, lugarNacimiento: '', fechaNacimiento: DateTime.new(2015, 11, 26), direccion: 'Fahrenheit 116' , interno_id: 9},
+	   {nombre: 'Sergio', apellido1: 'Luizaga', apellido2: '', ci: 4896321, lugarNacimiento: 'Quillacollo Cochabamba', fechaNacimiento: DateTime.new(2015, 6, 14), direccion: 'Gabriel Lippmann 43' , interno_id: 10},
+	   {nombre: 'Hugo', apellido1: 'Ortiz', apellido2: 'Sanchez', ci: 4869234, lugarNacimiento: 'Punata Cochabamba', fechaNacimiento: DateTime.new(2015, 1, 10), direccion: 'Zenon Salinas 23' , interno_id: 11}
+
+	])
+
+rehabs = Rehab.create([
+{enfermedades: 'cirrosis hepatica',causaInternacion:'Alcoholismo', tiempoConsumo: 60,centroAnterior:'San Juan de Dios',tiempoEstancia: 4,motivoRetiro:'Concluyo tratamiento',observaciones: 'Problemas nerviosos',interno_id:1}
+
+	])
+
+cities = City.create([{nombre:'Arani', estado: 'Cochabamba'},{nombre:'Arque', estado: 'Cochabamba'},{nombre:'Cercado', estado: 'Cochabamba'},
+	{nombre:'Provincia Ayopaya', estado: 'Cochabamba'},{nombre:'Bolívar', estado: 'Cochabamba'},{nombre:'Capinota', estado: 'Cochabamba'},
+	{nombre:'Carrasco', estado: 'Cochabamba'},{nombre:'Chapare', estado: 'Cochabamba'},{nombre:'Esteban Arce', estado: 'Cochabamba'},
+	{nombre:'Germán Jordán', estado: 'Cochabamba'},{nombre:'Provincia Mizque', estado: 'Cochabamba'},{nombre:'Narciso Campero', estado: 'Cochabamba'},
+	{nombre:'Punata', estado: 'Cochabamba'},{nombre:'Quillacollo', estado: 'Cochabamba'},{nombre:'Tapacarí', estado: 'Cochabamba'},
+	{nombre:'Tiraque', estado: 'Cochabamba'}])
+
 
 stocks = Stock.create([{product_id: '1', cantidad: '0'},
 	{product_id: '2', cantidad: '0'},
@@ -57,96 +83,8 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 	{product_id: '7', cantidad: '0'},
 	{product_id: '8', cantidad: '0'}])
 
-internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Attridge', sexo: 'Masculino', ci: 999990, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Alex', apellido1: 'Campos', apellido2: 'Campos', sexo: 'Masculino', ci: 999997, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Michelle', apellido1: 'Tumes', apellido2: '', sexo: 'Femenino', ci: 999992, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Nicole', apellido1: 'Nordeman', apellido2: '',  sexo: 'Femenino', ci: 999993, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Michael', apellido1: 'Smith', apellido2: '',  sexo: 'Masculino', ci: 999994, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'julio', apellido1: 'Luna', apellido2: '', sexo: 'Femenino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Ann', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Ana', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Anna', apellido1: 'Barriento', apellido2: 'Vrsalovic', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'April', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Amil', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Jorge', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juaquin', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Sebastian', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Barak', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Michelle', apellido1: 'Obama', apellido2: 'Vrsalovic', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'jose', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'jose', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'jose', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'jose', apellido1: 'Barriento', apellido2: 'Vrsalovic', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Marco', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Vrsalovic', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Juan', apellido1: 'Barriento', apellido2: 'Vrsalovic', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mirko', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Obama', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Mario', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Barriento', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Maria', apellido1: 'Coca', apellido2: '', sexo: 'Masculino', ci: 999991, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
-	{nombre: 'Jorge', apellido1: 'Colloca', apellido2: 'Vrsalovic',  sexo: 'Masculino', ci: 999995, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)}])
 
+<<<<<<< HEAD
 # citas = Citum.create!([{ fecha: '2007-11-7', hora:'2007-11-7 11:15:00.000000', ubicación:'calleLucas Mendoza313', nombreDonante:'Julián ', estado:' Enviado', telefono:28169259},
 # { fecha: '2012-8-12', hora:'2012-8-12 10:24:00.000000', ubicación:'calleAnzaldo516', nombreDonante:'Príamo ', estado:' Enviado', telefono:58950148},
 # { fecha: '2013-3-19', hora:'2013-3-19 9:14:00.000000', ubicación:'calleAyoma801', nombreDonante:'Restituto', estado:' Concretada', telefono:51658876},
@@ -2256,4 +2194,372 @@ internos = Interno.create([{nombre: 'Fransisco', apellido1: 'Attridge', sexo: 'M
 # {monto:1050, fecha: '2010-11-7',ventaprod_id:298,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=298'},
 # {monto:2240, fecha: '2013-3-4',ventaprod_id:299,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=299'},
 # {monto:0, fecha: '2010-1-19',ventaprod_id:300,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=300'}])
+=======
+	Voluntario.create(nombre:'Gamaliel ', apellido1:'Bejarano', apellido2:'Quiroga', sexo:'Masculino', ci: 6583796, NivelConfianza: 50, telefono: 78130506, estado:'Inactivo')
+Voluntario.create(nombre:'Silvio', apellido1:'Cifontes', apellido2:'de Castro', sexo:'Masculino', ci: 6992758, NivelConfianza: 92, telefono: 75023223, estado:'Inactivo')
+Voluntario.create(nombre:'Jorge', apellido1:'Bustos', apellido2:'Hera', sexo:'Masculino', ci: 6076136, NivelConfianza: 77, telefono: 44823318, estado:'Activo')
+Voluntario.create(nombre:'Joab ', apellido1:'Dueñas', apellido2:'Cañas', sexo:'Masculino', ci: 9702076, NivelConfianza: 67, telefono: 24264985, estado:'Inactivo')
+Voluntario.create(nombre:'Orfeo ', apellido1:'Adion', apellido2:'Dorante', sexo:'Masculino', ci: 7216766, NivelConfianza: 91, telefono: 57661822, estado:'Inactivo')
+Voluntario.create(nombre:'Manolo', apellido1:'Olmo', apellido2:'Barrionuevo', sexo:'Masculino', ci: 7476576, NivelConfianza: 34, telefono: 30863040, estado:'Inactivo')
+Voluntario.create(nombre:'Wolfango', apellido1:'Aelle', apellido2:'Requena', sexo:'Masculino', ci: 7176629, NivelConfianza: 31, telefono: 25861570, estado:'Inactivo')
+Voluntario.create(nombre:'Tirso ', apellido1:'Leon', apellido2:'Chico', sexo:'Masculino', ci: 5165167, NivelConfianza: 11, telefono: 62875918, estado:'Inactivo')
+Voluntario.create(nombre:'Bernardo', apellido1:'Aelle', apellido2:'Aldehuela', sexo:'Masculino', ci: 6011106, NivelConfianza: 60, telefono: 28232232, estado:'Inactivo')
+Voluntario.create(nombre:'Mainard ', apellido1:'Aldana', apellido2:'Balboa', sexo:'Masculino', ci: 6480816, NivelConfianza: 3, telefono: 40598744, estado:'Inactivo')
+Voluntario.create(nombre:'Ovidio ', apellido1:'Barco', apellido2:'Calatrava', sexo:'Masculino', ci: 6522769, NivelConfianza: 62, telefono: 64030512, estado:'Inactivo')
+Voluntario.create(nombre:'Francisco', apellido1:'Duero', apellido2:'Aguiar', sexo:'Masculino', ci: 9372946, NivelConfianza: 61, telefono: 24051458, estado:'Inactivo')
+Voluntario.create(nombre:'Diogenes ', apellido1:'Calvo', apellido2:'Hera', sexo:'Masculino', ci: 9906942, NivelConfianza: 35, telefono: 81516125, estado:'Inactivo')
+Voluntario.create(nombre:'Ulises', apellido1:'Almazan', apellido2:'Almeida', sexo:'Masculino', ci: 9151097, NivelConfianza: 57, telefono: 74979029, estado:'Inactivo')
+Voluntario.create(nombre:'Marsias', apellido1:'Serna', apellido2:'Barrientos', sexo:'Masculino', ci: 8166735, NivelConfianza: 96, telefono: 51344703, estado:'Inactivo')
+Voluntario.create(nombre:'Fortunato ', apellido1:'Quiroga', apellido2:'Chico', sexo:'Masculino', ci: 7061666, NivelConfianza: 49, telefono: 69698932, estado:'Inactivo')
+Voluntario.create(nombre:'Sabas', apellido1:'Bascones', apellido2:'Alcantara', sexo:'Masculino', ci: 6882594, NivelConfianza: 2, telefono: 61189557, estado:'Activo')
+Voluntario.create(nombre:'Gaspar', apellido1:'Cuello', apellido2:'Ansurez', sexo:'Masculino', ci: 5822164, NivelConfianza: 98, telefono: 49266452, estado:'Inactivo')
+Voluntario.create(nombre:'Otilio', apellido1:'Busto', apellido2:'Aenllo', sexo:'Masculino', ci: 9218989, NivelConfianza: 23, telefono: 7260814, estado:'Activo')
+Voluntario.create(nombre:'Galo ', apellido1:'Niño', apellido2:'Heras', sexo:'Masculino', ci: 8873868, NivelConfianza: 84, telefono: 54591048, estado:'Activo')
+Voluntario.create(nombre:'Urbano', apellido1:'Heras', apellido2:'Barrientos', sexo:'Masculino', ci: 7669680, NivelConfianza: 28, telefono: 69282610, estado:'Activo')
+Voluntario.create(nombre:'Leslie ', apellido1:'Aelle', apellido2:'Domingo', sexo:'Masculino', ci: 6409864, NivelConfianza: 49, telefono: 40281871, estado:'Inactivo')
+Voluntario.create(nombre:'Moctezuma ', apellido1:'Espinosa', apellido2:'Carnicero', sexo:'Masculino', ci: 9756637, NivelConfianza: 11, telefono: 11286992, estado:'Inactivo')
+Voluntario.create(nombre:'Agamenon', apellido1:'Barrionuevo', apellido2:'Goyanes', sexo:'Masculino', ci: 7440768, NivelConfianza: 18, telefono: 30575141, estado:'Inactivo')
+Voluntario.create(nombre:'Terencio ', apellido1:'Guirarte', apellido2:'Lemos', sexo:'Masculino', ci: 5068473, NivelConfianza: 96, telefono: 71461246, estado:'Inactivo')
+Voluntario.create(nombre:'Minos ', apellido1:'Andrada', apellido2:'Ocampo', sexo:'Masculino', ci: 9640510, NivelConfianza: 8, telefono: 77133708, estado:'Activo')
+Voluntario.create(nombre:'Saturio ', apellido1:'Aenlle', apellido2:'Olivo', sexo:'Masculino', ci: 6667148, NivelConfianza: 64, telefono: 55385302, estado:'Inactivo')
+Voluntario.create(nombre:'Paulo ', apellido1:'Saavedra', apellido2:'Escobedo', sexo:'Masculino', ci: 7001105, NivelConfianza: 27, telefono: 18662521, estado:'Inactivo')
+Voluntario.create(nombre:'Raul ', apellido1:'Serna', apellido2:'Donis', sexo:'Masculino', ci: 6132597, NivelConfianza: 91, telefono: 13357089, estado:'Inactivo')
+Voluntario.create(nombre:'Reginaldo ', apellido1:'Salazar', apellido2:'Carnero', sexo:'Masculino', ci: 5887880, NivelConfianza: 100, telefono: 55043511, estado:'Inactivo')
+Voluntario.create(nombre:'Paco', apellido1:'Campoo', apellido2:'Caminero', sexo:'Masculino', ci: 5758174, NivelConfianza: 62, telefono: 34776863, estado:'Inactivo')
+Voluntario.create(nombre:'Domingo', apellido1:'Bustos', apellido2:'Campillo', sexo:'Masculino', ci: 8432354, NivelConfianza: 95, telefono: 22609297, estado:'Inactivo')
+Voluntario.create(nombre:'Cristobal', apellido1:'Rios', apellido2:'Requena', sexo:'Masculino', ci: 7777956, NivelConfianza: 96, telefono: 23607670, estado:'Inactivo')
+Voluntario.create(nombre:'Silesio ', apellido1:'Breton', apellido2:'Carnicero', sexo:'Masculino', ci: 7728843, NivelConfianza: 32, telefono: 28155375, estado:'Inactivo')
+Voluntario.create(nombre:'Germano', apellido1:'Abreu', apellido2:'del Campo', sexo:'Masculino', ci: 5198179, NivelConfianza: 84, telefono: 56019013, estado:'Inactivo')
+Voluntario.create(nombre:'Peleo ', apellido1:'Carnero', apellido2:'Caldera', sexo:'Masculino', ci: 7757528, NivelConfianza: 99, telefono: 46419185, estado:'Inactivo')
+Voluntario.create(nombre:'Gabino', apellido1:'Calvo', apellido2:'Acebes', sexo:'Masculino', ci: 8574973, NivelConfianza: 84, telefono: 11127377, estado:'Inactivo')
+Voluntario.create(nombre:'Lucas', apellido1:'Cuello', apellido2:'Castresana', sexo:'Masculino', ci: 9649478, NivelConfianza: 27, telefono: 70741438, estado:'Inactivo')
+Voluntario.create(nombre:'Rodrigo', apellido1:'Almazan', apellido2:'Roa', sexo:'Masculino', ci: 5278477, NivelConfianza: 100, telefono: 29586902, estado:'Inactivo')
+Voluntario.create(nombre:'Adriano ', apellido1:'Salazar', apellido2:'Agreda', sexo:'Masculino', ci: 6875508, NivelConfianza: 80, telefono: 15077787, estado:'Inactivo')
+Voluntario.create(nombre:'Alberto', apellido1:'Campoo', apellido2:'Campos', sexo:'Masculino', ci: 9577943, NivelConfianza: 40, telefono: 81556646, estado:'Inactivo')
+Voluntario.create(nombre:'Elio ', apellido1:'Calvo', apellido2:'Adame', sexo:'Masculino', ci: 9749035, NivelConfianza: 52, telefono: 13179431, estado:'Inactivo')
+Voluntario.create(nombre:'Cristo ', apellido1:'Alcantara', apellido2:'Aldana', sexo:'Masculino', ci: 9780367, NivelConfianza: 3, telefono: 57986267, estado:'Activo')
+Voluntario.create(nombre:'Galen', apellido1:'Barral', apellido2:'Cabrera', sexo:'Masculino', ci: 8077099, NivelConfianza: 61, telefono: 36782506, estado:'Inactivo')
+Voluntario.create(nombre:'Paul ', apellido1:'Niño', apellido2:'Goyanes', sexo:'Masculino', ci: 9624301, NivelConfianza: 29, telefono: 31894580, estado:'Inactivo')
+Voluntario.create(nombre:'Lucio', apellido1:'Betron', apellido2:'Olmo', sexo:'Masculino', ci: 5782333, NivelConfianza: 18, telefono: 48073336, estado:'Inactivo')
+Voluntario.create(nombre:'Doroteo ', apellido1:'Bascones', apellido2:'Cifontes', sexo:'Masculino', ci: 9145278, NivelConfianza: 49, telefono: 25409181, estado:'Inactivo')
+Voluntario.create(nombre:'Elvis ', apellido1:'Cobo', apellido2:'Requena', sexo:'Masculino', ci: 6265704, NivelConfianza: 67, telefono: 69308838, estado:'Inactivo')
+Voluntario.create(nombre:'Laban ', apellido1:'Barahona', apellido2:'Serna', sexo:'Masculino', ci: 9213297, NivelConfianza: 38, telefono: 21538746, estado:'Inactivo')
+Voluntario.create(nombre:'Hilarion', apellido1:'Alcaraz', apellido2:'Cabañas', sexo:'Masculino', ci: 9015914, NivelConfianza: 96, telefono: 58105807, estado:'Activo')
 
+Voluntario.create(nombre:'Guendolina', apellido1:'Bustos', apellido2:'Barrientos', sexo:'Femenino', ci: 8815242, NivelConfianza: 16, telefono: 36813261, estado:'Inactivo')
+Voluntario.create(nombre:'Lorenza', apellido1:'Lema', apellido2:'Aldana', sexo:'Femenino', ci: 7835814, NivelConfianza: 88, telefono: 64194505, estado:'Inactivo')
+Voluntario.create(nombre:'Nefele', apellido1:'Caldeira', apellido2:'Barros', sexo:'Femenino', ci: 9883909, NivelConfianza: 93, telefono: 82269967, estado:'Inactivo')
+Voluntario.create(nombre:'Anunciacion', apellido1:'Carnero', apellido2:'Ahumada', sexo:'Femenino', ci: 6800808, NivelConfianza: 61, telefono: 49180983, estado:'Inactivo')
+Voluntario.create(nombre:'Ariana', apellido1:'Alcaraz', apellido2:'Acuña', sexo:'Femenino', ci: 5241399, NivelConfianza: 5, telefono: 51663031, estado:'Inactivo')
+Voluntario.create(nombre:'Begoña', apellido1:'Escobedo', apellido2:'Lamas', sexo:'Femenino', ci: 8929760, NivelConfianza: 4, telefono: 20498341, estado:'Inactivo')
+Voluntario.create(nombre:'Ludmila', apellido1:'Ribera', apellido2:'Dueñas', sexo:'Femenino', ci: 5734004, NivelConfianza: 60, telefono: 60034391, estado:'Inactivo')
+Voluntario.create(nombre:'Soledad', apellido1:'Escobal', apellido2:'Escobal', sexo:'Femenino', ci: 8181403, NivelConfianza: 99, telefono: 36613787, estado:'Inactivo')
+Voluntario.create(nombre:'Brenda', apellido1:'Escalona', apellido2:'Chaves', sexo:'Femenino', ci: 8848089, NivelConfianza: 78, telefono: 65422757, estado:'Inactivo')
+Voluntario.create(nombre:'Rebeca', apellido1:'Hera', apellido2:'Chaves', sexo:'Femenino', ci: 9830601, NivelConfianza: 3, telefono: 74133118, estado:'Inactivo')
+Voluntario.create(nombre:'Leif', apellido1:'Nieto', apellido2:'Albornoz', sexo:'Femenino', ci: 5974770, NivelConfianza: 38, telefono: 68885946, estado:'Inactivo')
+Voluntario.create(nombre:'Romilda', apellido1:'Alcocer', apellido2:'Andrade', sexo:'Femenino', ci: 8130687, NivelConfianza: 80, telefono: 30038552, estado:'Inactivo')
+Voluntario.create(nombre:'Carmina', apellido1:'Olmo', apellido2:'Aelle', sexo:'Femenino', ci: 5258945, NivelConfianza: 36, telefono: 67975006, estado:'Inactivo')
+Voluntario.create(nombre:'Vicenta', apellido1:'Aceija', apellido2:'Hermosilla', sexo:'Femenino', ci: 9692754, NivelConfianza: 59, telefono: 79090685, estado:'Inactivo')
+Voluntario.create(nombre:'Rosa', apellido1:'Goyanes', apellido2:'Cifontes', sexo:'Femenino', ci: 8492005, NivelConfianza: 66, telefono: 32761568, estado:'Inactivo')
+Voluntario.create(nombre:'Frine', apellido1:'Romay', apellido2:'Saavedra', sexo:'Femenino', ci: 8815030, NivelConfianza: 53, telefono: 71755251, estado:'Inactivo')
+Voluntario.create(nombre:'Imelda', apellido1:'Bascones', apellido2:'Neyra', sexo:'Femenino', ci: 7488106, NivelConfianza: 4, telefono: 26884556, estado:'Inactivo')
+Voluntario.create(nombre:'Rosalia', apellido1:'Neyra', apellido2:'Chico', sexo:'Femenino', ci: 9339237, NivelConfianza: 10, telefono: 15737531, estado:'Inactivo')
+Voluntario.create(nombre:'Flavia', apellido1:'Santos', apellido2:'Antolinez', sexo:'Femenino', ci: 5265554, NivelConfianza: 37, telefono: 12765669, estado:'Inactivo')
+Voluntario.create(nombre:'Hosana', apellido1:'Hermosilla', apellido2:'Campos', sexo:'Femenino', ci: 5046425, NivelConfianza: 52, telefono: 19882995, estado:'Inactivo')
+Voluntario.create(nombre:'Celestina', apellido1:'de la Cerda', apellido2:'Campos', sexo:'Femenino', ci: 9603579, NivelConfianza: 11, telefono: 78205351, estado:'Inactivo')
+Voluntario.create(nombre:'Atala', apellido1:'Heras', apellido2:'Olivo', sexo:'Femenino', ci: 8646843, NivelConfianza: 1, telefono: 39241979, estado:'Inactivo')
+Voluntario.create(nombre:'Epifania', apellido1:'Calvo', apellido2:'Ahumada', sexo:'Femenino', ci: 7068372, NivelConfianza: 58, telefono: 59482183, estado:'Inactivo')
+Voluntario.create(nombre:'Erica', apellido1:'Olmo', apellido2:'Chaves', sexo:'Femenino', ci: 6731876, NivelConfianza: 90, telefono: 74934308, estado:'Activo')
+Voluntario.create(nombre:'Yanet', apellido1:'Ahumada', apellido2:'Bejarano', sexo:'Femenino', ci: 8589948, NivelConfianza: 30, telefono: 23506108, estado:'Activo')
+Voluntario.create(nombre:'Edita', apellido1:'Cea', apellido2:'Alcantara', sexo:'Femenino', ci: 5179445, NivelConfianza: 96, telefono: 80736490, estado:'Inactivo')
+Voluntario.create(nombre:'Elisenda', apellido1:'Antunez', apellido2:'Olivo', sexo:'Femenino', ci: 5398316, NivelConfianza: 53, telefono: 50438044, estado:'Inactivo')
+Voluntario.create(nombre:'Daiana', apellido1:'Barahona', apellido2:'Escobal', sexo:'Femenino', ci: 8439331, NivelConfianza: 17, telefono: 52033421, estado:'Inactivo')
+Voluntario.create(nombre:'Lorena', apellido1:'Agazones', apellido2:'Aguado', sexo:'Femenino', ci: 6667147, NivelConfianza: 62, telefono: 27710654, estado:'Inactivo')
+Voluntario.create(nombre:'Odette', apellido1:'Borrajo', apellido2:'Albornoz', sexo:'Femenino', ci: 9962162, NivelConfianza: 94, telefono: 21504701, estado:'Inactivo')
+Voluntario.create(nombre:'Queta', apellido1:'Alcaraz', apellido2:'Almazan', sexo:'Femenino', ci: 6050785, NivelConfianza: 8, telefono: 69521442, estado:'Inactivo')
+Voluntario.create(nombre:'Cristal', apellido1:'Escalona', apellido2:'Barrantes', sexo:'Femenino', ci: 6205047, NivelConfianza: 30, telefono: 45254571, estado:'Inactivo')
+Voluntario.create(nombre:'Selena', apellido1:'Ledesma', apellido2:'Almeida', sexo:'Femenino', ci: 9438479, NivelConfianza: 46, telefono: 74532101, estado:'Inactivo')
+Voluntario.create(nombre:'Vera', apellido1:'Cabrera', apellido2:'Baños', sexo:'Femenino', ci: 6622615, NivelConfianza: 18, telefono: 60014323, estado:'Inactivo')
+Voluntario.create(nombre:'Margot', apellido1:'Escobar', apellido2:'Bascones', sexo:'Femenino', ci: 7115672, NivelConfianza: 5, telefono: 57256268, estado:'Inactivo')
+Voluntario.create(nombre:'Argentina', apellido1:'Barbado', apellido2:'Olmo', sexo:'Femenino', ci: 8573917, NivelConfianza: 82, telefono: 81578193, estado:'Activo')
+Voluntario.create(nombre:'Constanza', apellido1:'Barahona', apellido2:'Chacon', sexo:'Femenino', ci: 7229827, NivelConfianza: 71, telefono: 33749587, estado:'Inactivo')
+Voluntario.create(nombre:'Myrian', apellido1:'Carrillo', apellido2:'de Castro', sexo:'Femenino', ci: 7967859, NivelConfianza: 46, telefono: 59021897, estado:'Inactivo')
+Voluntario.create(nombre:'Tara', apellido1:'Carbajal', apellido2:'Barreto', sexo:'Femenino', ci: 8067849, NivelConfianza: 30, telefono: 49682713, estado:'Inactivo')
+Voluntario.create(nombre:'Idoia', apellido1:'Espinosa', apellido2:'Salgado', sexo:'Femenino', ci: 7060096, NivelConfianza: 3, telefono: 18996399, estado:'Inactivo')
+Voluntario.create(nombre:'Liu', apellido1:'Redondo', apellido2:'Adame', sexo:'Femenino', ci: 8585360, NivelConfianza: 96, telefono: 13040108, estado:'Inactivo')
+Voluntario.create(nombre:'Aranzazu', apellido1:'Andrade', apellido2:'Cisneros', sexo:'Femenino', ci: 5428087, NivelConfianza: 14, telefono: 26797668, estado:'Inactivo')
+Voluntario.create(nombre:'Romina', apellido1:'Dorantes', apellido2:'Arandia', sexo:'Femenino', ci: 5935948, NivelConfianza: 34, telefono: 66774578, estado:'Inactivo')
+Voluntario.create(nombre:'Flamini', apellido1:'Santos', apellido2:'Acuña', sexo:'Femenino', ci: 5507544, NivelConfianza: 10, telefono: 26976134, estado:'Inactivo')
+Voluntario.create(nombre:'Atala', apellido1:'Santos', apellido2:'Romay', sexo:'Femenino', ci: 6799133, NivelConfianza: 70, telefono: 54479323, estado:'Inactivo')
+Voluntario.create(nombre:'Mandisa', apellido1:'Campillo', apellido2:'Barranco', sexo:'Femenino', ci: 8997756, NivelConfianza: 39, telefono: 34370014, estado:'Inactivo')
+Voluntario.create(nombre:'Vallivana', apellido1:'Arandia', apellido2:'Escalada', sexo:'Femenino', ci: 6129536, NivelConfianza: 75, telefono: 81798767, estado:'Activo')
+Voluntario.create(nombre:'Carmela', apellido1:'Carrasco', apellido2:'Escama', sexo:'Femenino', ci: 8079618, NivelConfianza: 44, telefono: 34681098, estado:'Inactivo')
+Voluntario.create(nombre:'Rut', apellido1:'Godoy', apellido2:'Ribas', sexo:'Femenino', ci: 6448657, NivelConfianza: 75, telefono: 79033021, estado:'Activo')
+Voluntario.create(nombre:'Liza', apellido1:'Aenlle', apellido2:'Barco', sexo:'Femenino', ci: 9800537, NivelConfianza: 21, telefono: 67927331, estado:'Inactivo')
+
+
+
+RecepcionDonativo.create( fecha: Date.new(2006,9,27),estado: 'Pendiente',articulo: 'PROCESADOR AMD S,AM3//AM3+', descripcion:'AMD FX-9590 4.7/5.0 GHZ TURBO CACHE TOTAL 16MB S.AM3+ “VISHERA” ( FD9590FHHKBOF)',precio: 305)
+RecepcionDonativo.create( fecha: Date.new(2005,7,20),estado: 'Vendido',articulo: 'REDES : SWITCH 10/117', descripcion:'ROUTER  KOZUMI 4PORT KR-403P',precio: 61)
+RecepcionDonativo.create( fecha: Date.new(2010,11,17),estado: 'Pendiente',articulo: 'WIRELESS REDES EDIMAX // KOZUMI // ALFA', descripcion:'AP ROUTER  KOZUMI 150MBS K-1550NR',precio: 164)
+RecepcionDonativo.create( fecha: Date.new(2008,12,4),estado: 'Pendiente',articulo: 'MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', descripcion:'MB GIGABYTE GA -H81M-S C/ VIDEO-SONIDO-RED DDR3 SOCKET LGA 1150',precio: 396)
+RecepcionDonativo.create( fecha: Date.new(2008,11,27),estado: 'Vendido',articulo: 'PARLANTES 2,21', descripcion:'PARLANTE HALION HA-8020 USB 2,0',precio: 293)
+RecepcionDonativo.create( fecha: Date.new(2014,5,16),estado: 'Pendiente',articulo: 'TARJETA DE VIDEO PCI EXPRESS DDR2  DDR52', descripcion:'2GB PCI EXP. GEFORCE GT 730 DDR5 64BITS GIGABYTE (GV-N730D5-2GI) HDMI// DVI// VGA',precio: 132)
+RecepcionDonativo.create( fecha: Date.new(2011,6,8),estado: 'Pendiente',articulo: 'MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', descripcion:'MB ASUS H81M-PLUS C/VIDEO-SONIDO-RED SOCKET LGA 1150 DDR3',precio: 144)
+RecepcionDonativo.create( fecha: Date.new(2006,7,14),estado: 'Vendido',articulo: 'TARJETA PCI & PCI EXPRESS', descripcion:'TARJETA PCI -E USB 3,0 X 4 PUERTOS PCTRONIX',precio: 396)
+RecepcionDonativo.create( fecha: Date.new(2009,9,5),estado: 'Vendido',articulo: 'VARIOS :ECRAN // RACKS', descripcion:'ECRAN GENERICO SCREEN 70”',precio: 27)
+RecepcionDonativo.create( fecha: Date.new(2006,2,16),estado: 'Vendido',articulo: 'PROCESADOR INTEL PENTIUM//CORE i3// I5 // I7 LGA1150 4TA G.', descripcion:'CORE i5 - 4440 3.1GHZ 6MB LGA1150, 84W, 22NM, BOX',precio: 181)
+RecepcionDonativo.create( fecha: Date.new(2007,3,26),estado: 'Vendido',articulo: 'MONITOR TV & TELEVISORES', descripcion:'TV MONITOR LG 23” LED M2380A FULL HD HDMI',precio: 373)
+RecepcionDonativo.create( fecha: Date.new(2007,3,6),estado: 'Vendido',articulo: 'ANTIVIRUS', descripcion:'ESET SMALL OFFICE SECURITY PACK 5 PCS/ 1 SERVIDOR - ESOSP5L',precio: 144)
+RecepcionDonativo.create( fecha: Date.new(2015,11,14),estado: 'Pendiente',articulo: 'VIDEO CAM', descripcion:'WEB CAM OMEGA CAÑON C/LUZ MICROFONO 360º HD 3623K3  8,0MP',precio: 55)
+RecepcionDonativo.create( fecha: Date.new(2014,3,19),estado: 'Pendiente',articulo: 'MICROFONO C/ AUDIFONO - HANDSFREE', descripcion:'AUDIFONO C/HANDFREE CYBERTEL EVOLUTION CYB H310',precio: 54)
+RecepcionDonativo.create( fecha: Date.new(2010,6,20),estado: 'Pendiente',articulo: 'TECLADOS + MOUSE KITT', descripcion:'KIT GENIUS KMS- U115 TECLADO MULTIMEDIA + MOUSE OPTICO + PARLANTE USB',precio: 276)
+RecepcionDonativo.create( fecha: Date.new(2009,3,6),estado: 'Pendiente',articulo: 'DISCO DURO SOLIDO', descripcion:'240GB DISCO SOLIDO KINGSTON SSDNOW V300 SATA3 2.5” (N/P SV300S3D7/240G) KIT DESKTOP',precio: 359)
+RecepcionDonativo.create( fecha: Date.new(2006,5,7),estado: 'Vendido',articulo: 'CAMARA DE VIGILANCIA IP // SISTEMA DE SEGURIDAD', descripcion:'SISTEMA DE SEGURIDAD DE 8 CAMARAS + HD 500GB QSEE QT428-803',precio: 357)
+RecepcionDonativo.create( fecha: Date.new(2008,9,15),estado: 'Vendido',articulo: 'WIRELESS REDES EDIMAX // KOZUMI // ALFA', descripcion:'ADAPTADOR USB WIRELESS C/ANTENA 5DBI ALFA',precio: 113)
+RecepcionDonativo.create( fecha: Date.new(2012,6,26),estado: 'Vendido',articulo: 'FUENTES DE PODER', descripcion:'FUENTE PODER AVATEC 600W BOX "PROMOCION X 10 UNIDADES" $10,50 C/U',precio: 118)
+RecepcionDonativo.create( fecha: Date.new(2009,4,14),estado: 'Vendido',articulo: 'MOUSES OPTICO WIRELESS// BLUETOOH', descripcion:'MOUSE WIRELESS HALION G-310 ROJO/NEGRO',precio: 108)
+RecepcionDonativo.create( fecha: Date.new(2006,8,21),estado: 'Vendido',articulo: 'MEMORIAS DDR BUS 401', descripcion:'MEMORIA DDR 1GB BUS 400MHz (PC-3200) KINGSTON',precio: 392)
+RecepcionDonativo.create( fecha: Date.new(2008,1,6),estado: 'Vendido',articulo: 'ACCESORIOS P/ GAMERS', descripcion:'KIT LOGITECH G100S GAMING BLACK TECLADO + MOUSE USB  "PARA GAMERS"',precio: 342)
+RecepcionDonativo.create( fecha: Date.new(2006,10,15),estado: 'Vendido',articulo: 'ACCESORIOS P/ GAMERS', descripcion:'MOUSE CM STORM HAVOC BLACK 8200 DPI (SGM-4002-KLLN1)',precio: 136)
+RecepcionDonativo.create( fecha: Date.new(2014,12,5),estado: 'Pendiente',articulo: 'WIRELESS REDES MAXNET // ALFA // OTROS', descripcion:'TARJETA WIRELESS PCI  MAXNET 150MBS WP8801-1N',precio: 380)
+RecepcionDonativo.create( fecha: Date.new(2010,5,26),estado: 'Pendiente',articulo: 'NOTEBOOK & NETBOOK', descripcion:'NOTEBOOK ACER ASPIRE V14 V3472PG-3119-411 CI3-4030U/ 4GB /1TB / DVD RW /W8.1',precio: 21)
+RecepcionDonativo.create( fecha: Date.new(2013,12,19),estado: 'Vendido',articulo: 'CASES', descripcion:'CASE THERMALTAKE VERSA H22 USB 3.0 + FUENTE 500W (PN:CA-3B3-50M1WU-01)',precio: 10)
+RecepcionDonativo.create( fecha: Date.new(2007,9,22),estado: 'Vendido',articulo: 'MEMORIA USB / MICRO SD //REPRODUCTOR MP11', descripcion:'USB 4GB IMATION FIGURAS NAVIDEÑAS: CHRISTMAS TREE',precio: 186)
+RecepcionDonativo.create( fecha: Date.new(2007,4,11),estado: 'Pendiente',articulo: 'CASES', descripcion:'CASE AVATEC 350W REAL 7001U42B // 7002U42B // 7006U42BS',precio: 241)
+RecepcionDonativo.create( fecha: Date.new(2015,10,16),estado: 'Vendido',articulo: 'PARLANTES 2,1 SUBWOOFER /////5,16', descripcion:'PARLANTES CREATIVE INSPIRE A120 2.1 // 9W // 220VA',precio: 103)
+RecepcionDonativo.create( fecha: Date.new(2012,9,26),estado: 'Vendido',articulo: 'IMPRESORA MULTIFUNCIONAL INYECCION TINTA', descripcion:'IMPRESORA MULTIFUNCIONAL CANON PIXMA E401 IMPRIME/ COPIA / ESCANEA',precio: 390)
+RecepcionDonativo.create( fecha: Date.new(2011,6,24),estado: 'Pendiente',articulo: 'PROCESADOR AMD  FM2+', descripcion:'AMD APU A6 - 7400K 3.5 / 3.9GHZ 1MB FM2+ (AD740KYJABOX)',precio: 334)
+RecepcionDonativo.create( fecha: Date.new(2009,4,18),estado: 'Pendiente',articulo: 'MEMORIA USB / MICRO SD //REPRODUCTOR MP32', descripcion:'USB 16GB SILICON POWER HELIOS 101 GREEN// TOUCH 830 // TOUCH T02',precio: 153)
+RecepcionDonativo.create( fecha: Date.new(2013,10,26),estado: 'Vendido',articulo: 'VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', descripcion:'PAD MOUSE CM STORM SPEED- RX MEDIUM (PN:SGS-4020-KMMM1)',precio: 333)
+RecepcionDonativo.create( fecha: Date.new(2009,9,3),estado: 'Vendido',articulo: 'MAINBOARD AMD  FM2+', descripcion:'MB GIGABYTE F2A68HM-DS2H C/ VIDEO-SONIDO-RED DDR3 SOCKET FM2+',precio: 221)
+RecepcionDonativo.create( fecha: Date.new(2006,1,2),estado: 'Vendido',articulo: 'TECLADOS', descripcion:'TECLADO SENTEY CYPH3R ELITE  BLACK USB (GS-5710) "GAMERS"',precio: 166)
+RecepcionDonativo.create( fecha: Date.new(2005,12,1),estado: 'Pendiente',articulo: 'WIRELESS REDES D-LINK', descripcion:'ROUTER WIRELESS 150MBPS D-LINK DSL-2730R ADSL2 + 4 PTOS 10/100',precio: 154)
+RecepcionDonativo.create( fecha: Date.new(2006,6,26),estado: 'Pendiente',articulo: 'CASES', descripcion:'CASE ANTRYX  XTREME AENIC C/B 450W USB 3.0 (PN:AC-X530-BLWC)',precio: 276)
+RecepcionDonativo.create( fecha: Date.new(2007,4,16),estado: 'Pendiente',articulo: 'MICROFONO C/ AUDIFONO - HANDSFREE', descripcion:'AUDIFONO HELLO KITTY DJ SYTLE PINK (11609N-PNK-ESP) // BLACK/PINK (11609B-BLK-ESP)',precio: 249)
+RecepcionDonativo.create( fecha: Date.new(2008,7,28),estado: 'Pendiente',articulo: 'NOTEBOOK FUNDAS // ESTUCHE', descripcion:'FUNDA + TECLADO ALTRON PARA TABLET 7” NEGRO// AZUL// ROJO// ROSADO// MORADO// NARANJA',precio: 62)
+RecepcionDonativo.create( fecha: Date.new(2006,4,20),estado: 'Pendiente',articulo: 'WIRELESS REDES D-LINK', descripcion:'ROUTER WIRELESS 3G D-LINK DIR-412',precio: 366)
+RecepcionDonativo.create( fecha: Date.new(2005,10,22),estado: 'Pendiente',articulo: 'MOUSES OPTICO WIRELESS// BLUETOOH', descripcion:'MOUSE MICRONICS SWINGER WIRELESS VARIOS COLORES',precio: 398)
+RecepcionDonativo.create( fecha: Date.new(2006,4,1),estado: 'Vendido',articulo: 'VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', descripcion:'PAD MOUSE C/GEL',precio: 75)
+RecepcionDonativo.create( fecha: Date.new(2009,1,28),estado: 'Vendido',articulo: 'VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', descripcion:'PAD MOUSE RECTANGULAR EUROCASE EUMS-106-LTS',precio: 330)
+RecepcionDonativo.create( fecha: Date.new(2006,2,22),estado: 'Pendiente',articulo: 'PROYECTORES', descripcion:'PROYECTOR BENQ MX662 3500 LUMENES,  XGA 1024 X 768 / VGA / HDMI / 3D READY',precio: 91)
+RecepcionDonativo.create( fecha: Date.new(2007,8,2),estado: 'Vendido',articulo: 'NOTEBOOK & NETBOOK', descripcion:'NOTEBOOK TOSHIBA C55 - B5117KM CI5-5200U 2.20GHZ  // 4GB // 500GB // 15.6" // DVD-RW // FREEDOS',precio: 52)
+RecepcionDonativo.create( fecha: Date.new(2012,7,17),estado: 'Vendido',articulo: 'ANTIVIRUS', descripcion:'BITDEFENDER INTERNET SECURITY 2015 2 PC',precio: 157)
+RecepcionDonativo.create( fecha: Date.new(2012,9,1),estado: 'Pendiente',articulo: 'WIRELESS REDES MAXNET // ALFA // OTROS', descripcion:'ACCES POINT LITE-N 150MBS 5DBI WA8200-1N MAXNET',precio: 311)
+RecepcionDonativo.create( fecha: Date.new(2005,3,14),estado: 'Vendido',articulo: 'ANTIVIRUS', descripcion:'BITDEFENDER INTERNET SECURITY 2015 2 PC',precio: 361)
+RecepcionDonativo.create( fecha: Date.new(2013,4,27),estado: 'Pendiente',articulo: 'PARLANTES 2,24', descripcion:'PARLANTE MICRONICS BENETTON S320 USB // 6 RMS',precio: 125)
+RecepcionDonativo.create( fecha: Date.new(2012,11,25),estado: 'Vendido',articulo: 'TARJETA DE VIDEO PCI EXPRESS DDR2  DDR50', descripcion:'2GB PCI EXP. GEFORCE GT 730 DDR3 64BITS ASUS (GT730 – 2GD3-CSM) HDMI// DVI// VGA',precio: 131)
+RecepcionDonativo.create( fecha: Date.new(2011,11,5),estado: 'Pendiente',articulo: 'TONER ORIGINALES P/ IMPRESORAS', descripcion:'GAMEPAD ANTRYX G900 XTREME WIRELESS USB+PS2//PS3',precio: 180)
+RecepcionDonativo.create( fecha: Date.new(2013,3,4),estado: 'Vendido',articulo: 'VIDEO CAM', descripcion:'WEB CAM LOGITECH C525 HD BLACK USB (PN 960-000948)',precio: 157)
+RecepcionDonativo.create( fecha: Date.new(2012,11,10),estado: 'Pendiente',articulo: 'CAMARA DE VIGILANCIA IP // SISTEMA DE SEGURIDAD', descripcion:'CAMARA VIGILANCIA IP WIRELESS BABY TRENDNET TV-IP743SIC',precio: 379)
+RecepcionDonativo.create( fecha: Date.new(2010,11,4),estado: 'Vendido',articulo: 'TECLADOS + MOUSE KITT WIRELESS', descripcion:'KIT WIRELESS LOGITECH MK365 TECLADO  + MOUSE USB',precio: 398)
+RecepcionDonativo.create( fecha: Date.new(2008,7,14),estado: 'Vendido',articulo: 'DISCO DURO PARA NOTEBOOK', descripcion:'WESTERN DIGITAL 500GB BLACK 2,5” SATA 3 (WD5000BPKX)',precio: 28)
+RecepcionDonativo.create( fecha: Date.new(2011,10,5),estado: 'Pendiente',articulo: 'PROCESADOR INTEL PENTIUM//CORE i3// I5 // I7 LGA1150 4TA G.', descripcion:'CORE i3 - 4170 3.7GHZ 3MB LGA1150, 54W, 22NM, HD4400, BOX',precio: 170)
+RecepcionDonativo.create( fecha: Date.new(2010,5,6),estado: 'Vendido',articulo: 'TARJETA DE VIDEO PCI EXPRESS DDR2  DDR71', descripcion:'2GB PCI EXP. GEFORCE GTX 770 DDR5 256BITS ASUS (GTX770-DC20C-2GD5) DVI / HDMI / DP',precio: 375)
+RecepcionDonativo.create( fecha: Date.new(2015,11,1),estado: 'Vendido',articulo: 'ACCESORIOS P/ GAMERS', descripcion:'MOUSE LOGITECH G100S OPTICO GAMING  USB (PN:910-003878)',precio: 298)
+RecepcionDonativo.create( fecha: Date.new(2006,5,7),estado: 'Vendido',articulo: 'COOLER // EXTRACTOR PARA CASE', descripcion:'COOLER DE CASE COOLER MASTER 12CM',precio: 79)
+RecepcionDonativo.create( fecha: Date.new(2014,4,8),estado: 'Vendido',articulo: 'MICROFONO C/ AUDIFONO - HANDSFREE', descripcion:'AUDIFONO C/MICROFONO MICROSOFT LIFECHAT LX-1000 (PN: JDTD-00002)',precio: 91)
+RecepcionDonativo.create( fecha: Date.new(2013,9,17),estado: 'Pendiente',articulo: 'TECLADOS + MOUSE KITT', descripcion:'KIT HALION S200 PS2 TECLADO MULTIMEDIA + MOUSE OPTICO',precio: 220)
+RecepcionDonativo.create( fecha: Date.new(2013,12,22),estado: 'Vendido',articulo: 'IMPRESORAS LASER', descripcion:'MULTIFUNCIONAL HP LASERJET PRO 400 M425DN (CF286A) MONO, USB, RED, 35 PPM, 1200 x 1200 PPP,',precio: 246)
+RecepcionDonativo.create( fecha: Date.new(2005,3,15),estado: 'Pendiente',articulo: 'COOLER // EXTRACTOR PARA CASE', descripcion:'COOLER FOR SYSTEM OMEGA',precio: 209)
+RecepcionDonativo.create( fecha: Date.new(2007,10,16),estado: 'Pendiente',articulo: 'TINTAS IMPRESORA', descripcion:'TINTA CANON PG-40 NEGRO',precio: 323)
+RecepcionDonativo.create( fecha: Date.new(2005,4,9),estado: 'Vendido',articulo: 'NOTEBOOK & NETBOOK', descripcion:'NOTEBOOK LENOVO Z5070 CI7-4510U 2.0 GHZ // 8GB // 1TB // 15.6"LED // GFORCE GT820M 2GB //W 8',precio: 297)
+RecepcionDonativo.create( fecha: Date.new(2012,1,19),estado: 'Pendiente',articulo: 'IMPRESORAS LASER', descripcion:'MULTIFUNCIONAL HP LASERJET PRO 400 M425DN (CF286A) MONO, USB, RED, 35 PPM, 1200 x 1200 PPP,',precio: 211)
+RecepcionDonativo.create( fecha: Date.new(2014,3,11),estado: 'Vendido',articulo: 'TARJETA DE VIDEO PCI EXPRESS DDR2  DDR94', descripcion:'4GB PCI EXP. PNY NVIDIA QUADRO K4200 DDR5 (VQK4200-ESPPB) (CERTIF. P/ AUTOCAD)',precio: 214)
+RecepcionDonativo.create( fecha: Date.new(2012,8,7),estado: 'Pendiente',articulo: 'MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', descripcion:'MB GIGABYTE GA-Z97X - GAMING 5 C/ VIDEO SONIDO RED DDR3LGA 1150',precio: 275)
+RecepcionDonativo.create( fecha: Date.new(2013,11,24),estado: 'Pendiente',articulo: 'MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', descripcion:'MB GIGABYTE GA-H81M-H C/ VIDEO-SONIDO-RED DDR3 LGA 1150 C/VGA, HDMI, USB 3.0, PCI-E X1',precio: 160)
+RecepcionDonativo.create( fecha: Date.new(2010,7,6),estado: 'Pendiente',articulo: 'MICROFONO C/ AUDIFONO – PARA GAMERS', descripcion:'AUDIFONO C/MICROFONO LOGITECH G430 GAMING USB BLACK  "PARA GAMERS"',precio: 195)
+RecepcionDonativo.create( fecha: Date.new(2006,6,26),estado: 'Vendido',articulo: 'ANTIVIRUS', descripcion:'ESET NOD32 ANTIVIRUS V.2015 ANUAL 1PC',precio: 315)
+RecepcionDonativo.create( fecha: Date.new(2012,3,17),estado: 'Vendido',articulo: 'DISCO DURO SATA', descripcion:'WESTERN DIGITAL 4TB PURPURA SATA 6GB/s 64MB (WD40PURX) P/ VIDEOVIGILANCIA ',precio: 20)
+RecepcionDonativo.create( fecha: Date.new(2015,11,5),estado: 'Vendido',articulo: 'TONER ORIGINALES P/ IMPRESORAS', descripcion:'TONER HP 130A (CF351A)  CYAN // YELLOWW (CF352A) // MAGENTA (CF353A)',precio: 72)
+RecepcionDonativo.create( fecha: Date.new(2013,11,26),estado: 'Pendiente',articulo: 'PROCESADOR AMD  FM2', descripcion:'AMD A10 - 6800K QUAD CORE 4,10GHZ / 4MB HD6870D / FM2',precio: 337)
+RecepcionDonativo.create( fecha: Date.new(2007,4,21),estado: 'Pendiente',articulo: 'MEMORIAS DDR3 BUS  1333 / 1600 / 1871', descripcion:'MEMORIA DDR3 4GB BUS 1600 MHZ CORSAIR VALUE SELECT, PIN 240, 1.5V, CL11 (CMV4GX3M1A1600C11)',precio: 245)
+RecepcionDonativo.create( fecha: Date.new(2007,6,26),estado: 'Pendiente',articulo: 'MOUSES OPTICO WIRELESS// BLUETOOH', descripcion:'MOUSE WIRELESS MICROSOFT ARC TOUCH BLACK (PN:RVF-00052)',precio: 168)
+RecepcionDonativo.create( fecha: Date.new(2013,3,9),estado: 'Pendiente',articulo: 'MOUSE OPTICO', descripcion:'MOUSE GENIUS NETSCROOL 120 OPTICO , PS2 NEGRO (PN 31011461100)',precio: 60)
+RecepcionDonativo.create( fecha: Date.new(2013,3,17),estado: 'Vendido',articulo: 'VIDEO CAM', descripcion:'WEB CAM MICRONICS  CARUSSO BLK MIC W701 FULLHD 1080P 20MP',precio: 211)
+RecepcionDonativo.create( fecha: Date.new(2015,8,10),estado: 'Vendido',articulo: 'WIRELESS REDES TP-LINK', descripcion:'WIRELES PCI ADAPTER  54MBS TP-LINK MODEL. WN350GD',precio: 85)
+RecepcionDonativo.create( fecha: Date.new(2012,5,13),estado: 'Pendiente',articulo: 'MOUSES OPTICO RETRACTIL', descripcion:'MOUSE RETRACTIL DATAONE MINI DAT-297P + PAD MOUSE CON DISEÑO',precio: 264)
+RecepcionDonativo.create( fecha: Date.new(2012,6,19),estado: 'Pendiente',articulo: 'ESTABILIZADORES IMPORTADO / UPS  IMPORTADOS / SUPRESORES', descripcion:'UPS APC BACK 1100VA /600W BX1100CI-MS (2 TOMAS C13, 4 TOMA UNIV.)  INTERACTIVO, AVR, 230V, USB',precio: 244)
+RecepcionDonativo.create( fecha: Date.new(2007,1,21),estado: 'Pendiente',articulo: 'MONITOR TV & TELEVISORES', descripcion:'MONITOR TV LED 21,5” SAMSUNG LT22b350LB FULL HD HDMI',precio: 139)
+RecepcionDonativo.create( fecha: Date.new(2005,8,9),estado: 'Pendiente',articulo: 'WIRELESS REDES TP-LINK', descripcion:'WIRELES USB ADAPTER 300MBPS TP-LINK TL-WN823N MINI',precio: 101)
+RecepcionDonativo.create( fecha: Date.new(2013,12,3),estado: 'Vendido',articulo: 'FUENTES DE PODER', descripcion:'FUENTE COOLER MASTER G750M 750W MODULAR (PN:RS750-AMAA-B1-US)',precio: 298)
+RecepcionDonativo.create( fecha: Date.new(2007,2,1),estado: 'Vendido',articulo: 'MEMORIA USB / MICRO SD //REPRODUCTOR MP75', descripcion:'MEMORIA SDHC 16GB KINGSTON CLASE 10 (SD10V/16GB) (CAMARAS FOTOGRAFICAS & VIDEO DE ALTA VELOCIDAD)',precio: 51)
+RecepcionDonativo.create( fecha: Date.new(2007,1,4),estado: 'Vendido',articulo: 'TECLADOS + MOUSE KITT WIRELESS', descripcion:'KIT WIRELESS LOGITECH MK365 TECLADO  + MOUSE USB',precio: 233)
+RecepcionDonativo.create( fecha: Date.new(2008,11,2),estado: 'Vendido',articulo: 'MAINBOARD AMD  FM2+', descripcion:'MB ASUS A88XM-E C/ VIDEO- SONIDO-RED DDR3 SOCKET FM2+',precio: 29)
+RecepcionDonativo.create( fecha: Date.new(2009,12,7),estado: 'Pendiente',articulo: 'VIDEO CAM', descripcion:'WEB CAM MICRONICS INFINITY MIC W301 BLACK//RED//SILVER',precio: 303)
+RecepcionDonativo.create( fecha: Date.new(2014,6,1),estado: 'Vendido',articulo: 'CAMARA DE VIGILANCIA IP // SISTEMA DE SEGURIDAD', descripcion:'CAMARA VIGILANCIA IP WIRELESS TRENDNET HD TV-IP762IC',precio: 200)
+RecepcionDonativo.create( fecha: Date.new(2015,7,13),estado: 'Vendido',articulo: 'CASES', descripcion:'CASE COOLER MASTER K280 USB 3.0 SIN FUENTE (PN:RCK280-KKN1)',precio: 188)
+RecepcionDonativo.create( fecha: Date.new(2010,2,6),estado: 'Vendido',articulo: 'MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', descripcion:'MB ECS H81H3-M4 C/VIDEO-SONIDO-RED DDR3 LGA 1150 MICRO ATX',precio: 38)
+RecepcionDonativo.create( fecha: Date.new(2010,3,22),estado: 'Pendiente',articulo: 'ANTIVIRUS', descripcion:'NORTON INTERNET SECURITY 2012 10PC',precio: 20)
+RecepcionDonativo.create( fecha: Date.new(2006,7,6),estado: 'Vendido',articulo: 'DISCO DURO SATA', descripcion:'WESTERN DIGITAL 4TB PURPURA SATA 6GB/s 64MB (WD40PURX) P/ VIDEOVIGILANCIA ',precio: 323)
+RecepcionDonativo.create( fecha: Date.new(2010,1,22),estado: 'Vendido',articulo: 'REDES : SWITCH 10/100/1011', descripcion:'SWITCH TP-LINK 24 PORT 10/100/1000 TL-SG1024 "RACKEABLE"',precio: 361)
+RecepcionDonativo.create( fecha: Date.new(2008,11,2),estado: 'Vendido',articulo: 'FUENTES DE PODER', descripcion:'FUENTE COOLER MASTER THUNDER 500W PFC (PN:RS500-ACABM3-PH)',precio: 225)
+RecepcionDonativo.create( fecha: Date.new(2014,12,8),estado: 'Pendiente',articulo: 'MOUSES OPTICO WIRELESS// BLUETOOH', descripcion:'MOUSE WIRELESS EUROCASE MINI USB EUMO-1625W',precio: 84)
+RecepcionDonativo.create( fecha: Date.new(2015,1,4),estado: 'Pendiente',articulo: 'CASES', descripcion:'CASE AVATEC FUENTE 350W REALES 3214WOW // 3214PJD C/DISEÑO DE GAMERS',precio: 89)
+RecepcionDonativo.create( fecha: Date.new(2011,9,17),estado: 'Vendido',articulo: 'PARLANTES 2,16', descripcion:'PARLANTES MICRONICS BENETTON MIC S320 USB 2,0',precio: 179)
+RecepcionDonativo.create( fecha: Date.new(2009,7,22),estado: 'Vendido',articulo: 'TECLADOS + MOUSE KITT', descripcion:'KIT MICROSOFT WIRED 400 USB TECLADO ESTANDAR + MOUSE OPTICO',precio: 376)
+RecepcionDonativo.create( fecha: Date.new(2006,1,16),estado: 'Vendido',articulo: 'TONER ORIGINALES P/ IMPRESORAS', descripcion:'GAMEPAD CYBERTEL WIRELESS SPILLER G891W-T SILVER-RED USB // PS2 // PS3',precio: 104)
+
+
+
+
+Citum.create( fecha: Date.new(2011,12,13), hora: Time.new(2011,12,13,9,2,0), ubicación:'calle Ignacio Sanjines #677', nombreDonante:'Hermione ', estado:' Cancelada', telefono: 5481460)
+Citum.create( fecha: Date.new(2009,12,2), hora: Time.new(2009,12,2,9,39,0), ubicación:'calle Tarapaca #232', nombreDonante:'Valentín', estado:' Enviado', telefono: 22709154)
+Citum.create( fecha: Date.new(2015,3,9), hora: Time.new(2015,3,9,10,52,0), ubicación:'calle Radiata Sud #486', nombreDonante:'Enzo', estado:' Pendiente', telefono: 13265307)
+Citum.create( fecha: Date.new(2010,3,24), hora: Time.new(2010,3,24,12,31,0), ubicación:'calle Ernesto Mach #423', nombreDonante:'Immanuel', estado:' Concretada', telefono: 41787469)
+Citum.create( fecha: Date.new(2007,3,16), hora: Time.new(2007,3,16,14,54,0), ubicación:'calle La Merced #721', nombreDonante:'Hasán ', estado:' Pendiente', telefono: 59942833)
+Citum.create( fecha: Date.new(2014,3,14), hora: Time.new(2014,3,14,14,15,0), ubicación:'calle Avenue Miguel #331', nombreDonante:'Conrado ', estado:' Concretada', telefono: 25802793)
+Citum.create( fecha: Date.new(2005,2,10), hora: Time.new(2005,2,10,11,47,0), ubicación:'calle Juan Capriles #411', nombreDonante:'Ildefonso', estado:' Enviado', telefono: 78021280)
+Citum.create( fecha: Date.new(2005,1,12), hora: Time.new(2005,1,12,9,10,0), ubicación:'calle Puca huaycha #724', nombreDonante:'Indalecio ', estado:' Concretada', telefono: 38343790)
+Citum.create( fecha: Date.new(2015,12,27), hora: Time.new(2015,12,27,14,6,0), ubicación:'calle Rvdo.Luis Espinal #190', nombreDonante:'Luciano', estado:' Enviado', telefono: 27587009)
+Citum.create( fecha: Date.new(2009,1,27), hora: Time.new(2009,1,27,13,12,0), ubicación:'calle C.F. Beltran #766', nombreDonante:'Mustafá', estado:' Concretada', telefono: 52457573)
+Citum.create( fecha: Date.new(2011,6,12), hora: Time.new(2011,6,12,10,32,0), ubicación:'calle Pj. A #845', nombreDonante:'Caetano ', estado:' Concretada', telefono: 74875341)
+Citum.create( fecha: Date.new(2005,11,11), hora: Time.new(2005,11,11,10,24,0), ubicación:'calle M.L. Oliden #266', nombreDonante:'Saúl', estado:' Enviado', telefono: 53889219)
+Citum.create( fecha: Date.new(2007,2,6), hora: Time.new(2007,2,6,14,10,0), ubicación:'calle Motacu #274', nombreDonante:'Flavio', estado:' Pendiente', telefono: 39930492)
+Citum.create( fecha: Date.new(2007,4,6), hora: Time.new(2007,4,6,11,55,0), ubicación:'calle Avenue Miguel #337', nombreDonante:'Constantino', estado:' Enviado', telefono: 80748777)
+Citum.create( fecha: Date.new(2010,6,17), hora: Time.new(2010,6,17,14,28,0), ubicación:'calle Epizana #683', nombreDonante:'Mecenas ', estado:' Enviado', telefono: 19585555)
+Citum.create( fecha: Date.new(2007,9,21), hora: Time.new(2007,9,21,10,15,0), ubicación:'calle Munay #236', nombreDonante:'Antonio', estado:' Cancelada', telefono: 36091939)
+Citum.create( fecha: Date.new(2013,1,24), hora: Time.new(2013,1,24,14,23,0), ubicación:'calle Esteban Gonzales Avenida #293', nombreDonante:'Servando ', estado:' Enviado', telefono: 27537813)
+Citum.create( fecha: Date.new(2010,4,9), hora: Time.new(2010,4,9,11,20,0), ubicación:'calle Mataral #198', nombreDonante:'Malibran', estado:' Concretada', telefono: 70011219)
+Citum.create( fecha: Date.new(2012,6,7), hora: Time.new(2012,6,7,11,32,0), ubicación:'calle La Paz #419', nombreDonante:'Marcos', estado:' Cancelada', telefono: 80850353)
+Citum.create( fecha: Date.new(2010,9,8), hora: Time.new(2010,9,8,14,12,0), ubicación:'calle Jose M.Urquidi Avenida #233', nombreDonante:'Pompilio ', estado:' Concretada', telefono: 40895038)
+Citum.create( fecha: Date.new(2009,12,7), hora: Time.new(2009,12,7,14,14,0), ubicación:'calle Pacay #226', nombreDonante:'Feliciano', estado:' Concretada', telefono: 39671451)
+Citum.create( fecha: Date.new(2013,6,27), hora: Time.new(2013,6,27,11,18,0), ubicación:'calle ChÂ´arina #741', nombreDonante:'Adrián', estado:' Cancelada', telefono: 38093439)
+Citum.create( fecha: Date.new(2010,2,16), hora: Time.new(2010,2,16,11,32,0), ubicación:'calle Maks Potugal #640', nombreDonante:'Clemente', estado:' Concretada', telefono: 25733707)
+Citum.create( fecha: Date.new(2008,1,24), hora: Time.new(2008,1,24,14,9,0), ubicación:'calle Miguel De Aguirre #785', nombreDonante:'Paco', estado:' Enviado', telefono: 5154584)
+Citum.create( fecha: Date.new(2012,11,1), hora: Time.new(2012,11,1,9,19,0), ubicación:'calle Ismael Vasquez #317', nombreDonante:'Kumigo', estado:' Cancelada', telefono: 56107337)
+Citum.create( fecha: Date.new(2007,5,25), hora: Time.new(2007,5,25,14,29,0), ubicación:'calle Rojas Enrique Rojas #470', nombreDonante:'Silverio', estado:' Cancelada', telefono: 5443149)
+Citum.create( fecha: Date.new(2015,10,5), hora: Time.new(2015,10,5,10,31,0), ubicación:'calle Modesto Omite #834', nombreDonante:'Bonifaz', estado:' Pendiente', telefono: 49292508)
+Citum.create( fecha: Date.new(2011,12,16), hora: Time.new(2011,12,16,11,14,0), ubicación:'calle Esmeralda #594', nombreDonante:'Fergus ', estado:' Enviado', telefono: 5922024)
+Citum.create( fecha: Date.new(2014,12,24), hora: Time.new(2014,12,24,11,44,0), ubicación:'calle Alipio Valencia Vega #824', nombreDonante:'Bernabé', estado:' Pendiente', telefono: 37223436)
+Citum.create( fecha: Date.new(2010,5,19), hora: Time.new(2010,5,19,14,9,0), ubicación:'calle A.Tornero #293', nombreDonante:'Glauco ', estado:' Pendiente', telefono: 65527292)
+Citum.create( fecha: Date.new(2009,10,28), hora: Time.new(2009,10,28,13,36,0), ubicación:'calle Santa Rita #565', nombreDonante:'Tamguy ', estado:' Pendiente', telefono: 34376471)
+Citum.create( fecha: Date.new(2007,12,1), hora: Time.new(2007,12,1,9,6,0), ubicación:'calle Reyes Molina #187', nombreDonante:'Arnaldo', estado:' Pendiente', telefono: 40220407)
+Citum.create( fecha: Date.new(2012,6,8), hora: Time.new(2012,6,8,14,1,0), ubicación:'calle H.Almaraz #276', nombreDonante:'Valero', estado:' Enviado', telefono: 77814155)
+Citum.create( fecha: Date.new(2009,1,6), hora: Time.new(2009,1,6,10,43,0), ubicación:'calle Tucuman #164', nombreDonante:'Séptimo ', estado:' Concretada', telefono: 48288392)
+Citum.create( fecha: Date.new(2011,7,9), hora: Time.new(2011,7,9,12,56,0), ubicación:'calle Tomas Frias #237', nombreDonante:'Quintiliano ', estado:' Cancelada', telefono: 23145308)
+Citum.create( fecha: Date.new(2015,6,10), hora: Time.new(2015,6,10,10,28,0), ubicación:'calle Guillermo Sanchez #561', nombreDonante:'Tiburcio ', estado:' Pendiente', telefono: 81592890)
+Citum.create( fecha: Date.new(2006,5,13), hora: Time.new(2006,5,13,11,27,0), ubicación:'calle Wara Wara #259', nombreDonante:'Saúl', estado:' Concretada', telefono: 80535380)
+Citum.create( fecha: Date.new(2009,5,14), hora: Time.new(2009,5,14,11,12,0), ubicación:'calle J.R.Molina #273', nombreDonante:'Osvaldo ', estado:' Pendiente', telefono: 78345039)
+Citum.create( fecha: Date.new(2013,12,1), hora: Time.new(2013,12,1,11,9,0), ubicación:'calle Martin Cardenas #368', nombreDonante:'Krishna ', estado:' Enviado', telefono: 65899943)
+Citum.create( fecha: Date.new(2012,10,9), hora: Time.new(2012,10,9,9,26,0), ubicación:'calle Aniceto Padilla #576', nombreDonante:'Landolfo ', estado:' Cancelada', telefono: 68007946)
+Citum.create( fecha: Date.new(2015,4,28), hora: Time.new(2015,4,28,11,52,0), ubicación:'calle M.J.Mejia #809', nombreDonante:'Nahuel ', estado:' Cancelada', telefono: 24075625)
+Citum.create( fecha: Date.new(2005,6,8), hora: Time.new(2005,6,8,11,19,0), ubicación:'calle Pasaje De #203', nombreDonante:'Casiano ', estado:' Pendiente', telefono: 15295515)
+Citum.create( fecha: Date.new(2014,7,26), hora: Time.new(2014,7,26,14,48,0), ubicación:'calle San Martin #288', nombreDonante:'Herodías ', estado:' Concretada', telefono: 25321965)
+Citum.create( fecha: Date.new(2015,6,24), hora: Time.new(2015,6,24,9,40,0), ubicación:'calle Juan Cluaure #439', nombreDonante:'Pericles', estado:' Enviado', telefono: 39957740)
+Citum.create( fecha: Date.new(2015,5,19), hora: Time.new(2015,5,19,12,54,0), ubicación:'calle Cidra #388', nombreDonante:'Galileo ', estado:' Enviado', telefono: 16575799)
+Citum.create( fecha: Date.new(2005,4,6), hora: Time.new(2005,4,6,14,26,0), ubicación:'calle Chopin #695', nombreDonante:'Imperio', estado:' Enviado', telefono: 24362868)
+Citum.create( fecha: Date.new(2006,5,9), hora: Time.new(2006,5,9,13,50,0), ubicación:'calle Mons.Juan Tarsicio Seener #838', nombreDonante:'Geminiano ', estado:' Concretada', telefono: 54077260)
+Citum.create( fecha: Date.new(2015,12,2), hora: Time.new(2015,12,2,14,20,0), ubicación:'calle Gabriel Lippamann #331', nombreDonante:'Mariano ', estado:' Concretada', telefono: 24074528)
+Citum.create( fecha: Date.new(2008,10,20), hora: Time.new(2008,10,20,10,31,0), ubicación:'calle Coperativa De Vivienda Sindica Mixto #669', nombreDonante:'Efraín', estado:' Pendiente', telefono: 20045205)
+Citum.create( fecha: Date.new(2014,6,21), hora: Time.new(2014,6,21,14,8,0), ubicación:'calle Paria #423', nombreDonante:'Gualterio', estado:' Pendiente', telefono: 46135040)
+Citum.create( fecha: Date.new(2007,6,26), hora: Time.new(2007,6,26,10,9,0), ubicación:'calle Alcala #774', nombreDonante:'Merlín ', estado:' Cancelada', telefono: 25911848)
+Citum.create( fecha: Date.new(2010,9,15), hora: Time.new(2010,9,15,12,2,0), ubicación:'calle Los Molles #362', nombreDonante:'Feliciano ', estado:' Cancelada', telefono: 5781747)
+Citum.create( fecha: Date.new(2008,1,7), hora: Time.new(2008,1,7,9,39,0), ubicación:'calle B.M Pulcayo #579', nombreDonante:'Constantino', estado:' Concretada', telefono: 73779430)
+Citum.create( fecha: Date.new(2013,10,2), hora: Time.new(2013,10,2,13,16,0), ubicación:'calle Siriono #502', nombreDonante:'Lucas', estado:' Pendiente', telefono: 75234364)
+Citum.create( fecha: Date.new(2012,12,18), hora: Time.new(2012,12,18,9,28,0), ubicación:'calle Yawar Mallku #273', nombreDonante:'Marvin ', estado:' Pendiente', telefono: 55107885)
+Citum.create( fecha: Date.new(2007,12,14), hora: Time.new(2007,12,14,10,30,0), ubicación:'calle Issac Aranibar #736', nombreDonante:'Salviano ', estado:' Pendiente', telefono: 80608153)
+Citum.create( fecha: Date.new(2008,4,21), hora: Time.new(2008,4,21,10,31,0), ubicación:'calle Johann Goethe #319', nombreDonante:'Moctezuma ', estado:' Concretada', telefono: 46524384)
+Citum.create( fecha: Date.new(2014,6,23), hora: Time.new(2014,6,23,13,9,0), ubicación:'calle Quito #410', nombreDonante:'Pánfilo ', estado:' Concretada', telefono: 25051683)
+Citum.create( fecha: Date.new(2005,6,23), hora: Time.new(2005,6,23,11,35,0), ubicación:'calle Ukhamau #547', nombreDonante:'Abraham', estado:' Enviado', telefono: 40624343)
+Citum.create( fecha: Date.new(2010,12,19), hora: Time.new(2010,12,19,11,39,0), ubicación:'calle De Camacho #811', nombreDonante:'Inca ', estado:' Concretada', telefono: 44472882)
+Citum.create( fecha: Date.new(2015,7,28), hora: Time.new(2015,7,28,10,18,0), ubicación:'calle Dionisicio de La Borda #712', nombreDonante:'Daniel', estado:' Enviado', telefono: 54967157)
+Citum.create( fecha: Date.new(2006,11,25), hora: Time.new(2006,11,25,12,20,0), ubicación:'calle Jorge Washinton #265', nombreDonante:'Sófocles ', estado:' Cancelada', telefono: 51737068)
+Citum.create( fecha: Date.new(2005,10,6), hora: Time.new(2005,10,6,10,17,0), ubicación:'calle Primo Castillo #136', nombreDonante:'Gilberto ', estado:' Concretada', telefono: 64001128)
+Citum.create( fecha: Date.new(2005,12,2), hora: Time.new(2005,12,2,11,52,0), ubicación:'calle Mejillones #249', nombreDonante:'Iñigo ', estado:' Enviado', telefono: 52997030)
+Citum.create( fecha: Date.new(2008,7,14), hora: Time.new(2008,7,14,10,28,0), ubicación:'calle Guilermo Viscarra #838', nombreDonante:'Esteban', estado:' Cancelada', telefono: 28833806)
+Citum.create( fecha: Date.new(2014,5,24), hora: Time.new(2014,5,24,9,35,0), ubicación:'calle Guinea #572', nombreDonante:'Egidio ', estado:' Concretada', telefono: 39186848)
+Citum.create( fecha: Date.new(2015,3,9), hora: Time.new(2015,3,9,12,10,0), ubicación:'calle BatallÃ³n Colorados #823', nombreDonante:'Gelasio', estado:' Cancelada', telefono: 76729126)
+Citum.create( fecha: Date.new(2009,5,1), hora: Time.new(2009,5,1,14,54,0), ubicación:'calle Dionisio Bobadilla #379', nombreDonante:'Apolo', estado:' Concretada', telefono: 22997355)
+Citum.create( fecha: Date.new(2006,6,20), hora: Time.new(2006,6,20,14,17,0), ubicación:'calle Manuel Virreira #445', nombreDonante:'Absalón ', estado:' Cancelada', telefono: 14998871)
+Citum.create( fecha: Date.new(2014,3,8), hora: Time.new(2014,3,8,11,25,0), ubicación:'calle Sinchicay #293', nombreDonante:'Tiburcio ', estado:' Concretada', telefono: 72997148)
+Citum.create( fecha: Date.new(2007,7,11), hora: Time.new(2007,7,11,14,49,0), ubicación:'calle Chimpu Ojjllu #865', nombreDonante:'Mariano ', estado:' Cancelada', telefono: 42235915)
+Citum.create( fecha: Date.new(2012,4,12), hora: Time.new(2012,4,12,12,52,0), ubicación:'calle Motacu #216', nombreDonante:'Cibeles ', estado:' Cancelada', telefono: 12880813)
+Citum.create( fecha: Date.new(2014,10,23), hora: Time.new(2014,10,23,10,12,0), ubicación:'calle A.Quijarro #311', nombreDonante:'Baruch ', estado:' Concretada', telefono: 33798363)
+Citum.create( fecha: Date.new(2014,10,8), hora: Time.new(2014,10,8,9,36,0), ubicación:'calle Aullagas #226', nombreDonante:'Demetri', estado:' Enviado', telefono: 7511936)
+Citum.create( fecha: Date.new(2005,8,14), hora: Time.new(2005,8,14,10,9,0), ubicación:'calle Las Begonias Avenida #664', nombreDonante:'Saturno ', estado:' Enviado', telefono: 17468574)
+Citum.create( fecha: Date.new(2014,9,14), hora: Time.new(2014,9,14,11,3,0), ubicación:'calle Kishkis #470', nombreDonante:'Marcoval ', estado:' Cancelada', telefono: 24454513)
+Citum.create( fecha: Date.new(2008,4,18), hora: Time.new(2008,4,18,10,5,0), ubicación:'calle Rio Itonomas #488', nombreDonante:'Melquíades', estado:' Cancelada', telefono: 17287669)
+Citum.create( fecha: Date.new(2012,5,2), hora: Time.new(2012,5,2,11,42,0), ubicación:'calle Jose De la Reza #372', nombreDonante:'Metodio', estado:' Enviado', telefono: 43827973)
+Citum.create( fecha: Date.new(2006,9,22), hora: Time.new(2006,9,22,12,37,0), ubicación:'calle Mostajo #123', nombreDonante:'Marciano', estado:' Enviado', telefono: 15500519)
+Citum.create( fecha: Date.new(2012,1,11), hora: Time.new(2012,1,11,13,35,0), ubicación:'calle M De Los Santos Taborga #308', nombreDonante:'Jimeno', estado:' Pendiente', telefono: 80424044)
+Citum.create( fecha: Date.new(2006,1,26), hora: Time.new(2006,1,26,13,12,0), ubicación:'calle Las Buganvillas #511', nombreDonante:'Nazaret ', estado:' Pendiente', telefono: 22865804)
+Citum.create( fecha: Date.new(2013,1,20), hora: Time.new(2013,1,20,10,9,0), ubicación:'calle Virgen de La Candelaria #170', nombreDonante:'Marlon ', estado:' Cancelada', telefono: 32670821)
+Citum.create( fecha: Date.new(2010,3,28), hora: Time.new(2010,3,28,12,40,0), ubicación:'calle Uru #465', nombreDonante:'Servando ', estado:' Cancelada', telefono: 61993462)
+Citum.create( fecha: Date.new(2006,1,19), hora: Time.new(2006,1,19,10,8,0), ubicación:'calle German Muller #347', nombreDonante:'Santos', estado:' Enviado', telefono: 47445672)
+Citum.create( fecha: Date.new(2009,9,16), hora: Time.new(2009,9,16,12,14,0), ubicación:'calle Anna Pavlova #259', nombreDonante:'Lenin', estado:' Cancelada', telefono: 71186249)
+Citum.create( fecha: Date.new(2012,3,6), hora: Time.new(2012,3,6,13,19,0), ubicación:'calle Del Ejercito Avenida #769', nombreDonante:'Edison', estado:' Enviado', telefono: 71396221)
+Citum.create( fecha: Date.new(2009,3,20), hora: Time.new(2009,3,20,14,52,0), ubicación:'calle Fortin Vanguardia #180', nombreDonante:'Rufo ', estado:' Concretada', telefono: 44878349)
+Citum.create( fecha: Date.new(2006,6,9), hora: Time.new(2006,6,9,12,44,0), ubicación:'calle Gil Coimbra #680', nombreDonante:'Félix', estado:' Concretada', telefono: 32146514)
+Citum.create( fecha: Date.new(2013,12,19), hora: Time.new(2013,12,19,9,3,0), ubicación:'calle Chimane #709', nombreDonante:'Calisto', estado:' Concretada', telefono: 7726503)
+Citum.create( fecha: Date.new(2005,4,7), hora: Time.new(2005,4,7,13,34,0), ubicación:'calle Pje.I #471', nombreDonante:'Homero', estado:' Pendiente', telefono: 52276907)
+Citum.create( fecha: Date.new(2008,6,15), hora: Time.new(2008,6,15,9,36,0), ubicación:'calle Santiago #455', nombreDonante:'Siro ', estado:' Enviado', telefono: 32649792)
+Citum.create( fecha: Date.new(2009,7,3), hora: Time.new(2009,7,3,13,51,0), ubicación:'calle Fucsia #628', nombreDonante:'Haakon ', estado:' Pendiente', telefono: 16637513)
+Citum.create( fecha: Date.new(2006,12,13), hora: Time.new(2006,12,13,13,19,0), ubicación:'calle Pj. A #668', nombreDonante:'Jacob ', estado:' Cancelada', telefono: 43633326)
+Citum.create( fecha: Date.new(2010,8,12), hora: Time.new(2010,8,12,13,31,0), ubicación:'calle Juan De la Cruz Torres #468', nombreDonante:'Telmo', estado:' Cancelada', telefono: 39664873)
+Citum.create( fecha: Date.new(2008,4,3), hora: Time.new(2008,4,3,9,50,0), ubicación:'calle Copacabana #582', nombreDonante:'Tito', estado:' Pendiente', telefono: 48720287)
+Citum.create( fecha: Date.new(2009,9,9), hora: Time.new(2009,9,9,9,28,0), ubicación:'calle Benjamin #547', nombreDonante:'Jordi ', estado:' Concretada', telefono: 49541165)
+Citum.create( fecha: Date.new(2013,2,22), hora: Time.new(2013,2,22,10,51,0), ubicación:'calle Humberto Iporre #894', nombreDonante:'Refugio ', estado:' Enviado', telefono: 55898708)
+Citum.create( fecha: Date.new(2012,2,5), hora: Time.new(2012,2,5,13,6,0), ubicación:'calle Flor Del Tropico #127', nombreDonante:'Tarsicio ', estado:' Enviado', telefono: 42579263)
+Citum.create( fecha: Date.new(2012,2,15), hora: Time.new(2012,2,15,13,5,0), ubicación:'calle Carlos Taboada #860', nombreDonante:'Segismundo', estado:' Cancelada', telefono: 18434373)
+Citum.create( fecha: Date.new(2005,6,5), hora: Time.new(2005,6,5,14,2,0), ubicación:'calle Gallardina #133', nombreDonante:'Germá', estado:' Concretada', telefono: 63618563)
+
+
+
+>>>>>>> 28b0713266a86e71b2361e9d91e704eed8021f5c
+
+Ingreso.create( concepto:'venta Donativo id=2 articulo=REDES : SWITCH 10/117', fecha: Date.new(2005,7,20), montoBs: 61)
+Ingreso.create( concepto:'venta Donativo id=5 articulo=PARLANTES 2,21', fecha: Date.new(2008,11,27), montoBs: 293)
+Ingreso.create( concepto:'venta Donativo id=8 articulo=TARJETA PCI & PCI EXPRESS', fecha: Date.new(2006,7,14), montoBs: 396)
+Ingreso.create( concepto:'venta Donativo id=9 articulo=VARIOS :ECRAN // RACKS', fecha: Date.new(2009,9,5), montoBs: 27)
+Ingreso.create( concepto:'venta Donativo id=10 articulo=PROCESADOR INTEL PENTIUM//CORE i3// I5 // I7 LGA1150 4TA G.', fecha: Date.new(2006,2,16), montoBs: 181)
+Ingreso.create( concepto:'venta Donativo id=11 articulo=MONITOR TV & TELEVISORES', fecha: Date.new(2007,3,26), montoBs: 373)
+Ingreso.create( concepto:'venta Donativo id=12 articulo=ANTIVIRUS', fecha: Date.new(2007,3,6), montoBs: 144)
+Ingreso.create( concepto:'venta Donativo id=17 articulo=CAMARA DE VIGILANCIA IP // SISTEMA DE SEGURIDAD', fecha: Date.new(2006,5,7), montoBs: 357)
+Ingreso.create( concepto:'venta Donativo id=18 articulo=WIRELESS REDES EDIMAX // KOZUMI // ALFA', fecha: Date.new(2008,9,15), montoBs: 113)
+Ingreso.create( concepto:'venta Donativo id=19 articulo=FUENTES DE PODER', fecha: Date.new(2012,6,26), montoBs: 118)
+Ingreso.create( concepto:'venta Donativo id=20 articulo=MOUSES OPTICO WIRELESS// BLUETOOH', fecha: Date.new(2009,4,14), montoBs: 108)
+Ingreso.create( concepto:'venta Donativo id=21 articulo=MEMORIAS DDR BUS 401', fecha: Date.new(2006,8,21), montoBs: 392)
+Ingreso.create( concepto:'venta Donativo id=22 articulo=ACCESORIOS P/ GAMERS', fecha: Date.new(2008,1,6), montoBs: 342)
+Ingreso.create( concepto:'venta Donativo id=23 articulo=ACCESORIOS P/ GAMERS', fecha: Date.new(2006,10,15), montoBs: 136)
+Ingreso.create( concepto:'venta Donativo id=26 articulo=CASES', fecha: Date.new(2013,12,19), montoBs: 10)
+Ingreso.create( concepto:'venta Donativo id=27 articulo=MEMORIA USB / MICRO SD //REPRODUCTOR MP11', fecha: Date.new(2007,9,22), montoBs: 186)
+Ingreso.create( concepto:'venta Donativo id=29 articulo=PARLANTES 2,1 SUBWOOFER /////5,16', fecha: Date.new(2015,10,16), montoBs: 103)
+Ingreso.create( concepto:'venta Donativo id=30 articulo=IMPRESORA MULTIFUNCIONAL INYECCION TINTA', fecha: Date.new(2012,9,26), montoBs: 390)
+Ingreso.create( concepto:'venta Donativo id=33 articulo=VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', fecha: Date.new(2013,10,26), montoBs: 333)
+Ingreso.create( concepto:'venta Donativo id=34 articulo=MAINBOARD AMD  FM2+', fecha: Date.new(2009,9,3), montoBs: 221)
+Ingreso.create( concepto:'venta Donativo id=35 articulo=TECLADOS', fecha: Date.new(2006,1,2), montoBs: 166)
+Ingreso.create( concepto:'venta Donativo id=42 articulo=VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', fecha: Date.new(2006,4,1), montoBs: 75)
+Ingreso.create( concepto:'venta Donativo id=43 articulo=VARIOS :PAD MOUSE // FUNDAS // KIT LIMPIEZA', fecha: Date.new(2009,1,28), montoBs: 330)
+Ingreso.create( concepto:'venta Donativo id=45 articulo=NOTEBOOK & NETBOOK', fecha: Date.new(2007,8,2), montoBs: 52)
+Ingreso.create( concepto:'venta Donativo id=46 articulo=ANTIVIRUS', fecha: Date.new(2012,7,17), montoBs: 157)
+Ingreso.create( concepto:'venta Donativo id=48 articulo=ANTIVIRUS', fecha: Date.new(2005,3,14), montoBs: 361)
+Ingreso.create( concepto:'venta Donativo id=50 articulo=TARJETA DE VIDEO PCI EXPRESS DDR2  DDR50', fecha: Date.new(2012,11,25), montoBs: 131)
+Ingreso.create( concepto:'venta Donativo id=52 articulo=VIDEO CAM', fecha: Date.new(2013,3,4), montoBs: 157)
+Ingreso.create( concepto:'venta Donativo id=54 articulo=TECLADOS + MOUSE KITT WIRELESS', fecha: Date.new(2010,11,4), montoBs: 398)
+Ingreso.create( concepto:'venta Donativo id=55 articulo=DISCO DURO PARA NOTEBOOK', fecha: Date.new(2008,7,14), montoBs: 28)
+Ingreso.create( concepto:'venta Donativo id=57 articulo=TARJETA DE VIDEO PCI EXPRESS DDR2  DDR71', fecha: Date.new(2010,5,6), montoBs: 375)
+Ingreso.create( concepto:'venta Donativo id=58 articulo=ACCESORIOS P/ GAMERS', fecha: Date.new(2015,11,1), montoBs: 298)
+Ingreso.create( concepto:'venta Donativo id=59 articulo=COOLER // EXTRACTOR PARA CASE', fecha: Date.new(2006,5,7), montoBs: 79)
+Ingreso.create( concepto:'venta Donativo id=60 articulo=MICROFONO C/ AUDIFONO - HANDSFREE', fecha: Date.new(2014,4,8), montoBs: 91)
+Ingreso.create( concepto:'venta Donativo id=62 articulo=IMPRESORAS LASER', fecha: Date.new(2013,12,22), montoBs: 246)
+Ingreso.create( concepto:'venta Donativo id=65 articulo=NOTEBOOK & NETBOOK', fecha: Date.new(2005,4,9), montoBs: 297)
+Ingreso.create( concepto:'venta Donativo id=67 articulo=TARJETA DE VIDEO PCI EXPRESS DDR2  DDR94', fecha: Date.new(2014,3,11), montoBs: 214)
+Ingreso.create( concepto:'venta Donativo id=71 articulo=ANTIVIRUS', fecha: Date.new(2006,6,26), montoBs: 315)
+Ingreso.create( concepto:'venta Donativo id=72 articulo=DISCO DURO SATA', fecha: Date.new(2012,3,17), montoBs: 20)
+Ingreso.create( concepto:'venta Donativo id=73 articulo=TONER ORIGINALES P/ IMPRESORAS', fecha: Date.new(2015,11,5), montoBs: 72)
+Ingreso.create( concepto:'venta Donativo id=78 articulo=VIDEO CAM', fecha: Date.new(2013,3,17), montoBs: 211)
+Ingreso.create( concepto:'venta Donativo id=79 articulo=WIRELESS REDES TP-LINK', fecha: Date.new(2015,8,10), montoBs: 85)
+Ingreso.create( concepto:'venta Donativo id=84 articulo=FUENTES DE PODER', fecha: Date.new(2013,12,3), montoBs: 298)
+Ingreso.create( concepto:'venta Donativo id=85 articulo=MEMORIA USB / MICRO SD //REPRODUCTOR MP75', fecha: Date.new(2007,2,1), montoBs: 51)
+Ingreso.create( concepto:'venta Donativo id=86 articulo=TECLADOS + MOUSE KITT WIRELESS', fecha: Date.new(2007,1,4), montoBs: 233)
+Ingreso.create( concepto:'venta Donativo id=87 articulo=MAINBOARD AMD  FM2+', fecha: Date.new(2008,11,2), montoBs: 29)
+Ingreso.create( concepto:'venta Donativo id=89 articulo=CAMARA DE VIGILANCIA IP // SISTEMA DE SEGURIDAD', fecha: Date.new(2014,6,1), montoBs: 200)
+Ingreso.create( concepto:'venta Donativo id=90 articulo=CASES', fecha: Date.new(2015,7,13), montoBs: 188)
+Ingreso.create( concepto:'venta Donativo id=91 articulo=MAINBOARD O PLACA PARA INTEL LGA1150  4TA GENERACION', fecha: Date.new(2010,2,6), montoBs: 38)
+Ingreso.create( concepto:'venta Donativo id=93 articulo=DISCO DURO SATA', fecha: Date.new(2006,7,6), montoBs: 323)
+Ingreso.create( concepto:'venta Donativo id=94 articulo=REDES : SWITCH 10/100/1011', fecha: Date.new(2010,1,22), montoBs: 361)
+Ingreso.create( concepto:'venta Donativo id=95 articulo=FUENTES DE PODER', fecha: Date.new(2008,11,2), montoBs: 225)
+Ingreso.create( concepto:'venta Donativo id=98 articulo=PARLANTES 2,16', fecha: Date.new(2011,9,17), montoBs: 179)
+Ingreso.create( concepto:'venta Donativo id=99 articulo=TECLADOS + MOUSE KITT', fecha: Date.new(2009,7,22), montoBs: 376)
+Ingreso.create( concepto:'venta Donativo id=100 articulo=TONER ORIGINALES P/ IMPRESORAS', fecha: Date.new(2006,1,16), montoBs: 104)

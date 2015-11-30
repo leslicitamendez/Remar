@@ -4,30 +4,20 @@ class RecepcionDonativosController < ApplicationController
   # GET /recepcion_donativos
   # GET /recepcion_donativos.json
   def index
-    #@recepcion_donativos = RecepcionDonativo.all.paginate(page: params[:page], per_page: 5).order('fecha DESC')
-    #@palabra = ''
-    #@palabra = params[:palabra].to_date
-    #@fec=Date.parse("@palabra.to_s")
+    @recepcion_donativos = RecepcionDonativo.all
     @page = params[:page]
-    if params[:palabra2]==nil ||  params[:palabra2]== ''
-      params[:palabra2]=Date.today.to_s
-    end
-    if params[:palabra] &&  params[:palabra]!= '' 
-      begin
-        @recepcion_donativos = RecepcionDonativo.order("fecha DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
-      rescue Exception => e
-        flash[:success] = 'Por favor ingrese una fecha valida'
-        params.delete :palabra
-        redirect_to '/recepcion_donativos'
+    @palabra=params[:palabra]
+    begin
+      if params[:palabra] &&  params[:palabra]!= '' 
+          @recepcion_donativos = @recepcion_donativos.order("articulo ASC").where("articulo LIKE ? OR descripcion LIKE ?", "%#{@palabra}%", "%#{@palabra}%")      
+      end 
+      if params[:estado] &&  params[:estado]!= '' 
+        @recepcion_donativos = @recepcion_donativos.order("articulo ASC").where("estado =?", params[:estado])
+      else
+        @recepcion_donativos = @recepcion_donativos.order("articulo ASC").where("estado =?", 'Pendiente')            
       end
-    else
-      begin
-        @recepcion_donativos = RecepcionDonativo.order("id DESC").where("estado = 'Pendiente'")
-      rescue Exception => e
-        flash[:success] = 'Por favor ingrese una fecha valida'
-        params.delete :palabra2
-        redirect_to '/recepcion_donativos'
-      end
+    rescue Exception => e
+      redirect_to '/recepcion_donativos'
     end
   end
 
