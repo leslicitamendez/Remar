@@ -15,7 +15,18 @@ productos = Product.create([{code: 'CHOCO1', name: 'Chocotejas', unity: 'Gramos'
 	{code: 'SHAMP5', name: 'Shampoo', unity: 'Mililitros', price: 27.5, description: 'Shampoo de 500 ml para niños', state: 'Activo'},
 	{code: 'LLAVE6', name: 'Llavero', unity: 'Pieza', price: 20.0, description: 'Llavero artesanal', state: 'Activo'},
 	{code: 'JABON7', name: 'Jabon', unity: 'Pieza', price: 7.5, description: 'Jabon aromatico', state: 'Activo'},
-	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'}])
+	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'},
+	{code: 'ALMAN9', name: 'Almanaque', unity: 'Pieza', price: 30, description: 'Almanaque', state: 'Activo'},
+	{code: 'ANILL10', name: 'Anillo', unity: 'Pieza', price: 15, description: 'Anillo de plata', state: 'Activo'}])
+
+producciones = Produccion.create([{product_id: '1', cantidad: 100, fecha_produccion: DateTime.new(2015, 11, 30), fecha_vencimiento: DateTime.new(2015, 12, 2)},
+	{product_id: '2', cantidad: 1000, fecha_produccion: DateTime.new(2015, 11, 30)},
+	{product_id: '3', cantidad: 500, fecha_produccion: DateTime.new(2015, 11, 30)},
+	{product_id: '4', cantidad: 250, fecha_produccion: DateTime.new(2015, 11, 30), fecha_vencimiento: DateTime.new(2016, 11, 30)},
+	{product_id: '5', cantidad: 400, fecha_produccion: DateTime.new(2015, 11, 30), fecha_vencimiento: DateTime.new(2016, 11, 30)},
+	{product_id: '6', cantidad: 1000, fecha_produccion: DateTime.new(2015, 11, 30)},
+	{product_id: '6', cantidad: 500, fecha_produccion: DateTime.new(2015, 11, 30)},
+	{product_id: '7', cantidad: 800, fecha_produccion: DateTime.new(2015, 11, 30), fecha_vencimiento: DateTime.new(2017, 11, 30)},])
 
 
 hijos = Hijo.create([{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1994, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},

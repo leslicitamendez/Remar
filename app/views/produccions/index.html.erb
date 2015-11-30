@@ -60,7 +60,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @produccions, :previous_label => '&laquo;Anterior', :next_label => 'Siguiente&raquo;' %>
 <script>
   $('.datepicker').datepicker({
     weekStart:1,

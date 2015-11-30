@@ -5,16 +5,16 @@ class ProduccionsController < ApplicationController
   # GET /produccions.json
   def index
     if params[:producto] &&  params[:producto]!= ''
-      @produccions = Produccion.where("product_id =?", params[:producto].to_i)
+      @produccions = Produccion.paginate(:page => params[:page]).where("product_id =?", params[:producto].to_i)
       @produc = Product.find(params[:producto])
     else
-      @produccions = Produccion.all
+      @produccions = Produccion.all.paginate(:per_page => 4, :page => params[:page])
     end 
     
     if params[:fecha_fin] == nil || params[:fecha_fin] == ""
       params[:fecha_fin]=Date.today
     else
-        @produccions = Produccion.order("fecha_produccion DESC").where("fecha_produccion >= ? and fecha_produccion <= ?", params[:fecha_inicio].to_date, params[:fecha_fin].to_date)
+        @produccions = Produccion.order("fecha_produccion DESC").paginate(:page => params[:page], :per_page => 4).where("fecha_produccion >= ? and fecha_produccion <= ?", params[:fecha_inicio].to_date, params[:fecha_fin].to_date)
     end
   end
 
