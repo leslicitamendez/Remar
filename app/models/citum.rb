@@ -12,7 +12,7 @@ class Citum < ActiveRecord::Base
   validates :telefono, length: { minimum: 7, maximum: 8, too_long: "- %{count} caracteres es la longitud maxima permitida", too_short: "- %{count} caracteres es la longitud minima permitida" }
   
 
-	validate :date_cannot_be_in_the_pas
+	#validate :date_cannot_be_in_the_pas
 
   	def date_cannot_be_in_the_pas
     errors.add(:fecha, "Solo se programaran citas de hoy en adelante") if

@@ -1,9 +1,18 @@
-<h1>Lista de donativos para Reventa</h1>
+<h1>Lista de donativos 
+  <%if params["estado"] =='Vendido' %>
+  <%= params["estado"]+'s' %>
+  <%else%>
+    <%='para Reventa'%>
+  <%end%>
+  <%if params["palabra"] !=nil && params["palabra"] !='' %>
+  <%= '"'+params["palabra"]+'"' %>
+  <%end%> 
+</h1> 
 <div align="right">
     <%= form_tag({:controller => "recepcion_donativos", :action => "index"}, :method => :get) do %>
-      Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'palabra2', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      <%= submit_tag "Buscar Donativos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+      Estado: <%= select_tag "estado", options_for_select([ "Vendido", "Pendiente" ]), include_blank: true%> 
+      Articulo o Descripcion: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "Articulo o Descripcion" %>
+      <%= submit_tag "Buscar Donativos", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
 </div><br>
 
@@ -20,11 +29,16 @@
 
   <tbody>
     <tr>
+      <% if params["estado"] == nil %>
+      <% @estado=''%>
+      <% else%>
+      <% @estado= "&estado="+params["estado"]%>
+      <%end%>
       <% if @page == nil %>
       <% @page=1 %> 
       <%end%>
       <% if @page.to_i > 1 %>
-      <%= link_to 'Anterior','/recepcion_donativos?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+      <%= link_to 'Anterior','/recepcion_donativos?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+@estado, :class => 'btn btn-mini btn-default' %>
       <%end%>
       <% if @page.to_i*5 < @recepcion_donativos.length %>
         <% if @recepcion_donativos.length%5 >0 %>
@@ -32,7 +46,7 @@
         <% else %>
           <% @sumax=0%>
         <% end %>
-       pagina <%= @page%> de <%= (@recepcion_donativos.length/5)+@sumax %> <%= link_to 'Siguiente','/recepcion_donativos?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s, :class => 'btn btn-mini btn-default' %>
+       pagina <%= @page%> de <%= (@recepcion_donativos.length/5)+@sumax %> <%= link_to 'Siguiente','/recepcion_donativos?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+@estado, :class => 'btn btn-mini btn-default' %>
       <%end%>
     </tr>
     <% @recepcion_donativos.each_with_index do |recepcion_donativo, index| %>

@@ -14,7 +14,7 @@ class Ingreso < ActiveRecord::Base
     self.estado ||= 'true'
   end
 
-  validate :date_cannot_be_in_the_future
+  #validate :date_cannot_be_in_the_future
 
   def date_cannot_be_in_the_future
     errors.add(:fecha, "No se registran Ingresos a futuro") if

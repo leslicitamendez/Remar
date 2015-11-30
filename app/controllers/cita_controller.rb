@@ -5,23 +5,23 @@ class CitaController < ApplicationController
   # GET /cita.json
   def index
   #  if params[:palabra2]==nil ||  params[:palabra2]== ''
-   #   params[:palabra2]=Date.today.to_s
+   #   params[:palabra2]=Date.today.to_s 
    # end
-    begin 
+    begin
+      @page = params[:page]
+      @palabra2 = params[:palabra2]
+      @palabra = params[:palabra]
       if params[:estado] &&  params[:estado]!= ''
-        @cita = Citum.order("fecha ASC, hora ASC").where("estado=?", params[:estado])
+        @cita = Citum.order("fecha ASC, hora ASC").where("estado LIKE?", '%'+params[:estado]+'%')
       else
          @cita=Citum.all
       end 
-        if params[:palabra] &&  params[:palabra]!= '' 
-          if params[:palabra2]==nil ||  params[:palabra2]== ''
-            @cita = @cita.order("fecha ASC, hora ASC").where("fecha >=?", params[:palabra].to_date)
-          else
-            @cita =  @cita.order("fecha ASC, hora ASC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
-          end
-        else
-          @cita =  @cita.order("fecha ASC, hora ASC").where("fecha =? AND estado!='Cancelada'", Date.today)
-        end 
+      if params[:palabra] &&  params[:palabra]!= '' 
+        @cita = @cita.order("fecha ASC, hora ASC").where("fecha >=?", params[:palabra].to_date)
+      end
+      if params[:palabra2] &&  params[:palabra2]!= '' 
+        @cita = @cita.order("fecha ASC, hora ASC").where("fecha <=?", params[:palabra2].to_date)
+      end           
     rescue Exception => e
       flash[:success] = 'Por favor ingrese una fecha valida'
       params.delete :palabra2

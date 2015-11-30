@@ -8,7 +8,12 @@ class VoluntariosController < ApplicationController
     @palabra = ''
       @palabra = params[:palabra]
     if(params["palabra"]!=nil)
-        @voluntarios=Voluntario.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
+        @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
+    end
+    if(params["estado"]!=nil)
+      @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", params[:estado])
+    else
+      @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", "Activo")
     end
     @page = params[:page]
   end
@@ -33,7 +38,9 @@ class VoluntariosController < ApplicationController
   # POST /voluntarios.json
   def create
     @voluntario = Voluntario.new(voluntario_params)
-
+    if @Voluntario
+    @Voluntario.estado='Activo'
+    end
       if @voluntario.save
         flash[:success] = 'Voluntario creado exitosamente' 
         redirect_to '/voluntarios'
@@ -71,7 +78,7 @@ class VoluntariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voluntario_params
-      params.require(:voluntario).permit(:nombre, :apellido1, :apellido2, :direccion, :NivelConfianza, :telefono, :ci, :sexo)
+      params.require(:voluntario).permit(:nombre, :apellido1, :apellido2, :direccion, :NivelConfianza, :telefono, :ci, :sexo, :estado)
     end
     
 end
