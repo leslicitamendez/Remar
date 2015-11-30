@@ -1533,7 +1533,7 @@ textarea.form-control {
     .dropdown-menu > li > a img {
       margin-top: -3px; }
   .dropdown-menu > li > a:focus {
-    /*outline: 0 !important;*/ }
+    outline: 0 !important; }
   .btn-group.select .dropdown-menu {
     min-width: 100%; }
   .dropdown-menu > li:first-child > a {
@@ -1547,11 +1547,8 @@ textarea.form-control {
     border-bottom: 0 none; }
   .dropdown-menu > li > a:hover,
   .dropdown-menu > li > a:focus {
-    /*background-color: #66615B;
-    color: rgba(255, 255, 255, 0.7);
-    background-color: rgba(149,173,173,0.6);*/
     background-color: #66615B;
-    color: #7A9E9F;
+    color: rgba(255, 255, 255, 0.7);
     opacity: 1;
     text-decoration: none; }
   .dropdown-menu.dropdown-primary > li > a:hover, .dropdown-menu.dropdown-primary > li > a:focus {

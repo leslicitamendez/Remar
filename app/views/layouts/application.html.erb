@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/ct-paper.css">
   <%= csrf_meta_tags %>
 </head>
@@ -18,20 +19,73 @@
                     <a href="/"> <img src="/images/logo_remar.png" width="80"></a>
                 </div>
                 <div class="navbar-text navbar-right">
-                    <div class="header clearfix">
-						<ul class="nav nav-pills pull-right">
-							<li role="presentation" class="active">
-								<a href="/">Inicio</a>
-							</li>
-							<li role="presentation">
-								<a href="#">Acerca</a>
-							</li>
-							<li role="presentation">
-								<a href="#">Contacto</a>
-							</li>
-						</ul>
-					</div>
-                </div>
+                	<!--div class="header clearfix"-->
+                	<ul class="nav navbar-nav">
+                		<li class="dropdown">
+ 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								Internos
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/internos">Lista de Internos</a></li>
+								<li><a href="/internos/new">Registrar Interno</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+ 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								Productos
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/products">Lista de Productos</a></li>
+								<li><a href="/products/new">Registrar Producto</a></li>
+								<li class="dropdown-header">Produccion</li>
+								<li><a href="/produccions">Lista de Producciones</a></li>
+								<li><a href="/produccions/new">Registrar Produccion</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+ 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								Ventas
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/entregaprods?&page=1">Ventas del dia</a></li>
+								<li><a href="/entregaprods/new">Crear Entrega Producto</a></li>
+								<li class="dropdown-header">Voluntarios</li>
+								<li><a href="/voluntarios">Lista de Voluntarios</a></li>
+								<li><a href="/voluntarios/new">Registrar Voluntario</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+ 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								Donativos
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="/recepcion_donativos">Lista de Donativos</a></li>
+								<li><a href="/recepcion_donativos/new">Ingresar Donativo</a></li>
+								<li class="dropdown-header">Citas</li>
+								<li><a href="/cita">Citas del dia</a></li>
+								<li><a href="/cita/new">Agregar Cita</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+ 							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+								I/E
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Ingresos</li>
+								<li><a href="/ingresos">Lista de Ingresos</a></li>
+								<li><a href="/ingresos/new">Registrar Ingreso</a></li>
+								<li class="dropdown-header">Egresos</li>
+								<li><a href="/egresos">Lista de Egresos</a></li>
+								<li><a href="/egresos/new">Registrar Egreso</a></li>
+							</ul>
+						</li>
+                	</ul>
+				</div>
             </div>
         </div>
 	</header>

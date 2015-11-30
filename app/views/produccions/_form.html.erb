@@ -11,30 +11,47 @@
     </div>
   <% end %>
 
-  <div class="actions" align="right">
+  <br>
+  <table>
+    <tr>
+      <td>
+        <div class="field" id="nombre">
+          <%= f.label :producto, 'Producto *' %><br>
+          <%= f.collection_select(:product_id, Product.all, :id, :name, :include_blank => true) %>
+        </div>
+      </td>
+      <td width="100px"></td>
+      <td>
+        <div class="field">
+          <%= f.label :cantidad, 'Cantidad *'%><br>
+          <%= f.number_field :cantidad %>
+        </div>
+      </td>
+    </tr>
+    <tr height="15px"></tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :fecha_produccion, 'Fecha de Producción *' %><br>
+          <%= f.date_select :fecha_produccion %>
+        </div>
+      </td>
+      <td width="100px"></td>
+      <td>
+        <div class="field" id="vencimiento-div">
+          <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
+          <%= f.date_select :fecha_vencimiento %>
+        </div>
+      </td>
+    </tr>
+  </table><br><br>
+  <div>
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
+  <div class="actions" align="center">
     <%= f.submit (@produccion.new_record? ? 'Registrar Producción' : 'Editar Producción') , :class => "btn btn-sm btn-success" %> |
     <%= link_to 'Producciones', produccions_path, :class => 'btn btn-sm btn-default' %>
   </div>
-
-  <div class="field" id="nombre">
-    <%= f.label :producto %><br>
-    <%= f.collection_select(:product_id, Product.all, :id, :name, :include_blank => true) %>
-  </div>
-  <div class="field">
-    <%= f.label :cantidad, 'Cantidad *'%><br>
-    <%= f.number_field :cantidad %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_produccion, 'Fecha de Producción *' %><br>
-    <%= f.date_select :fecha_produccion %>
-  </div>
-  <div class="field" id="vencimiento-div">
-    <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
-    <%= f.date_select :fecha_vencimiento %>
-  </div><br><br>
-  <div>
-      <label>* Los campos con asterisco, son obligatorios. </label>
-    </div>
 <% end %>
 
 

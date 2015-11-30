@@ -6,6 +6,7 @@ class ProduccionsController < ApplicationController
   def index
     if params[:producto] &&  params[:producto]!= ''
       @produccions = Produccion.where("product_id =?", params[:producto].to_i)
+      @produc = Product.find(params[:producto])
     else
       @produccions = Produccion.all
     end 

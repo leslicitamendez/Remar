@@ -11,30 +11,47 @@
     </div>
   <% end %>
 
-  <div class="actions" align="right">
-    <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-sm btn-success" %> |
-    <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default' %>
-  </div>
-
   <input type="hidden" name="interno_id" value="<%= @id %>" >
   <br>
-  <div class="field">
-    <%= f.label :concepto, 'Concepto *' %><br>
-    <%= f.text_field :concepto %>
-  </div>
-  <div class="field">
-    <%= f.label :monto, 'Monto Bs. *' %><br>
-    <%= f.text_field :monto %>
-  </div>
-  <div class="field">
-    <%= f.label :observaciones %><br>
-    <%= f.text_area :observaciones %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha, 'Fecha *' %><br>
-    <%= f.date_select :fecha %>
-  </div><br><br>
+  <table>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :concepto, 'Concepto *' %><br>
+          <%= f.text_field :concepto %>
+        </div>
+      </td>
+      <td width="100px"></td>
+      <td>
+        <div class="field">
+          <%= f.label :monto, 'Monto Bs. *' %><br>
+          <%= f.text_field :monto %>
+        </div>
+      </td>
+    </tr>
+    <tr height="15px"></tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :observaciones %><br>
+          <%= f.text_area :observaciones %>
+        </div>
+      </td>
+      <td width="100px"></td>
+      <td>
+        <div class="field">
+          <%= f.label :fecha, 'Fecha *' %><br>
+          <%= f.date_select :fecha %>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br><br>
   <div>
     <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
+  <div class="actions" align="center">
+    <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-sm btn-success" %> |
+    <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default' %>
   </div>
 <% end %>

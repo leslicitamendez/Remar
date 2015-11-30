@@ -7,14 +7,20 @@
     <% end %>
   </div> -->
   <br>
-  <div align="right">
-    <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
-      Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'fecha_inicio', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'fecha_fin', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      <%= submit_tag "Buscar Egresos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
-    <% end %>
-  </div><br><br>
-  <div align="right"><%= link_to 'Registrar Egreso', new_egreso_path, :class => 'btn btn-mini btn-success active' %></div>
+  <div class="row">
+    <div class="col-xs-6"><br><br><br>
+      <div><%= link_to 'Registrar Egreso', new_egreso_path, :class => 'btn btn-mini btn-success active' %></div>
+    </div>
+    <div class="col-xs-6" align="right">
+      <div>
+        <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
+          Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'fecha_inicio', :placeholder => "dia/mes/año", :class => 'datepicker' %>
+          Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'fecha_fin', :placeholder => "dia/mes/año", :class => 'datepicker' %><br><br>
+          <%= submit_tag "Buscar Egresos Entre Fechas", :name => nil, :class => 'btn btn-sm' %>
+        <% end %>
+      </div><br><br>
+    </div>
+  </div>
 
 <table class="table table-striped">
   <thead>
