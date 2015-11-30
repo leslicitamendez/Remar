@@ -6,7 +6,8 @@ class InternosController < ApplicationController
   def index
     #@internos = Interno.all
     @internos = Interno.order("apellido1","nombre")
-
+    @todos_interno=@internos
+    
     if(params["palabra"]!=nil)
         @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra])    
     end
@@ -56,7 +57,6 @@ def activo
     @cities = City.all
     if(params["palabra"]!=nil)
         @ciudades=City.where("(nombre || ' ' || estado ) =?", params["palabra"])    
-
     end
   end
 

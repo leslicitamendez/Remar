@@ -15,6 +15,6 @@
 //= require select2
 //= require turbolinks
 //= require bootstrap-typeahead-rails
-//= require chartkick
+
 
 //= require_tree .
