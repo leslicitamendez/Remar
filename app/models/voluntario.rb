@@ -13,15 +13,15 @@ class Voluntario < ActiveRecord::Base
 	validates :ci, length: { minimum: 6, maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida", too_short: "- %{count} caracteres es la longitud minima permitida" }
 	
 	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
-	validates :apellido1, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :apellido1, format: { with: /\A[a-zA-Zá-źÁ-ŹñÑ ]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 	
 	validates :apellido2, presence: {:message => "- El apellido Paterno es un campo obligatorio"}
-	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :apellido2, format: { with: /\A[a-zA-Zá-źÁ-ŹñÑ ]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
 	validates :nombre, presence: {:message => "- El nombre es un campo obligatorio"}
-	validates :nombre, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :nombre, format: { with: /\A[a-zA-Zá-źÁ-ŹñÑ ]+\z/, message: "- Solo se aceptan letras"}
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
 	validates :sexo, presence: {:message => "- El sexo es un campo obligatorio"}

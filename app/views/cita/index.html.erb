@@ -1,12 +1,17 @@
-<% if params[:palabra]==nil ||  params[:palabra]== '' %>
+<% if params[:palabra]==nil ||  params[:palabra]== '' && params[:estado]==nil && params[:estado]=='' %>
   <h1>Citas para hoy</h1>
 <%else%>
   <h1>Historial de Citas</h1>
 <%end%>
-<% if params[:estado]!=nil ||  params[:estado]!= '' %>
-  <h1><%= params[:estado]%> </h1>
+<% if params[:estado]!=nil &&  params[:estado]!= '' %>
+  <h1><%= params[:estado]+'s'%> </h1>
 <%end%>
-
+<%if params[:palabra]!='' && params[:palabra]!= nil%>
+  Desde <%=params[:palabra]%>&nbsp;
+<%end%>
+<%if params[:palabra2]!='' && params[:palabra]!= nil%>
+  Hasta <%=params[:palabra2]%>
+<%end%>
 <div align="right">
     <%= form_tag({:controller => "cita", :action => "index"}, :method => :get) do %>
       Estado: <%= select_tag "estado", options_for_select(['', 'Concretada', 'Cancelada', 'Pendiente','Enviado'])%>
@@ -18,6 +23,27 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <% if params["estado"] == nil %>
+      <% @estado=''%>
+      <% else%>
+      <% @estado= "&estado="+params["estado"]%>
+      <%end%>
+      <% if @page == nil %>
+      <% @page=1 %> 
+      <%end%>
+      <% if @page.to_i > 1 %>
+      <%= link_to 'Anterior','/cita?&page='+(@page.to_i-1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s+@estado, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+      <% if @page.to_i*5 < @cita.length %>
+        <% if @cita.length%5 >0 %>
+          <% @sumax=1%>
+        <% else %>
+          <% @sumax=0%>
+        <% end %>
+       pagina <%= @page%> de <%= (@cita.length/5)+@sumax %> <%= link_to 'Siguiente','/cita?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+'&palabra2='+@palabra2.to_s+@estado, :class => 'btn btn-mini btn-default' %>
+      <%end%>
+    </tr>
+    <tr>
       <th>Fecha</th>
       <th>Hora</th>
       <th>Ubicacion</th>
@@ -27,7 +53,8 @@
   </thead>
 
   <tbody>
-    <% @cita.each do |citum| %>
+    <% @cita.each_with_index do |citum, index| %>
+      <% if index < @page.to_i*5 && index >= (@page.to_i-1)*5%>     
       <tr>
         <td><%= citum.fecha %></td>
         <td><%= citum.hora.strftime("%I:%M %p") %></td>
@@ -58,6 +85,7 @@
         <%end%>       
         
       </tr>
+      <% end%>
     <% end %>
   </tbody>
 </table>
