@@ -6,6 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/ct-paper.css">
+  <style type="text/css">
+	#pie {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+  </style>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -46,6 +56,10 @@
 
 
 </div>
-
+<footer>
+<div>
+<img id="pie" src="/images/cato.jpeg" alt="rss feed" />
+</div>
+</footer>
 </body>
 </html>

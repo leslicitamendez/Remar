@@ -12,43 +12,66 @@
   <% end %>
 
 <input type="hidden" name="interno_id" value="<%= @id %>" >
-<table align="center">
+
+
+<table align="center" width="80%">
 <tr>
-<td>
-  <div class="field">
-    <%= f.label :enfermedades %><br>
-    <%= f.text_area :enfermedades %>
-  </div>
-  <div class="field">
-    <%= f.label :causaInternacion, 'Causa de Internacion (*)' %><br>
-    <%= f.text_area :causaInternacion %>
-  </div>
-  <div class="field">
-    <%= f.label :tiempoConsumo, 'Tiempo de Consumo en meses (*)' %><br>
-    <%= f.number_field :tiempoConsumo %>
-  </div>
-  <div class="field">
-    <%= f.label :centroAnterior, 'Centro Anterior' %><br>
-    <%= f.text_field :centroAnterior %>
-  </div>
-  <div class="field">
-    <% f.label :nombreCentre, 'Nombre del Centro' %><br>
-    <% f.text_field :nombreCentre %>
-  </div>
-  <div class="field">
-    <%= f.label :tiempoEstancia,'Tiempo de Estancia en meses' %><br>
-    <%= f.number_field :tiempoEstancia %>
-  </div>
-  <div class="field">
-    <%= f.label :motivoRetiro, 'Motivo por el cual se retiro' %><br>
-    <%= f.text_area :motivoRetiro %>
-  </div>
+    <td>
+      <div class="field">
+        <%= f.label :enfermedades %><br>
+        <%= f.text_area :enfermedades %>
+      </div>
+    </td>
+    <td>
+        <div class="field">
+          <%= f.label :causaInternacion, 'Causa de Internacion (*)' %><br>
+          <%= f.text_area :causaInternacion %>
+        </div>
+    </td>
+    <td>
+        <div class="field">
+          <%= f.label :tiempoConsumo, 'Tiempo de Consumo en meses (*)' %><br>
+          <%= f.number_field :tiempoConsumo %>
+        </div>
+    </td>
+</tr>
+<tr>
+      <td>
+          <div class="field">
+            <%= f.label :centroAnterior, 'Centro Anterior' %><br>
+            <%= f.text_field :centroAnterior %>
+          </div>
+      </td>
+     
+          <div class="field">
+            <% f.label :nombreCentre, 'Nombre del Centro' %><br>
+            <% f.text_field :nombreCentre %>
+          </div>
+     
+      <td>
+          <div class="field">
+            <%= f.label :tiempoEstancia,'Tiempo de Estancia en meses' %><br>
+            <%= f.number_field :tiempoEstancia %>
+          </div>
+      </td>
+
+      <td>
+      <div class="field">
+        <%= f.label :motivoRetiro, 'Motivo por el cual se retiro' %><br>
+        <%= f.text_area :motivoRetiro %>
+      </div>
+      </td>
+  </tr>
+<tr>
+  <td>
   <div class="field">
     <%= f.label :observaciones %><br>
     <%= f.text_field :observaciones %>
   </div>
  </td>
-  <td valign="top" style="padding-left: 18%; padding-top: 10%;">
+</tr>
+</table>
+  <div align="center">
   <div class="actions">
           <%= f.submit (@rehab.new_record? ? 'Registrar Rehabilitacion' : 'Guardar Rehabilitacion') , :class => "btn btn-mini btn-success" %>
   </div>

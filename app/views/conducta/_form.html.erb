@@ -13,26 +13,31 @@
 
  <input type="hidden" name="interno_id" value="<%= @id %>" >
 
-  <table align="center">
+  <table align="center" width="80%">
   <tr>
-  <td>
-  
-  <div class="field"  align="center">
-    <%= f.label :tipoConducta, 'Tipo de Conducta (*)' %><br>
-    <%= f.select :tipoConducta, ['','Agresion', 'Robo', 'Indisciplina'] %>
-  </div>
-  <div class="field"  align="center">
-    <%= f.label :fecha %><br>
-  
-    <%= f.date_select :fecha,  {order: [ :day, :month, :year], :start_year => Time.now.year, :end_year => Time.now.year-1 }  %>
-  </div>
-  <div class="field" align="center">
-    <%= f.label :descripcion, 'Descripcion (*)' %><br>
-    <%= f.text_area :descripcion %>
-  </div>
-  </td>
-  <td valign="top" style="padding-left: 18%; padding-top: 10%;">
-  <div class="actions" align="center">
-    <%= f.submit (@conductum.new_record? ? 'Registrar Conducta' : 'Guardar Conducta') , :class => "btn btn-mini btn-success" %>
-  </div>
-<% end %>
+        <td>
+            <div class="field"  align="center">
+              <%= f.label :tipoConducta, 'Tipo de Conducta (*)' %><br>
+              <%= f.select :tipoConducta, ['','Agresion', 'Robo', 'Indisciplina'] %>
+            </div>
+        </td>
+        <td>
+          <div class="field"  align="center">
+            <%= f.label :fecha %><br>
+            <%= f.date_select :fecha,  {order: [ :day, :month, :year], :start_year => Time.now.year, :end_year => Time.now.year-1 }  %>
+          </div>
+        </td>
+
+        <td>  
+            <div class="field" align="center">
+              <%= f.label :descripcion, 'Descripcion (*)' %><br>
+              <%= f.text_area :descripcion %>
+            </div>
+        </td>
+  </tr>
+  </table>
+        <div align="center">
+        <div class="actions" align="center">
+          <%= f.submit (@conductum.new_record? ? 'Registrar Conducta' : 'Guardar Conducta') , :class => "btn btn-mini btn-success" %>
+        </div>
+      <% end %>
