@@ -63,7 +63,7 @@
               <%= link_to 'Registrar Egreso Interno',  egreso_inter_path(@interno.id),:class => 'btn btn-mini btn-success active' %><br><br>
               
 
-              <%= link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%><br>
+              <%= link_to 'Atras', internos_path, :class => 'btn btn-mini btn-default'%><br>
           </div>
       </td>
 
@@ -326,9 +326,11 @@
                             <P><%= @robo %><strong>&nbsp; &nbsp; Casos de Robo </strong></P>
                             <P><%= @agre %><strong>&nbsp; &nbsp; Casos de Agresiones </strong></P>
                                 <div> 
-                                <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-                                <%= line_chart @conducta.group(:fecha).count%>
+                                <% javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+                                <% line_chart @conducta.group(:fecha).count%>
                                                          
+                                </div>
+                                <div id="annual" >
                                 </div>
 
                                 
