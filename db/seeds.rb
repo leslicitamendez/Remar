@@ -2214,7 +2214,6 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 
 
 
-=begin
 
 	Voluntario.create(nombre:'Gamaliel ', apellido1:'Bejarano', apellido2:'Quiroga', sexo:'Masculino', ci: 6583796, NivelConfianza: 50, telefono: 78130506, estado:'Inactivo')
 Voluntario.create(nombre:'Silvio', apellido1:'Cifontes', apellido2:'de Castro', sexo:'Masculino', ci: 6992758, NivelConfianza: 92, telefono: 75023223, estado:'Inactivo')
@@ -2266,6 +2265,7 @@ Voluntario.create(nombre:'Doroteo ', apellido1:'Bascones', apellido2:'Cifontes',
 Voluntario.create(nombre:'Elvis ', apellido1:'Cobo', apellido2:'Requena', sexo:'Masculino', ci: 6265704, NivelConfianza: 67, telefono: 69308838, estado:'Inactivo')
 Voluntario.create(nombre:'Laban ', apellido1:'Barahona', apellido2:'Serna', sexo:'Masculino', ci: 9213297, NivelConfianza: 38, telefono: 21538746, estado:'Inactivo')
 Voluntario.create(nombre:'Hilarion', apellido1:'Alcaraz', apellido2:'Cabañas', sexo:'Masculino', ci: 9015914, NivelConfianza: 96, telefono: 58105807, estado:'Activo')
+
 
 Voluntario.create(nombre:'Guendolina', apellido1:'Bustos', apellido2:'Barrientos', sexo:'Femenino', ci: 8815242, NivelConfianza: 16, telefono: 36813261, estado:'Inactivo')
 Voluntario.create(nombre:'Lorenza', apellido1:'Lema', apellido2:'Aldana', sexo:'Femenino', ci: 7835814, NivelConfianza: 88, telefono: 64194505, estado:'Inactivo')
@@ -2423,7 +2423,6 @@ RecepcionDonativo.create( fecha: Date.new(2006,1,16),estado: 'Vendido',articulo:
 
 
 
-
 Citum.create( fecha: Date.new(2011,12,13), hora: Time.new(2011,12,13,9,2,0), ubicación:'calle Ignacio Sanjines #677', nombreDonante:'Hermione ', estado:' Cancelada', telefono: 5481460)
 Citum.create( fecha: Date.new(2009,12,2), hora: Time.new(2009,12,2,9,39,0), ubicación:'calle Tarapaca #232', nombreDonante:'Valentín', estado:' Enviado', telefono: 22709154)
 Citum.create( fecha: Date.new(2015,3,9), hora: Time.new(2015,3,9,10,52,0), ubicación:'calle Radiata Sud #486', nombreDonante:'Enzo', estado:' Pendiente', telefono: 13265307)
@@ -2528,6 +2527,7 @@ Citum.create( fecha: Date.new(2005,6,5), hora: Time.new(2005,6,5,14,2,0), ubicac
 
 
 
+
 Ingreso.create( concepto:'venta Donativo id=2 articulo=REDES : SWITCH 10/117', fecha: Date.new(2005,7,20), montoBs: 61)
 Ingreso.create( concepto:'venta Donativo id=5 articulo=PARLANTES 2,21', fecha: Date.new(2008,11,27), montoBs: 293)
 Ingreso.create( concepto:'venta Donativo id=8 articulo=TARJETA PCI & PCI EXPRESS', fecha: Date.new(2006,7,14), montoBs: 396)
@@ -2582,4 +2582,6 @@ Ingreso.create( concepto:'venta Donativo id=94 articulo=REDES : SWITCH 10/100/10
 Ingreso.create( concepto:'venta Donativo id=95 articulo=FUENTES DE PODER', fecha: Date.new(2008,11,2), montoBs: 225)
 Ingreso.create( concepto:'venta Donativo id=98 articulo=PARLANTES 2,16', fecha: Date.new(2011,9,17), montoBs: 179)
 Ingreso.create( concepto:'venta Donativo id=99 articulo=TECLADOS + MOUSE KITT', fecha: Date.new(2009,7,22), montoBs: 376)
-Ingreso.create( concepto:'venta Donativo id=100 articulo=TONER ORIGINALES P/ IMPRESORAS', fecha: Date.new(2006,1,16), montoBs: 104)=end
+Ingreso.create( concepto:'venta Donativo id=100 articulo=TONER ORIGINALES P/ IMPRESORAS', fecha: Date.new(2006,1,16), montoBs: 104)
+
+

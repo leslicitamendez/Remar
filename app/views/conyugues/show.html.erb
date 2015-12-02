@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-
+<br><br>
+<div align="right">
+   <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@conyugue.interno_id%> >Retornar a interno</a> 
+</div>
+<br>
+<div class="jumbotron" align="center">
 <p>
   <strong>Nombre:</strong>
   <%= @conyugue.nombre %>
@@ -41,7 +46,8 @@
   <%= @conyugue.direccion %>
 </p>
 <br>
+<div>
 
 <% link_to 'Atras', conyugues_path, :class => 'btn btn-mini btn-default' %>
 
- <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@conyugue.interno_id%> >Retornar a interno</a> 
+

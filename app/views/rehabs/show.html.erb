@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<br><br>
+<div align="right">
+  <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@rehab.interno_id%> >Retornar a interno</a>
+</div>
+<br>
+<div class="jumbotron" align="center">
 <p>
   <strong>Enfermedades:</strong>
   <%= @rehab.enfermedades %>
@@ -36,13 +41,13 @@
   <strong>Observaciones:</strong>
   <%= @rehab.observaciones %>
 </p>
-
+</div>
 
 
 <% link_to 'Editar', edit_rehab_path(@rehab) %> 
 
 <% link_to 'Atras', :back, :class => 'btn btn-mini btn-default'  %>
-<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@rehab.interno_id%> >Retornar a interno</a>
+
 </td>
 </tr>
 </table>
