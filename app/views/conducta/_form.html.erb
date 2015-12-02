@@ -16,28 +16,34 @@
   <table align="center" width="80%">
   <tr>
         <td>
-            <div class="field"  align="center">
-              <%= f.label :tipoConducta, 'Tipo de Conducta (*)' %><br>
+            <div class="field" >
+              <%= f.label :tipoConducta, 'Tipo de Conducta *' %><br>
               <%= f.select :tipoConducta, ['','Agresion', 'Robo', 'Indisciplina'] %>
             </div>
         </td>
-        <td>
-          <div class="field"  align="center">
-            <%= f.label :fecha %><br>
-            <%= f.date_select :fecha,  {order: [ :day, :month, :year], :start_year => Time.now.year, :end_year => Time.now.year-1 }  %>
-          </div>
-        </td>
-
-        <td>  
-            <div class="field" align="center">
-              <%= f.label :descripcion, 'Descripcion (*)' %><br>
+       <td>  
+            <div class="field">
+              <%= f.label :descripcion, 'Descripcion *' %><br>
               <%= f.text_area :descripcion %>
             </div>
         </td>
   </tr>
+  <tr>
+      <td>
+        <div class="field" >
+            <%= f.label :fecha, 'Fecha *' %><br>
+            <%= f.date_select :fecha,  {order: [ :day, :month, :year], :start_year => Time.now.year, :end_year => Time.now.year-1 }  %>
+          </div>
+      </td>
+  </tr>
   </table>
+  <br>
+  <div align="center">
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
         <div align="center">
         <div class="actions" align="center">
-          <%= f.submit (@conductum.new_record? ? 'Registrar Conducta' : 'Guardar Conducta') , :class => "btn btn-mini btn-success" %>
+          <%= f.submit (@conductum.new_record? ? 'Registrar Conducta' : 'Guardar Conducta') , :class => "btn btn-mini btn-success" %> |
+          <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@conductum.interno_id%> >Retornar a interno</a> 
         </div>
       <% end %>
