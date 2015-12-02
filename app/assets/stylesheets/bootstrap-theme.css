@@ -644,3 +644,11 @@ fieldset[disabled] .btn-danger.active {
   border-style: outset;
   margin: 15px;
 }
+#botones{
+  font-family: 'Bitstream Vera Sans Mono';
+  font-size: 20px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 400;
+  line-height: 45px;
+}

@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
+<center>
+  <div id="cuadro">
+  <p id="notice"><%= notice %></p>
+<div   align="center">
+  <div id="titulo">
+        Detalle Venta
+  </div>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ventaprod.fecha %>
+</p>
 
 <p>
   <strong>Cantidad:</strong>
   <%= @ventaprod.cantidad %>
 </p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @ventaprod.fecha %>
-</p>
 
 <p>
   <strong>Preciounidad:</strong>
@@ -36,4 +43,4 @@
 </p>
 
 <%= link_to 'Edit', edit_ventaprod_path(@ventaprod) %> |
-<%= link_to 'Back', ventaprods_path %>
+<%= link_to 'Back', entregaprod_path(@ventaprod.entregaprod_id) %>

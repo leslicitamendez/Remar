@@ -20,7 +20,7 @@ class IngresosController < ApplicationController
       end
     else
       begin
-        @ingresos = Ingreso.order("fecha DESC").where("fecha <=?", params[:palabra2].to_date)
+        @ingresos = Ingreso.order("fecha DESC").where("fecha =?", Date.today)
       rescue Exception => e
         flash[:success] = 'Por favor ingrese una fecha valida'
         params.delete :palabra2
@@ -67,7 +67,7 @@ class IngresosController < ApplicationController
       @ingreso.fecha=Date.today()
       if @ingreso.save && @donativo.save
         flash[:success] = 'Donativo vendido exitosamente' 
-        redirect_to '/ingresos'
+        redirect_to '/recepcion_donativos'
       else
         render action: "new"
       end
@@ -79,14 +79,14 @@ class IngresosController < ApplicationController
       @ingreso.concepto='venta Producto codigo='+@ventaprod.entregaprod.product.code.to_s+' nombre='+@ventaprod.entregaprod.product.name.to_s
       @ingreso.fecha=Date.today()
       if @ingreso.save 
-        flash[:success] = 'Donativo vendido exitosamente' 
-        redirect_to '/ingresos'
+        flash[:success] = 'Producto vendido exitosamente' 
+        redirect_to '/entregaprods'
       else
         render action: "new"
       end
     else
       if @ingreso.save 
-        flash[:success] = 'Donativo vendido exitosamente' 
+        flash[:success] = 'Ingreso registrado exitosamente' 
         redirect_to '/ingresos'
       else
         render action: "new"

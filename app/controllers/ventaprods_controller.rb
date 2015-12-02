@@ -51,13 +51,13 @@ class VentaprodsController < ApplicationController
         redirect_to '/entregaprods/'+params[:id]      
       elsif @ventaprod.save
         flash[:success] = 'Venta producto creado exitosamente'
-        redirect_to '/entregaprods/'+params[:id]
+        redirect_to '/entregaprods/'
       else
         render action: "new"
       end      
     rescue Exception => e
       flash[:warning] = e.to_s
-      redirect_to '/entregaprods/'+params[:id]
+      redirect_to '/entregaprods/'
     end
   end
 
