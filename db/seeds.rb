@@ -45,7 +45,7 @@ internos = Interno.create([
 	{nombre: 'Fransisco',  state: 'Activo',apellido1: 'Coca', sexo: 'Masculino', ci: 3938766, estadoCivil: 'Soltero', direccion: 'Chapare', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 2, 28), fechaNacimiento: DateTime.new(1989, 2, 5)},
 	{nombre: 'Juan', apellido1: 'Mamani', state: 'Activo', apellido2: 'Colque', sexo: 'Masculino', ci: 911348, estadoCivil: 'Divorciado', direccion: 'Capitan Ustariz km 9', lugarNacimiento: 'Nuestra Señora de La Paz La Paz', fechaIngreso: DateTime.new(2015, 1, 5), fechaNacimiento: DateTime.new(1970, 8, 15)},
 	{nombre: 'Rina', apellido1: 'Garcia', apellido2: '',  state: 'Activo',sexo: 'Femenino', ci: 3984622, estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Cercado Cochabamba', fechaIngreso: DateTime.new(2015, 4, 23), fechaNacimiento: DateTime.new(1983, 4, 5)},
-	{nombre: 'Yolanda', apellido1: 'Paz',  state: 'Activo',apellido2: 'Casanovas', sexo: 'Femenino', ci: 959314, estadoCivil: 'Divorciada', direccion: 'Blanco Galindo Km. 3.5', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2014, 11, 24), fechaNacimiento: DateTime.new(1969, 5, 7)},
+	{nombre: 'Yolanda', apellido1: 'Paz',  state: 'Activo',apellido2: 'Casanovas', sexo: 'Femenino', ci: 412314, estadoCivil: 'Divorciada', direccion: 'Blanco Galindo Km. 3.5', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2014, 11, 24), fechaNacimiento: DateTime.new(1969, 5, 7)},
 	{nombre: 'Julio', apellido1: 'Luna', apellido2: '', state: 'Activo', sexo: 'Masculino', ci: 5757281, estadoCivil: 'Casado', direccion: 'Nuestra SeLa Paz', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 5, 30), fechaNacimiento: DateTime.new(1979, 9, 3)},
 	{nombre: 'Jorge', apellido1: 'Coca', apellido2: 'Quispe', sexo: 'Masculino', state: 'Activo', ci: 853126, estadoCivil: 'Soltero', direccion: 'Sacaba Cochabamba', lugarNacimiento: 'Chapare Cochabamba', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
 	{nombre: 'Maria', apellido1: 'Nina', apellido2: 'Vargas', sexo: 'Masculino', ci: 4359533, state: 'Activo', estadoCivil: 'Casado', direccion: 'La Paz', lugarNacimiento: 'Chapare', fechaIngreso: DateTime.new(2015, 6, 22), fechaNacimiento: DateTime.new(1975, 6, 22)},
@@ -100,6 +100,9 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 	{product_id: '16', cantidad: '0'},
 	{product_id: '17', cantidad: '0'}])
 
+
+
+
 	Voluntario.create(nombre:'Gamaliel ', apellido1:'Bejarano', apellido2:'Quiroga', sexo:'Masculino', ci: 6583796, NivelConfianza: 50, telefono: 78130506, estado:'Inactivo')
 Voluntario.create(nombre:'Silvio', apellido1:'Cifontes', apellido2:'de Castro', sexo:'Masculino', ci: 6992758, NivelConfianza: 92, telefono: 75023223, estado:'Inactivo')
 Voluntario.create(nombre:'Jorge', apellido1:'Bustos', apellido2:'Hera', sexo:'Masculino', ci: 6076136, NivelConfianza: 77, telefono: 44823318, estado:'Activo')
@@ -150,6 +153,7 @@ Voluntario.create(nombre:'Doroteo ', apellido1:'Bascones', apellido2:'Cifontes',
 Voluntario.create(nombre:'Elvis ', apellido1:'Cobo', apellido2:'Requena', sexo:'Masculino', ci: 6265704, NivelConfianza: 67, telefono: 69308838, estado:'Inactivo')
 Voluntario.create(nombre:'Laban ', apellido1:'Barahona', apellido2:'Serna', sexo:'Masculino', ci: 9213297, NivelConfianza: 38, telefono: 21538746, estado:'Inactivo')
 Voluntario.create(nombre:'Hilarion', apellido1:'Alcaraz', apellido2:'Cabañas', sexo:'Masculino', ci: 9015914, NivelConfianza: 96, telefono: 58105807, estado:'Activo')
+
 
 Voluntario.create(nombre:'Guendolina', apellido1:'Bustos', apellido2:'Barrientos', sexo:'Femenino', ci: 8815242, NivelConfianza: 16, telefono: 36813261, estado:'Inactivo')
 Voluntario.create(nombre:'Lorenza', apellido1:'Lema', apellido2:'Aldana', sexo:'Femenino', ci: 7835814, NivelConfianza: 88, telefono: 64194505, estado:'Inactivo')
@@ -307,7 +311,6 @@ RecepcionDonativo.create( fecha: Date.new(2006,1,16),estado: 'Vendido',articulo:
 
 
 
-
 Citum.create( fecha: Date.new(2011,12,13), hora: Time.new(2011,12,13,9,2,0), ubicación:'calle Ignacio Sanjines #677', nombreDonante:'Hermione ', estado:' Cancelada', telefono: 5481460)
 Citum.create( fecha: Date.new(2009,12,2), hora: Time.new(2009,12,2,9,39,0), ubicación:'calle Tarapaca #232', nombreDonante:'Valentín', estado:' Enviado', telefono: 22709154)
 Citum.create( fecha: Date.new(2015,3,9), hora: Time.new(2015,3,9,10,52,0), ubicación:'calle Radiata Sud #486', nombreDonante:'Enzo', estado:' Pendiente', telefono: 13265307)
@@ -410,6 +413,8 @@ Citum.create( fecha: Date.new(2012,2,15), hora: Time.new(2012,2,15,13,5,0), ubic
 Citum.create( fecha: Date.new(2005,6,5), hora: Time.new(2005,6,5,14,2,0), ubicación:'calle Gallardina #133', nombreDonante:'Germá', estado:' Concretada', telefono: 63618563)
 
 
+
+
 Ingreso.create( concepto:'venta Donativo id=2 articulo=REDES : SWITCH 10/117', fecha: Date.new(2005,7,20), montoBs: 61)
 Ingreso.create( concepto:'venta Donativo id=5 articulo=PARLANTES 2,21', fecha: Date.new(2008,11,27), montoBs: 293)
 Ingreso.create( concepto:'venta Donativo id=8 articulo=TARJETA PCI & PCI EXPRESS', fecha: Date.new(2006,7,14), montoBs: 396)
@@ -465,7 +470,6 @@ Ingreso.create( concepto:'venta Donativo id=95 articulo=FUENTES DE PODER', fecha
 Ingreso.create( concepto:'venta Donativo id=98 articulo=PARLANTES 2,16', fecha: Date.new(2011,9,17), montoBs: 179)
 Ingreso.create( concepto:'venta Donativo id=99 articulo=TECLADOS + MOUSE KITT', fecha: Date.new(2009,7,22), montoBs: 376)
 Ingreso.create( concepto:'venta Donativo id=100 articulo=TONER ORIGINALES P/ IMPRESORAS', fecha: Date.new(2006,1,16), montoBs: 104)
-
 
 
 
@@ -1686,3 +1690,4 @@ Ingreso.create( montoBs: 475, fecha: Date.new(2010,2,22),ventaprod_id: 297, conc
 Ingreso.create( montoBs: 210, fecha: Date.new(2014,9,19),ventaprod_id: 298, concepto: 'venta Producto codigo=CHOCO1 nombre=Chocotejas idVenta=298')
 Ingreso.create( montoBs: 200, fecha: Date.new(2008,11,8),ventaprod_id: 299, concepto: 'venta Producto codigo=COLLA2 nombre=Collar idVenta=299')
 Ingreso.create( montoBs: 1525, fecha: Date.new(2012,3,14),ventaprod_id: 300, concepto: 'venta Producto codigo=COLLA2 nombre=Collar idVenta=300')
+

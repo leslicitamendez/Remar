@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
+<br><br>
+<div align="right">
+	<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@court_order.interno_id%> >Retornar a interno</a>
+</div>
+<br>
 
+<div class="jumbotron" align="center">
 <p>
   <strong>Numero de orden:</strong>
   <%= @court_order.numero %>
@@ -17,13 +23,14 @@
 
 <p>
   <strong>Estado:</strong>
-  <%= @court_order.estado %>
+  <% if(@court_order.estado==true) %>
+  	<%= 'Activo' %>
+  <% else %>
+  	<%= 'Inactivo' %>
+  <%end%>
 </p>
-
+</div>
 
 
 <% link_to 'Atras', court_orders_path, :class => 'btn btn-mini btn-default'  %>
-<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@court_order.interno_id%> >Retornar a interno</a>
-</td>
-</tr>
-</table>
+

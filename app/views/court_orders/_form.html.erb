@@ -16,16 +16,19 @@
   <tr>
     <td>
       <div class="field" align="center">
-        <%= f.label :numero, 'Numero de Orden Judicial (*)' %><br>
+        <%= f.label :numero, 'Numero de Orden Judicial *' %><br>
         <%= f.text_field :numero %>
       </div>
     </td>
     <td>
       <div class="field" align="center">
-        <%= f.label :descripcion, 'Descripcion de Orden Judicial (*)'%><br>
+        <%= f.label :descripcion, 'Descripcion de Orden Judicial *'%><br>
         <%= f.text_area :descripcion %>
       </div>
     </td>
+    <tr>
+      
+    </tr>
     <td>
           <div class="field" align="center">
             <%= f.label :estado %><br>
@@ -34,8 +37,17 @@
      </td>
   </tr>
 </table>
+<br>
+  <div align="center">
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
 <div align="center">
   <div class="actions" align="center">
-    <%= f.submit  (@court_order.new_record? ? 'Registrar Orden Judicial' : 'Guardar Orden Judicial') , :class => "btn btn-mini btn-success" %>
+    <%= f.submit  (@court_order.new_record? ? 'Registrar Orden Judicial' : 'Guardar Orden Judicial') , :class => "btn btn-mini btn-success" %> | 
+    <% if @court_order.interno_id==nil%>
+      <%= link_to 'Retornar a internos',  :back, :class => 'btn btn-mini btn-default' %>
+    <% else %>
+      <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@court_order.interno_id%> >Retornar a interno</a>
+    <% end %>
   </div>
 <% end %>

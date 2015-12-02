@@ -7,9 +7,8 @@ class InternosController < ApplicationController
     #@internos = Interno.all
     @internos = Interno.order("apellido1","nombre")
     @todos_interno=@internos
-    
-    if(params["palabra"]!=nil)
-        @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra])    
+    if(params["palabra"]!=nil && params["palabra"]!='')
+        @internos= Interno.where("(nombre || ' ' || apellido1 || ' ' || apellido2) =?", params[:palabra]) 
     end
 
   if params[:estado] && params[:estado]!=''
