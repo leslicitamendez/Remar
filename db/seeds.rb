@@ -81,6 +81,66 @@ producciones = Produccion.create([
 	{product_id: '25', cantidad: 100, fecha_produccion: DateTime.new(2014, 11, 30)},
 	{product_id: '25', cantidad: 250, fecha_produccion: DateTime.new(2015, 11, 30)}])
 
+egresos = Egreso.create([
+	{concepto: 'Pago de luz mes enero', monto: 126.7, fecha: DateTime.new(2015, 1, 15)},
+	{concepto: 'Pago de luz mes febrero', monto: 95.8, fecha: DateTime.new(2015, 2, 10)},
+	{concepto: 'Pago de luz mes marzo', monto: 146.5, fecha: DateTime.new(2015, 3, 12)},
+	{concepto: 'Pago de luz mes abril', monto: 121.0, fecha: DateTime.new(2015, 4, 23)},
+	{concepto: 'Pago de luz mes mayo', monto: 50.0, fecha: DateTime.new(2015, 5, 15)},
+	{concepto: 'Pago de luz mes junio', monto: 120.0, fecha: DateTime.new(2015, 6, 15)},
+	{concepto: 'Pago de luz mes julio', monto: 54.5, fecha: DateTime.new(2015, 7, 5)},
+	{concepto: 'Pago de luz mes agosto', monto: 36.0, fecha: DateTime.new(2015, 8, 15)},
+	{concepto: 'Pago de luz mes septiembre', monto: 88.9, fecha: DateTime.new(2015, 9, 28)},
+	{concepto: 'Pago de luz mes octubre', monto: 112.7, fecha: DateTime.new(2015, 10, 23)},
+	{concepto: 'Pago de luz mes noviembre', monto: 67.0, fecha: DateTime.new(2015, 11, 20)},
+	{concepto: 'Pago de agua mes enero', monto: 86.50, fecha: DateTime.new(2015, 1, 10)},
+	{concepto: 'Pago de agua mes febrero', monto: 80.0, fecha: DateTime.new(2015, 2, 15)},
+	{concepto: 'Pago de agua mes marzo', monto: 75.7, fecha: DateTime.new(2015, 3, 17)},
+	{concepto: 'Pago de agua mes abril', monto: 56.4, fecha: DateTime.new(2015, 4, 5)},
+	{concepto: 'Pago de agua mes mayo', monto: 88.0, fecha: DateTime.new(2015, 5, 25)},
+	{concepto: 'Pago de agua mes junio', monto: 89.9, fecha: DateTime.new(2015, 6, 23)},
+	{concepto: 'Pago de agua mes julio', monto: 78.0, fecha: DateTime.new(2015, 7, 6)},
+	{concepto: 'Pago de agua mes agosto', monto: 84.5, fecha: DateTime.new(2015, 8, 21)},
+	{concepto: 'Pago de agua mes septiembre', monto: 80.0, fecha: DateTime.new(2015, 9, 19)},
+	{concepto: 'Pago de agua mes octubre', monto: 68.2, fecha: DateTime.new(2015, 10, 11)},
+	{concepto: 'Pago de agua mes noviembre', monto: 90.0, fecha: DateTime.new(2015, 11, 15)},
+	{concepto: 'Pago de telefono mes enero', monto: 20.0, fecha: DateTime.new(2015, 1, 11)},
+	{concepto: 'Pago de telefono mes febrero', monto: 26.5, fecha: DateTime.new(2015, 2, 14)},
+	{concepto: 'Pago de telefono mes marzo', monto: 24.3, fecha: DateTime.new(2015, 3, 26)},
+	{concepto: 'Pago de telefono mes abril', monto: 22.0, fecha: DateTime.new(2015, 4, 8)},
+	{concepto: 'Pago de telefono mes mayo', monto: 21.0, fecha: DateTime.new(2015, 5, 13)},
+	{concepto: 'Pago de telefono mes junio', monto: 26.6, fecha: DateTime.new(2015, 6, 27)},
+	{concepto: 'Pago de telefono mes julio', monto: 23.7, fecha: DateTime.new(2015, 7, 12)},
+	{concepto: 'Pago de telefono mes agosto', monto: 20.1, fecha: DateTime.new(2015, 8, 13)},
+	{concepto: 'Pago de telefono mes septiembre', monto: 20.0, fecha: DateTime.new(2015, 9, 19)},
+	{concepto: 'Pago de telefono mes octubre', monto: 28.8, fecha: DateTime.new(2015, 10, 28)},
+	{concepto: 'Pago de telefono mes noviembre', monto: 30.5, fecha: DateTime.new(2015, 11, 30)},
+	{concepto: 'Compra de materiales para bijouteria', monto: 123.4, fecha: DateTime.new(2015, 10, 10)},
+	{concepto: 'Compra de alambre delgado', monto: 50.6, fecha: DateTime.new(2015, 11, 30)},
+	{concepto: 'Compra de alicate', monto: 45.0, fecha: DateTime.new(2015, 4, 4)},
+	{concepto: 'Compra de tartaletas', monto: 25.8, fecha: DateTime.new(2015, 5, 12)},
+	{concepto: 'Compra de hilos', monto: 39.9, fecha: DateTime.new(2015, 6, 20)},
+	{concepto: 'Compra de shakiras', monto: 15.0, fecha: DateTime.new(2015, 7, 16)},
+	{concepto: 'Gasto medico voluntario Ariana Alcaraz', monto: 250.0, fecha: DateTime.new(2015, 10, 23)},
+	{concepto: 'Compra de agujas', monto: 30.0, fecha: DateTime.new(2015, 11, 11)}])
+
+historias = HistoriaClinica.create([
+	{interno_id: '8', enfermedades: 'Fiebre', causa_internacion: 'Fiebre alta', observaciones: 'Dolor de cabeza', fecha: DateTime.new(2015,10,20)},
+	{interno_id: '8', enfermedades: 'Tos', causa_internacion: 'Garganta inflamada', observaciones: 'Ronquera', fecha: DateTime.new(2015,9,15)},
+	{interno_id: '8', enfermedades: 'Indigestion', causa_internacion: 'Vomito', observaciones: 'Dolor de estomago', fecha: DateTime.new(2015,11,30)},
+	{interno_id: '9', enfermedades: 'Resfrio', causa_internacion: 'Nariz congestionada', observaciones: '', fecha: DateTime.new(2015,8,20)},
+	{interno_id: '9', enfermedades: 'Fiebre', causa_internacion: 'Fiebre alta', observaciones: 'Dolor de cabeza', fecha: DateTime.new(2015,9,22)},
+	{interno_id: '10', enfermedades: 'Tos', causa_internacion: 'Garganta inflamada', observaciones: 'Dolor de cabeza', fecha: DateTime.new(2015,1,1)},
+	{interno_id: '10', enfermedades: 'Hepatitis', causa_internacion: 'Dolor de cabeza', observaciones: '', fecha: DateTime.new(2015,6,6)}])
+
+egresos_internos = EgresoInterno.create([
+	{interno_id: '8', concepto: 'Viaje extra', monto: 276.0, observaciones: 'Viaje de emergencia', fecha: DateTime.new(2015, 11, 30)},
+	{interno_id: '8', concepto: 'Medicamentos', monto: 56.8, observaciones: 'Paracetamol', fecha: DateTime.new(2015, 10, 10)},
+	{interno_id: '9', concepto: 'Reposicion', monto: 200.0, observaciones: 'Reposicion de gasto extra en materiales de bijouteria', fecha: DateTime.new(2015, 9, 22)},
+	{interno_id: '9', concepto: 'Compra ropa', monto: 380.0, observaciones: 'Compra de pantalones', fecha: DateTime.new(2015, 11, 11)},
+	{interno_id: '10', concepto: 'Refrigerio', monto: 30.5, observaciones: 'Compra de gaseosas', fecha: DateTime.new(2015, 5, 5)},
+	{interno_id: '10', concepto: 'Medicamentos', monto: 111.0, observaciones: 'Amoxicilina', fecha: DateTime.new(2015, 6, 12)}])
+
 
 hijos = Hijo.create([{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1994, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},
 	{nombre: 'Sergio', apellido1: 'Rivera', apellido2: 'Mai', sexo: 'Masculino', ci: 4565981, fechaNacimiento: DateTime.new(1996, 5, 15), lugarNacimiento: 'Cercado Cochabamba', interno_id: '5'}])
