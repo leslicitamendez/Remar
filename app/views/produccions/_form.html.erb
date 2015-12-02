@@ -33,14 +33,14 @@
       <td>
         <div class="field">
           <%= f.label :fecha_produccion, 'Fecha de Producción *' %><br>
-          <%= f.date_select :fecha_produccion %>
+          <%= f.date_select :fecha_produccion, :prompt => {:day => 'Dia', :month => 'Mes', :year => 'Año'} %>
         </div>
       </td>
       <td width="100px"></td>
       <td>
         <div class="field" id="vencimiento-div">
           <%= f.label :fecha_vencimiento, 'Fecha de Vencimiento *' %><br>
-          <%= f.date_select :fecha_vencimiento %>
+          <%= f.date_select :fecha_vencimiento, :prompt => {:day => 'Dia', :month => 'Mes', :year => 'Año'} %>
         </div>
       </td>
     </tr>
@@ -60,7 +60,7 @@
     var optionSelected = $(this).find("option:selected");
        var valueSelected  = optionSelected.val();
        var textSelected   = optionSelected.text();
-    if(textSelected=="Collar" || textSelected=="Manilla" || textSelected=="Llavero" || textSelected=="Almanaque" || textSelected=="Anillo")
+    if(textSelected=="Collar" || textSelected=="Pulsera" || textSelected=="Llavero" || textSelected=="Almanaque" || textSelected=="Anillo" || textSelected=="Arete" || textSelected=="Cartera" || textSelected=="Tapete" || textSelected=="Chompa")
       document.getElementById("vencimiento-div").style.display="none";
     else
       document.getElementById("vencimiento-div").style.display="block";  

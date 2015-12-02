@@ -1,7 +1,6 @@
 class CreateEgresos < ActiveRecord::Migration
   def change
     create_table :egresos do |t|
-      t.string :estado
       t.float :monto
       t.date :fecha
 

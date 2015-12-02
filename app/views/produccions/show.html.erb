@@ -22,9 +22,11 @@
 		  <%= @produccion.fecha_produccion.strftime("%d/%m/%Y") %>
 		</p>
 
-		<p>
-		  <strong>Fecha de Vencimiento:</strong>
-		  <%= @produccion.fecha_vencimiento.strftime("%d/%m/%Y") %>
-		</p>
+		<% if @produccion.fecha_vencimiento != nil %>
+			<p>
+		  		<strong>Fecha de Vencimiento:</strong>
+			  	<%= @produccion.fecha_vencimiento.strftime("%d/%m/%Y") %>
+			</p>
+		<%end%>
 	</div>
 </center>

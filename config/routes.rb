@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
 
-
-
-
-  resources :units
-
-
   resources :cities
 
   resources :stocks
-
 
   resources :ventaprods
 
@@ -18,8 +11,6 @@ Rails.application.routes.draw do
   resources :entregaprods
 
   resources :rehabs, :except => [ :index]
-
-  resources :egreso_produccions
 
   resources :egreso_internos
 
@@ -56,8 +47,6 @@ Rails.application.routes.draw do
   resources :recepcion_donativos
 
   resources :cita
-
-  resources :gasto_internos
 
   resources :products
 

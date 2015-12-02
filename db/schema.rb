@@ -105,19 +105,7 @@ ActiveRecord::Schema.define(version: 20151130002518) do
   add_index "egreso_internos", ["egreso_id"], name: "index_egreso_internos_on_egreso_id"
   add_index "egreso_internos", ["interno_id"], name: "index_egreso_internos_on_interno_id"
 
-  create_table "egreso_produccions", force: true do |t|
-    t.text     "observaciones"
-    t.integer  "egreso_id"
-    t.integer  "produccion_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "egreso_produccions", ["egreso_id"], name: "index_egreso_produccions_on_egreso_id"
-  add_index "egreso_produccions", ["produccion_id"], name: "index_egreso_produccions_on_produccion_id"
-
   create_table "egresos", force: true do |t|
-    t.string   "estado"
     t.float    "monto"
     t.date     "fecha"
     t.datetime "created_at"
@@ -153,18 +141,6 @@ ActiveRecord::Schema.define(version: 20151130002518) do
 
   add_index "entregaprods", ["product_id"], name: "index_entregaprods_on_product_id"
   add_index "entregaprods", ["voluntario_id"], name: "index_entregaprods_on_voluntario_id"
-
-  create_table "gasto_internos", force: true do |t|
-    t.date     "fecha"
-    t.string   "concepto"
-    t.text     "descripcion"
-    t.float    "monto"
-    t.integer  "interno_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "gasto_internos", ["interno_id"], name: "index_gasto_internos_on_interno_id"
 
   create_table "hijos", force: true do |t|
     t.boolean  "estado"
@@ -229,7 +205,6 @@ ActiveRecord::Schema.define(version: 20151130002518) do
   end
 
   create_table "produccions", force: true do |t|
-    t.string   "estado"
     t.date     "fecha_produccion"
     t.date     "fecha_vencimiento"
     t.integer  "cantidad"
@@ -317,12 +292,6 @@ ActiveRecord::Schema.define(version: 20151130002518) do
 
   add_index "stocks", ["produccions_id"], name: "index_stocks_on_produccions_id"
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id"
-
-  create_table "units", force: true do |t|
-    t.string   "unidad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "venta", force: true do |t|
     t.integer  "cantidad"
