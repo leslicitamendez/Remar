@@ -74,7 +74,7 @@ class EgresosController < ApplicationController
   # POST /egresos.json
   def create
     @egreso = Egreso.new(egreso_params)
-    @egreso.estado = 'Activo'
+    
     @total=dinero_actual
     if @egreso.monto>@total
       flash[:warning] = 'El monto de egreso no puede ser mayor al monto actual'

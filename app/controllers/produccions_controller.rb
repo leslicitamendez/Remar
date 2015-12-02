@@ -64,7 +64,7 @@ class ProduccionsController < ApplicationController
   # POST /produccions.json
   def create
     @produccion = Produccion.new(produccion_params)
-    @produccion.estado = 'Activo'
+ 
     @stock = Stock.find_by product_id: @produccion.product_id 
       if @produccion.save
         if @stock!= nil

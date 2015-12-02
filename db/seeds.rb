@@ -143,6 +143,12 @@ egresos_internos = EgresoInterno.create([
 
 
 hijos = Hijo.create([{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1994, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},
+	{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1994, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},
+	{nombre: 'Adrian', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(1995, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '3'},
+	{nombre: 'Lenka', apellido1: 'Zurita', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(2009, 3, 25), lugarNacimiento: 'Cercado Cochabamba', interno_id: '3'},
+	{nombre: 'Rodri', apellido1: 'Zurita', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(2014, 4, 22), lugarNacimiento: 'Cercado Cochabamba', interno_id: '3'},
+	{nombre: 'Johan', apellido1: 'Zerna', apellido2: 'Orellana', sexo: 'Masculino', ci: 4532981, fechaNacimiento: DateTime.new(2015, 2, 28), lugarNacimiento: 'Cercado Cochabamba', interno_id: '1'},
+
 	{nombre: 'Sergio', apellido1: 'Rivera', apellido2: 'Mai', sexo: 'Masculino', ci: 4565981, fechaNacimiento: DateTime.new(1996, 5, 15), lugarNacimiento: 'Cercado Cochabamba', interno_id: '5'}])
 
 court_orders=CourtOrder.create([
