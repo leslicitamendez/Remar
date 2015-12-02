@@ -17,46 +17,46 @@
 <table align="center" width="80%">
 <tr>
     <td>
-      <div class="field">
+      <div class="field" align="center">
         <%= f.label :enfermedades %><br>
         <%= f.text_area :enfermedades %>
       </div>
     </td>
     <td>
-        <div class="field">
-          <%= f.label :causaInternacion, 'Causa de Internacion (*)' %><br>
+        <div class="field" align="center">
+          <%= f.label :causaInternacion, 'Causa de Internacion *' %><br>
           <%= f.text_area :causaInternacion %>
         </div>
     </td>
     <td>
-        <div class="field">
-          <%= f.label :tiempoConsumo, 'Tiempo de Consumo en meses (*)' %><br>
+        <div class="field" align="center">
+          <%= f.label :tiempoConsumo, 'Tiempo de Consumo en meses *' %><br>
           <%= f.number_field :tiempoConsumo %>
         </div>
     </td>
 </tr>
 <tr>
       <td>
-          <div class="field">
+          <div class="field" align="center">
             <%= f.label :centroAnterior, 'Centro Anterior' %><br>
             <%= f.text_field :centroAnterior %>
           </div>
       </td>
      
-          <div class="field">
+          <div class="field" align="center">
             <% f.label :nombreCentre, 'Nombre del Centro' %><br>
             <% f.text_field :nombreCentre %>
           </div>
      
       <td>
-          <div class="field">
+          <div class="field" align="center">
             <%= f.label :tiempoEstancia,'Tiempo de Estancia en meses' %><br>
             <%= f.number_field :tiempoEstancia %>
           </div>
       </td>
 
       <td>
-      <div class="field">
+      <div class="field" align="center">
         <%= f.label :motivoRetiro, 'Motivo por el cual se retiro' %><br>
         <%= f.text_area :motivoRetiro %>
       </div>
@@ -64,15 +64,24 @@
   </tr>
 <tr>
   <td>
-  <div class="field">
+  <div class="field" align="center">
     <%= f.label :observaciones %><br>
     <%= f.text_field :observaciones %>
   </div>
  </td>
 </tr>
 </table>
+<br>
+  <div align="center">
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
   <div align="center">
   <div class="actions">
-          <%= f.submit (@rehab.new_record? ? 'Registrar Rehabilitacion' : 'Guardar Rehabilitacion') , :class => "btn btn-mini btn-success" %>
+          <%= f.submit (@rehab.new_record? ? 'Registrar Rehabilitacion' : 'Guardar Rehabilitacion') , :class => "btn btn-mini btn-success" %> |
+           <% if @rehab.interno_id==nil %>
+            <%= link_to 'Retornar a internos',  :back, :class => 'btn btn-mini btn-default' %>
+          <% else %>
+            <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@rehab.interno_id%> >Retornar a interno</a> 
+          <% end %>
   </div>
 <% end %>
