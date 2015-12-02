@@ -11,29 +11,19 @@
     </div>
   <% end %>
   <input type="hidden" name="id" value="<%= @id %>" >
-<div  class="jumbotron" align="center">
+<div align="center">
+  <strong><%= f.label :fecha , 'Fecha Devolucion(*)'%></strong> 
+    <%= f.date_select :fecha %><br>
+  <strong><%= f.label :hora, 'Hora Devolucion(*)' %></strong> 
+    <%= f.time_select :hora %><br>
   <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
   <strong>Producto: </strong> <%= @entregaprod.product %><br>  
-    <strong>Cantidad Entregada: </strong>
-    <%= @entregaprod.cantidad %> 
-</div>
-  <div class="field">
-    <%= f.label :fecha , 'Fecha Devolucion(*)'%> 
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :hora, 'Hora Devolucion(*)' %> 
-    <%= f.time_select :hora %>
-  </div>
-  <div class="field">
-    <%= f.label :cantidad, 'cantidad Devuleta(*)' %> 
-    <%= f.number_field :cantidad , :value =>0%>
-  </div>
-  
-  <div class="field">
-    <%= f.label :observaciones , 'Observaciones Devolucion'%> 
-    <%= f.text_area :observaciones %>
-  </div>
+  <strong>Cantidad Entregada: </strong>
+    <%= @entregaprod.cantidad %><br>
+  <strong><%= f.label :cantidad, 'cantidad Devuleta(*)' %></strong> 
+    <%= f.number_field :cantidad ,:value =>(@rendicionprod.new_record? ? '0' : @rendicionprod.cantidad.to_s) %><br>
+  <strong style="vertical-align: bottom;"><%= f.label :observaciones , 'Observaciones Devolucion'%></strong> 
+    <%= f.text_area :observaciones %><br>  
   <div class="actions">
     <%= f.submit (@rendicionprod.new_record? ? 'Registrar Devolucion' : 'Editar Devolucion'),:class => 'btn btn-mini btn-success active'%>
   </div>

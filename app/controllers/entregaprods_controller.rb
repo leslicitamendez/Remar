@@ -4,38 +4,33 @@ class EntregaprodsController < ApplicationController
   # GET /entregaprods
   # GET /entregaprods.json
   def index
-    #@entregaprods = Entregaprod.all.order("fecha DESC, hora DESC")
-    #@palabra = ''
-    #@palabra = params[:palabra]
-    #@entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha >=?", "%#{@palabra}%")
-    @product=Product.all
-    @page = params[:page]
-    if params[:producto]==nil
-      params[:producto]=''
-    end
-    if params[:palabra]==nil
-      params[:palabra]=''
-    end
-    if params[:palabra2]==nil
-      params[:palabra2]=''
-    end
-    if params[:producto] &&  params[:producto]!= ''
-      @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("product_id >=?", params[:producto])
-      @nombre=Product.find(params[:producto])
-    else
-      @entregaprods = Entregaprod.all
-    end 
     begin
-
-      if params[:palabra] &&  params[:palabra]!= '' 
-        if params[:palabra2]==nil ||  params[:palabra2]== ''
-          @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha >=?", params[:palabra].to_date)
-        else
-          @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha >=? AND fecha <=?", params[:palabra].to_date, params[:palabra2].to_date)
-        end
+      @product=Product.all
+      @page = params[:page]
+      if params[:producto]==nil
+        params[:producto]=''
+      end
+      if params[:palabra]==nil
+        params[:palabra]=''
+      end
+      if params[:palabra2]==nil
+        params[:palabra2]=''
+      end
+      if (params[:palabra]==nil || params[:palabra]=='' )&&(params[:palabra2]==nil || params[:palabra2]=='')
+        @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("fecha =?",Date.today)
       else
-        @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha =?", Date.today)
-      end       
+        @entregaprods=Entregaprod.all
+      end
+      if params[:producto] &&  params[:producto]!= ''
+        @entregaprods = Entregaprod.order("fecha DESC, hora DESC").where("product_id =?", params[:producto])
+        @nombre=Product.find(params[:producto])
+      end    
+      if params[:palabra] &&  params[:palabra]!= '' 
+        @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha >=?", params[:palabra].to_date)
+      end
+      if params[:palabra2] &&  params[:palabra2]!= '' 
+        @entregaprods = @entregaprods.order("fecha DESC, hora DESC").where("fecha <=?", params[:palabra2].to_date)
+      end    
     rescue Exception => e
       flash[:success] = 'Por favor ingrese una fecha valida'
       params.delete :palabra2
@@ -103,7 +98,7 @@ class EntregaprodsController < ApplicationController
       @stock.cantidad -= @entregaprod.cantidad
       @stock.save
       flash[:success] =  'Entrega producto creado exitosamente' 
-      redirect_to '/entregaprods/'+@entregaprod.id.to_s
+      redirect_to '/entregaprods/'
     else
       render action: "new"
     end
@@ -125,7 +120,7 @@ class EntregaprodsController < ApplicationController
           @stock.cantidad -=@editar
           if @entregaprod.update(entregaprod_params) && @stock.save
             flash[:success] =  'Entrega producto actualizado exitosamente'
-            redirect_to '/entregaprods/'+@entregaprod.id.to_s
+            redirect_to '/entregaprods/'
           else
             render action: "new"
           end
@@ -137,7 +132,7 @@ class EntregaprodsController < ApplicationController
         @stock.cantidad -=@editar
         if @entregaprod.update(entregaprod_params) && @stock.save
           flash[:success] =  'Entrega producto actualizado exitosamente' 
-          redirect_to '/entregaprods/'+@entregaprod.id.to_s
+          redirect_to '/entregaprods/'
         else
           render action: "new"
         end
@@ -149,7 +144,7 @@ class EntregaprodsController < ApplicationController
         @stock2.cantidad -= @actu[:cantidad].to_i
         if @entregaprod.update(entregaprod_params) && @stock.save && @stock2.save
           flash[:success] =  'Entrega producto actualizado exitosamente'
-          redirect_to '/entregaprods/'+@entregaprod.id.to_s
+          redirect_to '/entregaprods/'
         else
           render action: "new"
         end

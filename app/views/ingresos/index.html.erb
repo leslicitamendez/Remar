@@ -1,4 +1,9 @@
-<h1>Lista Ingresos</h1>
+<%if params[:palabra]!='' && params[:palabra]!= nil%>
+  <h1>Lista Ingresos</h1>
+<%else%>
+  <h1>Ingresos de Hoy</h1>
+<%end%>
+
 
 Total de ingresos
 <%if params[:palabra]!='' && params[:palabra]!= nil%>
@@ -51,7 +56,7 @@ Total de ingresos
         <td><%= ingreso.fecha %></td>
         <td><%= ingreso.concepto %></td>
         <td><%= ingreso.montoBs %></td>
-        <td><%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
+        <td id="botones"><%= link_to 'Editar', edit_ingreso_path(ingreso), :class => 'btn btn-mini btn-warning active' %></td>
       </tr>
     <% end %><% end %>
   </tbody>

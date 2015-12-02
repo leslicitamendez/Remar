@@ -78,10 +78,10 @@
           <%end%>
         </td>
         <% if citum.estado != 'Pendiente' %>
-          <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
+          <td id="botones"><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>
         <%end%>
         <% if citum.estado == 'Pendiente' %>
-          <td><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar/Enviar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>                   
+          <td id="botones"><%= link_to 'Ver', citum, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar/Enviar', edit_citum_path(citum), :class => 'btn btn-mini btn-warning active'%></td>                   
         <%end%>       
         
       </tr>

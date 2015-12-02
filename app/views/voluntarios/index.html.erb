@@ -77,8 +77,7 @@ $('#the-basics .typeahead').typeahead({
         <% end %>
        pagina <%= @page%> de <%= (@voluntarios.length/5)+@sumax %> <%= link_to 'Siguiente','/voluntarios?&page='+(@page.to_i+1).to_s+'&palabra='+@palabra.to_s+@estado, :class => 'btn btn-mini btn-default' %>
       <%end%>
-    </tr>    
-    <tr>
+    </tr>   
     <tr>
       <th>C.I.</th>
       <th>Nombre</th>
@@ -96,7 +95,7 @@ $('#the-basics .typeahead').typeahead({
           <td><%= voluntario.nombre %></td>
           <td><%= voluntario.apellido1 %></td>
           <td><%= voluntario.apellido2 %></td>
-          <td><%= link_to 'Ver', voluntario, :class => 'btn btn-mini btn-info active' %> <%= link_to 'Editar', edit_voluntario_path(voluntario), :class => 'btn btn-mini btn-warning active' %></td>        
+          <td id="botones"><%= link_to 'Ver', voluntario, :class => 'btn btn-mini btn-info active' %> <%= link_to 'Editar', edit_voluntario_path(voluntario), :class => 'btn btn-mini btn-warning active' %></td>        
         </tr>
       <% end %>
     <% end %>

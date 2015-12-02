@@ -1,27 +1,77 @@
-<p id="notice"><%= notice %></p>
-
+<center>
+  <div id="cuadro">
+  <p id="notice"><%= notice %></p>
+<div   align="center">
+  <div id="titulo">
+        Detalles Venta
+  </div>
+  <p><strong>Voluntario: </strong> <%= @rendicionprod.entregaprod.voluntario.full_name %></p>
+  <p><strong>Producto: </strong> <%= @rendicionprod.entregaprod.product %></p>
+  <div id="linea"></div>
+  <div id="subtitulo">Fecha</div>
+  <p>
+  <strong>Fecha Entrega:</strong>
+  <%= @rendicionprod.entregaprod.fecha %>
+</p>
+  <p>
+  <strong>Fecha Devolucion:</strong>
+  <%= @rendicionprod.fecha %>
+</p>
 <p>
-  <strong>Cantidad:</strong>
+  <strong>Fecha Venta:</strong>
+  <%= @rendicionprod.ventaprod.fecha %>
+</p>
+  <div id="linea"></div>
+<div id="subtitulo">Hora</div>
+<p>
+  <strong>Hora Entrega:</strong>
+  <%= @rendicionprod.entregaprod.hora.strftime("%I:%M %p") %>
+</p>
+<p>
+  <strong>Hora Devolucion:</strong>
+  <%= @rendicionprod.hora.strftime("%I:%M %p") %>
+</p>
+  <div id="linea"></div>
+<div id="subtitulo">Cantidad</div>
+<p>
+  <strong>Cantidad Entregada:</strong>
+  <%= @rendicionprod.entregaprod.cantidad %>
+</p>
+<p>
+  <strong>Cantidad Devuelta:</strong>
   <%= @rendicionprod.cantidad %>
 </p>
 <p>
-  <strong>Id:</strong>
-  <%= @rendicionprod.id %>
+  <strong>Cantidad Vendida:</strong>
+  <%= @rendicionprod.ventaprod.cantidad %>
 </p>
-
+  <div id="linea"></div>
+<div id="subtitulo">Precio</div>
 <p>
-  <strong>Fecha:</strong>
-  <%= @rendicionprod.fecha %>
+  <strong>Precio Unitario:</strong>
+  <%= @rendicionprod.ventaprod.precioUnidad %>
 </p>
-
 <p>
-  <strong>Hora:</strong>
-  <%= @rendicionprod.hora.strftime("%I:%M %p") %>
+  <strong>Precio Total Esperado:</strong>
+  <%= @rendicionprod.ventaprod.precioUnidad*@rendicionprod.ventaprod.cantidad %>
 </p>
-
 <p>
-  <strong>Observaciones:</strong>
+  <%if @rendicionprod.ventaprod.ingreso %>
+  <strong>Monto Ingreso Registrado:</strong>
+  <%= @rendicionprod.ventaprod.ingreso.montoBs %>
+  <%end%>
+</p>
+  <div id="linea"></div>
+<div id="subtitulo">Observaciones</div>
+<p>
+  <strong>Observaciones Devolucion:</strong>
   <%= @rendicionprod.observaciones %>
 </p>
+<p>
+  <strong>Observaciones Venta:</strong>
+  <%= @rendicionprod.ventaprod.observaciones %>
+</p>
 
-<%= link_to 'Atras', rendicionprods_path,:class => 'btn btn-mini btn-default' %>
+<p id="botones"><%= link_to 'Atras', entregaprod_path(@rendicionprod.entregaprod_id),:class => 'btn btn-mini btn-default' %></p>
+</div>
+</div>
