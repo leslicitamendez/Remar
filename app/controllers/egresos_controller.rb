@@ -4,12 +4,15 @@ class EgresosController < ApplicationController
   # GET /egresos
   # GET /egresos.json
   def index
+    @egresos = Egreso.all.paginate(:per_page => 4, :page => params[:page])
     if params[:fecha_fin] == nil || params[:fecha_fin] == ""
       params[:fecha_fin]=Date.today
-      @egresos = Egreso.order("fecha DESC").where("fecha <= ?", params[:fecha_fin].to_date)
+      @egresos = Egreso.order("fecha DESC").paginate(:per_page => 4, :page => params[:page]).where("fecha <= ?", params[:fecha_fin].to_date)
     else
-      @egresos = Egreso.order("fecha DESC").where("fecha >= ? and fecha <= ?", params[:fecha_inicio].to_date, params[:fecha_fin].to_date)
+      if params[:fecha_inicio] != nil && params[:fecha_fin] != nil
+        @egresos = Egreso.order("fecha DESC").paginate(:per_page => 4, :page => params[:page]).where("fecha >= ? and fecha <= ?", params[:fecha_inicio].to_date, params[:fecha_fin].to_date)
     end
+  end
   end
 
   # GET /egresos/1

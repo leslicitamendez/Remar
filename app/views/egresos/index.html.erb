@@ -44,6 +44,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @egresos, :previous_label => '&laquo;Anterior', :next_label => 'Siguiente&raquo;' %>
 
 <script>
   $('.datepicker').datepicker({
