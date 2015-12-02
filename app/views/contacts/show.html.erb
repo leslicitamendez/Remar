@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-
+<br><br>
+<div align="right">
+  <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@contact.interno_id%> >Retornar a interno</a>
+</div>
+<br>
+<div class="jumbotron" align="center">
 <p>
   <strong>Nombre:</strong>
   <%= @contact.nombre %>
@@ -39,5 +44,5 @@
 
 <% link_to 'Edit', edit_contact_path(@contact) %> 
 <% link_to 'Atras', :back, :class => 'btn btn-mini btn-default'%>
-<a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@contact.interno_id%> >Retornar a interno</a>
+
 

@@ -18,13 +18,13 @@
       <tr>
           <td>
               <div class="field" align="center">
-                <%= f.label :nombre, 'Nombre (*)' %><br>
+                <%= f.label :nombre, 'Nombre *' %><br>
                 <%= f.text_field :nombre %>
               </div>
           </td>
           <td>
               <div class="field" align="center">
-                <%= f.label :apellido1, 'Apellido Paterno (*)' %><br>
+                <%= f.label :apellido1, 'Apellido Paterno *' %><br>
                 <%= f.text_field :apellido1 %>
               </div>
           </td>
@@ -36,27 +36,29 @@
           </td>
         </tr>
         <tr>
-          </td>
+          <td>
               <div class="field" align="center">
-                <%= f.label :sexo, 'Sexo (*)' %><br>
+                <%= f.label :sexo, 'Sexo *' %><br>
                 <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
               </div>
           </td>
           <td>
               <div class="field" align="center">
-                <%= f.label :ci , 'CI (*)'%><br>
+                <%= f.label :ci , 'CI *'%><br>
                 <%= f.number_field :ci %>
               </div>
           </td>
           <td>
               <div class="field" align="center">
-                <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
+                <%= f.label :fechaNacimiento, 'Fecha de Nacimiento *' %><br>
                 <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
               </div>
           </td>
+        </tr>
+        <tr>
           <td>
               <div class="field" align="center">
-                <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
+                <%= f.label :lugarNacimiento, 'Lugar de Nacimiento *' %><br>
               </div>
 
               <div id="the-basics"  align="center"> 
@@ -65,10 +67,17 @@
           </td>
         </tr>
       </table>
+      <br>
+  <div align="center">
+    <label>* Los campos con asterisco, son obligatorios. </label>
+  </div><br><br>
       <br><br>
       <div class="actions" align="center">
-        <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> |
-        <%= link_to 'Internos', internos_path, :class => 'btn btn-mini btn-default' %>
+        <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> |  <% if @hijo.interno_id==nil %>
+            <%= link_to 'Retornar a internos',  :back, :class => 'btn btn-mini btn-default' %>
+          <% else %>
+            <a class='btn btn-mini btn-default' href=<%="/internos/"%>+<%=@hijo.interno_id%> >Retornar a interno</a>
+          <% end %>
       </div>
               <script type="text/javascript">
               var substringMatcher = function(strs) {

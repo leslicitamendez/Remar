@@ -12,7 +12,9 @@
   <% end %>
 <input type="hidden" name="id" value="<%= @id %>" >
 <input type="hidden" name="rendicion_id" value="<%= @rendicion_id %>" >
-<div  class="jumbotron" align="center">
+<div   align="center">
+  <strong><%= f.label :fecha, 'Fecha Venta(*)' %></strong> 
+    <%= f.date_select :fecha %><br>
   <strong>Voluntario: </strong> <%= @entregaprod.voluntario.full_name %><br>
   <strong>Producto: </strong> <%= @entregaprod.product %><br>  
     <strong>Cantidad Entregada: </strong>
@@ -21,23 +23,27 @@
     <%if @entregaprod.rendicionprod %>
     <%= @entregaprod.rendicionprod.cantidad %>
     <%end%>
-</div>
-  <div class="field">
-    <%= f.label :fecha, 'Fecha (*)' %> 
-    <%= f.date_select :fecha %>
-  </div>
-  <div class="field">
+    <br>
     <%= f.label :cantidad,'Cantidad Vendida(*)' %>
     <%if @entregaprod.rendicionprod %>
       <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i-@entregaprod.rendicionprod.cantidad.to_i%>
     <%else%>
       <%= f.number_field :cantidad, :value =>@entregaprod.cantidad.to_i%>
-    <%end%>
-  </div>
-  <div class="field">
-    <%= f.label :observaciones, 'Observaciones Venta' %> 
+    <%end%><br>    
+    <strong>Precio unitario: </strong>
+    <%= @entregaprod.product.price%><br>
+    <strong>Ingresos esperados: </strong>
+    <%if @entregaprod.rendicionprod %>
+      <%= (@entregaprod.cantidad.to_i-@entregaprod.rendicionprod.cantidad.to_i)*@entregaprod.product.price%>
+    <%else%>
+      <%= @entregaprod.cantidad.to_i*@entregaprod.product.price%>
+    <%end%><br>
+    <strong><%= f.label :observaciones, 'Observaciones Venta' %></strong> 
     <%= f.text_area :observaciones %>
-  </div>
+</div>
+  
+  
+    
   <div class="actions">
     <%= f.submit (@ventaprod.new_record? ? 'Registrar Venta' : 'Editar Venta'),:class => 'btn btn-mini btn-success active' %>
   </div>
