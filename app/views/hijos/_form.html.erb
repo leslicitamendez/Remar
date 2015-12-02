@@ -53,24 +53,24 @@
                 <%= f.label :fechaNacimiento, 'Fecha de Nacimiento (*)' %><br>
                 <%= f.date_select :fechaNacimiento, { order: [ :day, :month, :year],:start_year => Time.now.year-40, :end_year => Time.now.year} %>
               </div>
-            </td>
+          </td>
           <td>
               <div class="field" align="center">
                 <%= f.label :lugarNacimiento, 'Lugar de Nacimiento (*)' %><br>
-          
+              </div>
 
               <div id="the-basics"  align="center"> 
                 <%= f.text_field :lugarNacimiento, :placeholder => "Buscar por Nombre Completo",:class =>"typeahead" %>
-
-
-            
-            <br>
-
-        
-   
               </div>
-
-                <script type="text/javascript">
+          </td>
+        </tr>
+      </table>
+      <br><br>
+      <div class="actions" align="center">
+        <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> |
+        <%= link_to 'Internos', internos_path, :class => 'btn btn-mini btn-default' %>
+      </div>
+              <script type="text/javascript">
               var substringMatcher = function(strs) {
                 return function findMatches(q, cb) {
                   var matches, substrRegex;
@@ -111,16 +111,4 @@
                 source: substringMatcher(states)
               });
               </script>
-
-
-<br>
-
-</td>
-</tr>
-<tr>
-<td></td>
-<td  valign="top" style="padding-left: 18%; padding-top: 10%;">
-  <div class="actions" align="center">
-    <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-mini btn-success" %> 
-  </div>
 <% end %>

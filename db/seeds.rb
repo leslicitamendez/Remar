@@ -8,16 +8,24 @@
 
 # PRODUCTOS
 
-productos = Product.create([{code: 'CHOCO1', name: 'Chocotejas', unity: 'Gramos', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
-	{code: 'COLLA2', name: 'Collar', unity: 'Gramos', price: 25.0, description: 'Collar de perlas', state: 'Activo'},
-	{code: 'MANIL3', name: 'Manilla', unity: 'Gramos', price: 15.0, description: 'Manilla hecho de shakiras', state: 'Activo'},
-	{code: 'DETER4', name: 'Detergente', unity: 'Mililitros', price: 18.0, description: 'Detergente lavavajillas de 1050 ml', state: 'Activo'},
-	{code: 'SHAMP5', name: 'Shampoo', unity: 'Mililitros', price: 27.5, description: 'Shampoo de 500 ml para niños', state: 'Activo'},
-	{code: 'LLAVE6', name: 'Llavero', unity: 'Pieza', price: 20.0, description: 'Llavero artesanal', state: 'Activo'},
-	{code: 'JABON7', name: 'Jabon', unity: 'Pieza', price: 7.5, description: 'Jabon aromatico', state: 'Activo'},
-	{code: 'AROMA8', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'},
-	{code: 'ALMAN9', name: 'Almanaque', unity: 'Pieza', price: 30, description: 'Almanaque', state: 'Activo'},
-	{code: 'ANILL10', name: 'Anillo', unity: 'Pieza', price: 15, description: 'Anillo de plata', state: 'Activo'}])
+productos = Product.create([{code: 'CHOCO1', name: 'Chocoteja de mani', unity: 'Pieza', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'CHOCO2', name: 'Chocoteja de uvas pasas', unity: 'Pieza', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'CHOCO3', name: 'Chocoteja de almendra', unity: 'Pieza', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'CHOCO4', name: 'Chocoteja de coco', unity: 'Pieza', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'CHOCO5', name: 'Chocoteja de guindon', unity: 'Pieza', price: 5.0, description: 'Dulces de chocolate de 25g', state: 'Activo'},
+	{code: 'DESIN6', name: 'Desinfectante', unity: 'Pieza', price: 20.0, description: 'Desinfectante de piso', state: 'Activo'},
+	{code: 'AMBIE7', name: 'Ambientador', unity: 'Pieza', price: 30.0, description: 'Ambientador olor lavanda', state: 'Activo'},
+	{code: 'QUITA8', name: 'Quita sarro', unity: 'Pieza', price: 35.0, description: 'Ambientador olor lavanda', state: 'Activo'},
+
+	{code: 'COLLA9', name: 'Collar', unity: 'Gramos', price: 25.0, description: 'Collar de perlas', state: 'Activo'},
+	{code: 'MANIL10', name: 'Manilla', unity: 'Gramos', price: 15.0, description: 'Manilla hecho de shakiras', state: 'Activo'},
+	{code: 'DETER11', name: 'Detergente', unity: 'Mililitros', price: 18.0, description: 'Detergente lavavajillas de 1050 ml', state: 'Activo'},
+	{code: 'SHAMP12', name: 'Shampoo', unity: 'Mililitros', price: 27.5, description: 'Shampoo de 500 ml para niños', state: 'Activo'},
+	{code: 'LLAVE13', name: 'Llavero', unity: 'Pieza', price: 20.0, description: 'Llavero artesanal', state: 'Activo'},
+	{code: 'JABON14', name: 'Jabon', unity: 'Pieza', price: 7.5, description: 'Jabon aromatico', state: 'Activo'},
+	{code: 'AROMA15', name: 'Aromatizante', unity: 'Pieza', price: 35.0, description: 'Aromatizante en spray', state: 'Activo'},
+	{code: 'ALMAN16', name: 'Almanaque', unity: 'Pieza', price: 30, description: 'Almanaque', state: 'Activo'},
+	{code: 'ANILL17', name: 'Anillo', unity: 'Pieza', price: 15, description: 'Anillo de plata', state: 'Activo'}])
 
 producciones = Produccion.create([{product_id: '1', cantidad: 100, fecha_produccion: DateTime.new(2015, 11, 30), fecha_vencimiento: DateTime.new(2015, 12, 2)},
 	{product_id: '2', cantidad: 1000, fecha_produccion: DateTime.new(2015, 11, 30)},
@@ -82,7 +90,6 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 	{product_id: '6', cantidad: '0'},
 	{product_id: '7', cantidad: '0'},
 	{product_id: '8', cantidad: '0'}])
-
 
 
 # citas = Citum.create!([{ fecha: '2007-11-7', hora:'2007-11-7 11:15:00.000000', ubicación:'calleLucas Mendoza313', nombreDonante:'Julián ', estado:' Enviado', telefono:28169259},
@@ -2196,25 +2203,6 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 # {monto:0, fecha: '2010-1-19',ventaprod_id:300,concepto:'venta Producto codigo=AROMA8 nombre=Aromatizante idVenta=300'}])
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	Voluntario.create(nombre:'Gamaliel ', apellido1:'Bejarano', apellido2:'Quiroga', sexo:'Masculino', ci: 6583796, NivelConfianza: 50, telefono: 78130506, estado:'Inactivo')
 Voluntario.create(nombre:'Silvio', apellido1:'Cifontes', apellido2:'de Castro', sexo:'Masculino', ci: 6992758, NivelConfianza: 92, telefono: 75023223, estado:'Inactivo')
 Voluntario.create(nombre:'Jorge', apellido1:'Bustos', apellido2:'Hera', sexo:'Masculino', ci: 6076136, NivelConfianza: 77, telefono: 44823318, estado:'Activo')
@@ -2523,7 +2511,6 @@ Citum.create( fecha: Date.new(2013,2,22), hora: Time.new(2013,2,22,10,51,0), ubi
 Citum.create( fecha: Date.new(2012,2,5), hora: Time.new(2012,2,5,13,6,0), ubicación:'calle Flor Del Tropico #127', nombreDonante:'Tarsicio ', estado:' Enviado', telefono: 42579263)
 Citum.create( fecha: Date.new(2012,2,15), hora: Time.new(2012,2,15,13,5,0), ubicación:'calle Carlos Taboada #860', nombreDonante:'Segismundo', estado:' Cancelada', telefono: 18434373)
 Citum.create( fecha: Date.new(2005,6,5), hora: Time.new(2005,6,5,14,2,0), ubicación:'calle Gallardina #133', nombreDonante:'Germá', estado:' Concretada', telefono: 63618563)
-
 
 
 
