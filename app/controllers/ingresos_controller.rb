@@ -37,14 +37,18 @@ class IngresosController < ApplicationController
 
   # GET /ingresos/new
   def new
-    @ingreso = Ingreso.new
-    @id=(params[:id])    
-    @donaid=(params[:donaid])
-    if @donaid != nil && @donaid != '' && @donaid != '0'
-      @donativo= RecepcionDonativo.find(@donaid)
-    end
-    if @id != nil && @id != '' && @id != '0'
-      @ventaprod= Ventaprod.find(@id)
+    begin
+      @ingreso = Ingreso.new
+      @id=(params[:id])    
+      @donaid=(params[:donaid])
+      if @donaid != nil && @donaid != '' && @donaid != '0'
+        @donativo= RecepcionDonativo.find(@donaid)
+      end
+      if @id != nil && @id != '' && @id != '0'
+        @ventaprod= Ventaprod.find(@id)
+      end
+    rescue Exception => e
+      
     end
   end
 
@@ -55,55 +59,62 @@ class IngresosController < ApplicationController
   # POST /ingresos
   # POST /ingresos.json
   def create
-    @datos=params[:ingreso]
-    @ingreso = Ingreso.new(ingreso_params)
-    @id=(params[:id])
-    @donaid=(params[:donaid])
-    if @donaid != nil && @donaid != '' && @donaid != '0'
-      @donativo= RecepcionDonativo.find(params[:donaid])
-      @donativo.estado='Vendido'
-      @ingreso.concepto='venta Donativo id='+@donativo.id.to_s+' articulo='+@donativo.articulo.to_s
-      @ingreso.recepcionDonativo_id=params[:donaid]
-      @ingreso.fecha=Date.today()
-      if @ingreso.save && @donativo.save
-        flash[:success] = 'Donativo vendido exitosamente' 
-        redirect_to '/recepcion_donativos'
+    begin
+      @datos=params[:ingreso]
+      @ingreso = Ingreso.new(ingreso_params)
+      @id=(params[:id])
+      @donaid=(params[:donaid])
+      if @donaid != nil && @donaid != '' && @donaid != '0'
+        @donativo= RecepcionDonativo.find(params[:donaid])
+        @donativo.estado='Vendido'
+        @ingreso.concepto='venta Donativo id='+@donativo.id.to_s+' articulo='+@donativo.articulo.to_s
+        @ingreso.recepcionDonativo_id=params[:donaid]
+        @ingreso.fecha=Date.today()
+        if @ingreso.save && @donativo.save
+          flash[:success] = 'Donativo vendido exitosamente' 
+          redirect_to '/recepcion_donativos'
+        else
+          render action: "new"
+        end
+      elsif @id != nil && @id != '' && @id != '0'
+        @ventaprod= Ventaprod.find(@id)
+        @ingreso.ventaprod_id=params[:id]
+        @ingreso.montoBs = @datos[:montoBs]
+        #@ventaprod.estado='Vendido'
+        @ingreso.concepto='venta Producto codigo='+@ventaprod.entregaprod.product.code.to_s+' nombre='+@ventaprod.entregaprod.product.name.to_s
+        @ingreso.fecha=Date.today()
+        if @ingreso.save 
+          flash[:success] = 'Producto vendido exitosamente' 
+          redirect_to '/entregaprods'
+        else
+          render action: "new"
+        end
       else
-        render action: "new"
+        if @ingreso.save 
+          flash[:success] = 'Ingreso registrado exitosamente' 
+          redirect_to '/ingresos'
+        else
+          render action: "new"
+        end
       end
-    elsif @id != nil && @id != '' && @id != '0'
-      @ventaprod= Ventaprod.find(@id)
-      @ingreso.ventaprod_id=params[:id]
-      @ingreso.montoBs = @datos[:montoBs]
-      #@ventaprod.estado='Vendido'
-      @ingreso.concepto='venta Producto codigo='+@ventaprod.entregaprod.product.code.to_s+' nombre='+@ventaprod.entregaprod.product.name.to_s
-      @ingreso.fecha=Date.today()
-      if @ingreso.save 
-        flash[:success] = 'Producto vendido exitosamente' 
-        redirect_to '/entregaprods'
-      else
-        render action: "new"
-      end
-    else
-      if @ingreso.save 
-        flash[:success] = 'Ingreso registrado exitosamente' 
-        redirect_to '/ingresos'
-      else
-        render action: "new"
-      end
+    rescue Exception => e
+      
     end
-    
   end
 
   # PATCH/PUT /ingresos/1
   # PATCH/PUT /ingresos/1.json
   def update
+    begin
       if @ingreso.update(ingreso_params)
         flash[:success] =  'Ingreso actualizado exitosamente' 
         redirect_to '/ingresos'
       else
         render action: "edit"
       end
+    rescue Exception => e
+      
+    end
   end
 
   # DELETE /ingresos/1

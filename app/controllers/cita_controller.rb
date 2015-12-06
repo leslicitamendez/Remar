@@ -50,7 +50,8 @@ class CitaController < ApplicationController
   # POST /cita
   # POST /cita.json
   def create
-    @citum = Citum.new(citum_params)
+    begin
+      @citum = Citum.new(citum_params)
       @citum.estado='Pendiente'
       if @citum.save
         flash[:success] = 'Cita creada exitosamente' 
@@ -58,11 +59,15 @@ class CitaController < ApplicationController
       else
         render action: "new"
       end
+    rescue Exception => e
+      
+    end
   end
 
   # PATCH/PUT /cita/1
   # PATCH/PUT /cita/1.json
   def update
+    begin
       @editar=citum_params
       if @editar[:voluntario_id] != '' && @citum.estado=='Pendiente'
         @citum.estado='Enviado'
@@ -74,6 +79,9 @@ class CitaController < ApplicationController
       else
         render action: "new"
       end
+    rescue Exception => e
+      
+    end
   end
 
 

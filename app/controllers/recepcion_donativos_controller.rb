@@ -4,10 +4,11 @@ class RecepcionDonativosController < ApplicationController
   # GET /recepcion_donativos
   # GET /recepcion_donativos.json
   def index
-    @recepcion_donativos = RecepcionDonativo.all
-    @page = params[:page]
-    @palabra=params[:palabra]
     begin
+      @recepcion_donativos = RecepcionDonativo.all
+      @page = params[:page]
+      @palabra=params[:palabra]
+    
       if params[:palabra] &&  params[:palabra]!= '' 
           @recepcion_donativos = @recepcion_donativos.order("articulo ASC").where("articulo LIKE ? OR descripcion LIKE ?", "%#{@palabra}%", "%#{@palabra}%")      
       end 
@@ -38,26 +39,34 @@ class RecepcionDonativosController < ApplicationController
   # POST /recepcion_donativos
   # POST /recepcion_donativos.json
   def create
-    @recepcion_donativo = RecepcionDonativo.new(recepcion_donativo_params)
-    @recepcion_donativo.estado='Pendiente'
-    @recepcion_donativo.fecha=Date.today
-    if @recepcion_donativo.save
-      flash[:success] = 'Recepcion donativo creado exitosamente' 
-      redirect_to '/recepcion_donativos'
-    else
-      render action: "new"
+    begin
+      @recepcion_donativo = RecepcionDonativo.new(recepcion_donativo_params)
+      @recepcion_donativo.estado='Pendiente'
+      @recepcion_donativo.fecha=Date.today
+      if @recepcion_donativo.save
+        flash[:success] = 'Recepcion donativo creado exitosamente' 
+        redirect_to '/recepcion_donativos'
+      else
+        render action: "new"
+      end      
+    rescue Exception => e
+      
     end
   end
 
   # PATCH/PUT /recepcion_donativos/1
   # PATCH/PUT /recepcion_donativos/1.json
   def update
+    begin
       if @recepcion_donativo.update(recepcion_donativo_params)
         flash[:success] = 'Recepcion donativo actualizado exitosamente' 
         redirect_to '/recepcion_donativos'
       else
         render action: "edit"
       end
+    rescue Exception => e
+      
+    end
   end
 
   # DELETE /recepcion_donativos/1
