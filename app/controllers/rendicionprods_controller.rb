@@ -14,9 +14,13 @@ class RendicionprodsController < ApplicationController
 
   # GET /rendicionprods/new
   def new
-    @rendicionprod = Rendicionprod.new
-    @id=(params[:id])
-    @entregaprod=Entregaprod.find(params[:id])
+    begin
+      @rendicionprod = Rendicionprod.new
+      @id=(params[:id])
+      @entregaprod=Entregaprod.find(params[:id])
+    rescue Exception => e
+      
+    end
   end
 
   # GET /rendicionprods/1/edit
@@ -26,9 +30,10 @@ class RendicionprodsController < ApplicationController
 
   # POST /rendicionprods
   # POST /rendicionprods.json
-  def create
-    @rendicionprod = Rendicionprod.new(rendicionprod_params)
+  def create    
     begin
+      @rendicionprod = Rendicionprod.new(rendicionprod_params)
+
       @entregaprod=Entregaprod.find(params[:id])
       @rendicionprod.entregaprod_id=params[:id]
 

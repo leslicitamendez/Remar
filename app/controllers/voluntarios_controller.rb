@@ -4,18 +4,22 @@ class VoluntariosController < ApplicationController
   # GET /voluntarios
   # GET /voluntarios.json
   def index
-    @voluntarios = Voluntario.all
-    @palabra = ''
-      @palabra = params[:palabra]
-    if(params["palabra"]!=nil)
-        @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
+    begin  
+      @voluntarios = Voluntario.all
+      @palabra = ''
+        @palabra = params[:palabra]
+      if(params["palabra"]!=nil)
+          @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("nombre LIKE ?  OR apellido1 LIKE ? OR apellido2 LIKE ?", "%#{@palabra}%" ,"%#{@palabra}%", "%#{@palabra}%")    
+      end
+      if(params["estado"]!=nil)
+        @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", params[:estado])
+      else
+        @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", "Activo")
+      end
+      @page = params[:page]
+    rescue Exception => e
+      
     end
-    if(params["estado"]!=nil)
-      @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", params[:estado])
-    else
-      @voluntarios=@voluntarios.order("apellido1 ASC, apellido2 ASC, nombre ASC ").where("estado=?", "Activo")
-    end
-    @page = params[:page]
   end
 
 
@@ -37,27 +41,35 @@ class VoluntariosController < ApplicationController
   # POST /voluntarios
   # POST /voluntarios.json
   def create
-    @voluntario = Voluntario.new(voluntario_params)
-    if @Voluntario
-    @Voluntario.estado='Activo'
-    end
-      if @voluntario.save
-        flash[:success] = 'Voluntario creado exitosamente' 
-        redirect_to '/voluntarios'
-      else
-        render action: "new"
+    begin
+      @voluntario = Voluntario.new(voluntario_params)
+      if @Voluntario
+      @Voluntario.estado='Activo'
       end
+        if @voluntario.save
+          flash[:success] = 'Voluntario creado exitosamente' 
+          redirect_to '/voluntarios'
+        else
+          render action: "new"
+        end
+      rescue Exception => e
+      
+    end
   end
 
   # PATCH/PUT /voluntarios/1
   # PATCH/PUT /voluntarios/1.json
   def update
+    begin    
       if @voluntario.update(voluntario_params)
          flash[:success] = 'Voluntario actualizado exitosamente' 
         redirect_to '/voluntarios'
       else
         render action: "edit"
-      end
+      end  
+    rescue Exception => e
+      
+    end
   end
 
   # DELETE /voluntarios/1
