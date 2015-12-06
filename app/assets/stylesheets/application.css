@@ -36,11 +36,10 @@
 }
 
 #pie_pagina {
-	position: relative;
-	margin-top: -50px;
-	height: 40px;
-	padding: 5px 0px;
-	clear: both;
-	background-color: #ffffff;
-	text-align: center;
+  position: relative;
+  clear: both;
+  background-color: #000000;
+  text-align: center;
 }
+
+#p { color: white;}
