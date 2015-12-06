@@ -8,7 +8,7 @@
   <script type="text/javascript" src="/js/bootstrap.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/ct-paper.css">
   <style type="text/css">
-	#pie {
+	#pie_izq {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -16,6 +16,16 @@
     height: 100px;
     margin: 0 auto;
 }
+	#pie_der {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #000;
+}
+	
   </style>
   <%= csrf_meta_tags %>
 </head>
@@ -106,12 +116,20 @@
 			<% end %>
 
 			<%= yield %>
+			<br><br><br>
 		</div>
 	</div>
 </body>
-<footer class="footer">		
+<footer class="footer" >		
 	<div>
-		<img id="pie" src="/images/logo_cato.jpg" alt="rss feed" />
+		<img id="pie_izq" src="/images/logo_cato.jpg" alt="rss feed" />
+	</div>
+	<div id="pie_der">
+		<strong><p>Elaborado por:</p></strong>
+		&nbsp;&nbsp;&nbsp;Howard Castillo Balboa
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lesly Mendez Cruz
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guido Javier Vildozo Mendez
+
 	</div>
 </footer>
 </html>
