@@ -219,7 +219,7 @@ $('#the-basics .typeahead').typeahead({
   <div align="center">
   <div id="botones">
      <div class="actions">
-          <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-sm btn-success" %>
+          <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-sm btn-success" %> | <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default'  %>
       </div>
     </div>
 <% end %>

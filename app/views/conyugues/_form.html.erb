@@ -21,37 +21,38 @@
     
 <table align="center" width="80%">
 <tr>
-<td>
- 
-  <div class="field" align="center">
-    <%= f.label :nombre, 'Nombre *' %><br>
-    <%= f.text_field :nombre %>
-  </div>
+  <td>
+    <div class="field" align="center">
+      <%= f.label :nombre, 'Nombre *' %><br>
+      <%= f.text_field :nombre %>
+    </div>
   </td>
   <td>
-  <div class="field" align="center">
-    <%= f.label :apellido1, 'Apellido Paterno *' %>   <br>
-    <%= f.text_field :apellido1 %>
-  </div>
+    <div class="field" align="center">
+      <%= f.label :apellido1, 'Apellido Paterno *' %>   <br>
+      <%= f.text_field :apellido1 %>
+    </div>
   </td>
-  <td>
-  <div class="field" align="center">
-     <%= f.label :apellido1, 'Apellido Materno' %><br>
-    <%= f.text_field :apellido2 %>
-  </div>
-</td>
 </tr>
 <tr>
-<td>
-  <div class="field" align="center">
-    <%= f.label :ci, 'CI *' %><br>
-    <%= f.number_field :ci %>
-  </div>
+  <td>
+    <div class="field" align="center">
+       <%= f.label :apellido1, 'Apellido Materno' %><br>
+      <%= f.text_field :apellido2 %>
+    </div>
   </td>
   <td>
-  <div class="field" align="center">
-    <%= f.label :lugarNacimiento, 'Lugar de Nacimiento *' %><br>
-    <%= f.select :lugarNacimiento, ['','
+    <div class="field" align="center">
+      <%= f.label :ci, 'CI *' %><br>
+      <%= f.number_field :ci %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="field" align="center">
+      <%= f.label :lugarNacimiento, 'Lugar de Nacimiento *' %><br>
+      <%= f.select :lugarNacimiento, ['','
             DEPARTAMENTO DE COCHABAMBA','Arani','Arque','Cercado','Provincia Ayopaya','Bolívar','Capinota','Carrasco','Rodeado','Chapare','Esteban Arce','Germán Jordán','Provincia Mizque','Narciso Campero','Punata','Quillacollo','Tapacarí','Tiraque','','','
             
             DEPARTAMENTO DE SANTA CRUZ','ndrés Ibáñez','Provincia Ángel Sandoval','Chiquitos','Cordillera','Florida','Germán Busch','Guarayos','Ichilo','Ignacio Warnes','José Miguel de Velasco','Manuel María Caballero','Ñuflo de Chávez','Provincia obispo Santistevan','Sara Vallegrande','','',' 
@@ -68,28 +69,28 @@
             DEPARTAMENTO DE POTOSI','Alonso de Ibáñez','Antonio Quijarro','Bernardino Bilbao','Charcas','Provincia Chayanta','Cornelio Saavedra','Daniel Fields','Enrique Baldivieso','José María Linares','Modesto Omiste','Nor Chichas','Nor Lípez','Rafael Bustillo','Provincia de Sud Chichas','Sud Lípez','Tomás Frías','','','
                 
             DEPARTAMENTO DE TARIJA','Aniceto Arce','Provincia de Burdet O’Connor','Provincia de Cercado','Eustaquio Méndez','Gran Chaco','José María Avilés'] %>
-  </div>
-  </td>
-  <td>
-  <div class="field" align="center">
-    <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
-    <%= f.date_select :fechaNacimiento, { order: [ :day, :month , :year], :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
-   
-  </div>
-  </td>
-</tr>
+        </div>
+      </td>
+      <td>
+          <div class="field" align="center">
+            <%= f.label :fechaNacimiento, 'Fecha de Nacimiento' %><br>
+            <%= f.date_select :fechaNacimiento, { order: [ :day, :month , :year], :start_year => Time.now.year-18, :end_year => Time.now.year-70} %>
+           
+          </div>
+      </td>
+  </tr>
 <tr>
-<td>
-  <div class="field" align="center">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  </td>
   <td>
-  <div class="field" align="center">
-    <%= f.label :direccion, 'Direccion *' %><br>
-    <%= f.text_area :direccion %>
-  </div>
+    <div class="field" align="center">
+      <%= f.label :telefono %><br>
+      <%= f.number_field :telefono %>
+    </div>
+    </td>
+    <td>
+    <div class="field" align="center">
+      <%= f.label :direccion, 'Direccion *' %><br>
+      <%= f.text_area :direccion %>
+    </div>
   </td>
 </tr>
 </table>
