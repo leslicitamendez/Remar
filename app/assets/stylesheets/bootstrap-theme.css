@@ -624,7 +624,7 @@ fieldset[disabled] .btn-danger.active {
   font-family: 'Courier New';
   font-size: 38px;
   font-style: normal;
-  font-variant: normal;
+  font-variant: small-caps;
   font-weight: 400;
   line-height: 41.8px;
 }
@@ -647,6 +647,14 @@ fieldset[disabled] .btn-danger.active {
 #botones{
   font-family: 'Bitstream Vera Sans Mono';
   font-size: 20px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 400;
+  line-height: 45px;
+}
+#encabezado{
+  font-family: 'Bitstream Vera Sans Mono';
+  font-size: 32px;
   font-style: normal;
   font-variant: small-caps;
   font-weight: 400;

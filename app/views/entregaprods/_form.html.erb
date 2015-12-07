@@ -36,7 +36,7 @@
     <%= f.label :cantidad, 'Cantidad (*)' %> 
     <%= f.number_field :cantidad %>
   </div>
-  <div class="actions">
+  <div class="actions" id="botones">
     <%= f.submit (@entregaprod.new_record? ? 'Registrar Entrega' : 'Editar Entrega'),:class => 'btn btn-mini btn-success active'%>
   </div>
 

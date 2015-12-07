@@ -25,11 +25,14 @@
 <div id="linea"></div>
 <div id="botones">
   <div>
+    <%= link_to 'Editar Entrega', edit_entregaprod_path(@entregaprod.id), :class => 'btn btn-mini btn-warning active'%>
+  </div>
+  <div>
     <% if @rendicionprod != nil %>
       <%= link_to 'Editar Devolucion', edit_rendicionprod_path(@rendicionprod.id), :class => 'btn btn-mini btn-warning active'%>
     <% end %>
     <% if @ventaprod != nil %>
-      <%= link_to 'Editar Venta', edit_ventaprod_path(@ventaprod.id), :class => 'btn btn-mini btn-warning active'%>
+      <%= link_to 'Editar Rendicion', edit_ventaprod_path(@ventaprod.id), :class => 'btn btn-mini btn-warning active'%>
     <% end %>
   </div>
   <div>
