@@ -49,11 +49,12 @@
         <%= f.label :NivelConfianza, 'Nivel de Confianza 0-100 *' %>
         <%= f.number_field :NivelConfianza %>
       </div>
+      <div id="botones">
       <div class="actions">
         <%= f.submit (@voluntario.new_record? ? 'Registrar Voluntario' : 'Editar Voluntario'),:class => 'btn btn-mini btn-success active' %>
-      </div>
+      </div></div>
 <% end %>
-
-<%= link_to 'Atras', voluntarios_path, :class => 'btn btn-mini btn-default'  %>
+<div id="botones">
+<%= link_to 'Atras', voluntarios_path, :class => 'btn btn-mini btn-default'  %></div>
 </div>
 </center>

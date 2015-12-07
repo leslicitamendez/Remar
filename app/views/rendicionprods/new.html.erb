@@ -1,39 +1,6 @@
 <center>
-<style type="text/css">
-#cuadro {	
-	padding: 25px;
-	border: 5px solid #418000;
-    border-radius: 25px;
-  box-shadow: 10px 10px 5px grey;
-  max-width: 600px;
-}
-#cuadro {
-	width: auto;
-	margin:auto;
-	position: relative;
-}
-#cuadromedio {
-  background-color: #ffffff;
-  border: 25px;
-  text-align: center;
-  margin:auto;
-  height:auto;
-}
-#titulo {
-	padding: 25px;
-	position: top left;
-	text-align: left;
-
-	font-family: 'Courier New';
-	font-size: 38px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 41.8px;
-}
-</style>
 <div id="cuadro">
-<div id="titulo">Crear Devolucion de producto</div>
+<div id="titulo">Registrar Devolucion</div>
 <%= render 'form' %>
 
 <%= link_to 'Atras', '/entregaprods/'+@rendicionprod.entregaprod_id.to_s,:class => 'btn btn-mini btn-default' %>

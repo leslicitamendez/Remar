@@ -1,14 +1,15 @@
+<div id="encabezado">
 <% if params[:palabra2]=='' &&  params[:palabra]== '' &&  params[:producto]== ''%>
-  <h1>ventas de hoy
+  ventas de hoy
 <%end%>
 <% if params[:palabra2]==nil &&  params[:palabra]== nil &&  params[:producto]== nil%>
-  <h1>ventas de hoy
+  ventas de hoy
 <%end%>
 <% if params[:palabra2]!='' &&  params[:palabra]!= '' && params[:producto]== ''%> 
-  <h1>Kadex de Productos&nbsp;
+  Kadex de Productos&nbsp;
 <%end%>
 <% if params[:producto]!= '' && params[:producto]!= nil%>
-  <h1>Kadex de <%=@nombre.full_code%>&nbsp;
+  Kadex de <%=@nombre.full_code%>&nbsp;
 <%end%> 
 <%if params[:palabra]!='' && params[:palabra]!= nil%>
   Desde <%=params[:palabra]%>&nbsp;
@@ -16,7 +17,7 @@
 <%if params[:palabra2]!='' && params[:palabra]!= nil%>
   Hasta <%=params[:palabra2]%>
 <%end%>
-</h1>
+</div>
 <div align="right">
     <%= form_tag({:controller => "entregaprods", :action => "index"}, :method => :get) do %>
       Producto: <%= select_tag "producto", options_from_collection_for_select(@product, "id", "full_code"), include_blank: true%>
@@ -79,20 +80,18 @@
             <strong style="color:#04B431">Completo</strong>
           <%end%>
         </td>
-        <td id="botones"><%= link_to 'Ver Venta', entregaprod, :class => 'btn btn-mini btn-info active'%> <%= link_to 'Editar Entrega', edit_entregaprod_path(entregaprod), :class => 'btn btn-mini btn-warning active'%>
+        <td id="botones"><%= link_to 'Ver Venta', entregaprod, :class => 'btn btn-mini btn-info active'%> 
            <% if entregaprod.rendicionprod == nil %>
             <%= link_to 'Registrar Devolucion', rend_path(entregaprod.id),:class => 'btn btn-mini btn-success active' %>
            <% end %>
            <% if entregaprod.ventaprod == nil %>
             <% if entregaprod.rendicionprod != nil %> 
-              <%= link_to 'Registrar Venta', vent_path(:id => entregaprod.id,:rendicion_id => Rendicionprod.find_by_entregaprod_id(entregaprod.id)),:class => 'btn btn-mini btn-success active' %>
+              <%= link_to 'Registrar Rendicion', vent_path(:id => entregaprod.id,:rendicion_id => Rendicionprod.find_by_entregaprod_id(entregaprod.id)),:class => 'btn btn-mini btn-success active' %>
             <%else%>
-              <%= link_to 'Registrar Venta', vent_path(:id => entregaprod.id,:rendicion_id => 0),:class => 'btn btn-mini btn-success active' %>
+              <%= link_to 'Registrar Rendicion', vent_path(:id => entregaprod.id,:rendicion_id => 0),:class => 'btn btn-mini btn-success active' %>
             <% end %>
            <%else%>
-            <% if entregaprod.ventaprod.ingreso== nil %>
-              <%= link_to 'Registrar Ingreso', ingre_path(entregaprod.ventaprod.id,:donaid => '0'),:class => 'btn btn-mini btn-success active' %>
-            <% end %>    
+                
            <% end %>
         </td>
       </tr>
@@ -108,6 +107,6 @@
   });
 </script>
 <br>
-
-<%= link_to 'Crear Entrega producto', new_entregaprod_path,:class => 'btn btn-mini btn-success active'%>
+<div id="botones">
+<%= link_to 'Crear Entrega producto', new_entregaprod_path,:class => 'btn btn-mini btn-success active'%></div>
 

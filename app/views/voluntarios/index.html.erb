@@ -1,4 +1,4 @@
-<h1>Lista voluntarios
+<h1 id="encabezado">Lista voluntarios
   <% if params["estado"] && params["estado"] !='' %>
   <%= params["estado"]+'s' %>
   <%end%>
@@ -103,5 +103,5 @@ $('#the-basics .typeahead').typeahead({
 </table>
 
 <br>
-
-<%= link_to 'Registrar Voluntario', new_voluntario_path,:class => 'btn btn-mini btn-success active'%>
+<div id="botones">
+<%= link_to 'Registrar Voluntario', new_voluntario_path,:class => 'btn btn-mini btn-success active'%></div>

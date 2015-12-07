@@ -1,9 +1,9 @@
-<%if params[:palabra]!='' && params[:palabra]!= nil%>
-  <h1>Lista Ingresos</h1>
+<div id="encabezado"><%if params[:palabra]!='' && params[:palabra]!= nil%>
+  Lista Ingresos
 <%else%>
-  <h1>Ingresos de Hoy</h1>
+  Ingresos de Hoy
 <%end%>
-
+</div>
 
 Total de ingresos
 <%if params[:palabra]!='' && params[:palabra]!= nil%>
@@ -17,7 +17,7 @@ Total de ingresos
     <%= form_tag({:controller => "ingresos", :action => "index"}, :method => :get) do %>
       Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
       Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'palabra2', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      <%= submit_tag "Buscar Ingresos Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+      <%= submit_tag "Buscar Ingreso", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
 </div><br>
 
@@ -69,5 +69,5 @@ Total de ingresos
   });
 </script>
 <br>
-
-<%= link_to 'Registrar Ingreso', new_ingreso_path,:class => 'btn btn-mini btn-success active' %>
+<div id="botones">
+<%= link_to 'Registrar Ingreso', new_ingreso_path,:class => 'btn btn-mini btn-success active' %></div>
