@@ -314,24 +314,16 @@
                                   <% if(conductum.tipoConducta=="Indisciplina")%>
                                     <% @indi=@indi+1 %>
                                   <%end%>
-                                  <div id="annual" ></div>
+                                  
 
                                 <% end %>
                               </tbody>
                             </table>
-                            <h3>REPORTE DE CONDUCTA</h3>
+                            <h3>RESUMEN DE CONDUCTAS</h3>
                             <P><%= @indi %><strong>&nbsp; &nbsp; Casos de Indisciplina  </strong></P>
                             <P><%= @robo %><strong>&nbsp; &nbsp; Casos de Robo </strong></P>
                             <P><%= @agre %><strong>&nbsp; &nbsp; Casos de Agresiones </strong></P>
-                                <div> 
-                                <% javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-                                <% line_chart @conducta.group(:fecha).count%>
-                                                         
-                                </div>
-<!--                                 <div id="annual" >
-</div> -->
-
-                                
+        
 
                           
                             
@@ -512,7 +504,7 @@
             <tr>
               <td colspan="3">
                 <br><br><br>
-                <h4>Lista de Egreso</h4>
+                <h4>Lista de Egreso del Interno</h4>
 
                 <table class="table table-striped">
                   <thead>
@@ -549,7 +541,8 @@
 </table>
 
 <br><br><br><br><br><br>
-
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>.
 
 
 
