@@ -334,7 +334,15 @@ stocks = Stock.create([{product_id: '1', cantidad: '0'},
 	{product_id: '14', cantidad: '0'},
 	{product_id: '15', cantidad: '0'},
 	{product_id: '16', cantidad: '0'},
-	{product_id: '17', cantidad: '0'}])
+	{product_id: '17', cantidad: '0'},
+	{product_id: '18', cantidad: '0'},
+	{product_id: '19', cantidad: '0'},
+	{product_id: '20', cantidad: '0'},
+	{product_id: '21', cantidad: '0'},
+	{product_id: '22', cantidad: '0'},
+	{product_id: '23', cantidad: '0'},
+	{product_id: '24', cantidad: '0'},
+	{product_id: '25', cantidad: '0'}])
 
 
 

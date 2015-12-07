@@ -22,7 +22,7 @@
     <%= f.label :precio ,'Precio Sugerido'%><br>
     <%= f.text_field :precio %>
   </div>
-  <div class="actions">
+  <div class="actions" id="botones">
     <%= f.submit (@recepcion_donativo.new_record? ? 'Registrar Donativo' : 'Editar Donativo'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

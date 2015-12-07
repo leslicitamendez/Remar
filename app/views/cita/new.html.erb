@@ -1,5 +1,5 @@
 <center><div id="cuadro">
-<div id="titulo">Nueva Cita</div>
+<div id="titulo">Registrar Cita</div>
 
 <%= form_for(@citum) do |f| %>
   <% if @citum.errors.any? %>
@@ -15,34 +15,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fecha, 'Fecha (*)' %><br>
+    <%= f.label :fecha, 'Fecha (*)' %>
     <%= f.date_select :fecha, :start_year =>2015, :last_year =>2016%>
   </div>
   <div class="field">
-    <%= f.label :hora,'Hora (*)' %><br>
+    <%= f.label :hora,'Hora (*)' %>
     <%= f.time_select :hora %>
   </div>
   <div class="field">
-    <%= f.label :ubicación,'ubicación (*)' %><br>
+    <%= f.label :ubicación,'ubicación (*)' %>
     <%= f.text_area :ubicación %>
   </div>
   <div class="field">
-    <%= f.label :nombrecontacto,'Nombre del Contacto (*)' %><br>
+    <%= f.label :nombrecontacto,'Nombre del Contacto (*)' %>
     <%= f.text_field :nombreDonante %>
   </div>
   <div class="field">
-    <%= f.label :telefono,'Telefono del Referencia ' %><br>
+    <%= f.label :telefono,'Telefono del Referencia ' %>
     <%= f.number_field :telefono %>
   </div>
   <div class="field">
-    <%= f.label :descripcionDonacion %><br>
+    <%= f.label :descripcionDonacion %>
     <%= f.text_area :descripcionDonacion %>
   </div>
-
+<div id="botones">
   <div class="actions">
       <%= f.submit 'Registrar Cita',:class => 'btn btn-mini btn-success active'%>
-  </div>
+  </div></div>
 <% end %>
-
-<%= link_to 'Atras', cita_path, :class => 'btn btn-mini btn-default'  %>
+<div id="botones">
+<%= link_to 'Atras', cita_path, :class => 'btn btn-mini btn-default'  %></div>
 </div></center>

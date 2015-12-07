@@ -1,4 +1,4 @@
-<h1>Lista de donativos 
+<h1 id="encabezado">Lista de donativos 
   <%if params["estado"] =='Vendido' %>
   <%= params["estado"]+'s' %>
   <%else%>
@@ -73,6 +73,6 @@
   });
 </script>
 <br>
-
-<%= link_to 'Ingresar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %>
+<div id="botones">
+<%= link_to 'Registrar donativo', new_recepcion_donativo_path ,:class => 'btn btn-mini btn-success active' %></div>
 <!-- <%= link_to 'Inicio', root_path, :class => 'btn btn-mini btn-default'  %> -->
