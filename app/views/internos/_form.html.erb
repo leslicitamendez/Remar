@@ -217,9 +217,11 @@ $('#the-basics .typeahead').typeahead({
     <label>* Los campos con asterisco, son obligatorios. </label>
   </div><br><br>
   <div align="center">
+  <div id="botones">
      <div class="actions">
           <%= f.submit (@interno.new_record? ? 'Registrar Interno' : 'Guardar Interno') , :class => "btn btn-sm btn-success" %>
       </div>
+    </div>
 <% end %>
 <script>
 $( "#interno_estudios" ).change(function() {
