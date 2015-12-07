@@ -1,17 +1,13 @@
-<center><div id="cuadro">
-<h2>Editar Interno</h2>
-
-
-<%= form_for(@interno) do |f| %>
-	  
-	  <div class="field" align="center">
-		    <%= f.label :state, 'Estado *' %><br>
-		    <%= f.select :state, ['Activo', 'Inactivo'] %>
-	  </div><br>
-	  <%= render 'form' %>
-	  
-	<% end %>
-
-
-</div>
+<center>
+	<div id="cuadro">
+		<div id="titulo">Editar Interno</div>
+		<div id="linea"></div>
+		<%= form_for(@interno) do |f| %>
+			<div class="field" align="center">
+				<%= f.label :state, 'Estado *' %><br>
+				<%= f.select :state, ['Activo', 'Inactivo'] %>
+			</div><br>
+			<%= render 'form' %>  
+		<% end %>
+	</div>
 </center>

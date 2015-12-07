@@ -14,20 +14,20 @@ end
 	validates :ci, length: { minimum: 5, too_long: "- %{count} caracteres es la longitud minima permitida" }
 	
 	validates :apellido1, presence: {:message => "- El apellido Materno es un campo obligatorio"}
-	validates :apellido1, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :apellido1, format: { with: /\A[a-zA-Z\W]+\z/, message: "- Solo se aceptan letras"}
 	validates :apellido1, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
-	validates :apellido2, format: { with: /\A[a-zA-Z ]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
+	validates :apellido2, format: { with: /\A[a-zA-Z\W]+\z/, allow_blank: true, message: "- Solo se aceptan letras"}
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
 	validates :nombre, presence: {:message => "- El nombre es un campo obligatorio"}
-	validates :nombre, format: { with: /\A[a-zA-Z ]+\z/, message: "- Solo se aceptan letras"}
+	validates :nombre, format: { with: /\A[a-zA-Z\W]+\z/, message: "- Solo se aceptan letras"}
 	validates :nombre, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un nombre" }
 
 
 	validates :direccion, presence: {:message => "- La Direccion es un campo obligatorio"}
 	validates :direccion, length: { maximum: 35, too_long: "- %{count} caracteres es la longitud maxima permitida para un direccion" }
-	validates :direccion, format: { with: /\A[a-zA-Z0-9 ]+\z/, message: "- Solo se aceptan letras"}
+	validates :direccion, format: { with: /\A[a-zA-Z0-9\W]+\z/, message: "- Solo se aceptan letras"}
 
 
 
