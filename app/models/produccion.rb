@@ -5,8 +5,8 @@ class Produccion < ActiveRecord::Base
   validates :cantidad, presence: {:message => "- Es un campo obligatorio"}
   validates :cantidad, allow_blank: true,:numericality => {:greater_than => 0, :message => "- La cantidad debe ser mayor a 0"}
 
-#  validate :fechaProduccionNoPuedeEstarEnPasado
-#  validate :fechaVencimientoNoPuedeSerMenorAFechaProduccion
+  validate :fechaProduccionNoPuedeEstarEnPasado
+  validate :fechaVencimientoNoPuedeSerMenorAFechaProduccion
 
   def fechaProduccionNoPuedeEstarEnPasado
     errors.add(:fecha_produccion, "- No se puede registrar fecha inferior a la actual") if

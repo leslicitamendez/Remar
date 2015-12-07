@@ -27,8 +27,6 @@ end
 	validates :apellido2, length: { maximum: 25, too_long: "- %{count} caracteres es la longitud maxima permitida para apellido Materno" }
 
 	
-	validates :ci, presence: {:message => "- El carnet es un campo obligatorio"}
-	validates :ci, uniqueness: { :message => "- El carnet ya existe"}
 	validates :ci, format: {allow_blank: true, with: /\A[+-]?\d+\z/ , message: " Solo se aceptan numeros"}
 	validates :ci, length: {allow_blank: true, maximum: 7, too_long: "- %{count} caracteres es la longitud maxima permitida" }
 	validates :ci, length: {allow_blank: true, minimum: 6, too_long: "- %{count} caracteres es la longitud minima permitida" }
