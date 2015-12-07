@@ -51,6 +51,6 @@
     <label>* Los campos con asterisco, son obligatorios. </label>
   </div><br><br>
   <div class="actions" align="center">
-    <%= f.submit (@historia_clinica.new_record? ? 'Registrar Historia Clinica' : 'Editar Historia Clinica') , :class => "btn btn-sm btn-success" %> | <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default' %>
+    <%= f.submit (@historia_clinica.new_record? ? 'Registrar Historia Clinica' : 'Editar Historia Clinica') , :class => "btn btn-sm btn-success" %> | <%= link_to 'Retornar a Internos', :back, :class => 'btn btn-sm btn-default' %>
   </div>
 <% end %>
