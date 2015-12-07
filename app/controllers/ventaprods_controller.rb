@@ -14,10 +14,14 @@ class VentaprodsController < ApplicationController
 
   # GET /ventaprods/new
   def new
-    @ventaprod = Ventaprod.new
-    @id=(params[:id])
-    @rendicion_id=(params[:rendicion_id])
-    @entregaprod=Entregaprod.find(params[:id])
+    begin
+      @ventaprod = Ventaprod.new
+      @id=(params[:id])
+      @rendicion_id=(params[:rendicion_id])
+      @entregaprod=Entregaprod.find(params[:id])
+    rescue Exception => e
+      
+    end
   end
 
   # GET /ventaprods/1/edit

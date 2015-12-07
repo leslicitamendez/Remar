@@ -8,7 +8,7 @@
   <script type="text/javascript" src="/js/bootstrap.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/ct-paper.css">
   <style type="text/css">
-	#pie {
+	#pie_izq {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -16,6 +16,16 @@
     height: 100px;
     margin: 0 auto;
 }
+	#pie_der {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #000;
+}
+	
   </style>
   <%= csrf_meta_tags %>
 </head>
@@ -30,7 +40,7 @@
 	                </div>
 	                <div class="navbar-text navbar-right">
 	                	<!--div class="header clearfix"-->
-	                	<ul class="nav navbar-nav">
+	                	<!-- <ul class="nav navbar-nav">
 	                		<li class="dropdown">
 	 							<button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 									Internos
@@ -94,7 +104,7 @@
 									<li><a href="/egresos/new">Registrar Egreso</a></li>
 								</ul>
 							</li>
-	                	</ul>
+	                	</ul> -->
 					</div>
 	            </div>
 	        </div>
@@ -106,12 +116,26 @@
 			<% end %>
 
 			<%= yield %>
+			<br><br><br>
 		</div>
 	</div>
 </body>
-<footer class="footer">		
-	<div>
-		<img id="pie" src="/images/logo_cato.jpg" alt="rss feed" />
-	</div>
-</footer>
+
+<div id="pie_pagina">
+		<div class="row">
+			<div class="col-md-4">
+				<font color="white"><strong>Elaborador por:</strong></font>
+			</div>
+			<div class="col-md-4">
+				<font color="white">
+					<p>Howard Castillo Balboa</p>
+					<p>Lesly Méndez Cruz</p>
+					<p>Guido Vildozo Méndez</p>
+				</font>
+			</div>
+			<div class="col-md-4">
+				<img src="/images/logo_cato.png" alt="rss feed" width="70"/>
+			</div>
+		</div>
+</div>
 </html>
