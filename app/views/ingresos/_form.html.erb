@@ -1,3 +1,4 @@
+<center><div id="cuadro">
 <%= form_for(@ingreso) do |f| %>
   <% if @ingreso.errors.any? %>
     <div id="error_explanation">
@@ -42,3 +43,5 @@
     <%= f.submit (@ingreso.new_record? ? 'Registrar Ingreso' : 'Editar Ingreso'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>
+</div>
+</center>
