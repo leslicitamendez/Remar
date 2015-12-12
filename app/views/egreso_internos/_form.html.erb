@@ -52,6 +52,6 @@
   </div><br><br>
   <div class="actions" align="center">
     <%= f.submit (@egreso_interno.new_record? ? 'Registrar Egreso Interno' : 'Editar Egreso Interno') , :class => "btn btn-sm btn-success" %> |
-    <%= link_to 'Internos', internos_path, :class => 'btn btn-sm btn-default' %>
+    <%= link_to 'Retornar a Internos', :back, :class => 'btn btn-sm btn-default' %>
   </div>
 <% end %>

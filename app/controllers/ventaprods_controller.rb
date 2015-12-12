@@ -52,16 +52,31 @@ class VentaprodsController < ApplicationController
       @ventaprod.precioUnidad=@entregaprod.product.price
       if @entregaprod.cantidad.to_i- @ren.cantidad.to_i < @ventaprod.cantidad.to_i
         flash[:warning] = 'No puede vender mas producto del rendido' 
-        redirect_to '/entregaprods/'+params[:id]      
+        redirect_to '/entregaprods/'+params[:id]     
+        return 
       elsif @ventaprod.save
+        @ingreso=Ingreso.new
+      @ingreso.ventaprod_id=@ventaprod.id
+        @ingreso.montoBs = @ventaprod.precioUnidad*@ventaprod.cantidad
+        #@ventaprod.estado='Vendido'
+        @ingreso.concepto='venta Producto codigo='+@ventaprod.entregaprod.product.code.to_s+' nombre='+@ventaprod.entregaprod.product.name.to_s
+        @ingreso.fecha=Date.today()
+        @ingreso.save
+
         flash[:success] = 'Venta producto creado exitosamente'
         redirect_to '/entregaprods/'
+
+        return
       else
         render action: "new"
-      end      
+        return
+      end
+      
+      
     rescue Exception => e
       flash[:warning] = e.to_s
       redirect_to '/entregaprods/'
+      return
     end
   end
 

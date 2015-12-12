@@ -1,12 +1,11 @@
 <h2>Lista de Egresos</h2>
   
-  <!-- <div align="right">
-    <%= form_tag({:controller => "egresos", :action => "index"}, :method => :get) do %>
-      Buscar Egreso: &nbsp;&nbsp;&nbsp; <%= text_field_tag "searchbox", params[:searchbox], :placeholder => "Concepto del egreso", :name => 'palabra' %> &nbsp;&nbsp;&nbsp;
-      <%= submit_tag "Buscar", :name => nil, :class => 'btn btn-mini' %>
-    <% end %>
-  </div> -->
-  <br>
+  <% if params[:fecha_inicio]!=nil && params[:fecha_fin]!=nil %>
+    <h3>
+      Desde <%=params[:fecha_inicio]%><br>
+      Hasta <%=params[:fecha_fin]%>
+    </h3>
+  <%end%>
   <div class="row">
     <div class="col-xs-6"><br><br><br>
       <div><%= link_to 'Registrar Egreso', new_egreso_path, :class => 'btn btn-mini btn-success active' %></div>

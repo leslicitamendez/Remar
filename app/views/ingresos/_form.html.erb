@@ -39,7 +39,7 @@
       <%= f.date_select :fecha %>
     </div>
   <%end%>
-  <div class="actions">
+  <div class="actions" id="botones">
     <%= f.submit (@ingreso.new_record? ? 'Registrar Ingreso' : 'Editar Ingreso'),:class => 'btn btn-mini btn-success active'%>
   </div>
 <% end %>

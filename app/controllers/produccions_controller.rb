@@ -5,7 +5,7 @@ class ProduccionsController < ApplicationController
   # GET /produccions.json
   def index
     if params[:producto] &&  params[:producto]!= ''
-      @produccions = Produccion.paginate(:page => params[:page]).where("product_id =?", params[:producto].to_i)
+      @produccions = Produccion.paginate(:page => params[:page], :per_page => 4).where("product_id =?", params[:producto].to_i)
       @produc = Product.find(params[:producto])
     else
       @produccions = Produccion.all.paginate(:per_page => 4, :page => params[:page])

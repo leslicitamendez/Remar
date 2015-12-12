@@ -28,20 +28,23 @@
                 <%= f.text_field :apellido1 %>
               </div>
           </td>
+      </tr>
+      <tr>
           <td>
               <div class="field" align="center">
                 <%= f.label :apellido2, 'Apellido Materno' %><br>
                 <%= f.text_field :apellido2 %>
               </div>
           </td>
-        </tr>
-        <tr>
+        
           <td>
               <div class="field" align="center">
                 <%= f.label :sexo, 'Sexo *' %><br>
                 <%= f.select :sexo, ['','Masculino', 'Femenino'] %>
               </div>
           </td>
+        </tr>
+        <tr>
           <td>
               <div class="field" align="center">
                 <%= f.label :ci , 'CI *'%><br>
@@ -74,7 +77,7 @@
       <br><br>
       <div class="actions" align="center">
         <%= f.submit  (@hijo.new_record? ? 'Registrar Hijo' : 'Editar Hijo') , :class => "btn btn-sm btn-success" %> |  <% if @hijo.interno_id==nil %>
-            <%= link_to 'Retornar a internos',  :back, :class => 'btn btn-sm btn-default' %>
+            <%= link_to 'Retornar a interno',  :back, :class => 'btn btn-sm btn-default' %>
           <% else %>
             <a class='btn btn-sm btn-default' href=<%="/internos/"%>+<%=@hijo.interno_id%> >Retornar a interno</a>
           <% end %>

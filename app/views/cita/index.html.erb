@@ -1,7 +1,8 @@
+<div id="encabezado">
 <% if params[:palabra]==nil ||  params[:palabra]== '' && params[:estado]==nil && params[:estado]=='' %>
-  <h1>Citas para hoy</h1>
+  Citas para hoy
 <%else%>
-  <h1>Historial de Citas</h1>
+  Historial de Citas
 <%end%>
 <% if params[:estado]!=nil &&  params[:estado]!= '' %>
   <h1><%= params[:estado]+'s'%> </h1>
@@ -12,12 +13,13 @@
 <%if params[:palabra2]!='' && params[:palabra]!= nil%>
   Hasta <%=params[:palabra2]%>
 <%end%>
+</div>
 <div align="right">
     <%= form_tag({:controller => "cita", :action => "index"}, :method => :get) do %>
       Estado: <%= select_tag "estado", options_for_select(['', 'Concretada', 'Cancelada', 'Pendiente','Enviado'])%>
       Fecha Inicio: <%= text_field_tag "search", params[:search], :name => 'palabra', :placeholder => "dia/mes/año", :class => 'datepicker' %>
       Fecha Fin: <%= text_field_tag "search", params[:search], :name => 'palabra2', :placeholder => "dia/mes/año", :class => 'datepicker' %>
-      <%= submit_tag "Buscar Citas Entre Fechas", :name => nil, :class => 'btn btn-mini' %>
+      <%= submit_tag "Buscar Cita", :name => nil, :class => 'btn btn-mini' %>
     <% end %>
 </div><br>
 <table class="table table-striped">
@@ -97,6 +99,6 @@
   });
 </script>
 <br>
-
-<%= link_to 'Agregar Cita', new_citum_path,:class => 'btn btn-mini btn-success active' %>
+<div id="botones">
+<%= link_to 'Registrar Cita', new_citum_path,:class => 'btn btn-mini btn-success active' %></div>
 
